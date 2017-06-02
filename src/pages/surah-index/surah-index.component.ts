@@ -3,10 +3,10 @@ import { NavController } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surahIndex';
 
 @Component({
-  selector: 'home-page',
-  templateUrl: 'home-page.html'
+  selector: 'surah-index',
+  templateUrl: 'surah-index.html'
 })
-export class HomePage {
+export class SurahIndexComponent {
 
   surahIndex: SurahIndex[];
   
