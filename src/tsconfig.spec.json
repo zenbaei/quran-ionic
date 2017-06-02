@@ -1,20 +1,36 @@
 {
-  "extends": "../tsconfig.ng-cli.json",
-  "compilerOptions": {
-    "outDir": "../out-tsc/spec",
-    "module": "commonjs",
-    "target": "es5",
-    "baseUrl": "",
-    "types": [
-      "jasmine",
-      "node"
-    ]
-  },
+  "compileOnSave": true,
+  
   "files": [
     "test.ts"
   ],
+  
   "include": [
     "**/*.spec.ts",
     "**/*.d.ts"
-  ]
+  ],
+  
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "module": "commonjs",
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "jasmine",
+      "node"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  }
+
 }

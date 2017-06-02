@@ -15,7 +15,7 @@
       "main": "app/main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
+      "tsconfig": "tsconfig.spec.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "scripts": [],
