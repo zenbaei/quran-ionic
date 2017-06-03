@@ -5,15 +5,15 @@ import { MyApp } from '../../app/app.component';
 import { IonicModule } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surahIndex';
 
-import { SurahIndexComponent } from './surah-index.component';
+import { QuranIndexComponent } from './quran-index.component';
 
 describe('SurahIndexComponent', () => {
-  let component: SurahIndexComponent;
-  let fixture: ComponentFixture<SurahIndexComponent>;
+  let component: QuranIndexComponent;
+  let fixture: ComponentFixture<QuranIndexComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyApp, SurahIndexComponent ],
+      declarations: [ MyApp, QuranIndexComponent ],
       
       imports: [ IonicModule.forRoot(MyApp) ]
     })
@@ -21,7 +21,7 @@ describe('SurahIndexComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SurahIndexComponent);
+    fixture = TestBed.createComponent(QuranIndexComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

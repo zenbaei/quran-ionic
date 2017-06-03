@@ -3,16 +3,17 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { SurahIndexComponent } from '../pages/surah-index/surah-index.component';
+import { QuranIndexComponent } from '../pages/quran-index/quran-index.component';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
     MyApp,
-    SurahIndexComponent,
+    QuranIndexComponent,
     ListPage
   ],
   imports: [
@@ -22,12 +23,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    SurahIndexComponent,
+    QuranIndexComponent,
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

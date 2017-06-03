@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { SurahIndexComponent } from '../pages/surah-index/surah-index.component';
+import { QuranIndexComponent } from '../pages/quran-index/quran-index.component';
 import { ListPage } from '../pages/list/list';
 
 @Component({
@@ -12,7 +12,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SurahIndexComponent;
+  rootPage: any = QuranIndexComponent;
 
   pages: Array<{title: string, component: any}>;
 
@@ -21,7 +21,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Surah Index', component: SurahIndexComponent },
+      { title: 'Quran Index', component: QuranIndexComponent },
       { title: 'List', component: ListPage }
     ];
 
