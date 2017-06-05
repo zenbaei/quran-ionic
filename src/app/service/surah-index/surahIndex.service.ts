@@ -1,45 +1,42 @@
 import { Injectable } from '@angular/core';
 import { SurahIndex } from '../../domain/surahIndex';
-import { File } from '@ionic-native/file';
+import { FileReader } from '../../core/io/file/FileReader';
+import * as Constants from '../../all/constants';
 
 @Injectable()
 export class SurahIndexService {
 
   readonly END_OF_LINE = '(\n|\r\n)';
 
-  constructor(private file: File) { }
+  constructor(private fileReader: FileReader) { }
 
   /**
    * Parses surah indexes string then deserializes it into any array of SurahIndex.
    * 
-   * @param surahIndexesJsonString a string containg SurahIndex in json format delimited
-   * by new line
+   * @param surahIndexes a string containg SurahIndex in json format delimited
+   * by new line. for ex; {surahName:"",pageNumber:1}
    */
-  asSurahIndexes(surahIndexesJsonString: string) : SurahIndex[] {  
+  fromJson(surahIndexes: string): SurahIndex[] {
     console.debug(`Deserialize into array of SurahIndex`);
-    return surahIndexesJsonString.split(new RegExp(this.END_OF_LINE))
+    return surahIndexes.split(new RegExp(this.END_OF_LINE))
       .filter(line => line.trim().length > 0)
-      .map(line => { 
-        return line.trim() 
+      .map(line => {
+        return line.trim()
       })
       .map(line => {
         console.debug(`line detected: ${line}}`);
         let jsonObject: any = JSON.parse(line);
-        return new SurahIndex(jsonObject.key, jsonObject.value)
-    });
+        return new SurahIndex(jsonObject.surahName, jsonObject.pageNumber)
+      });
   }
 
-  /**
-   * Reads a file from the given path as string.
-   * 
-   * @param path
-   * @param fileName
-   * 
-   * @see File.readAsText
-   */
-  readFile(path: string, fileName: string) : Promise<string> {
-    console.debug(`read file from path: [${path}], file name: [${fileName}]`);
-    return this.file.readAsText(path, fileName);
-  } 
+  getQuranIndex(): Promise<SurahIndex[]> {
+    console.debug('Get quran index');
+    let dir: string = this.fileReader.APPLICATION_DIRECTORY + Constants.BASE_DIR;
+    return this.fileReader.readAsText(dir, Constants.QURAN_INDEX_FILE)
+      .then(str => {
+        return this.fromJson(str);
+      });
+  }
 
 }

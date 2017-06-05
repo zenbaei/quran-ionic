@@ -4,17 +4,20 @@ import { By } from '@angular/platform-browser';
 import { MyApp } from '../../app/app.component';
 import { IonicModule } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surahIndex';
-
+import { SurahIndexService } from '../../app/service/surah-index/surahIndex.service';
+import { FileReader } from '../../app/core/io/file/FileReader';
 import { QuranIndexComponent } from './quran-index.component';
+import { File } from '@ionic-native/file';
 
-describe('SurahIndexComponent', () => {
+describe('QuranIndexComponent', () => {
   let component: QuranIndexComponent;
   let fixture: ComponentFixture<QuranIndexComponent>;
+  let fileReader: FileReader;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MyApp, QuranIndexComponent ],
-      
+      providers: [ SurahIndexService, FileReader, File ],
       imports: [ IonicModule.forRoot(MyApp) ]
     })
     .compileComponents();
@@ -22,8 +25,13 @@ describe('SurahIndexComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(QuranIndexComponent);
+    fileReader = TestBed.get(FileReader);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+
+  beforeEach(() => {
+    spyOn(fileReader, 'readAsText').and.returnValue(Promise.resolve(true));
   });
 
   it('should be created', () => {

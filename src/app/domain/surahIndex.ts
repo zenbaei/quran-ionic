@@ -1,6 +1,6 @@
 export class SurahIndex {
 
-    constructor(private surahName: string, private pageNumber: number) {
+    constructor(public surahName: string, public pageNumber: number) {
     }
 
 }
