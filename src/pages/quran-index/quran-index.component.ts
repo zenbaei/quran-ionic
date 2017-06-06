@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surahIndex';
 import { SurahIndexService } from '../../app/service/surah-index/surahIndex.service';
+import * as Constants from '../../app/all/constants';
+import { FileReader } from '../../app/core/io/file/FileReader';
 
 @Component({
   selector: 'quran-index',
@@ -9,17 +11,13 @@ import { SurahIndexService } from '../../app/service/surah-index/surahIndex.serv
 })
 export class QuranIndexComponent implements OnInit {
 
-  surahIndex: SurahIndex[];
+  surahIndexes: Promise<SurahIndex[]>;
 
   // public navCtrl: NavController
-  constructor() {
+  constructor(private surahIndexService: SurahIndexService) {
   }
 
   ngOnInit(): void {
-    /*
-    this.surahIndexService.getQuranIndex().then(surahIdxArr => {
-      this.surahIndex = surahIdxArr;
-    });
-    */
+    this.surahIndexes = this.surahIndexService.getQuranIndex();
   }
 }

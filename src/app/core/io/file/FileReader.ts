@@ -7,9 +7,11 @@ import { File } from '@ionic-native/file';
 @Injectable()
 export class FileReader {
 
-    readonly APPLICATION_DIRECTORY: string = this.file.applicationDirectory;
+    APPLICATION_DIRECTORY: string;
 
-    constructor(private file: File) { }
+    constructor(private file: File) {
+        this.APPLICATION_DIRECTORY = this.file.applicationDirectory;
+    }
 
     /**
      * Reads a file from the given path as string.

@@ -1,3 +1,3 @@
-export const QURAN_INDEX_FILE = 'quran.index';
-export const BASE_DIR = 'assets/data/';
+export const QURAN_INDEX_FILE_NAME = 'quran.index';
+export const DATA_DIR = 'assets/data/';
  

@@ -11,6 +11,7 @@ import { SurahIndexService } from './service/surah-index/surahIndex.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { File } from '@ionic-native/file';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { File } from '@ionic-native/file';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

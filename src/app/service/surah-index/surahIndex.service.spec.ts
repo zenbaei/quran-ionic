@@ -12,20 +12,16 @@ import { AppModule } from '../../app.module';
 describe('SurahIndexService', () => {
 
     let surahIndexService: SurahIndexService;
-    let fileReader: FileReader;
-    let file: File;
     let http: Http;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [ HttpModule, AppModule ]
+            imports: [HttpModule, AppModule]
         });
     });
 
     beforeEach(() => {
         surahIndexService = TestBed.get(SurahIndexService);
-        fileReader = TestBed.get(FileReader);
-        file = TestBed.get(File);
         http = TestBed.get(Http);
     });
 
@@ -33,7 +29,7 @@ describe('SurahIndexService', () => {
         expect(service).toBeTruthy();
     }));
 
-    it('should be able deserialize surah indexes json string', () => {
+    it('should deserialize surah indexes json string', () => {
         let quranIndex: string = `{"surahName":"الفَاتِحَةِ","pageNumber":1}
             {"surahName":"البَقَرَةِ","pageNumber":2}`;
         let surahIndexes: SurahIndex[] = surahIndexService.fromJson(quranIndex);
@@ -47,19 +43,10 @@ describe('SurahIndexService', () => {
         expect(surahIndexes[1].pageNumber).toEqual(2);
     });
 
-    it('should be to read quran index file from server', (done) => {
-        let url: string = Constants.BASE_DIR + Constants.QURAN_INDEX_FILE;
-        console.log(`quran index file url ${url}`);
-        let result: Promise<Response> = http.get(url).toPromise();
-
-        result.then(res => {
-            spyOn(fileReader, 'readAsText').and.returnValue(Promise.resolve(res.text()));
-            let surahIndexesPromise: Promise<SurahIndex[]> = surahIndexService.getQuranIndex();
-            
-            surahIndexesPromise.then(surahIndexes => {
-                expect(surahIndexes.length).toBe(114);
-                done();
-            });
+    it('should read quran index file from server', (done) => {
+        surahIndexService.getQuranIndex().then(surahIndexes => {
+            expect(surahIndexes.length).toBe(114);
+            done();
         });
     });
 

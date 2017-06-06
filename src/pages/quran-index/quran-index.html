@@ -9,8 +9,9 @@
 
 <ion-content padding>
   <ul>
-    <li *ngFor="let surahIdx of surahIndex">
+    <li *ngFor="let surahIdx of surahIndexes | async">
       <a href="{{surahIdx.pageNumber}}">{{surahIdx.surahName}}</a>
     </li>
   </ul>
+
 </ion-content>
