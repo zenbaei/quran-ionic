@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SurahIndex } from '../../domain/surahIndex';
 import * as Constants from '../../all/constants';
 import { HttpRequest } from '../../core/http/httpRequest';
+import { Response  } from '@angular/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -38,9 +39,8 @@ export class SurahIndexService {
    */
   getQuranIndex(): Observable<SurahIndex[]> {
     return this.httpRequest.get(this.QURAN_INDEX_URL)
-      .map(res => {
-        return this.fromJson(res.text());
-      });
+      .map((res:Response) => this.fromJson(res.text()));
+      
   }
 
 }

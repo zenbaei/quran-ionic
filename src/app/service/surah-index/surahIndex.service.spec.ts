@@ -1,10 +1,11 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { SurahIndex } from '../../domain/surahIndex';
 import { SurahIndexService } from './surahIndex.service';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Response, ResponseOptions } from '@angular/http';
 import * as Constants from '../../all/constants';
 import { HttpRequest } from '../../core/http/httpRequest';
 import { Observable } from 'rxjs';
+import { AppModule } from '../../app.module';
 
 describe('SurahIndexService', () => {
 
@@ -20,6 +21,7 @@ describe('SurahIndexService', () => {
         });
 
         surahIndexService = TestBed.get(SurahIndexService);
+        httpRequest = TestBed.get(HttpRequest);
     });
 
     it('Given SurahIndexService is provided When inject is called Then SurahIndexService should be defined', inject([SurahIndexService], (service) => {
@@ -37,14 +39,15 @@ describe('SurahIndexService', () => {
         expect(surahIndexes[1].surahName).toEqual('البَقَرَةِ');
         expect(surahIndexes[1].pageNumber).toEqual(2);
     });
-/*
-    it('Given http get is mocked to return json string When getQuranIndex is called Then it should return observable', (done) => {
-        spyOn(httpRequest, 'get').and.returnValue(Observable.of(quranIndexContent));
+
+    it('Given http get is mocked to return json string When getQuranIndex is called Then it should return observable', () => {
+        let response: Response = new Response(new ResponseOptions());
+        spyOn(response, 'text').and.returnValue(quranIndexContent);
+        spyOn(httpRequest, 'get').and.returnValue(Observable.of(response));
         surahIndexService.getQuranIndex()
             .subscribe(surahIndexes => {
                 expect(surahIndexes.length).toBe(2);
-                done();
             });
     });
-*/
+
 });
