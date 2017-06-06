@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SurahIndex } from '../../domain/surahIndex';
-import { FileReader } from '../../core/io/file/FileReader';
 import * as Constants from '../../all/constants';
-import { HttpModule, Http, Response } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { HttpRequest } from '../../core/http/httpRequest';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class SurahIndexService {
@@ -11,7 +10,7 @@ export class SurahIndexService {
   private readonly END_OF_LINE: string = '(\n|\r\n)';
   private readonly QURAN_INDEX_URL: string = Constants.DATA_DIR + Constants.QURAN_INDEX_FILE_NAME;
 
-  constructor(private http: Http) { }
+  constructor(private httpRequest: HttpRequest) { }
 
   /**
    * Parses surah indexes string then deserializes it into any array of SurahIndex.
@@ -33,10 +32,13 @@ export class SurahIndexService {
       });
   }
 
-  getQuranIndex(): Promise<SurahIndex[]> {
-    console.debug(`Http get quran index from url ${this.QURAN_INDEX_URL}`);
-    return this.http.get(this.QURAN_INDEX_URL).toPromise()
-      .then(res => {
+  /**
+   * Calls http get quran.index file then calls {@link SurahIndexService#fromJson}.
+   * @see HttpRequest#get
+   */
+  getQuranIndex(): Observable<SurahIndex[]> {
+    return this.httpRequest.get(this.QURAN_INDEX_URL)
+      .map(res => {
         return this.fromJson(res.text());
       });
   }

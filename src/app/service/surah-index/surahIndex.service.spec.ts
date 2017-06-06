@@ -1,38 +1,33 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { SurahIndex } from '../../domain/surahIndex';
 import { SurahIndexService } from './surahIndex.service';
-import { FileReader } from '../../core/io/file/FileReader';
-import { HttpModule, Http, Response } from '@angular/http';
-import { IonicModule } from 'ionic-angular';
+import { HttpModule } from '@angular/http';
 import * as Constants from '../../all/constants';
-import 'rxjs/add/operator/toPromise';
-import { File } from '@ionic-native/file';
-import { AppModule } from '../../app.module';
+import { HttpRequest } from '../../core/http/httpRequest';
+import { Observable } from 'rxjs';
 
 describe('SurahIndexService', () => {
 
+    let quranIndexContent: string = `{"surahName":"الفَاتِحَةِ","pageNumber":1}
+            {"surahName":"البَقَرَةِ","pageNumber":2}`;
     let surahIndexService: SurahIndexService;
-    let http: Http;
+    let httpRequest: HttpRequest;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [HttpModule, AppModule]
+            imports: [HttpModule],
+            providers: [SurahIndexService, HttpRequest]
         });
-    });
 
-    beforeEach(() => {
         surahIndexService = TestBed.get(SurahIndexService);
-        http = TestBed.get(Http);
     });
 
-    it('should inject SurahIndexService', inject([SurahIndexService], (service) => {
-        expect(service).toBeTruthy();
+    it('Given SurahIndexService is provided When inject is called Then SurahIndexService should be defined', inject([SurahIndexService], (service) => {
+        expect(service).toBeDefined();
     }));
 
-    it('should deserialize surah indexes json string', () => {
-        let quranIndex: string = `{"surahName":"الفَاتِحَةِ","pageNumber":1}
-            {"surahName":"البَقَرَةِ","pageNumber":2}`;
-        let surahIndexes: SurahIndex[] = surahIndexService.fromJson(quranIndex);
+    it('Given a string containg multiple SurahIndex in json format When fromJson is called Then it should return array of SurahIndex object', () => {
+        let surahIndexes: SurahIndex[] = surahIndexService.fromJson(quranIndexContent);
         expect(surahIndexes).toBeTruthy();
 
         expect(surahIndexes.length).toBe(2);
@@ -42,12 +37,14 @@ describe('SurahIndexService', () => {
         expect(surahIndexes[1].surahName).toEqual('البَقَرَةِ');
         expect(surahIndexes[1].pageNumber).toEqual(2);
     });
-
-    it('should read quran index file from server', (done) => {
-        surahIndexService.getQuranIndex().then(surahIndexes => {
-            expect(surahIndexes.length).toBe(114);
-            done();
-        });
+/*
+    it('Given http get is mocked to return json string When getQuranIndex is called Then it should return observable', (done) => {
+        spyOn(httpRequest, 'get').and.returnValue(Observable.of(quranIndexContent));
+        surahIndexService.getQuranIndex()
+            .subscribe(surahIndexes => {
+                expect(surahIndexes.length).toBe(2);
+                done();
+            });
     });
-
+*/
 });

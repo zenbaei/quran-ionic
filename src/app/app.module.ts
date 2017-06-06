@@ -5,12 +5,11 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { QuranIndexComponent } from '../pages/quran-index/quran-index.component';
 import { ListPage } from '../pages/list/list';
-import { FileReader } from './core/io/file/FileReader';
 import { SurahIndexService } from './service/surah-index/surahIndex.service';
+import { HttpRequest } from './core/http/httpRequest';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { File } from '@ionic-native/file';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -33,9 +32,8 @@ import { HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    File,
-    FileReader,
     SurahIndexService,
+    HttpRequest,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
