@@ -1,35 +1,35 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { SurahIndex } from '../../domain/surahIndex';
-import { SurahIndexService } from './surahIndex.service';
+import { QuranIndexService } from './quranIndex.service';
 import { HttpModule, Response, ResponseOptions } from '@angular/http';
 import * as Constants from '../../all/constants';
 import { HttpRequest } from '../../core/http/httpRequest';
 import { Observable } from 'rxjs';
 import { AppModule } from '../../app.module';
 
-describe('SurahIndexService', () => {
+describe('QuranIndexService', () => {
 
     let quranIndexContent: string = `{"surahName":"الفَاتِحَةِ","pageNumber":1}
             {"surahName":"البَقَرَةِ","pageNumber":2}`;
-    let surahIndexService: SurahIndexService;
+    let quranIndexService: QuranIndexService;
     let httpRequest: HttpRequest;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpModule],
-            providers: [SurahIndexService, HttpRequest]
+            providers: [QuranIndexService, HttpRequest]
         });
 
-        surahIndexService = TestBed.get(SurahIndexService);
+        quranIndexService = TestBed.get(QuranIndexService);
         httpRequest = TestBed.get(HttpRequest);
     });
 
-    it('Given SurahIndexService is provided When inject is called Then SurahIndexService should be defined', inject([SurahIndexService], (service) => {
+    it('Given QuranIndexService is provided When inject is called Then QuranIndexService should be defined', inject([QuranIndexService], (service) => {
         expect(service).toBeDefined();
     }));
 
     it('Given a string containg multiple SurahIndex in json format When fromJson is called Then it should return array of SurahIndex object', () => {
-        let surahIndexes: SurahIndex[] = surahIndexService.fromJson(quranIndexContent);
+        let surahIndexes: SurahIndex[] = quranIndexService.fromJson(quranIndexContent);
         expect(surahIndexes).toBeTruthy();
 
         expect(surahIndexes.length).toBe(2);
@@ -44,7 +44,7 @@ describe('SurahIndexService', () => {
         let response: Response = new Response(new ResponseOptions());
         spyOn(response, 'text').and.returnValue(quranIndexContent);
         spyOn(httpRequest, 'get').and.returnValue(Observable.of(response));
-        surahIndexService.getQuranIndex()
+        quranIndexService.getQuranIndex()
             .subscribe(surahIndexes => {
                 expect(surahIndexes.length).toBe(2);
             });

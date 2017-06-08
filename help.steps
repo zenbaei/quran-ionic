@@ -1,0 +1,12 @@
+after checking out the app:
+
+install Dependencies: npm install
+
+run app: ionic serve
+
+test app: ng test
+
+install platforms: ionic cordova platform add ios|browser|android
+ 
+run platform: ionic cordova run ios
+

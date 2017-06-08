@@ -4,8 +4,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { QuranIndexComponent } from '../pages/quran-index/quran-index.component';
+import { QuranPageComponent } from '../pages/quran-page/quran-page.component';
 import { ListPage } from '../pages/list/list';
-import { SurahIndexService } from './service/surah-index/surahIndex.service';
+import { QuranIndexService } from './service/quran-index/quranIndex.service';
+import { QuranPageService } from './service/quran-page/quranPage.service';
 import { HttpRequest } from './core/http/httpRequest';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,25 +18,31 @@ import { HttpModule } from '@angular/http';
   declarations: [
     MyApp,
     QuranIndexComponent,
-    ListPage
+    ListPage,
+    QuranPageComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     QuranIndexComponent,
+    QuranPageComponent,
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    SurahIndexService,
+    QuranIndexService,
+    QuranPageService,
     HttpRequest,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
+
+
+

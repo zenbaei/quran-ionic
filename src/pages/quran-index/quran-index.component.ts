@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surahIndex';
-import { SurahIndexService } from '../../app/service/surah-index/surahIndex.service';
+import { QuranIndexService } from '../../app/service/quran-index/quranIndex.service';
 import * as Constants from '../../app/all/constants';
 import { Observable } from 'rxjs';
+import { QuranPageComponent } from '../quran-page/quran-page.component';
 
 @Component({
   selector: 'quran-index',
@@ -13,11 +14,17 @@ export class QuranIndexComponent implements OnInit {
 
   surahIndexes: Observable<SurahIndex[]>;
 
-  // public navCtrl: NavController
-  constructor(private surahIndexService: SurahIndexService) {
+  constructor(private surahIndexService: QuranIndexService, private navCtrl: NavController) {
   }
 
   ngOnInit(): void {
     this.surahIndexes = this.surahIndexService.getQuranIndex();
+  }
+
+  goToPage(pageNumber: number) {
+    console.debug(`Go to page - pageNumber [${pageNumber}]`);
+    this.navCtrl.push(QuranPageComponent, {
+      pageNumber: pageNumber
+    });
   }
 }

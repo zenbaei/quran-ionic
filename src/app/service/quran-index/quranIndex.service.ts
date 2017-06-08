@@ -6,15 +6,15 @@ import { Response  } from '@angular/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class SurahIndexService {
+export class QuranIndexService {
 
   private readonly END_OF_LINE: string = '(\n|\r\n)';
-  private readonly QURAN_INDEX_URL: string = Constants.DATA_DIR + Constants.QURAN_INDEX_FILE_NAME;
+  private readonly QURAN_INDEX_FILE_URL: string = Constants.BASE_DATA_DIR + 'quran.index';
 
   constructor(private httpRequest: HttpRequest) { }
 
   /**
-   * Parses surah indexes string then deserializes it into any array of SurahIndex.
+   * Parses quran indexes string then deserializes it into any array of SurahIndex.
    * 
    * @param surahIndexes a string containg SurahIndex in json format delimited
    * by new line. for ex; {surahName:"",pageNumber:1}
@@ -38,9 +38,8 @@ export class SurahIndexService {
    * @see HttpRequest#get
    */
   getQuranIndex(): Observable<SurahIndex[]> {
-    return this.httpRequest.get(this.QURAN_INDEX_URL)
+    return this.httpRequest.get(this.QURAN_INDEX_FILE_URL)
       .map((res:Response) => this.fromJson(res.text()));
-      
   }
 
 }

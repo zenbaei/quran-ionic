@@ -4,22 +4,23 @@ import { By } from '@angular/platform-browser';
 import { MyApp } from '../../app/app.component';
 import { IonicModule } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surahIndex';
-import { SurahIndexService } from '../../app/service/surah-index/surahIndex.service';
+import { QuranIndexService } from '../../app/service/quran-index/quranIndex.service';
 import { QuranIndexComponent } from './quran-index.component';
 import { HttpModule } from '@angular/http';
 import { HttpRequest } from '../../app/core/http/httpRequest';
 import { Observable } from 'rxjs';
+import { NavController } from 'ionic-angular';
 
 describe('QuranIndexComponent', () => {
   let component: QuranIndexComponent;
   let fixture: ComponentFixture<QuranIndexComponent>;
-  let surahIndexService: SurahIndexService;
+  let quranIndexService: QuranIndexService;
   let surahIndexes: SurahIndex[] = [new SurahIndex('fateha', 1), new SurahIndex('bakara', 2)];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MyApp, QuranIndexComponent],
-      providers: [ SurahIndexService, HttpRequest ],
+      providers: [ QuranIndexService, HttpRequest, NavController ],
       imports: [ IonicModule.forRoot(MyApp), HttpModule ]
     })
       .compileComponents();
@@ -27,9 +28,9 @@ describe('QuranIndexComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(QuranIndexComponent);
-    surahIndexService = TestBed.get(SurahIndexService);
+    quranIndexService = TestBed.get(QuranIndexService);
     component = fixture.componentInstance;
-    spyOn(surahIndexService, 'getQuranIndex').and.returnValue(Observable.of(surahIndexes));
+    spyOn(quranIndexService, 'getQuranIndex').and.returnValue(Observable.of(surahIndexes));
     fixture.detectChanges();
   });
 
@@ -37,17 +38,31 @@ describe('QuranIndexComponent', () => {
     expect(component).toBeDefined();
   });
 
-  it('Given SurahIndex array is provided When QuranIndexComponent template is loaded Then it should have a list of surah index links', async(() => {
+  it('Given SurahIndex array is provided When QuranIndexComponent template is loaded Then it should have a list of surah index buttons', async(() => {
     component.ngOnInit();
     fixture.whenStable().then(() => {
       fixture.detectChanges();
 
-      let surahIndexLinks: DebugElement[] = fixture.debugElement.queryAll(By.css('a'));
+      let surahIndexUnorderdList: DebugElement[] = fixture.debugElement.queryAll(By.css('li'));
 
-      expect(surahIndexLinks).toBeDefined();
-      expect(surahIndexLinks.length).toBe(2);
-      expect(surahIndexLinks[1].nativeElement.textContent).toBe('bakara');
-      expect(surahIndexLinks[1].nativeElement.href).toContain('/2');
+      expect(surahIndexUnorderdList).toBeDefined();
+      expect(surahIndexUnorderdList.length).toBe(2);
+      expect(surahIndexUnorderdList[1].nativeElement.textContent.trim()).toBe('bakara');
+    });
+  }));
+
+  it('Given QuranIndexComponent have 2 SurahIndex buttons When button is clicked Then goToPage should be called', async(() => {
+    component.ngOnInit();
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+
+      spyOn(component, 'goToPage').and.returnValue(Observable.of('Hi'));
+      let surahIndexButtons: DebugElement[] = fixture.debugElement.queryAll(By.css('li button'));
+      expect(surahIndexButtons.length).toBe(2);
+      surahIndexButtons[1].nativeElement.click();
+
+      fixture.detectChanges();
+      // expect(component.goToPage).toHaveBeenCalledWith(2);
     });
   }));
 

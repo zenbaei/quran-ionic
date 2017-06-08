@@ -10,7 +10,7 @@
 <ion-content padding>
   <ul>
     <li *ngFor="let surahIdx of surahIndexes | async">
-      <a href="{{surahIdx.pageNumber}}">{{surahIdx.surahName}}</a>
+      <button ion-button clear (click)="goToPage(surahIdx.pageNumber)">{{surahIdx.surahName}}</button>
     </li>
   </ul>
 
