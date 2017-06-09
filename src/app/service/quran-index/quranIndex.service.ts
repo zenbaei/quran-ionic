@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { SurahIndex } from '../../domain/surahIndex';
 import * as Constants from '../../all/constants';
 import { HttpRequest } from '../../core/http/httpRequest';
-import { Response  } from '@angular/http';
+import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class QuranIndexService {
 
-  private readonly END_OF_LINE: string = '(\n|\r\n)';
   private readonly QURAN_INDEX_FILE_URL: string = Constants.BASE_DATA_DIR + 'quran.index';
 
   constructor(private httpRequest: HttpRequest) { }
@@ -21,16 +20,12 @@ export class QuranIndexService {
    */
   fromJson(surahIndexes: string): SurahIndex[] {
     console.debug(`Deserialize json string into array of SurahIndex`);
-    return surahIndexes.split(new RegExp(this.END_OF_LINE))
-      .filter(line => line.trim().length > 0)
-      .map(line => {
-        return line.trim()
-      })
-      .map(line => {
-        // console.debug(`line detected: ${line}}`);
-        let jsonObject: any = JSON.parse(line);
-        return new SurahIndex(jsonObject.surahName, jsonObject.pageNumber)
-      });
+    let surahIndexArr: Array<SurahIndex> = new Array();
+    let jsonArr: any = JSON.parse(surahIndexes);
+    for (var json of jsonArr) {
+      surahIndexArr.push(new SurahIndex(json.surahName, json.pageNumber));
+    }
+    return surahIndexArr;
   }
 
   /**
@@ -39,7 +34,7 @@ export class QuranIndexService {
    */
   getQuranIndex(): Observable<SurahIndex[]> {
     return this.httpRequest.get(this.QURAN_INDEX_FILE_URL)
-      .map((res:Response) => this.fromJson(res.text()));
+      .map((res: Response) => this.fromJson(res.text()));
   }
 
 }

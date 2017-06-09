@@ -14,3 +14,19 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@font-face {
+  font-family: uthmanic;
+  src: url("../assets/fonts/uthmanicV9.otf") format("truetype");
+}
+
+.mushaf {
+    font-family: uthmanic;
+    white-space: pre-wrap;
+    direction: rtl;
+}
+
+.center {
+    text-align: center;
+    border: 3px solid green;
+}

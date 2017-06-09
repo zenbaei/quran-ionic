@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { QuranPageService } from '../../app/service/quran-page/quranPage.service';
-import * as Constants from '../../app/all/constants';
 import { Observable } from 'rxjs';
 
 @Component({

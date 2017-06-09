@@ -9,8 +9,8 @@ import { AppModule } from '../../app.module';
 
 describe('QuranIndexService', () => {
 
-    let quranIndexContent: string = `{"surahName":"الفَاتِحَةِ","pageNumber":1}
-            {"surahName":"البَقَرَةِ","pageNumber":2}`;
+    let quranIndexContent: string = `[{"surahName":"الفَاتِحَةِ","pageNumber":1},
+            {"surahName":"البَقَرَةِ","pageNumber":2}]`;
     let quranIndexService: QuranIndexService;
     let httpRequest: HttpRequest;
 
@@ -28,7 +28,7 @@ describe('QuranIndexService', () => {
         expect(service).toBeDefined();
     }));
 
-    it('Given a string containg multiple SurahIndex in json format When fromJson is called Then it should return array of SurahIndex object', () => {
+    it('Given a string containg array of SurahIndex in json format When fromJson is called Then it should return array of SurahIndex object', () => {
         let surahIndexes: SurahIndex[] = quranIndexService.fromJson(quranIndexContent);
         expect(surahIndexes).toBeTruthy();
 
