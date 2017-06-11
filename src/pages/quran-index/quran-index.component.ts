@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { SurahIndex } from '../../app/domain/surahIndex';
-import { QuranIndexService } from '../../app/service/quran-index/quranIndex.service';
+import { SurahIndex } from '../../app/domain/surah-index';
+import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { Observable } from 'rxjs';
 import { QuranPageComponent } from '../quran-page/quran-page.component';
 

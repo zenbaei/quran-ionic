@@ -3,11 +3,11 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MyApp } from '../../app/app.component';
 import { IonicModule } from 'ionic-angular';
-import { SurahIndex } from '../../app/domain/surahIndex';
-import { QuranIndexService } from '../../app/service/quran-index/quranIndex.service';
+import { SurahIndex } from '../../app/domain/surah-index';
+import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { QuranIndexComponent } from './quran-index.component';
 import { HttpModule } from '@angular/http';
-import { HttpRequest } from '../../app/core/http/httpRequest';
+import { HttpRequest } from '../../app/core/http/http-request';
 import { Observable } from 'rxjs';
 import { NavController } from 'ionic-angular';
 

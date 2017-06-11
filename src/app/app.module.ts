@@ -6,20 +6,22 @@ import { MyApp } from './app.component';
 import { QuranIndexComponent } from '../pages/quran-index/quran-index.component';
 import { QuranPageComponent } from '../pages/quran-page/quran-page.component';
 import { ListPage } from '../pages/list/list';
-import { QuranIndexService } from './service/quran-index/quranIndex.service';
-import { QuranPageService } from './service/quran-page/quranPage.service';
-import { HttpRequest } from './core/http/httpRequest';
+import { QuranIndexService } from './service/quran-index/quran-index.service';
+import { QuranPageService } from './service/quran-page/quran-page.service';
+import { HttpRequest } from './core/http/http-request';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
+import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number';
 
 @NgModule({
   declarations: [
     MyApp,
     QuranIndexComponent,
     ListPage,
-    QuranPageComponent
+    QuranPageComponent,
+    ArabicNumberPipe
   ],
   imports: [
     BrowserModule,

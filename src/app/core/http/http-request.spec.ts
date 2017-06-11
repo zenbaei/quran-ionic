@@ -1,8 +1,9 @@
+/*
 import { TestBed, async } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
 import * as Constants from '../../all/constants';
 import { HttpRequest } from './httpRequest';
-/*
+
 describe('HttpRequest', () => {
 
     let httpRequest: HttpRequest;

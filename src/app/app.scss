@@ -20,13 +20,20 @@
   src: url("../assets/fonts/uthmanicV9.otf") format("truetype");
 }
 
-.mushaf {
+.mushaf-font {
     font-family: uthmanic;
+}
+
+.mushaf-content  {
+    @extend .mushaf-font;
+    font-size: 5vw;
+    text-align: center;
     white-space: pre-wrap;
     direction: rtl;
 }
 
-.center {
-    text-align: center;
-    border: 3px solid green;
+.mushaf-container {
+    border: 3px solid black;
+    margin: auto;
+    background-color: aliceblue;
 }

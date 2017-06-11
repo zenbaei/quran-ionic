@@ -1,0 +1,14 @@
+sh: lspci: command not found
+sh: glxinfo: command not found
+sh: lspci: command not found
+sh: glxinfo: command not found
+static QPlatformTheme* QKdeTheme::createKdeTheme(): Unable to determine KDE dirs
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+emulator: Listening for console connections on port: 5554
+emulator: Serial number of this emulator (for ADB): emulator-5554

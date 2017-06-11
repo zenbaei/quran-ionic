@@ -1,3 +1,6 @@
-<ion-content padding>
-  <p class="mushaf center">{{pageContent | async}}</p>
+<ion-content padding (swipe)="swipeEvent($event)" >
+  <div class="mushaf-container">
+    <div class="mushaf-content">{{pageContent}}</div>
+  </div>
+  <div style="text-align: center">{{currentPageNumber | arabic}} </div>
 </ion-content>

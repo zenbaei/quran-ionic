@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SurahIndex } from '../../domain/surahIndex';
+import { SurahIndex } from '../../domain/surah-index';
 import * as Constants from '../../all/constants';
-import { HttpRequest } from '../../core/http/httpRequest';
+import { HttpRequest } from '../../core/http/http-request';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 

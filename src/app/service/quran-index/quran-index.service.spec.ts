@@ -1,11 +1,9 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { SurahIndex } from '../../domain/surahIndex';
-import { QuranIndexService } from './quranIndex.service';
+import { SurahIndex } from '../../domain/surah-index';
+import { QuranIndexService } from './quran-index.service';
 import { HttpModule, Response, ResponseOptions } from '@angular/http';
-import * as Constants from '../../all/constants';
-import { HttpRequest } from '../../core/http/httpRequest';
+import { HttpRequest } from '../../core/http/http-request';
 import { Observable } from 'rxjs';
-import { AppModule } from '../../app.module';
 
 describe('QuranIndexService', () => {
 
