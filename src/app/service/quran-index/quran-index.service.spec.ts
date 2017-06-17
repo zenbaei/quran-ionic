@@ -4,6 +4,7 @@ import { QuranIndexService } from './quran-index.service';
 import { HttpModule, Response, ResponseOptions } from '@angular/http';
 import { HttpRequest } from '../../core/http/http-request';
 import { Observable } from 'rxjs';
+import { TestUtils } from '../../util/test-utils/test-utils';
 
 describe('QuranIndexService', () => {
 
@@ -33,15 +34,16 @@ describe('QuranIndexService', () => {
         expect(surahIndexes.length).toBe(2);
         expect(surahIndexes[0].surahName).toEqual('الفَاتِحَةِ');
         expect(surahIndexes[0].pageNumber).toEqual(1);
+        expect(surahIndexes[0].id).toEqual(1);
 
         expect(surahIndexes[1].surahName).toEqual('البَقَرَةِ');
         expect(surahIndexes[1].pageNumber).toEqual(2);
+        expect(surahIndexes[1].id).toEqual(2);
     });
 
     it('Given http get is mocked to return json string When getQuranIndex is called Then it should return observable', () => {
-        let response: Response = new Response(new ResponseOptions());
-        spyOn(response, 'text').and.returnValue(quranIndexContent);
-        spyOn(httpRequest, 'get').and.returnValue(Observable.of(response));
+        let response: Response = TestUtils.mockResponse(httpRequest, quranIndexContent);
+
         quranIndexService.getQuranIndex()
             .subscribe(surahIndexes => {
                 expect(surahIndexes.length).toBe(2);

@@ -17,11 +17,11 @@ export class QuranPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchPageContent(this.navParams.get(this.PAGE_NUMBER_PARAM));
+    this.findPageContentByPageNumber(this.navParams.get(this.PAGE_NUMBER_PARAM));
   }
 
-  fetchPageContent(pageNumber: number) {
-    this.quranPageService.fetchPageContent(pageNumber)
+  findPageContentByPageNumber(pageNumber: number) {
+    this.quranPageService.findPageContentByPageNumber(pageNumber)
       .subscribe(content => {
         this.pageContent = content;
         this.currentPageNumber = pageNumber;
@@ -31,10 +31,10 @@ export class QuranPageComponent implements OnInit {
   swipeEvent(e) {
     if (e.direction == 2) { // right to left - previous
       console.debug('swipe event - previous page');
-      this.fetchPageContent(this.currentPageNumber - 1);
+      this.findPageContentByPageNumber(this.currentPageNumber - 1);
     } else if (e.direction == 4) {
       console.debug('swipe event - next page');
-      this.fetchPageContent(this.currentPageNumber + 1);
+      this.findPageContentByPageNumber(this.currentPageNumber + 1);
     }
   }
 

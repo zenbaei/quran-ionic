@@ -2,10 +2,10 @@ export class ArabicUtils {
 
     static toArabicNumber(enNumber: number): string {
         let enNumberStr: string[] = enNumber.toLocaleString().split('');
-		let arNumber: string = '';
-		
+        let arNumber: string = '';
+
         for (var char of enNumberStr) {
-          arNumber += englishArabicNumberMap.get(char);
+            arNumber += englishArabicNumberMap.get(char);
         }
         return arNumber;
     }

@@ -15,7 +15,7 @@ describe('QuranIndexComponent', () => {
   let component: QuranIndexComponent;
   let fixture: ComponentFixture<QuranIndexComponent>;
   let quranIndexService: QuranIndexService;
-  let surahIndexes: SurahIndex[] = [new SurahIndex('fateha', 1), new SurahIndex('bakara', 2)];
+  let surahIndexes: SurahIndex[] = [new SurahIndex('fateha', 1, 1), new SurahIndex('bakara', 2, 2)];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -43,27 +43,11 @@ describe('QuranIndexComponent', () => {
     fixture.whenStable().then(() => {
       fixture.detectChanges();
 
-      let surahIndexUnorderdList: DebugElement[] = fixture.debugElement.queryAll(By.css('li'));
+      let surahIndexButtons: DebugElement[] = fixture.debugElement.queryAll(By.css('li'));
 
-      expect(surahIndexUnorderdList).toBeDefined();
-      expect(surahIndexUnorderdList.length).toBe(2);
-      expect(surahIndexUnorderdList[1].nativeElement.textContent.trim()).toBe('bakara');
-    });
-  }));
-
-  it('Given QuranIndexComponent have 2 SurahIndex buttons When button is clicked Then goToPage should be called', async(() => {
-    component.ngOnInit();
-    fixture.whenStable().then(() => {
-      fixture.detectChanges();
-
-      spyOn(component, 'goToPage').and.returnValue(Observable.of('Hi'));
-      let surahIndexButtons: DebugElement[] = fixture.debugElement.queryAll(By.css('li button'));
+      expect(surahIndexButtons).toBeDefined();
       expect(surahIndexButtons.length).toBe(2);
-      surahIndexButtons[1].nativeElement.click();
-
-      fixture.detectChanges();
-      // expect(component.goToPage).toHaveBeenCalledWith(2);
+      expect(surahIndexButtons[1].nativeElement.textContent.trim()).toBe('bakara');
     });
   }));
-
 });

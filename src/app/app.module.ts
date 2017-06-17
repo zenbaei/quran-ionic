@@ -8,6 +8,7 @@ import { QuranPageComponent } from '../pages/quran-page/quran-page.component';
 import { ListPage } from '../pages/list/list';
 import { QuranIndexService } from './service/quran-index/quran-index.service';
 import { QuranPageService } from './service/quran-page/quran-page.service';
+import { TafsirService } from './service/tafsir/tafsir.service';
 import { HttpRequest } from './core/http/http-request';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -40,6 +41,7 @@ import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number';
     SplashScreen,
     QuranIndexService,
     QuranPageService,
+    TafsirService,
     HttpRequest,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

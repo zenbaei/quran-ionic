@@ -8,22 +8,24 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class QuranIndexService {
 
-  private readonly QURAN_INDEX_FILE_URL: string = Constants.BASE_DATA_DIR + 'quran.index';
+  private readonly QURAN_INDEX_FILE_URL: string = Constants.MUSHAF_DATA_DIR + 'quran.index';
 
   constructor(private httpRequest: HttpRequest) { }
 
   /**
-   * Parses quran indexes string then deserializes it into any array of SurahIndex.
+   * Parses quran indexes string then deserializes it into an array of SurahIndex.
    * 
-   * @param surahIndexes a string containg SurahIndex in json format delimited
-   * by new line. for ex; {surahName:"",pageNumber:1}
+   * @param surahIndexJsonArr a string containg SurahIndex in json format, 
+   * expected format [{surahName:"",pageNumber:1},..]
    */
-  fromJson(surahIndexes: string): SurahIndex[] {
+  fromJson(surahIndexJsonArr: string): SurahIndex[] {
     console.debug(`Deserialize json string into array of SurahIndex`);
+    let counter: number = 1;
     let surahIndexArr: Array<SurahIndex> = new Array();
-    let jsonArr: any = JSON.parse(surahIndexes);
+    let jsonArr: any = JSON.parse(surahIndexJsonArr);
     for (var json of jsonArr) {
-      surahIndexArr.push(new SurahIndex(json.surahName, json.pageNumber));
+      surahIndexArr.push(new SurahIndex(json.surahName, json.pageNumber, counter));
+      counter++;
     }
     return surahIndexArr;
   }
@@ -33,6 +35,7 @@ export class QuranIndexService {
    * @see HttpRequest#get
    */
   getQuranIndex(): Observable<SurahIndex[]> {
+    console.debug('getQurahIndex');
     return this.httpRequest.get(this.QURAN_INDEX_FILE_URL)
       .map((res: Response) => this.fromJson(res.text()));
   }

@@ -14,7 +14,7 @@ describe('QuranPageComponent', () => {
     let component: QuranPageComponent;
     let fixture: ComponentFixture<QuranPageComponent>;
     let quranPageService: QuranPageService;
-    let surahIndexes: SurahIndex[] = [new SurahIndex('fateha', 1), new SurahIndex('bakara', 2)];
+    let surahIndexes: SurahIndex[] = [new SurahIndex('fateha', 1, 1), new SurahIndex('bakara', 2, 2)];
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -29,7 +29,7 @@ describe('QuranPageComponent', () => {
         fixture = TestBed.createComponent(QuranPageComponent);
         quranPageService = TestBed.get(QuranPageService);
         component = fixture.componentInstance;
-        spyOn(quranPageService, 'fetchPageContent').and.returnValue(Observable.of(surahIndexes));
+        spyOn(quranPageService, 'findPageContentByPageNumber').and.returnValue(Observable.of(surahIndexes));
         fixture.detectChanges();
     });
 
