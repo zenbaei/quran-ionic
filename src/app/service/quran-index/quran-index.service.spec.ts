@@ -34,11 +34,9 @@ describe('QuranIndexService', () => {
         expect(surahIndexes.length).toBe(2);
         expect(surahIndexes[0].surahName).toEqual('الفَاتِحَةِ');
         expect(surahIndexes[0].pageNumber).toEqual(1);
-        expect(surahIndexes[0].id).toEqual(1);
 
         expect(surahIndexes[1].surahName).toEqual('البَقَرَةِ');
         expect(surahIndexes[1].pageNumber).toEqual(2);
-        expect(surahIndexes[1].id).toEqual(2);
     });
 
     it('Given http get is mocked to return json string When getQuranIndex is called Then it should return observable', () => {

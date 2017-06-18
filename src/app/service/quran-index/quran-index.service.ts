@@ -20,12 +20,10 @@ export class QuranIndexService {
    */
   fromJson(surahIndexJsonArr: string): SurahIndex[] {
     console.debug(`Deserialize json string into array of SurahIndex`);
-    let counter: number = 1;
     let surahIndexArr: Array<SurahIndex> = new Array();
     let jsonArr: any = JSON.parse(surahIndexJsonArr);
     for (var json of jsonArr) {
-      surahIndexArr.push(new SurahIndex(json.surahName, json.pageNumber, counter));
-      counter++;
+      surahIndexArr.push(new SurahIndex(json.surahName, json.pageNumber));
     }
     return surahIndexArr;
   }
