@@ -10,8 +10,8 @@ import { TestUtils } from '../../util/test-utils/test-utils';
 describe('QuranPageService', () => {
 
     let quranPageContent: string = `quran page content`;
-    let quranPageMetadata: string = `[{"fromAyah":1, "toAyah":2, "surahName":"surah1"},
-                                        {"fromAyah":3, "toAyah":4, "surahName":"surah2"}]`;
+    let quranPageMetadata: string = `[{"fromAyah":1, "toAyah":2, "surahOrder":1},
+                                        {"fromAyah":3, "toAyah":4, "surahOrder":2}]`;
     let quranPageService: QuranPageService;
     let httpRequest: HttpRequest;
 
@@ -54,18 +54,18 @@ describe('QuranPageService', () => {
             });
     });
 
-    it('Given a string containg array of QuranPageMetada in json format When fromJson is called Then it should return array of SurahIndex object', () => {
+    it('Given a string containg array of QuranPageMetada in json format When fromJson is called Then it should return array of QuranPageMetada object', () => {
         let quranPageMetadataArr: QuranPageMetadata[] = quranPageService.fromJson(quranPageMetadata);
         expect(quranPageMetadataArr).toBeTruthy();
 
         expect(quranPageMetadataArr.length).toBe(2);
         expect(quranPageMetadataArr[0].fromAray).toEqual(1);
         expect(quranPageMetadataArr[0].toAyah).toEqual(2);
-        expect(quranPageMetadataArr[0].surahName).toEqual('surah1');
+        expect(quranPageMetadataArr[0].surahOrder).toEqual(1);
 
         expect(quranPageMetadataArr[1].fromAray).toEqual(3);
         expect(quranPageMetadataArr[1].toAyah).toEqual(4);
-        expect(quranPageMetadataArr[1].surahName).toEqual('surah2');
+        expect(quranPageMetadataArr[1].surahOrder).toEqual(2);
     });
 
     it('Given http get is mocked to get the quran page metadata When findMetadataByPageNumber is called Then it should return QuranPageMetadata array', (done) => {

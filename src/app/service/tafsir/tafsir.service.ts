@@ -29,29 +29,31 @@ export class TafsirService {
   }
 
   /**
-  * Calls http get {id}.tafsir file then calls {@link #fromJson}.
-  *
-  * @param surahId - Tafsir of surah to be retrieved, surahId should be between 1-114 
+  * Finds tafsir by surah order.
+  * 
+  * Calls http get {surahOrder}.tafsir file then calls {@link #fromJson}.
+  * 
+  * @param surahOrder - Tafsir of surah to be retrieved, surahOrder should be between 1-114 
   *   
   * @returns Observable of Tafsir or Observable of RangeError - if passed argument is out of range
   * 
   * @see HttpRequest#get
   */
-  findTafsirBySurahId(surahId: number): Observable<Tafsir[]> {
-    console.debug(`Find tafsir by surah id [${surahId}]`);
+  findTafsirBySurahOrder(surahOrder: number): Observable<Tafsir[]> {
+    console.debug(`Find tafsir by surah order [${surahOrder}]`);
 
-    if (!this.isValidSurahId(surahId)) {
-      return Observable.throw(new RangeError(`Surah id [${surahId}] is out of range (1 - 114)`));
+    if (!this.isValidSurahOrder(surahOrder)) {
+      return Observable.throw(new RangeError(`Surah order [${surahOrder}] is out of range (1 - 114)`));
     }
 
-    let TAFSIR_FILE_URL = Constants.TAFSIR_MAKHLOUF_DATA_DIR + surahId + this.TAFSIR_FILE_EXTENSION;
+    let TAFSIR_FILE_URL = Constants.TAFSIR_MAKHLOUF_DATA_DIR + surahOrder + this.TAFSIR_FILE_EXTENSION;
 
     return this.httpRequest.get(TAFSIR_FILE_URL)
       .map((res: Response) => this.fromJson(res.text()));
   }
 
-  private isValidSurahId(surahId: number): boolean {
-    if (1 > surahId || surahId > 114) {
+  private isValidSurahOrder(surahOrder: number): boolean {
+    if (1 > surahOrder || surahOrder > 114) {
       return false;
     }
     return true;

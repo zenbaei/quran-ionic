@@ -10,8 +10,7 @@
 <ion-content padding>
   <ul>
     <li *ngFor="let surahIdx of surahIndexes | async">
-      <button class="mushaf-font" ion-button clear onclick="goToPage(surahIdx.pageNumber)">{{surahIdx.surahName}}</button>
+      <button class="mushaf-font" ion-button clear (click)="goToPage(surahIdx.pageNumber)">{{surahIdx.surahName}}</button>
     </li>
   </ul>
-
 </ion-content>

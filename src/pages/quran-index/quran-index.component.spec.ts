@@ -6,6 +6,7 @@ import { IonicModule } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surah-index';
 import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { QuranIndexComponent } from './quran-index.component';
+import { QuranPageComponent } from '../quran-page/quran-page.component';
 import { HttpModule } from '@angular/http';
 import { HttpRequest } from '../../app/core/http/http-request';
 import { Observable } from 'rxjs';
@@ -57,40 +58,23 @@ describe('QuranIndexComponent', () => {
     });
   }));
 
-/*  
-    it('Given QuranIndexComponent have 2 SurahIndex buttons When button is clicked Then goToPage should be called', async(() => {
-      component.ngOnInit();
-      fixture.whenStable().then(() => {
-        fixture.detectChanges();
-  
+    it('Given QuranIndexComponent have 2 SurahIndex buttons When button is clicked Then goToPage should be called', () => {
         spyOn(component, 'goToPage').and.returnValue(Observable.of('Hi'));
-        let surahIndexButtons: DebugElement[] = fixture.debugElement.queryAll(By.css('li button'));
+        let surahIndexButtons: DebugElement[] = fixture.debugElement.queryAll(By.css('.button'));
 
-        expect(surahIndexButtons.length).toBe(2);
-        expect(surahIndexButtons[0].nativeElement.textContent.trim()).toBe('fateha');
-
-        surahIndexButtons[0].triggerEventHandler('click', null);
+        surahIndexButtons[1].triggerEventHandler('click', null);
         
-        fixture.whenStable().then(() => {
-        expect(component.goToPage).toHaveBeenCalled();
-        });
-       // fixture.detectChanges();
-        //expect(component.goToPage).toHaveBeenCalledWith(1);
-      });
-    }));
+        expect(component.goToPage).toHaveBeenCalledWith(2);
+    });
 
-
-  it('should be able to launch wishlist page', () => {
-
+  it('Given there are 2 surah index When surah index button is clicked Then it should be launch QuranPageComponent', () => {
     let navCtrl = fixture.debugElement.injector.get(NavController);
     spyOn(navCtrl, 'push');
 
-    let de: DebugElement = fixture.debugElement.queryAll(By.css('li button'))[0];
-    expect(de.nativeElement.textContent.trim()).toBe('fateha');
+    let de: DebugElement = fixture.debugElement.queryAll(By.css('.button'))[1];
     de.triggerEventHandler('click', null);
 
-    expect(navCtrl.push).toHaveBeenCalled();
-
+    expect(navCtrl.push).toHaveBeenCalledWith(QuranPageComponent, {pageNumber: 2});
   });
-*/
+
 });
