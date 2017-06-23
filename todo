@@ -10,3 +10,10 @@
 5- Numbers icon is not showing on Android
 6- Add quran border
 7- numbers aren't showing correctly (when numbers icon are not showing it's working ok on android)
+
+
+Displaying Tafsir by using bootstrap 'popover':
+side effects: 
+1- having jquery + bootstrap as dependencies
+2- adding data-toggle attribute to tafsir div using 'ngAfterViewChecked' which is called multiple
+   times during page rendering

@@ -8,8 +8,6 @@
 </ion-header>
 
 <ion-content padding>
-  <a href="#" data-toggle="tooltip" title="Hooray!" data-placement="left">Hover over me</a>
-  <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover" data-placement="left">Toggle popover</a>
   <ul>
     <li *ngFor="let surahIdx of surahIndexes | async">
       <button class="mushaf-font" ion-button clear (click)="goToPage(surahIdx.pageNumber)">{{surahIdx.surahName}}</button>

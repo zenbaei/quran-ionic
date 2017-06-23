@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams, PopoverController } from 'ionic-angular';
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
 import { Tafsir } from '../../app/domain/tafsir';
@@ -17,12 +17,20 @@ export class QuranPageComponent implements OnInit {
   private currentPageNumber: number;
   private pageContent: string;
 
-  constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService, 
-  private navCtl: NavController, private navParams: NavParams, private popoverCtrl: PopoverController) {
+  @ViewChild('.red')
+  selectRef: ElementRef;
+
+  constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
+    private navCtl: NavController, private navParams: NavParams, private popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
     this.findPageContentByPageNumber(this.navParams.get(this.PAGE_NUMBER_PARAM));
+  }
+
+  ngAfterViewChecked() {
+    this.addPopoverAttributeToElements();
+    this.initPopoverElements();
   }
 
   swipeEvent(event: any) {
@@ -63,12 +71,20 @@ export class QuranPageComponent implements OnInit {
 
   private patchTafsirOnContent(tafsir: Tafsir): void {
     let subString: string = this.pageContent.substr(0, 10);
-    let div: string = `<div class="red" data-toggle="popover" title="Bootstrap popover">islam</div>`;
+    let div: string = `<a href="#" class="tafsir" title="xtz">islam</a>`;
     this.pageContent = div + this.pageContent;
   }
 
-  callPopover(): void {
-    $('[data-toggle="popover"]').popover();
+  private addPopoverAttributeToElements(): void {
+    let val: string = $('.tafsir').text();
+    if (val === '') {
+      return;
+    }
+    console.debug(`colored class value:  ${val}`);
+    $('.tafsir').attr("data-toggle", "popover");
   }
 
+  private initPopoverElements(): void {
+    $('[data-toggle="popover"]').popover();
+  }
 }

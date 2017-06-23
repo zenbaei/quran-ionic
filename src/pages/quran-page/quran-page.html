@@ -1,6 +1,5 @@
-<ion-content padding (swipe)="swipeEvent($event)" >
+<ion-content padding (swipe)="swipeEvent($event)">
   <div class="mushaf-container">
-    <a href="#" data-toggle="popover" (click)="callPopover()" title="Popover Header" data-content="Some content inside the popover" data-placement="left">Toggle popover</a>
     <div class="mushaf-content" [innerHtml]=pageContent></div>
   </div>
   <div class="mushaf-page-number">{{currentPageNumber | arabic}} </div>
