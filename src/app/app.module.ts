@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { QuranIndexComponent } from '../pages/quran-index/quran-index.component';
 import { QuranPageComponent } from '../pages/quran-page/quran-page.component';
+import { PopoverComponent } from '../pages/popover/popover.component';
 import { ListPage } from '../pages/list/list';
 import { QuranIndexService } from './service/quran-index/quran-index.service';
 import { QuranPageService } from './service/quran-page/quran-page.service';
@@ -22,6 +23,7 @@ import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number';
     QuranIndexComponent,
     ListPage,
     QuranPageComponent,
+    PopoverComponent,
     ArabicNumberPipe
   ],
   imports: [
@@ -34,6 +36,7 @@ import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number';
     MyApp,
     QuranIndexComponent,
     QuranPageComponent,
+    PopoverComponent,
     ListPage
   ],
   providers: [

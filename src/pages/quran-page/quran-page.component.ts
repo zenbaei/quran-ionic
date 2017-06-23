@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, PopoverController } from 'ionic-angular';
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
 import { Tafsir } from '../../app/domain/tafsir';
 import { TafsirService } from '../../app/service/tafsir/tafsir.service';
 import { QuranPageMetadata } from '../../app/domain/quran-page-metadata';
 import { Observable } from 'rxjs';
+import { PopoverComponent } from '../popover/popover.component';
 
 @Component({
   selector: 'quran-page',
@@ -16,7 +17,8 @@ export class QuranPageComponent implements OnInit {
   private currentPageNumber: number;
   private pageContent: string;
 
-  constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService, private navCtl: NavController, private navParams: NavParams) {
+  constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService, 
+  private navCtl: NavController, private navParams: NavParams, private popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
@@ -61,8 +63,12 @@ export class QuranPageComponent implements OnInit {
 
   private patchTafsirOnContent(tafsir: Tafsir): void {
     let subString: string = this.pageContent.substr(0, 10);
-    let div: string = `<div class="red">${subString}</div>`;
+    let div: string = `<div class="red" data-toggle="popover" title="Bootstrap popover">islam</div>`;
     this.pageContent = div + this.pageContent;
+  }
+
+  callPopover(): void {
+    $('[data-toggle="popover"]').popover();
   }
 
 }
