@@ -42,10 +42,10 @@ describe('TafsirService', () => {
         expect(tafsirs[1].tafsir).toEqual('tafsir2');
     });
 
-    it('Given http get is mocked to get tafsir content When findTafsirBySurahOrder is called Then it should return string content', (done) => {
+    it('Given http get is mocked to get tafsir content When findTafsirBySurahNumber is called Then it should return string content', (done) => {
         let response: Response = TestUtils.mockResponse(httpRequest, tafsirContent);
         let tafsirArr: Tafsir[] = tafsirService.fromJson(tafsirContent);
-        tafsirService.findTafsirBySurahOrder(1)
+        tafsirService.findTafsirBySurahNumber(1)
             .subscribe(content => {
                 expect(content).toEqual(tafsirArr);
                 done();
@@ -55,15 +55,15 @@ describe('TafsirService', () => {
         expect(httpRequest.get).toHaveBeenCalledWith(expectedURL);
     });
 
-    it('Given When findTafsirBySurahOrder is called with a value out of range Then it should throw RangeError', () => {
-        tafsirService.findTafsirBySurahOrder(0)
+    it('Given When findTafsirBySurahNumber is called with a value out of range Then it should throw RangeError', () => {
+        tafsirService.findTafsirBySurahNumber(0)
             .subscribe(str => fail()
             , err => {
                 console.info(err.message);
                 expect(err instanceof RangeError).toBeTruthy();
             });
 
-        tafsirService.findTafsirBySurahOrder(115)
+        tafsirService.findTafsirBySurahNumber(115)
             .subscribe(str => fail()
             , err => {
                 console.info(err.message);

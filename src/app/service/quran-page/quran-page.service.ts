@@ -13,14 +13,14 @@ export class QuranPageService {
    * Parses quran page metadata json string then deserializes it into an array of QuranPageMetadata.
    * 
    * @param pageMetadataJsonArr a string containg QuranPageMetadata in json format, 
-   * expected format [{fromAyah:1, toAyah:2, surahOrder:""},..]
+   * expected format [{fromAyah:1, toAyah:2, surahNumber:""},..]
    */
     fromJson(pageMetadataJsonArr: string): QuranPageMetadata[] {
         console.debug(`Deserialize json string into array of QuranPageMetadata`);
         let pageMetadataArr: Array<QuranPageMetadata> = new Array();
         let jsonArr: any = JSON.parse(pageMetadataJsonArr);
         for (var json of jsonArr) {
-            pageMetadataArr.push(new QuranPageMetadata(json.fromAyah, json.toAyah, json.surahOrder));
+            pageMetadataArr.push(new QuranPageMetadata(json.fromAyah, json.toAyah, json.surahNumber));
         }
         return pageMetadataArr;
     }

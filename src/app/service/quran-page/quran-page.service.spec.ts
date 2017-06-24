@@ -10,8 +10,8 @@ import { TestUtils } from '../../util/test-utils/test-utils';
 describe('QuranPageService', () => {
 
     let quranPageContent: string = `quran page content`;
-    let quranPageMetadata: string = `[{"fromAyah":1, "toAyah":2, "surahOrder":1},
-                                        {"fromAyah":3, "toAyah":4, "surahOrder":2}]`;
+    let quranPageMetadata: string = `[{"fromAyah":1, "toAyah":2, "surahNumber":1},
+                                        {"fromAyah":3, "toAyah":4, "surahNumber":2}]`;
     let quranPageService: QuranPageService;
     let httpRequest: HttpRequest;
 
@@ -61,11 +61,11 @@ describe('QuranPageService', () => {
         expect(quranPageMetadataArr.length).toBe(2);
         expect(quranPageMetadataArr[0].fromAray).toEqual(1);
         expect(quranPageMetadataArr[0].toAyah).toEqual(2);
-        expect(quranPageMetadataArr[0].surahOrder).toEqual(1);
+        expect(quranPageMetadataArr[0].surahNumber).toEqual(1);
 
         expect(quranPageMetadataArr[1].fromAray).toEqual(3);
         expect(quranPageMetadataArr[1].toAyah).toEqual(4);
-        expect(quranPageMetadataArr[1].surahOrder).toEqual(2);
+        expect(quranPageMetadataArr[1].surahNumber).toEqual(2);
     });
 
     it('Given http get is mocked to get the quran page metadata When findPageMetadataByPageNumber is called Then it should return QuranPageMetadata array', (done) => {
