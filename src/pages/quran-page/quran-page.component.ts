@@ -78,8 +78,12 @@ export class QuranPageComponent implements OnInit {
   }
 
   private initPopoverElements(): void {
+    let popoverEl: JQuery<HTMLElement> = $('[data-toggle="popover"]');
+    if (popoverEl.length === 0) {
+      return;
+    }
     console.debug('Initialize bootstrap popover elements');
-    $('[data-toggle="popover"]').popover();
+    popoverEl.popover();
     this.popoverElementsInitialized = true;
   }
 }
