@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { QuranIndexComponent } from '../pages/quran-index/quran-index.component';
 import { QuranPageComponent } from '../pages/quran-page/quran-page.component';
-import { PopoverComponent } from '../pages/popover/popover.component';
 import { ListPage } from '../pages/list/list';
 import { QuranIndexService } from './service/quran-index/quran-index.service';
 import { QuranPageService } from './service/quran-page/quran-page.service';
@@ -15,7 +14,8 @@ import { HttpRequest } from './core/http/http-request';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
-import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number';
+import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number.pipe';
+import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,8 @@ import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number';
     QuranIndexComponent,
     ListPage,
     QuranPageComponent,
-    PopoverComponent,
-    ArabicNumberPipe
+    ArabicNumberPipe,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,6 @@ import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number';
     MyApp,
     QuranIndexComponent,
     QuranPageComponent,
-    PopoverComponent,
     ListPage
   ],
   providers: [

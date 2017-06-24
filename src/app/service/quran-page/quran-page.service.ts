@@ -7,9 +7,6 @@ import { QuranPageMetadata } from '../../domain/quran-page-metadata';
 @Injectable()
 export class QuranPageService {
 
-    private readonly QURAN_PAGE_FILE_EXTENSION = '.page';
-    private readonly QURAN_PAGE_METADATA_FILE_EXTENSION = '.metadata';
-
     constructor(private httpRequest: HttpRequest) { }
 
     /**
@@ -30,7 +27,7 @@ export class QuranPageService {
 
 
     /**
-     * Finds quran page content from .page file by page number.
+     * Finds quran page content from .content file by page number.
      * 
      * @param pageNumber - the page number to fetch, pageNumber should be between 1-604
      * 
@@ -44,7 +41,7 @@ export class QuranPageService {
         }
 
         let quranPageFileURL: string = Constants.MUSHAF_DATA_DIR
-            + `${pageNumber}/${pageNumber}` + this.QURAN_PAGE_FILE_EXTENSION;
+            + `${pageNumber}/${pageNumber}` + Constants.QURAN_PAGE_CONTENT_FILE_EXTENSION;
         return this.httpRequest.get(quranPageFileURL)
             .map(res => {
                 return res.text();
@@ -71,7 +68,7 @@ export class QuranPageService {
         }
 
         let pageMetadataURL: string = Constants.MUSHAF_DATA_DIR
-            + `${pageNumber}/${pageNumber}` + this.QURAN_PAGE_METADATA_FILE_EXTENSION;
+            + `${pageNumber}/${pageNumber}` + Constants.QURAN_PAGE_METADATA_FILE_EXTENSION;
         return this.httpRequest.get(pageMetadataURL)
             .map(res => {
                 return this.fromJson(res.text());

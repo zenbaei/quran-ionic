@@ -33,7 +33,7 @@ export class QuranIndexService {
    * @see HttpRequest#get
    */
   getQuranIndex(): Observable<SurahIndex[]> {
-    console.debug('getQurahIndex');
+    console.debug('Get quran index file');
     return this.httpRequest.get(this.QURAN_INDEX_FILE_URL)
       .map((res: Response) => this.fromJson(res.text()));
   }

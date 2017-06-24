@@ -1,6 +1,6 @@
 <ion-content padding (swipe)="swipeEvent($event)">
   <div class="mushaf-container">
-    <div class="mushaf-content" [innerHtml]=pageContent></div>
+    <div class="mushaf-content" [innerHtml]="pageContent | safeHtml"></div>
   </div>
   <div class="mushaf-page-number">{{currentPageNumber | arabic}} </div>
 </ion-content>

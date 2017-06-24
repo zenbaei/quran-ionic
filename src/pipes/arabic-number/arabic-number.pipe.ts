@@ -1,9 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ArabicUtils } from '../../app/util/arabic-utils/arabic-utils';
 
-@Pipe({
-  name: 'arabic',
-})
+@Pipe({ name: 'arabic' })
 export class ArabicNumberPipe implements PipeTransform {
 
   /**

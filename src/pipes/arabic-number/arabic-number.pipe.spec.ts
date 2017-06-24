@@ -1,4 +1,4 @@
-import { ArabicNumberPipe } from './arabic-number';
+import { ArabicNumberPipe } from './arabic-number.pipe';
 
 describe('ArabicNumberPipe', () => {
 

@@ -5,7 +5,9 @@ import { Tafsir } from '../../app/domain/tafsir';
 import { TafsirService } from '../../app/service/tafsir/tafsir.service';
 import { QuranPageMetadata } from '../../app/domain/quran-page-metadata';
 import { Observable } from 'rxjs';
-import { PopoverComponent } from '../popover/popover.component';
+
+//import * as $ from 'jquery';
+//import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'quran-page',
@@ -16,12 +18,10 @@ export class QuranPageComponent implements OnInit {
   private PAGE_NUMBER_PARAM: string = 'pageNumber';
   private currentPageNumber: number;
   private pageContent: string;
-
-  @ViewChild('.red')
-  selectRef: ElementRef;
+  private popoverElementsInitialized: boolean = false;
 
   constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
-    private navCtl: NavController, private navParams: NavParams, private popoverCtrl: PopoverController) {
+    private navCtl: NavController, private navParams: NavParams) {
   }
 
   ngOnInit() {
@@ -29,8 +29,9 @@ export class QuranPageComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    this.addPopoverAttributeToElements();
-    this.initPopoverElements();
+    if (!this.popoverElementsInitialized) {
+      this.initPopoverElements();
+    }
   }
 
   swipeEvent(event: any) {
@@ -70,21 +71,15 @@ export class QuranPageComponent implements OnInit {
   }
 
   private patchTafsirOnContent(tafsir: Tafsir): void {
+    console.debug('Patch tafsir on quran page content');
     let subString: string = this.pageContent.substr(0, 10);
-    let div: string = `<a href="#" class="tafsir" title="xtz">islam</a>`;
+    let div: string = `<a href="#" class="tafsir" data-toggle="popover" title="xtz">islam</a>`;
     this.pageContent = div + this.pageContent;
   }
 
-  private addPopoverAttributeToElements(): void {
-    let val: string = $('.tafsir').text();
-    if (val === '') {
-      return;
-    }
-    console.debug(`colored class value:  ${val}`);
-    $('.tafsir').attr("data-toggle", "popover");
-  }
-
   private initPopoverElements(): void {
+    console.debug('Initialize bootstrap popover elements');
     $('[data-toggle="popover"]').popover();
+    this.popoverElementsInitialized = true;
   }
 }

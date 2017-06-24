@@ -34,7 +34,7 @@ describe('QuranPageService', () => {
                 done();
             });
 
-        let expectedURL: string = Constants.MUSHAF_DATA_DIR + '7/7.page';
+        let expectedURL: string = Constants.MUSHAF_DATA_DIR + '7/7.content';
         expect(httpRequest.get).toHaveBeenCalledWith(expectedURL);
     });
 
@@ -68,7 +68,7 @@ describe('QuranPageService', () => {
         expect(quranPageMetadataArr[1].surahOrder).toEqual(2);
     });
 
-    it('Given http get is mocked to get the quran page metadata When findMetadataByPageNumber is called Then it should return QuranPageMetadata array', (done) => {
+    it('Given http get is mocked to get the quran page metadata When findPageMetadataByPageNumber is called Then it should return QuranPageMetadata array', (done) => {
         let response: Response = TestUtils.mockResponse(httpRequest, quranPageMetadata);
         let quranPageMetadataArr: QuranPageMetadata[] = quranPageService.fromJson(quranPageMetadata);
         quranPageService.findPageMetadataByPageNumber(1)
@@ -81,7 +81,7 @@ describe('QuranPageService', () => {
         expect(httpRequest.get).toHaveBeenCalledWith(expectedURL);
     });
 
-    it('Given When findMetadataByPageNumber is called with value out or range Then it should return Observable of RangeError error', () => {
+    it('Given When findPageMetadataByPageNumber is called with value out or range Then it should return Observable of RangeError error', () => {
         quranPageService.findPageMetadataByPageNumber(0)
             .subscribe(str => fail()
             , err => {
