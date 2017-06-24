@@ -6,8 +6,8 @@ import { TafsirService } from '../../app/service/tafsir/tafsir.service';
 import { QuranPageMetadata } from '../../app/domain/quran-page-metadata';
 import { Observable } from 'rxjs';
 
-import * as $ from 'jquery';
-import * as bootstrap from 'bootstrap';
+//import * as $ from 'jquery';
+//import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'quran-page',
@@ -50,7 +50,6 @@ export class QuranPageComponent implements OnInit {
         this.pageContent = content;
         this.currentPageNumber = pageNumber;
         this.findMetadataByPageNumber(pageNumber);
-        this.patchTafsirOnContent(null);
       });
   }
 
@@ -71,7 +70,7 @@ export class QuranPageComponent implements OnInit {
   }
 
   private patchTafsirOnContent(tafsir: Tafsir): void {
-    console.debug(`Patch tafsir on quran page content - tafsir ${tafsir.tafsir}`);
+    console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
     let subString: string = this.pageContent.substr(0, 10);
     let div: string = `<a href="#" class="tafsir" data-toggle="popover" title="xtz">islam</a>`;
     this.pageContent = div + this.pageContent;
