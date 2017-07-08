@@ -5,9 +5,12 @@ import { Tafsir } from '../../app/domain/tafsir';
 import { TafsirService } from '../../app/service/tafsir/tafsir.service';
 import { QuranPageMetadata } from '../../app/domain/quran-page-metadata';
 import { Observable } from 'rxjs';
-
-//import * as $ from 'jquery';
-//import * as bootstrap from 'bootstrap';
+import { ArabicUtils } from "../../app/util/arabic-utils/arabic-utils";
+import { Search } from "../../app/util/search-utils/search";
+import { StringUtils } from "../../app/util/string-utils/string-utils";
+import { QuranPageComponentHelper } from './quran-page.component.helper';
+import * as $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'quran-page',
@@ -63,17 +66,16 @@ export class QuranPageComponent implements OnInit {
   private findTafsirByMetadata(metadata: QuranPageMetadata): void {
     this.tafsirService.findTafsirBySurahNumber(metadata.surahNumber)
       .subscribe(tafsirArr => {
-        tafsirArr.filter(tafsir =>
-          tafsir.ayahNumber >= metadata.fromAray || tafsir.ayahNumber <= metadata.toAyah)
-          .forEach(tafsir => this.patchTafsirOnContent(tafsir));
+        tafsirArr.filter(tafsir => this.isTafsirWithinCurrentPageAyahRange(tafsir, metadata))
+          .forEach( tafsir => this.pageContent = QuranPageComponentHelper.patchTafsirOnContent(tafsir, this.pageContent) );
       });
   }
 
-  private patchTafsirOnContent(tafsir: Tafsir): void {
-    console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
-    let subString: string = this.pageContent.substr(0, 10);
-    let div: string = `<a href="#" class="tafsir" data-toggle="popover" title="xtz">islam</a>`;
-    this.pageContent = div + this.pageContent;
+  private isTafsirWithinCurrentPageAyahRange(tafsir: Tafsir, metadata: QuranPageMetadata): boolean {
+    if (tafsir.ayahNumber >= metadata.fromAray || tafsir.ayahNumber <= metadata.toAyah) {
+      return true;
+    }
+    return false;
   }
 
   private initPopoverElements(): void {
