@@ -2,14 +2,14 @@ export class Search {
 
     private match: RegExpExecArray;
 
-    constructor(private pattern: string, private source: string) {
+    constructor(private pattern: string, private target: string) {
         this.search();
     }
 
     private search() {
-        console.debug(`Search for [${this.pattern}] inside [${this.source}]`);
+        console.debug(`Search for [${this.pattern}] inside [${this.target}]`);
         let regex: RegExp = new RegExp(this.pattern);
-        this.match = regex.exec(this.source);
+        this.match = regex.exec(this.target);
     }
 
     /**
@@ -41,10 +41,10 @@ export class Search {
     }
 
     /**
-     * Retruns the matched string.
+     * Retruns the matched string or empty string if there is no match.
      */
     public group(): string {
-        return this.match[0];
+        return this.match == null ? '' : this.match[0];
     }
 
 }

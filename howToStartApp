@@ -10,6 +10,6 @@ test e2e: npm run e2e
 
 install platforms: ionic cordova platform add ios|browser|android
  
-run platform: ionic cordova run ios
+run platform: ionic cordova run ios|browser|android
 
-note: any script in package.json can be run by: npm run <script name>
+note: any scripts provided in package.json can be run by: npm run <script name>

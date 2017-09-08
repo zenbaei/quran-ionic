@@ -44,4 +44,12 @@ describe('Search', () => {
         let search: Search = new Search('na..', content);
         expect(search.group()).toEqual('name');
     })
+
+    it(`Given an arabic content with regex metacharacter is given When group is called Then it should retrun the matched string`, () => {
+        let content: string = `اسلام 
+ابراهيم زنباعي`;
+        let textToSearch: string = `اسلام \nابراهيم`;
+        let search: Search = new Search(textToSearch, content);
+        expect(search.test()).toBeTruthy();
+    })
 });
