@@ -2,13 +2,13 @@ export class Search {
 
     private match: RegExpExecArray;
 
-    constructor(private pattern: string, private target: string) {
+    constructor(private what: string, private target: string) {
         this.search();
     }
 
     private search() {
-        console.debug(`Search for [${this.pattern}] inside [${this.target}]`);
-        let regex: RegExp = new RegExp(this.pattern);
+        console.debug(`Search for [${this.what}] inside [${this.target}]`);
+        let regex: RegExp = new RegExp(this.what);
         this.match = regex.exec(this.target);
     }
 

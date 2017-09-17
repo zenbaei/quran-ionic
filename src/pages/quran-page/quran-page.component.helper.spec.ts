@@ -45,19 +45,23 @@ describe('QuranPageComponentHelper', () => {
         tafsirArr.forEach(tf => QuranPageComponentHelper.patchTafsirOnContent(tf, TestData.SURAT_AL_FATEHA));
     });
 
-    it('Given a string with spaces is provided When addLineBreakAfterEachWord is called Then it should add regex line break then zero or one metacharacter after each word', () => {
-        let phrase: string = 'Hi how are';
-        let result: string = QuranPageComponentHelper.addLineBreakAfterEachWord(phrase);
-        expect(result).toBe('Hi \n?how \n?are');
-    });
-
     it(`Given a string with line break is provided When it's used to match content Then it should match the string with line break`, () => {
         let stringToMatch: string = `ٱهۡدِنَا \n?ٱلصِّرَٰط`;
         let search: Search = new Search(stringToMatch, TestData.SURAT_AL_FATEHA);
         expect(search.test()).toBeTruthy();
     })
 
-    it('', () =>{
+    it('Removing exccessed', () =>{
         let stringToMatch: string = "سَيَصلى نارًا";
+        let ayah: string = `سَيَصۡلَىٰ نَارٗا ذَات`;
+        let tafsir: Tafsir = new Tafsir(stringToMatch, 2, '');
+        let testToken_1 = `سَيَصۡلَىٰ نَارٗا`;
+        let testToken_2 = 'ذَاتَ';
+        let search: Search = new Search(QuranPageComponentHelper.normalizeString(stringToMatch), ayah);
+        expect(search.group()).toBe(testToken_1);
+       /*
+        let expected: string = `<span class="tafsir" data-toggle="popover" title="">${testToken_1}</span> ${testToken_2}`;
+        let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, ayah);
+        expect(result).toEqual(expected);*/
     });
 });

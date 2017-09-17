@@ -1,12 +1,9 @@
 import { ArabicUtils } from "../../app/util/arabic-utils/arabic-utils";
 import { Tafsir } from '../../app/domain/tafsir';
 import { Search } from "../../app/util/search-utils/search";
+import { RegexUtils } from "../../app/util/regex-utils/regex-utils";
 
 export class QuranPageComponentHelper {
-
-    private static readonly LINE_TERMINATOR = '\n';
-    private static readonly SPACE = ' ';
-    private static readonly ZERO_OR_ONE: string = "?";
 
     public static patchTafsirOnContent(tafsir: Tafsir, pageContent: string): string {
         console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
@@ -19,8 +16,9 @@ export class QuranPageComponentHelper {
             throw new Error(`Ayah [${tafsir.ayah}] not matching target [${pageContentCopy}]`);
         }
 
-        let span: string = `<span class="tafsir" data-toggle="popover" title="${tafsir.tafsir}">${search.group().trim()}</span>`;
-        pageContentCopy = this.replace(pageContentCopy, search.group().trim(), span);
+        let matchedAyah: string = search.group().trim();
+        let span: string = `<span class="tafsir" data-toggle="popover" title="${tafsir.tafsir}">${matchedAyah}</span>`;
+        pageContentCopy = this.replace(pageContentCopy, matchedAyah, span);
         
         return pageContentCopy;
     }
@@ -32,11 +30,10 @@ export class QuranPageComponentHelper {
      * @param str 
      */
     public static normalizeString(str: string): string {
-        return this.addLineBreakAfterEachWord(
-                    ArabicUtils.replaceFirstAlefCharWithAlefSkoon(
+        return  ArabicUtils.replaceFirstAlefCharWithAlefSkoon(
                         ArabicUtils.removeMiddleAlef( 
                           ArabicUtils.addRegexDotMetaCharInBetween( 
-                            ArabicUtils.removeTashkil(str)))));
+                            ArabicUtils.removeTashkil(str))));//);
     }
 
     /*
@@ -48,28 +45,11 @@ export class QuranPageComponentHelper {
     }
     */
 
-    public static replace(source: string, pattern: string, replacement: string): string {
-        console.debug(`Replace [${pattern}] from source [${replacement}]`);
-        let regex: RegExp = new RegExp(pattern);
+    public static replace(source: string, what: string, replacement: string): string {
+        console.debug(`Replace [${what}] from source [${source}]`);
+        let regex: RegExp = new RegExp(what);
         return source.replace(regex, replacement);
     }
 
-    /**
-     * Add line break and then zero or more metacharacter to match strings not on same line.
-     * @param str 
-     */
-    public static addLineBreakAfterEachWord(str: string) : string {
-        console.debug(`Add line breaks after each word from ${str}`);
-        let splited: string[] = str.split(' ');
-        let result: string = '';
-        for (let i= 0; i < splited.length; i++) {
-            if (i === splited.length -1) { // last word
-                result += splited[i];
-            } else {
-                result += splited[i] + this.SPACE + this.LINE_TERMINATOR + this.ZERO_OR_ONE;
-            }
-        }
-        console.debug(`result is: ${result}`);
-        return result.trim();
-    }
+   
 }

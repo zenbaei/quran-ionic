@@ -13,12 +13,13 @@ export class ArabicUtils {
     }
 
     public static removeTashkil(str: string): string {
-        console.debug(`Remove tashkil from [${str}]`);
+        console.debug(`Remove Tashkil from [${str}]`);
         for (let s of TASHKIL_CHARACTERS_ARRAY) {
             if (str.indexOf(s) > 0) {
                 str = StringUtils.replaceAll(str, s, EMPTY_STRING);
             }
         }
+        console.debug(`After removing Tashkil ${str}`);
         return str;
     }
 
@@ -46,7 +47,7 @@ export class ArabicUtils {
         for (let w of strArr) {
             result += SPACE + w;
         }
-
+        console.debug(`After removing middle Alef ${result.trim()}`);
         return result.trim();
     }
 
@@ -56,6 +57,7 @@ export class ArabicUtils {
      * @param str 
      */
     public static addRegexDotMetaCharInBetween(str: string) {
+        console.debug(`Add dot for zero or one time twice [${str}]`);
         let result: string = EMPTY_STRING;
         for (let i = 0; i < str.length; i++) {
             let char: string = str.charAt(i);
@@ -76,10 +78,12 @@ export class ArabicUtils {
      * @param str 
      */
     public static replaceAlefWithRegexDotMetaChar(str: string) {
+        console.debug(`Remove every Alef from [${str}]`);
         let result: string = str;
         for (let c of ALEFS) {
             result = StringUtils.replaceAll(result, c, ONE_CHAR + ZERO_OR_ONE);
         }
+        console.debug(`After removing every Alef ${result.trim()}`);
         return result;
     }
 
@@ -101,7 +105,7 @@ export class ArabicUtils {
         for (let w of splitStr) {
             result += w + SPACE;
         }
-
+        console.debug(`After removing first Alef ${result.trim()}`);
         return result.trim();
     }
 
@@ -120,7 +124,7 @@ export class ArabicUtils {
                 strWithoutRegex += s;
             }
         }
-        console.debug(`string without regex ${strWithoutRegex}`);
+        //console.debug(`string without regex ${strWithoutRegex}`);
         var match;
         while((match = regex.exec(strWithoutRegex.trim())) != null ) {
             if (match.index != 0 && match.index != strWithoutRegex.length - 1) {
