@@ -24,3 +24,21 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+# How to run it
+after checking out the app:
+
+install Dependencies: npm install
+
+run app: ionic serve
+
+test app: ng test
+
+test e2e: npm run e2e
+
+install platforms: ionic cordova platform add ios|browser|android
+ 
+run platform: ionic cordova run ios|browser|android
+
+note: any scripts provided in package.json can be run by: npm run <script name>
+
+

@@ -49,19 +49,22 @@ describe('QuranPageComponentHelper', () => {
         let stringToMatch: string = `ٱهۡدِنَا \n?ٱلصِّرَٰط`;
         let search: Search = new Search(stringToMatch, TestData.SURAT_AL_FATEHA);
         expect(search.test()).toBeTruthy();
-    })
+    });
 
-    it('Removing exccessed', () =>{
+    it(`Given quran content with 3 words and ayah with 2 words to match content are provided
+        When Search is called 
+        Then it should return only the matched 2 words with no more characters`, () => {
         let stringToMatch: string = "سَيَصلى نارًا";
-        let ayah: string = `سَيَصۡلَىٰ نَارٗا ذَات`;
+        let quranContent: string = `سَيَصۡلَىٰ نَارٗا ذَات`;
         let tafsir: Tafsir = new Tafsir(stringToMatch, 2, '');
-        let testToken_1 = `سَيَصۡلَىٰ نَارٗا`;
-        let testToken_2 = 'ذَاتَ';
-        let search: Search = new Search(QuranPageComponentHelper.normalizeString(stringToMatch), ayah);
-        expect(search.group()).toBe(testToken_1);
+        let quranContentExpectedMatch = `سَيَصۡلَىٰ نَارٗا`;
+        //let testToken_2 = 'ذَاتَ';
+        let search: Search = new Search(QuranPageComponentHelper.normalizeString(stringToMatch), quranContent);
+        expect(search.group()).toBe(quranContentExpectedMatch);
        /*
         let expected: string = `<span class="tafsir" data-toggle="popover" title="">${testToken_1}</span> ${testToken_2}`;
         let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, ayah);
-        expect(result).toEqual(expected);*/
+        expect(result).toEqual(expected);
+        */
     });
 });

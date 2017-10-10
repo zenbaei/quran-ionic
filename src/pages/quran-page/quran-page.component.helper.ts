@@ -30,10 +30,11 @@ export class QuranPageComponentHelper {
      * @param str 
      */
     public static normalizeString(str: string): string {
-        return  ArabicUtils.replaceFirstAlefCharWithAlefSkoon(
-                        ArabicUtils.removeMiddleAlef( 
-                          ArabicUtils.addRegexDotMetaCharInBetween( 
-                            ArabicUtils.removeTashkil(str))));//);
+        return RegexUtils.addLineBreakAfterEachWord(
+                RegexUtils.replaceFirstAlefCharWithAlefSkoon(
+                    RegexUtils.removeMiddleAlef( 
+                        RegexUtils.addRegexDotMetaCharInBetween( 
+                            RegexUtils.removeTashkil(str)))));
     }
 
     /*
@@ -45,10 +46,10 @@ export class QuranPageComponentHelper {
     }
     */
 
-    public static replace(source: string, what: string, replacement: string): string {
-        console.debug(`Replace [${what}] from source [${source}]`);
-        let regex: RegExp = new RegExp(what);
-        return source.replace(regex, replacement);
+    public static replace(target: string, pattern: string, replacement: string): string {
+        console.debug(`Replace [${pattern}] from target [${target}]`);
+        let regex: RegExp = new RegExp(pattern);
+        return target.replace(regex, replacement);
     }
 
    
