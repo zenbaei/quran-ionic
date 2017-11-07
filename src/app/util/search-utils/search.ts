@@ -47,4 +47,12 @@ export class Search {
         return this.match == null ? '' : this.match[0];
     }
 
+    /** not tested */
+    public static substring(source: string, search: Search): string {
+        let from: number = search.first();// + 2;
+        let to: number = search.length();// - 3;
+        console.debug(`Substring from [${from}] to [${to}] - source [${source}]`);
+        return source.substr(from, to);
+    }
+
 }

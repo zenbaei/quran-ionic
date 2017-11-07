@@ -9,7 +9,7 @@ import { ArabicUtils } from "../../app/util/arabic-utils/arabic-utils";
 import { Search } from "../../app/util/search-utils/search";
 import { StringUtils } from "../../app/util/string-utils/string-utils";
 import { QuranPageComponentHelper } from './quran-page.component.helper';
-import * as $ from 'jquery';
+//import * as $ from 'jquery'; // it causes popover to throw error becoz of jquery lib conflicts
 import * as bootstrap from 'bootstrap';
 
 @Component({
@@ -18,7 +18,7 @@ import * as bootstrap from 'bootstrap';
 })
 export class QuranPageComponent implements OnInit {
 
-  private PAGE_NUMBER_PARAM: string = 'pageNumber';
+  private readonly PAGE_NUMBER_PARAM: string = 'pageNumber';
   private currentPageNumber: number;
   private pageContent: string;
   private popoverElementsInitialized: boolean = false;
@@ -87,4 +87,5 @@ export class QuranPageComponent implements OnInit {
     popoverEl.popover();
     this.popoverElementsInitialized = true;
   }
+
 }

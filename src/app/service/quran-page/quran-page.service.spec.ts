@@ -6,6 +6,9 @@ import { QuranPageMetadata } from '../../domain/quran-page-metadata';
 import { HttpRequest } from '../../core/http/http-request';
 import { Observable } from 'rxjs';
 import { TestUtils } from '../../util/test-utils/test-utils';
+import { Search } from "../../util/search-utils/search";
+import * as TestData from "../../../test-data";
+import { Tafsir } from '../../domain/tafsir';
 
 describe('QuranPageService', () => {
 
@@ -96,4 +99,24 @@ describe('QuranPageService', () => {
                 expect(err instanceof RangeError).toBeTruthy();
             });
     });
+
+    it(`Given quran content with 3 words and ayah with 2 words to match content are provided
+        When normalizeString is used 
+        Then regex search should return only the matched 2 words with no more characters`, () => {
+            let stringToMatch: string = "سَيَصلى نارًا";
+            let quranContent: string = `سَيَصۡلَىٰ نَارٗا ذَات`;
+            let tafsir: Tafsir = new Tafsir(stringToMatch, 2, '');
+            let quranContentExpectedMatch = `سَيَصۡلَىٰ نَارٗا`;
+            let search: Search = new Search(QuranPageService.normalizeString(stringToMatch), quranContent);
+            expect(search.group()).toBe(quranContentExpectedMatch);
+    });
+
+    it(`Given tafsir ayah and mushaf content is provided 
+        When normalizeString is called 
+        Then Search should return true`, () => {
+            let tafsirAyah: string = QuranPageService.normalizeString('ٱلرحمن الرحيم');
+            let search: Search = new Search(tafsirAyah, TestData.SURAT_AL_FATEHA);
+            expect(search.test()).toBeTruthy();
+    });
+
 });

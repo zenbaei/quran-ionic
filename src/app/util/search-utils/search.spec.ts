@@ -52,4 +52,5 @@ describe('Search', () => {
         let search: Search = new Search(textToSearch, content);
         expect(search.test()).toBeTruthy();
     })
+
 });
