@@ -92,8 +92,8 @@ export class QuranPageService {
     public static normalizeString(str: string): string {
         return RegexUtils.addLineBreakAfterEachWord(
                 RegexUtils.replaceFirstAlefCharWithAlefSkoon(
-                    RegexUtils.replaceMiddleAlefsWithNonSpaceZeroOrOneTime( 
-                        RegexUtils.addRegexNonWhiteSpaceMetaCharInBetween( 
+                    RegexUtils.replaceMiddleAlefsWithNonSpaceZeroOrOneTime(
+                        RegexUtils.addRegexNonWhiteSpaceMetaCharInBetween(
                             RegexUtils.removeTashkil(str)))));
     }
 

@@ -24,24 +24,24 @@
     font-family: uthmanic;
 }
 
-.mushaf-content  {
-    @extend .mushaf-font;
-    font-size: 5vw;
-    text-align: center;
+.mushaf-content {
+    border: 3px solid black;
+    background-color: aliceblue;
+    font-family: uthmanic;
+    font-size: 3vw;
     white-space: pre-wrap;
     direction: rtl;
+    display: inline-block;
+    padding: 2%;
 }
 
 .mushaf-page-number {
-    @extend .mushaf-font;
     font-size: 12;
     text-align: center;
 }
 
 .mushaf-container {
-    border: 3px solid black;
-    margin: auto;
-    background-color: aliceblue;
+    text-align: center;
 }
 
 .tafsir {

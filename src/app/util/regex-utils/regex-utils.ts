@@ -149,6 +149,10 @@ export class RegexUtils {
         }
         return -1;
     }
+e
+    public static replaceWhiteSpaceWithRegexSpaceChar(str: string): string {
+        return str.replace(' ', WHITE_SPACE + ONE_OR_MORE);
+    }
 }
 
 
@@ -161,6 +165,8 @@ const ALEF_SKOON: string = "ٱ";
 const LINE_TERMINATOR = '\n';
 const SPACE = ' ';
 const ZERO_OR_ONE: string = "?";
+const WHITE_SPACE: string = "\\s";
+const ONE_OR_MORE = "+";
 const ALEFS: string[] = ["أ", "آ", "إ", "ٱ", "ا"];
 
 const TASHKIL_CHARACTERS_ARRAY: string[] = ["\u0610", "\u0611", "\u0612", "\u0613",

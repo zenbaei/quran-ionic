@@ -20,15 +20,17 @@ export class QuranPageComponent implements OnInit {
 
   private readonly PAGE_NUMBER_PARAM: string = 'pageNumber';
   private currentPageNumber: number;
-  private pageContent: string;
+  public pageContent: string;
   private popoverElementsInitialized: boolean = false;
+  private readonly FIRST_PAGE = 1;
+  private readonly LAST_PAGE = 604;
 
   constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
     private navCtl: NavController, private navParams: NavParams) {
   }
 
   ngOnInit() {
-    this.findPageContentByPageNumber(this.navParams.get(this.PAGE_NUMBER_PARAM));
+    this.findQuranPageByPageNumber(this.navParams.get(this.PAGE_NUMBER_PARAM));
   }
 
   ngAfterViewChecked() {
@@ -38,16 +40,28 @@ export class QuranPageComponent implements OnInit {
   }
 
   swipeEvent(event: any) {
-    if (event.direction == 2) { // right to left - previous
-      console.debug('swipe event - previous page');
-      this.findPageContentByPageNumber(this.currentPageNumber - 1);
-    } else if (event.direction == 4) {
-      console.debug('swipe event - next page');
-      this.findPageContentByPageNumber(this.currentPageNumber + 1);
+    let goToPage: number;
+
+    if (event.direction === 2) {
+      console.debug('swipe event - previous page in arabic');
+      if (this.currentPageNumber === this.FIRST_PAGE) {
+        return;
+      }
+      goToPage = this.currentPageNumber - 1;
+    } else if (event.direction === 4) {
+      console.debug('swipe event - next page in arabic');
+      if (this.currentPageNumber === this.LAST_PAGE) {
+        return;
+      }
+      goToPage = this.currentPageNumber + 1;
+    } else { //direction unidentified
+      return;
     }
+
+    this.findQuranPageByPageNumber(goToPage);
   }
 
-  private findPageContentByPageNumber(pageNumber: number): void {
+  public findQuranPageByPageNumber(pageNumber: number): void {
     this.quranPageService.findPageContentByPageNumber(pageNumber)
       .subscribe(content => {
         this.pageContent = content;
@@ -72,7 +86,7 @@ export class QuranPageComponent implements OnInit {
   }
 
   private isTafsirWithinCurrentPageAyahRange(tafsir: Tafsir, metadata: QuranPageMetadata): boolean {
-    if (tafsir.ayahNumber >= metadata.fromAray || tafsir.ayahNumber <= metadata.toAyah) {
+    if (tafsir.ayahNumber >= metadata.fromAyah && tafsir.ayahNumber <= metadata.toAyah) {
       return true;
     }
     return false;

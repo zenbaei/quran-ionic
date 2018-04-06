@@ -29,7 +29,9 @@ describe('QuranPageComponentHelper', () => {
         tafsirArr.forEach(tf => QuranPageComponentHelper.patchTafsirOnContent(tf, TestData.SURAT_AL_FATEHA));
     });
 
-    it(`Given a string with line break is provided When it's used to match content Then it should match the string with line break`, () => {
+    it(`Given a string with line break is provided 
+        When it's used to match content 
+        Then it should match the string with line break`, () => {
         let stringToMatch: string = `ٱهۡدِنَا \n?ٱلصِّرَٰط`;
         let search: Search = new Search(stringToMatch, TestData.SURAT_AL_FATEHA);
         expect(search.test()).toBeTruthy();
@@ -63,6 +65,20 @@ describe('QuranPageComponentHelper', () => {
             expect(result).toEqual(expected);
     });
 
+    it(`Given quran content and tafsir is provided 
+        When patchTafsirOnContent is called 
+        Then it should replace the matched string with tafsir span`, () => {
+            let tafsirText: string = "بربّ الصّـبْح والخَـلـْـق كلـّهمْ";
+            let tafsirAyah: string = "بربّ الفلق";
+            let ayahFromMushaf: string = "بِرَبِّ ٱلۡفَلَقِ";
+            let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
+            let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
+
+            let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
+            let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
+            expect(result).toEqual(expected);
+    });
+
     it(`Given quran content with a word inside span is provided
         When same word is provided again for tafisr 
         Then it should replace only the second word not one in span already`, () => {
@@ -72,6 +88,6 @@ describe('QuranPageComponentHelper', () => {
         let pageContent: string = content + ayah;
         let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, pageContent);
         expect(result).toEqual(content + content);
-});
+    });
 
 });
