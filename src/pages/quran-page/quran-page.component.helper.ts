@@ -2,6 +2,7 @@ import { ArabicUtils } from "../../app/util/arabic-utils/arabic-utils";
 import { Tafsir } from '../../app/domain/tafsir';
 import { Search } from "../../app/util/search-utils/search";
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
+import { RegexUtils } from "../../app/util/regex-utils/regex-utils";
 
 export class QuranPageComponentHelper {
 
@@ -29,5 +30,12 @@ export class QuranPageComponentHelper {
         
         return pageContentCopy;
     }
+
+    public static surrondEachLineInDiv(content: string): string {
+        let strArr: string[] = content.split('\n');
+        let newContent: string = '';
+        strArr.forEach(str => newContent += `<div>${str}</div>`);
+        return newContent;
+    } 
    
 }

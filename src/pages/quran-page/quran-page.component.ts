@@ -82,6 +82,7 @@ export class QuranPageComponent implements OnInit {
       .subscribe(tafsirArr => {
         tafsirArr.filter(tafsir => this.isTafsirWithinCurrentPageAyahRange(tafsir, metadata))
           .forEach( tafsir => this.pageContent = QuranPageComponentHelper.patchTafsirOnContent(tafsir, this.pageContent) );
+          this.pageContent = QuranPageComponentHelper.surrondEachLineInDiv(this.pageContent);
       });
   }
 
