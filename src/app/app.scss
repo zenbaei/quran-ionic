@@ -20,38 +20,8 @@
   src: url("../assets/fonts/uthmanicV9.otf") format("truetype");
 }
 
-.border {
-  border: 20px solid transparent;
-  //padding: 15px;
-  -webkit-border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 30 round; /* Safari 3.1-5 */
-    -o-border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 30 round; /* Opera 11-12.1 */
-    border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 30 round;
-}
-
 .mushaf-font {
     font-family: uthmanic;
 }
 
-.mushaf-content {
-    background-color: aliceblue;
-    font-family: uthmanic;
-    font-size: 4vw;
-    direction: rtl;
-    display: inline-block;
-    padding: 2%;
-    text-align: justify;
-    text-align-last: justify;
-}
 
-.mushaf-page-number {
-    font-size: 12;
-    text-align: center;
-}
-
-.mushaf-container {
-    text-align: center;
-}
-
-.tafsir {
-    color: red; 
-}
