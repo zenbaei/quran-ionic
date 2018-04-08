@@ -2,10 +2,10 @@ page-quran {
 
     .border {
         border: 20px solid transparent;
-        //padding: 15px;
         -webkit-border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 20 round; /* Safari 3.1-5 */
         -o-border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 20 round; /* Opera 11-12.1 */
         border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 20 round;
+        margin-top: 2px;
     }
 
     .mushaf-content {
@@ -23,13 +23,24 @@ page-quran {
     .mushaf-page-number {
         font-size: 3vw;
         text-align: center;
+        padding-top: 5px;
     }
     
     .mushaf-container {
         text-align: center;
     }
-    
-    .tafsir {
-        color: red; 
+
+   a {
+        color: red;
+        text-decoration: none;
+    }
+
+    a:focus {
+        text-decoration: none;
+    }
+
+    .popover-title {
+        font-size: 4vw;
+        font-weight: lighter;
     }
 }
