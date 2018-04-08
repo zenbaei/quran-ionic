@@ -5,20 +5,20 @@ import { MyApp } from '../../app/app.component';
 import { IonicModule, NavController, NavParams } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surah-index';
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
-import { QuranPageComponent } from './quran-page.component';
+import { QuranPage } from './quran';
 import { HttpModule } from '@angular/http';
 import { HttpRequest } from '../../app/core/http/http-request';
 import { Observable } from 'rxjs';
 
-describe('QuranPageComponent', () => {
-    let component: QuranPageComponent;
-    let fixture: ComponentFixture<QuranPageComponent>;
+describe('QuranPage', () => {
+    let component: QuranPage;
+    let fixture: ComponentFixture<QuranPage>;
     let quranPageService: QuranPageService;
     let surahIndexes: SurahIndex[] = [new SurahIndex('fateha', 1), new SurahIndex('bakara', 2)];
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [MyApp, QuranPageComponent],
+            declarations: [MyApp, QuranPage],
             providers: [QuranPageService, HttpRequest, NavController, NavParams],
             imports: [IonicModule.forRoot(MyApp), HttpModule]
         })
@@ -26,7 +26,7 @@ describe('QuranPageComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(QuranPageComponent);
+        fixture = TestBed.createComponent(QuranPage);
         quranPageService = TestBed.get(QuranPageService);
         component = fixture.componentInstance;
         spyOn(quranPageService, 'findPageContentByPageNumber').and.returnValue(Observable.of(surahIndexes));

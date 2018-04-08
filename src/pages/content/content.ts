@@ -3,13 +3,13 @@ import { NavController } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surah-index';
 import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { Observable } from 'rxjs';
-import { QuranPageComponent } from '../quran-page/quran-page.component';
+import { QuranPage } from '../quran/quran';
 
 @Component({
-  selector: 'quran-index',
-  templateUrl: 'quran-index.html'
+  selector: 'page-content',
+  templateUrl: 'content.html'
 })
-export class QuranIndexComponent implements OnInit {
+export class ContentPage implements OnInit {
 
   surahIndexes: Observable<SurahIndex[]>;
 
@@ -22,7 +22,7 @@ export class QuranIndexComponent implements OnInit {
 
   goToPage(pageNumber: number) {
     console.debug(`Go to page - pageNumber [${pageNumber}]`);
-    this.navCtrl.push(QuranPageComponent, {
+    this.navCtrl.push(QuranPage, {
       pageNumber: pageNumber
     });
   }

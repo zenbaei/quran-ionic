@@ -1,9 +1,9 @@
-import { QuranPageComponentHelper } from "./quran-page.component.helper";
+import { QuranPageHelper } from "./quran.helper";
 import { Search } from "../../app/util/search-utils/search";
 import * as TestData from "../../test-data";
 import { Tafsir } from '../../app/domain/tafsir';
 
-describe('QuranPageComponentHelper', () => {
+describe('QuranPageHelper', () => {
 
     let tafsirArr: Tafsir[] = [
         new Tafsir("ربّ العالمين", 2, "مربّيهم ومالكهم ومدبر أمورهم"),
@@ -20,13 +20,13 @@ describe('QuranPageComponentHelper', () => {
         let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
         let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
 
-        let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FATEHA);
+        let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FATEHA);
         let expected: string = TestData.SURAT_AL_FATEHA.replace(ayahFromMushaf, exptectedSpan);
         expect(result).toEqual(expected);
     });
 
     it('Given quran content and tafsir is provided When patchTafsirOnContent is called Then it should throw no Error exception', () => {
-        tafsirArr.forEach(tf => QuranPageComponentHelper.patchTafsirOnContent(tf, TestData.SURAT_AL_FATEHA));
+        tafsirArr.forEach(tf => QuranPageHelper.patchTafsirOnContent(tf, TestData.SURAT_AL_FATEHA));
     });
 
     it(`Given a string with line break is provided 
@@ -46,7 +46,7 @@ describe('QuranPageComponentHelper', () => {
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
             let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
 
-            let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
+            let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
             expect(result).toEqual(expected);
         });
@@ -60,7 +60,7 @@ describe('QuranPageComponentHelper', () => {
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
             let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
 
-            let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
+            let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
             expect(result).toEqual(expected);
     });
@@ -74,7 +74,7 @@ describe('QuranPageComponentHelper', () => {
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
             let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
 
-            let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
+            let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
             expect(result).toEqual(expected);
     });
@@ -86,7 +86,7 @@ describe('QuranPageComponentHelper', () => {
         let tafsir: Tafsir = new Tafsir(ayah, 2, '');
         let content: string = `<span class="tafsir" data-toggle="popover" title="">${ayah}</span>`;
         let pageContent: string = content + ayah;
-        let result: string = QuranPageComponentHelper.patchTafsirOnContent(tafsir, pageContent);
+        let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, pageContent);
         expect(result).toEqual(content + content);
     });
 

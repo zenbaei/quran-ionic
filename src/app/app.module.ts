@@ -3,9 +3,10 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { QuranIndexComponent } from '../pages/quran-index/quran-index.component';
-import { QuranPageComponent } from '../pages/quran-page/quran-page.component';
+import { ContentPage } from '../pages/content/content';
+import { QuranPage } from '../pages/quran/quran';
 import { ListPage } from '../pages/list/list';
+import { TafsirPopoverPage } from '../pages/tafsir-popover/tafsir-popover';
 import { QuranIndexService } from './service/quran-index/quran-index.service';
 import { QuranPageService } from './service/quran-page/quran-page.service';
 import { TafsirService } from './service/tafsir/tafsir.service';
@@ -20,11 +21,12 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
 @NgModule({
   declarations: [
     MyApp,
-    QuranIndexComponent,
+    ContentPage,
     ListPage,
-    QuranPageComponent,
+    QuranPage,
     ArabicNumberPipe,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    TafsirPopoverPage
   ],
   imports: [
     BrowserModule,
@@ -34,9 +36,10 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    QuranIndexComponent,
-    QuranPageComponent,
-    ListPage
+    ContentPage,
+    QuranPage,
+    ListPage,
+    TafsirPopoverPage
   ],
   providers: [
     StatusBar,

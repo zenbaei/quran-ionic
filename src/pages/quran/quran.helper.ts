@@ -4,7 +4,7 @@ import { Search } from "../../app/util/search-utils/search";
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
 import { RegexUtils } from "../../app/util/regex-utils/regex-utils";
 
-export class QuranPageComponentHelper {
+export class QuranPageHelper {
 
     // both below vars were added to prevent replacing word inside a span already
     private static readonly EXCLUDE: string = '(?!<)';

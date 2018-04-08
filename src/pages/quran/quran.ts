@@ -8,25 +8,26 @@ import { Observable } from 'rxjs';
 import { ArabicUtils } from "../../app/util/arabic-utils/arabic-utils";
 import { Search } from "../../app/util/search-utils/search";
 import { StringUtils } from "../../app/util/string-utils/string-utils";
-import { QuranPageComponentHelper } from './quran-page.component.helper';
+import { QuranPageHelper } from './quran.helper';
 //import * as $ from 'jquery'; // it causes popover to throw error becoz of jquery lib conflicts
 import * as bootstrap from 'bootstrap';
+import { TafsirPopoverPage } from '../tafsir-popover/tafsir-popover';
 
 @Component({
-  selector: 'quran-page',
-  templateUrl: 'quran-page.html'
+  selector: 'page-quran',
+  templateUrl: 'quran.html'
 })
-export class QuranPageComponent implements OnInit {
+export class QuranPage implements OnInit {
 
   private readonly PAGE_NUMBER_PARAM: string = 'pageNumber';
   private currentPageNumber: number;
   public pageContent: string;
-  private popoverElementsInitialized: boolean = false;
+  private popoverElementsInitializedOnPageNo: number; 
   private readonly FIRST_PAGE = 1;
   private readonly LAST_PAGE = 604;
 
   constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
-    private navCtl: NavController, private navParams: NavParams) {
+    private navCtl: NavController, private navParams: NavParams, private popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
@@ -34,7 +35,9 @@ export class QuranPageComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    if (!this.popoverElementsInitialized) {
+    // console.log('view checked:' + this.popoverElementsInitializedOnPageNo);
+    // all this condition because this ngAfterViewChecked does load multiple time on same page
+    if (!this.popoverElementsInitializedOnPageNo || this.currentPageNumber !== this.popoverElementsInitializedOnPageNo) {
       this.initPopoverElements();
     }
   }
@@ -81,8 +84,8 @@ export class QuranPageComponent implements OnInit {
     this.tafsirService.findTafsirBySurahNumber(metadata.surahNumber)
       .subscribe(tafsirArr => {
         tafsirArr.filter(tafsir => this.isTafsirWithinCurrentPageAyahRange(tafsir, metadata))
-          .forEach( tafsir => this.pageContent = QuranPageComponentHelper.patchTafsirOnContent(tafsir, this.pageContent) );
-          this.pageContent = QuranPageComponentHelper.surrondEachLineInDiv(this.pageContent);
+          .forEach( tafsir => this.pageContent = QuranPageHelper.patchTafsirOnContent(tafsir, this.pageContent) );
+          this.pageContent = QuranPageHelper.surrondEachLineInDiv(this.pageContent);
       });
   }
 
@@ -93,14 +96,41 @@ export class QuranPageComponent implements OnInit {
     return false;
   }
 
+  
+  /**
+   * The javascript click event if attached to the the innerHtml it won't fire.
+   * Therefore I have to set the event dynamically.
+   */
   private initPopoverElements(): void {
-    let popoverEl: JQuery<HTMLElement> = $('[data-toggle="popover"]');
-    if (popoverEl.length === 0) {
-      return;
-    }
-    console.debug('Initialize bootstrap popover elements');
-    popoverEl.popover();
-    this.popoverElementsInitialized = true;
+    this.initBootstrapPopover();
   }
 
+  initIonicPopover() {
+    let tafsirSpans: JQuery<HTMLElement> = $('.tafsir');
+    var self = this;
+    tafsirSpans.each(function () {
+      $(this).on("click", function () {
+        let popover = self.popoverCtrl.create(TafsirPopoverPage, {
+          el: this
+        });
+        popover.present();
+      })
+    });
+    this.popoverElementsInitializedOnPageNo = this.currentPageNumber; // don't move in the common method
+  }
+
+  /**
+   * It has an advantage over the ionic popover in that the popover position comes on top
+   * of the span rather that in a static position as ionic popover
+   */
+  initBootstrapPopover() {
+    let tafsirSpans: JQuery<HTMLElement> = $('[data-toggle="popover"]');
+
+    if (tafsirSpans.length === 0) {
+      return;
+    }
+
+    tafsirSpans.popover();
+    this.popoverElementsInitializedOnPageNo = this.currentPageNumber; // don't move in the common method
+  }
 }

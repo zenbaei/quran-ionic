@@ -1,6 +1,6 @@
 <ion-content>
   <div class="mushaf-container" (swipe)="swipeEvent($event)">
-        <div class="mushaf-content" [innerHtml]="pageContent | safeHtml"></div> 
+        <div class="mushaf-content border" [innerHtml]="pageContent | safeHtml"></div> 
   </div>
   <div class="mushaf-page-number">{{currentPageNumber | arabic}}</div>
 </ion-content>
