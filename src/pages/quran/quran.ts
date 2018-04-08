@@ -12,6 +12,7 @@ import { QuranPageHelper } from './quran.helper';
 //import * as $ from 'jquery'; // it causes popover to throw error becoz of jquery lib conflicts
 import * as bootstrap from 'bootstrap';
 import { TafsirPopoverPage } from '../tafsir-popover/tafsir-popover';
+import fstream from 'fstream';
 
 @Component({
   selector: 'page-quran',
@@ -35,10 +36,11 @@ export class QuranPage implements OnInit {
   }
 
   ngAfterViewChecked() {
-    // console.log('view checked:' + this.popoverElementsInitializedOnPageNo);
+    console.log('view checked:' + this.popoverElementsInitializedOnPageNo);
     // all this condition because this ngAfterViewChecked does load multiple time on same page
     if (!this.popoverElementsInitializedOnPageNo || this.currentPageNumber !== this.popoverElementsInitializedOnPageNo) {
       this.initPopoverElements();
+      this.writeHtmlToFile();
     }
   }
 
@@ -106,9 +108,9 @@ export class QuranPage implements OnInit {
   }
 
   initIonicPopover() {
-    let tafsirSpans: JQuery<HTMLElement> = $('.tafsir');
+    let tafsirAnchors: JQuery<HTMLElement> = $('.tafsir');
     var self = this;
-    tafsirSpans.each(function () {
+    tafsirAnchors.each(function () {
       $(this).on("click", function () {
         let popover = self.popoverCtrl.create(TafsirPopoverPage, {
           el: this
@@ -124,13 +126,22 @@ export class QuranPage implements OnInit {
    * of the span rather that in a static position as ionic popover
    */
   initBootstrapPopover() {
-    let tafsirSpans: JQuery<HTMLElement> = $('[data-toggle="popover"]');
+    let tafsirAnchors: JQuery<HTMLElement> = $('[data-toggle="popover"]');
 
-    if (tafsirSpans.length === 0) {
+    if (tafsirAnchors.length === 0) {
       return;
     }
 
-    tafsirSpans.popover();
+    tafsirAnchors.popover();
     this.popoverElementsInitializedOnPageNo = this.currentPageNumber; // don't move in the common method
+  }
+
+  writeHtmlToFile() {
+    let div: JQuery<HTMLElement> = $('.mushaf-content');
+    //fsconsole.log(div.html());
+    fstream
+    .Writer({ path: "tmp/test"})
+    .write("hello\n")
+    .end();
   }
 }
