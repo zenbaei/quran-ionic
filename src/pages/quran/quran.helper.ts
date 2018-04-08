@@ -36,6 +36,6 @@ export class QuranPageHelper {
         let newContent: string = '';
         strArr.forEach(str => newContent += `<div>${str}</div>`);
         return newContent;
-    } 
+    }
    
 }

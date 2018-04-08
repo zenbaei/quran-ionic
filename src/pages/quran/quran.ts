@@ -12,7 +12,6 @@ import { QuranPageHelper } from './quran.helper';
 //import * as $ from 'jquery'; // it causes popover to throw error becoz of jquery lib conflicts
 import * as bootstrap from 'bootstrap';
 import { TafsirPopoverPage } from '../tafsir-popover/tafsir-popover';
-import fstream from 'fstream';
 
 @Component({
   selector: 'page-quran',
@@ -32,11 +31,11 @@ export class QuranPage implements OnInit {
   }
 
   ngOnInit() {
-    this.findQuranPageByPageNumber(this.navParams.get(this.PAGE_NUMBER_PARAM));
+    this.currentPageNumber = this.navParams.get(this.PAGE_NUMBER_PARAM);
+    this.findQuranPageByPageNumber(this.currentPageNumber);
   }
 
   ngAfterViewChecked() {
-    console.log('view checked:' + this.popoverElementsInitializedOnPageNo);
     // all this condition because this ngAfterViewChecked does load multiple time on same page
     if (!this.popoverElementsInitializedOnPageNo || this.currentPageNumber !== this.popoverElementsInitializedOnPageNo) {
       this.initPopoverElements();
@@ -45,32 +44,30 @@ export class QuranPage implements OnInit {
   }
 
   swipeEvent(event: any) {
-    let goToPage: number;
 
     if (event.direction === 2) {
       console.debug('swipe event - previous page in arabic');
       if (this.currentPageNumber === this.FIRST_PAGE) {
         return;
       }
-      goToPage = this.currentPageNumber - 1;
+      this.currentPageNumber -= 1;
     } else if (event.direction === 4) {
       console.debug('swipe event - next page in arabic');
       if (this.currentPageNumber === this.LAST_PAGE) {
         return;
       }
-      goToPage = this.currentPageNumber + 1;
+      this.currentPageNumber += 1;
     } else { //direction unidentified
       return;
     }
 
-    this.findQuranPageByPageNumber(goToPage);
+    this.findQuranPageByPageNumber(this.currentPageNumber);
   }
 
   public findQuranPageByPageNumber(pageNumber: number): void {
     this.quranPageService.findPageContentByPageNumber(pageNumber)
       .subscribe(content => {
         this.pageContent = content;
-        this.currentPageNumber = pageNumber;
         this.findMetadataByPageNumber(pageNumber);
       });
   }
@@ -128,7 +125,7 @@ export class QuranPage implements OnInit {
   initBootstrapPopover() {
     let tafsirAnchors: JQuery<HTMLElement> = $('[data-toggle="popover"]');
 
-    if (tafsirAnchors.length === 0) {
+    if (tafsirAnchors.length === 0) { // content not displayed yet
       return;
     }
 
@@ -136,12 +133,13 @@ export class QuranPage implements OnInit {
     this.popoverElementsInitializedOnPageNo = this.currentPageNumber; // don't move in the common method
   }
 
-  writeHtmlToFile() {
+  public writeHtmlToFile(): void {
+    let tafsirAnchors: JQuery<HTMLElement> = $('[data-toggle="popover"]');
+    if (tafsirAnchors.length === 0) { // content not displayed yet
+      return;
+    }
     let div: JQuery<HTMLElement> = $('.mushaf-content');
-    //fsconsole.log(div.html());
-    fstream
-    .Writer({ path: "tmp/test"})
-    .write("hello\n")
-    .end();
+    this.quranPageService.writeToFile(this.currentPageNumber.toString(), div.html());
   }
+
 }

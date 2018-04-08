@@ -11,6 +11,7 @@ import { QuranIndexService } from './service/quran-index/quran-index.service';
 import { QuranPageService } from './service/quran-page/quran-page.service';
 import { TafsirService } from './service/tafsir/tafsir.service';
 import { HttpRequest } from './core/http/http-request';
+import { File } from '@ionic-native/file';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -48,6 +49,7 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
     QuranPageService,
     TafsirService,
     HttpRequest,
+    File,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

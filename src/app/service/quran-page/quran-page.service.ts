@@ -4,11 +4,14 @@ import { HttpRequest } from '../../core/http/http-request';
 import * as Constants from '../../all/constants';
 import { QuranPageMetadata } from '../../domain/quran-page-metadata';
 import { RegexUtils } from "../../util/regex-utils/regex-utils";
+import { File, IWriteOptions } from '@ionic-native/file';
 
 @Injectable()
 export class QuranPageService {
+    private LOCAL_FILE_PATH = 'file:///home/zenbaei/Documents/quran-html-output/';
+    private writeOption: IWriteOptions = {replace: true};
 
-    constructor(private httpRequest: HttpRequest) { }
+    constructor(private httpRequest: HttpRequest, private file: File) { }
 
     /**
    * Parses quran page metadata json string then deserializes it into an array of QuranPageMetadata.
@@ -95,6 +98,12 @@ export class QuranPageService {
                     RegexUtils.replaceMiddleAlefsWithNonSpaceZeroOrOneTime(
                         RegexUtils.addRegexNonWhiteSpaceMetaCharInBetween(
                             RegexUtils.removeTashkil(str)))));
+    }
+
+    public writeToFile(fileName: string, content: string): void {
+        console.log('Write file path ' + this.LOCAL_FILE_PATH + ' ' + content.substring(0, 10));
+        this.file.createFile(this.LOCAL_FILE_PATH, 'test.js', false)
+        //this.file.writeFile(this.LOCAL_FILE_PATH, fileName, content, this.writeOption);
     }
 
 }
