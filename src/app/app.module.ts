@@ -4,9 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { ContentPage } from '../pages/content/content';
-import { QuranPage } from '../pages/quran/quran';
-import { ListPage } from '../pages/list/list';
-import { TafsirPopoverPage } from '../pages/tafsir-popover/tafsir-popover';
+import { ContentPageModule } from '../pages/content/content.module';
+import { TabsPage } from '../pages/tabs/tabs';
+import { GoToPage } from '../pages/go-to/go-to';
 import { QuranIndexService } from './service/quran-index/quran-index.service';
 import { QuranPageService } from './service/quran-page/quran-page.service';
 import { TafsirService } from './service/tafsir/tafsir.service';
@@ -16,31 +16,25 @@ import { File } from '@ionic-native/file';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
-import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number.pipe';
-import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
 
 @NgModule({
   declarations: [
     MyApp,
-    ContentPage,
-    ListPage,
-    QuranPage,
-    ArabicNumberPipe,
-    SafeHtmlPipe,
-    TafsirPopoverPage
+    TabsPage,
+    GoToPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ContentPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ContentPage,
-    QuranPage,
-    ListPage,
-    TafsirPopoverPage
+    TabsPage,
+    GoToPage,
+    ContentPage
   ],
   providers: [
     StatusBar,

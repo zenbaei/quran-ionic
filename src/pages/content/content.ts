@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, IonicPage, Segment } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surah-index';
 import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { Observable } from 'rxjs';
 import { QuranPage } from '../quran/quran';
 
+@IonicPage({
+  segment: 'content'
+})
 @Component({
   selector: 'page-content',
   templateUrl: 'content.html'
@@ -22,7 +25,7 @@ export class ContentPage implements OnInit {
 
   goToPage(pageNumber: number) {
     console.debug(`Go to page - pageNumber [${pageNumber}]`);
-    this.navCtrl.push(QuranPage, {
+    this.navCtrl.push(QuranPage.name, {
       pageNumber: pageNumber
     });
   }

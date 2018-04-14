@@ -103,7 +103,7 @@ export class QuranPageService {
     public writeToFile(fileName: string, content: string): void {
         console.log('Write file path ' + this.LOCAL_FILE_PATH + ' ' + content.substring(0, 10));
         this.file.createFile(this.LOCAL_FILE_PATH, 'test.js', false)
-        //this.file.writeFile(this.LOCAL_FILE_PATH, fileName, content, this.writeOption);
+        this.file.writeFile(this.LOCAL_FILE_PATH, fileName, content, this.writeOption);
     }
 
 }

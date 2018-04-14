@@ -24,7 +24,7 @@ export class QuranPageHelper {
         }
 
         let matchedAyah: string = search.group().trim().replace(this.CHARS_TO_REMOVE, this.EMPTY);
-        let span: string = `<a href="#" class="tafsir" data-toggle="popover" data-placement="top" data-trigger="focus" data-viewport="" title="${tafsir.tafsir}">${matchedAyah}</a>`;
+        let span: string = `<span class="fake-link tafsir" data-toggle="popover" data-placement="top" data-trigger="click" data-viewport="" title="${tafsir.tafsir}">${matchedAyah}</span>`;
         let regex: RegExp = new RegExp(matchedAyah + this.EXCLUDE);
         pageContentCopy = pageContentCopy.replace(regex, span);
         

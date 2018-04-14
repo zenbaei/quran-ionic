@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { NavController, NavParams, PopoverController } from 'ionic-angular';
+import { Component, OnInit, ViewChild, ElementRef, } from '@angular/core';
+import { NavController, NavParams, PopoverController, IonicPage } from 'ionic-angular';
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
 import { Tafsir } from '../../app/domain/tafsir';
 import { TafsirService } from '../../app/service/tafsir/tafsir.service';
@@ -13,6 +13,12 @@ import { QuranPageHelper } from './quran.helper';
 import * as bootstrap from 'bootstrap';
 import { TafsirPopoverPage } from '../tafsir-popover/tafsir-popover';
 
+
+@IonicPage({
+  segment: 'quran/:pageNumber',
+  defaultHistory: ['ContentPage']
+})
+
 @Component({
   selector: 'page-quran',
   templateUrl: 'quran.html'
@@ -20,9 +26,7 @@ import { TafsirPopoverPage } from '../tafsir-popover/tafsir-popover';
 export class QuranPage implements OnInit {
 
   private readonly PAGE_NUMBER_PARAM: string = 'pageNumber';
-  private currentPageNumber: number;
   public pageContent: string;
-  private popoverElementsInitializedOnPageNo: number; 
   private readonly FIRST_PAGE = 1;
   private readonly LAST_PAGE = 604;
 
@@ -31,37 +35,34 @@ export class QuranPage implements OnInit {
   }
 
   ngOnInit() {
-    this.currentPageNumber = this.navParams.get(this.PAGE_NUMBER_PARAM);
-    this.findQuranPageByPageNumber(this.currentPageNumber);
+    let pageNumber: number = this.navParams.get(this.PAGE_NUMBER_PARAM);
+    this.isValidPageNumber(pageNumber);
+    this.findQuranPageByPageNumber(pageNumber);
   }
 
   ngAfterViewChecked() {
-    // all this condition because this ngAfterViewChecked does load multiple time on same page
-    if (!this.popoverElementsInitializedOnPageNo || this.currentPageNumber !== this.popoverElementsInitializedOnPageNo) {
-      this.initPopoverElements();
-      this.writeHtmlToFile();
+    this.initBootstrapPopover();
+  }
+
+  isValidPageNumber(pageNumber: number): boolean {
+    if (pageNumber === this.FIRST_PAGE || pageNumber === this.LAST_PAGE) {
+      return false;
     }
+    return true;
   }
 
   swipeEvent(event: any) {
+    let pageNumber: number = Number(this.navParams.get(this.PAGE_NUMBER_PARAM));
 
     if (event.direction === 2) {
-      console.debug('swipe event - previous page in arabic');
-      if (this.currentPageNumber === this.FIRST_PAGE) {
-        return;
-      }
-      this.currentPageNumber -= 1;
+      this.navCtl.push(QuranPage.name, {
+        'pageNumber': (pageNumber - 1)
+      });
     } else if (event.direction === 4) {
-      console.debug('swipe event - next page in arabic');
-      if (this.currentPageNumber === this.LAST_PAGE) {
-        return;
-      }
-      this.currentPageNumber += 1;
-    } else { //direction unidentified
-      return;
+      this.navCtl.push(QuranPage.name, {
+        'pageNumber': (pageNumber + 1)
+      });
     }
-
-    this.findQuranPageByPageNumber(this.currentPageNumber);
   }
 
   public findQuranPageByPageNumber(pageNumber: number): void {
@@ -83,8 +84,8 @@ export class QuranPage implements OnInit {
     this.tafsirService.findTafsirBySurahNumber(metadata.surahNumber)
       .subscribe(tafsirArr => {
         tafsirArr.filter(tafsir => this.isTafsirWithinCurrentPageAyahRange(tafsir, metadata))
-          .forEach( tafsir => this.pageContent = QuranPageHelper.patchTafsirOnContent(tafsir, this.pageContent) );
-          this.pageContent = QuranPageHelper.surrondEachLineInDiv(this.pageContent);
+          .forEach(tafsir => this.pageContent = QuranPageHelper.patchTafsirOnContent(tafsir, this.pageContent));
+        this.pageContent = QuranPageHelper.surrondEachLineInDiv(this.pageContent);
       });
   }
 
@@ -93,15 +94,6 @@ export class QuranPage implements OnInit {
       return true;
     }
     return false;
-  }
-
-  
-  /**
-   * The javascript click event if attached to the the innerHtml it won't fire.
-   * Therefore I have to set the event dynamically.
-   */
-  private initPopoverElements(): void {
-    this.initBootstrapPopover();
   }
 
   initIonicPopover() {
@@ -115,7 +107,6 @@ export class QuranPage implements OnInit {
         popover.present();
       })
     });
-    this.popoverElementsInitializedOnPageNo = this.currentPageNumber; // don't move in the common method
   }
 
   /**
@@ -130,7 +121,6 @@ export class QuranPage implements OnInit {
     }
 
     tafsirAnchors.popover();
-    this.popoverElementsInitializedOnPageNo = this.currentPageNumber; // don't move in the common method
   }
 
   public writeHtmlToFile(): void {
@@ -139,7 +129,6 @@ export class QuranPage implements OnInit {
       return;
     }
     let div: JQuery<HTMLElement> = $('.mushaf-content');
-    this.quranPageService.writeToFile(this.currentPageNumber.toString(), div.html());
   }
 
 }

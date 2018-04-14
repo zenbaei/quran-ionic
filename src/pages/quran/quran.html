@@ -2,5 +2,5 @@
   <div class="mushaf-container" (swipe)="swipeEvent($event)">
         <div class="mushaf-content border" [innerHtml]="pageContent | safeHtml"></div> 
   </div>
-  <div class="mushaf-page-number">{{currentPageNumber | arabic}}</div>
+  <div class="mushaf-page-number">{{navParams.get(PAGE_NUMBER_PARAM) | arabic}}</div>
 </ion-content>
