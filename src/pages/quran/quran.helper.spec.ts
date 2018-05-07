@@ -5,6 +5,8 @@ import { Tafsir } from '../../app/domain/tafsir';
 
 describe('QuranPageHelper', () => {
 
+    let STATIC_SPAN_CONTENT = 'class="fake-link tafsir" data-toggle="popover" data-placement="top" data-trigger="click"';
+
     let tafsirArr: Tafsir[] = [
         new Tafsir("ربّ العالمين", 2, "مربّيهم ومالكهم ومدبر أمورهم"),
         new Tafsir("يوم الدّين", 4, "يوم الجزاء"),
@@ -18,7 +20,7 @@ describe('QuranPageHelper', () => {
         let tafsirAyah: string = "ربّ العالمين";
         let ayahFromMushaf: string = "رَبِّ ٱلۡعَٰلَمِينَ";
         let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-        let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
+        let exptectedSpan: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf}</span>`;
 
         let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FATEHA);
         let expected: string = TestData.SURAT_AL_FATEHA.replace(ayahFromMushaf, exptectedSpan);
@@ -37,6 +39,24 @@ describe('QuranPageHelper', () => {
         expect(search.test()).toBeTruthy();
     });
 
+    it(`Given a string with line break is provided 
+    When it's matched and patchTafsirOnContent is called 
+    Then it should replace the matched strings with 2 tafsir span`, () => {
+        let tafsirText: string = "تفسير";
+        let tafsirAyah: string = "اهدنا الصّراط";
+        let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
+        let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FATEHA);
+
+        let ayahFromMushaf_1: string = `ٱهۡدِنَا`;
+        let ayahFromMushaf_2: string = `ٱلصِّرَٰطَ`;
+        let exptectedSpan_1: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf_1}</span>`;
+        let exptectedSpan_2: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf_2}</span>`;        
+        let expected: string = TestData.SURAT_AL_FATEHA.replace(ayahFromMushaf_1, exptectedSpan_1);
+        expected = expected.replace(ayahFromMushaf_2, exptectedSpan_2);
+
+        expect(result).toEqual(expected);
+    });
+
     it(`Given quran content for surat elfalaq 1 and tafsir is provided 
         When patchTafsirOnContent is called 
         Then it should replace the matched string with tafsir span`, () => {
@@ -44,7 +64,7 @@ describe('QuranPageHelper', () => {
             let tafsirAyah: string = "أعوذ";
             let ayahFromMushaf: string = "أَعُوذُ";
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-            let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
+            let exptectedSpan: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf}</span>`;
 
             let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
@@ -58,7 +78,7 @@ describe('QuranPageHelper', () => {
             let tafsirAyah: string = "بربّ الفلق";
             let ayahFromMushaf: string = "بِرَبِّ ٱلۡفَلَقِ";
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-            let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
+            let exptectedSpan: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf}</span>`;
 
             let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
@@ -72,7 +92,7 @@ describe('QuranPageHelper', () => {
             let tafsirAyah: string = "بربّ الفلق";
             let ayahFromMushaf: string = "بِرَبِّ ٱلۡفَلَقِ";
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-            let exptectedSpan: string = `<span class="tafsir" data-toggle="popover" title="${tafsirText}">${ayahFromMushaf}</span>`;
+            let exptectedSpan: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf}</span>`;
 
             let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
@@ -84,7 +104,7 @@ describe('QuranPageHelper', () => {
         Then it should replace only the second word not one in span already`, () => {
         let ayah: string = "ٱعوذ";
         let tafsir: Tafsir = new Tafsir(ayah, 2, '');
-        let content: string = `<span class="tafsir" data-toggle="popover" title="">${ayah}</span>`;
+        let content: string = `<span ${STATIC_SPAN_CONTENT} title="">${ayah}</span>`;
         let pageContent: string = content + ayah;
         let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, pageContent);
         expect(result).toEqual(content + content);

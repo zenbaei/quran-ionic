@@ -1,15 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, Input, ElementRef, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { QuranPage } from '../quran/quran';
+import { ContentPage } from '../content/content';
+import { AppUtils } from '../../app/util/app-utils/app-utils';
 
 
-/**
- * Generated class for the GoToPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage({
   name: 'GoToPage',
   segment: 'goTo'
@@ -19,19 +15,53 @@ import { QuranPage } from '../quran/quran';
   templateUrl: 'go-to.html',
 })
 export class GoToPage {
-  pageNumber: number;
+  @ViewChild('input') pageNumberEl;
+  pageNumber: string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-   // console.log('ionViewDidLoad GoToPage');
+  ngAfterViewChecked() {
+    this.pageNumberEl.setFocus();
   }
 
   goToPage() {
+    let pageNumber: number = Number(this.pageNumber.trim());
+    this.reset();
+    this.navigateToQuranPage(pageNumber);
+  }
+
+  cancel() {
+    let pageNumber: number = Number(this.getPageNumber());
+    if (!pageNumber) { // back when on content page, there will be no page number yet
+      this.navCtrl.push(ContentPage.name);
+    }
+    this.navigateToQuranPage(pageNumber);
+  }
+
+  reset() {
+    this.pageNumber = '';
+  }
+
+  /*
+  * QuranPage ngOnInit will be called after pushing the page.
+  */
+  navigateToQuranPage(pageNumber: number) {
+    if (!pageNumber || !AppUtils.isValidPageNumber(pageNumber)) {
+      return;
+    }
+    
     this.navCtrl.push(QuranPage.name, {
-      'pageNumber': this.pageNumber
+      'pageNumber': pageNumber
     });
+  }
+
+  getPageNumber(): string {
+    let pagNumStr = this.navParams.get('pageNumber');
+    if (!pagNumStr || pagNumStr === null) {
+      return '';
+    }
+    return pagNumStr.trim();
   }
 
 }

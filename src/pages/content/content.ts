@@ -24,7 +24,6 @@ export class ContentPage implements OnInit {
   }
 
   goToPage(pageNumber: number) {
-    console.debug(`Go to page - pageNumber [${pageNumber}]`);
     this.navCtrl.push(QuranPage.name, {
       pageNumber: pageNumber
     });

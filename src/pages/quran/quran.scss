@@ -11,13 +11,17 @@ page-quran {
     .mushaf-content {
         background-color: aliceblue;
         font-family: uthmanic;
-        font-size: 4vw;
-        line-height: 5.7vh;
+        font-size: 3.6vw;
+        line-height: 5.3vh;
         direction: rtl;
         //display: inline-block;
         padding: 2%;
         text-align: justify;
         text-align-last: justify;
+    }
+
+    .no-justify {
+        text-align-last: center;
     }
     
     .mushaf-page-number {

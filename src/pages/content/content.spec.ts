@@ -74,7 +74,7 @@ describe('ContentPage', () => {
     let de: DebugElement = fixture.debugElement.queryAll(By.css('.button'))[1];
     de.triggerEventHandler('click', null);
 
-    expect(navCtrl.push).toHaveBeenCalledWith(QuranPage, {pageNumber: 2});
+    expect(navCtrl.push).toHaveBeenCalledWith('QuranPage', {pageNumber: 2});
   });
 
 });

@@ -219,11 +219,40 @@ describe('QuranPageService', () => {
         expect(search.test()).toBeTruthy();
     });
 
-    
-    //أنّى يحيي
-    
+    it(`Given tafsir ayah and mushaf content with 3 tashkil after a characher is provided 
+    When normalizeString is called 
+    Then Search should return true - case no 10`, () => {
+        let quran: string = 'كُونُواْ رَبَّٰنِيِّ‍ۧنَ';
+        let tafsir: string = 'كُونُواْ رَبَّٰ.?نِيِّ‍ۧنَ';
+        let tafsirAyah: string = QuranPageService.normalizeString(tafsir);
+        let search: Search = new Search(tafsirAyah, quran);
+        expect(search.test()).toBeTruthy();
+    });
 
-    
-    
+    it(`Given tafsir ayah and mushaf content with 3 tashkil after a characher is provided 
+    When normalizeString is called 
+    Then Search should return true - case no 11`, () => {
+        let quran: string = 'لَهُۥٓ أَسۡلَمَ';
+        let tafsir: string = 'لَهُۥٓ.? أَسۡلَمَ';
+        let tafsirAyah: string = QuranPageService.normalizeString(tafsir);
+        let search: Search = new Search(tafsirAyah, quran);
+        expect(search.test()).toBeTruthy();
+    });
 
+    it(`Given tafsir ayah and mushaf content with 3 tashkil after a characher is provided 
+    When normalizeString is called 
+    Then Search should return true - case no 12`, () => {
+        let quran: string = TestData.SURAT_AL_NISAA_PG_1;
+        let tafsir_1: string = 'ألاّ تعولوا';
+        let tafsir_2: string = 'ذَٰلِكَ أَدۡنَىٰٓ أَلَّا تَعُولُواْ';
+        
+        let tafsirAyah_1: string = QuranPageService.normalizeString(tafsir_1);
+        let search_1: Search = new Search(tafsirAyah_1, quran);
+        expect(search_1.test()).toBeTruthy();
+
+        let tafsirAyah_2: string = QuranPageService.normalizeString(tafsir_2);
+        let search_2: Search = new Search(tafsirAyah_2, quran);
+        expect(search_2.test()).toBeTruthy();
+    });
+    
 });

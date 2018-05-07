@@ -17,3 +17,20 @@ side effects:
 1- having jquery + bootstrap as dependencies
 2- adding data-toggle attribute to tafsir div using 'ngAfterViewChecked' which is called multiple
    times during page rendering
+
+
+popup when on top or max left the words got hidden
+
+page 67: سنن -- اضطريت احط قبلها "قبلكم" حتى لا يوضع التفسير على كلمة المحسنين
+
+ذكرهم بأيام الله (اضطريت اشيل الله لانها مش عايز تعمل ماتش)ب
+
+when there is error with page span, it'is that one tafsir word matches a following ayah word,
+i handle it now by adding a prefix or suffix for ayah word to match a word before or after
+depending on the closest meaning
+
+metadata files: mistake was found, when metadata file has 2 surahs, the first surah has the next surah number
+which results in not finding last page tafisr
+
+back should not return to previous page
+orientation is not good for view
