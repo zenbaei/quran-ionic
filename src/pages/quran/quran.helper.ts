@@ -3,6 +3,7 @@ import { Tafsir } from '../../app/domain/tafsir';
 import { Search } from "../../app/util/search-utils/search";
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
 import { RegexUtils } from "../../app/util/regex-utils/regex-utils";
+import { StringUtils } from '../../app/util/string-utils/string-utils';
 
 export class QuranPageHelper {
 
@@ -12,7 +13,7 @@ export class QuranPageHelper {
     private static readonly EMPTY: string = '';
     private static readonly LINE_BREAK: string = '\n';
     private static readonly NO_JUSTIFY_CLASS = `class='no-justify'`;
-    private static readonly SPAN_CLASS = `class="fake-link tafsir" data-toggle="popover" data-placement="top" data-trigger="click"`;
+    private static readonly SPAN_CLASS = `class="fake-link tafsir" tabindex="0" data-toggle="popover" data-placement="top" data-trigger="focus"`;
     /*
     * This will result in exact matching 'ayah' from tafsir. it was introduced to avoid matching quran ayah to tafsir.
     * like 'بَلَىٰ' from yassen 18 matches tafsir {"ayah":"هي رميم", "ayahNumber":78, "tafsir":"بالية أشدّ البلى"}
@@ -46,11 +47,11 @@ export class QuranPageHelper {
         */
         if (matchedAyah.indexOf(this.LINE_BREAK) > 0) {
             matchings = matchedAyah.split(this.LINE_BREAK);
-            let span_1: string = `<span ${this.SPAN_CLASS} title="${tafsir.tafsir}">${matchings[0].trim()}</span> `;
-            let span_2: string = `<span ${this.SPAN_CLASS} title="${tafsir.tafsir}">${matchings[1].trim()}</span>`;
+            let span_1: string = `<a ${this.SPAN_CLASS} title="${tafsir.tafsir}">${matchings[0].trim()}</a> `;
+            let span_2: string = `<a ${this.SPAN_CLASS} title="${tafsir.tafsir}">${matchings[1].trim()}</a>`;
             spans.push(span_1, span_2);
         } else {
-            let span_1: string = `<span class="fake-link tafsir" data-toggle="popover" data-placement="top" data-trigger="click" title="${tafsir.tafsir}">${matchedAyah}</span>`;
+            let span_1: string = `<a ${this.SPAN_CLASS} title="${tafsir.tafsir}">${matchedAyah}</a>`;
             spans.push(span_1);
         }
         
@@ -69,9 +70,16 @@ export class QuranPageHelper {
     }
 
     public static surrondEachLineInDiv(content: string): string {
+        if (content.indexOf('div') >= 0) { //in case of page with 2 or more metadata, surrondEachLineInDiv is called per every surah metadata
+            return;
+        }
         let strArr: string[] = content.split('\n');
         let newContent: string = '';
         strArr.forEach(str => {
+            if (newContent === '') { //first-line
+                str = QuranPageHelper.replacePopoverTopWithButtom(str);
+            }
+
             if (str.trim().split(' ').length === 2 || str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
                     (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === 'بِسۡمِ') ) { // 'سورة النساء' || بسم الله الرحمن الرحيم
                 newContent += `<div ${this.NO_JUSTIFY_CLASS}>${str}</div>`;
@@ -82,4 +90,11 @@ export class QuranPageHelper {
         return newContent;
     }
    
+    /**
+     * It was added to avoid getting tafsir popover hidden when on first line.
+     * @param str 
+     */
+    private static replacePopoverTopWithButtom(str: string): string {
+        return StringUtils.replaceAll(str, 'top', 'bottom');
+    }
 }

@@ -24,9 +24,12 @@
     font-family: uthmanic;
 }
 
-
 .fake-link {
   color: red;
-  //text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
+}
+
+.fake-link:hover, .fake-link:focus {
+  text-decoration: none;
 }

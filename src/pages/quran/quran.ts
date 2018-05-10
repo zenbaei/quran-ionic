@@ -1,61 +1,81 @@
-import { Component, OnInit, ViewChild, ElementRef, } from '@angular/core';
-import { NavController, NavParams, PopoverController, IonicPage } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavParams } from 'ionic-angular';
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
+import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { Tafsir } from '../../app/domain/tafsir';
 import { TafsirService } from '../../app/service/tafsir/tafsir.service';
 import { QuranPageMetadata } from '../../app/domain/quran-page-metadata';
-import { Observable } from 'rxjs';
-import { ArabicUtils } from "../../app/util/arabic-utils/arabic-utils";
-import { Search } from "../../app/util/search-utils/search";
-import { StringUtils } from "../../app/util/string-utils/string-utils";
 import { QuranPageHelper } from './quran.helper';
-import { ContentPage } from '../content/content';
-//import * as $ from 'jquery'; // it causes popover to throw error becoz of jquery lib conflicts
-import * as bootstrap from 'bootstrap';
-import { TafsirPopoverPage } from '../tafsir-popover/tafsir-popover';
 import { AppUtils } from "../../app/util/app-utils/app-utils";
-
-
-@IonicPage({
-  segment: 'quran/:pageNumber',
-  defaultHistory: ['ContentPage']
-})
+import { Storage } from '@ionic/storage';
+import * as Constants from '../../app/all/constants';
+import { ArabicUtils } from '../../app/util/arabic-utils/arabic-utils';
+import { SurahIndex } from '../../app/domain/surah-index';
 
 @Component({
   selector: 'page-quran',
   templateUrl: 'quran.html'
 })
-export class QuranPage implements OnInit {
+export class QuranPage {
 
-  private readonly PAGE_NUMBER_PARAM: string = 'pageNumber';
-  public pageContent: string;
-  public current_page_number: number = 0;
+  private pageContent: string;
+  private currentPageNumber: number = -1;
+  private arabicPageNumber: string= '';
 
   constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
-    private navCtl: NavController, private navParams: NavParams, private popoverCtrl: PopoverController) {
+    private storage: Storage, private navParams: NavParams, private quranIndexService: QuranIndexService) {
   }
 
-  ngOnInit() {
-    let pageNumber: number = Number(this.navParams.get(this.PAGE_NUMBER_PARAM));
-    if (!pageNumber) { // when editing the url by hand with wrong entry like; /quran/sfd
-      this.navCtl.push(ContentPage.name);
-      return;
-    }
-    this.current_page_number = pageNumber;
-    this.findQuranPageByPageNumber(pageNumber);
+  /**
+   * Called every time the view is rendered (navigated to from another page)
+   * use case; when selecting surah from content page and on opening application.
+   */
+  ionViewDidEnter() {
+    this.getPageNumberFromStorageAndLoad();
+  }
+
+  /**
+   * This will be called after reselecting(re-tap or re-click) Quran tab from tabs page.
+   * use case; after using go-to-popover.
+   */
+  ionSelected(){
+    this.getPageNumberFromStorageAndLoad();
+  }
+
+  getPageNumberFromStorageAndLoad() {
+    this.storage.get(Constants.PAGE_NUMBER_PARAM).then(val => {
+      if (val === null) {
+        this.loadPage(1);
+      } else {
+        this.loadPage(val);
+      }
+    });
   }
 
   ngAfterViewChecked() {
-    this.initBootstrapPopover();
+    // had to do this check to avoid calling before the view is rendered
+    // also when added to ionViewDidEnter, it's called before rendering the view
+    if (this.currentPageNumber > 0) { // means it has been set by loadPage
+      this.initBootstrapPopover();
+    }
+  }
+
+  loadPage(pageNumber: number) {
+    if (!AppUtils.isValidPageNumber(pageNumber)) {
+      return;
+    }
+    this.storage.set(Constants.PAGE_NUMBER_PARAM, pageNumber).then(val => {
+      this.currentPageNumber = pageNumber;
+      this.arabicPageNumber = ArabicUtils.toArabicNumber(pageNumber);
+      this.findQuranPageByPageNumber(pageNumber);
+    });
   }
 
   swipeEvent(event: any) {
-    let pageNumber: number = Number(this.navParams.get(this.PAGE_NUMBER_PARAM));
-    
     if (event.direction === 2) {
-      this.navigateToQuranPage(pageNumber - 1);
+      this.loadPage(this.currentPageNumber - 1);
     } else if (event.direction === 4) {
-      this.navigateToQuranPage(pageNumber + 1);
+      this.loadPage(this.currentPageNumber + 1);
     }
   }
 
@@ -70,21 +90,10 @@ export class QuranPage implements OnInit {
   private findMetadataByPageNumber(pageNumber: number): void {
     this.quranPageService.findPageMetadataByPageNumber(pageNumber)
       .subscribe(metadataArr => {
-        metadataArr.forEach(metadata => this.findTafsirByMetadata(metadata))
+        metadataArr.forEach(metadata => this.findTafsirByMetadata(metadata));
+        this.setGozeAndHezb(metadataArr[0]);
+        this.setSurahNames(metadataArr);
       });
-  }
-
-  /*
-  * ngOnInit will be called after pushing the page.
-  */
-  private navigateToQuranPage(pageNumber: number): void {
-    if (!AppUtils.isValidPageNumber(pageNumber)) {
-      return;
-    }
-    this.navCtl.pop();
-    this.navCtl.push(QuranPage.name, {
-      'pageNumber': pageNumber
-    });
   }
 
   private findTafsirByMetadata(metadata: QuranPageMetadata): void {
@@ -103,18 +112,24 @@ export class QuranPage implements OnInit {
     return false;
   }
 
-  initIonicPopover() {
-    let tafsirAnchors: JQuery<HTMLElement> = $('.tafsir');
-    var self = this;
-    tafsirAnchors.each(function () {
-      $(this).on("click", function () {
-        let popover = self.popoverCtrl.create(TafsirPopoverPage, {
-          el: this
-        });
-        popover.present();
-      })
-    });
+  private setGozeAndHezb(metadata: QuranPageMetadata) {
+    localStorage.setItem(Constants.GOZE, metadata.goze.toString());
+    localStorage.setItem(Constants.HEZB, metadata.hezb);
   }
+
+  private setSurahNames(metadataArr: QuranPageMetadata[]) {
+    let surahNames: string = '';
+    metadataArr.forEach(meta => {
+      if (meta.fromAyah !== 0 && meta.toAyah !== 0) { // like page 76
+        let surahIndex: SurahIndex = this.quranIndexService.surahIndexArr[(meta.surahNumber - 1)];
+        if (surahNames !== '') {
+          surahNames+= ' - '
+        }
+        surahNames += surahIndex.surahName;
+      }
+    });
+    localStorage.setItem(Constants.SURAH_NAME, surahNames);  
+  } 
 
   /**
    * It has an advantage over the ionic popover in that the popover position comes on top
@@ -135,7 +150,7 @@ export class QuranPage implements OnInit {
     if (tafsirAnchors.length === 0) { // content not displayed yet
       return;
     }
-    let div: JQuery<HTMLElement> = $('.mushaf-content');
+    //let div: JQuery<HTMLElement> = $('.mushaf-content');
   }
 
 }

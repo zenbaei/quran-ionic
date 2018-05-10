@@ -41,4 +41,7 @@ run platform: ionic cordova run ios|browser|android
 
 note: any scripts provided in package.json can be run by: npm run <script name>
 
+# Build for deployment:
+ionic cordova build android --prod --release
+sign using kalemat keystore: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore kalemat-key-store.jks android-release-unsigned.apk kalemat
 

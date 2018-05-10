@@ -1,1 +1,3 @@
-[{"fromAyah":1,"toAyah":6,"surahNumber":109},{"fromAyah":1,"toAyah":3,"surahNumber":110},{"fromAyah":1,"toAyah":5,"surahNumber":111}]
+[{"fromAyah":1,"toAyah":6,"surahNumber":109, "goze": 30, "hezb": "ثلاثة أرباع الحزب 60"},
+{"fromAyah":1,"toAyah":3,"surahNumber":110, "goze": 30, "hezb": "ثلاثة أرباع الحزب 60"},
+{"fromAyah":1,"toAyah":5,"surahNumber":111, "goze": 30, "hezb": "ثلاثة أرباع الحزب 60"}]

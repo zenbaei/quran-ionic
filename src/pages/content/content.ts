@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, IonicPage, Segment } from 'ionic-angular';
+import { NavParams, IonicPage, Tabs } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surah-index';
 import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { Observable } from 'rxjs';
 import { QuranPage } from '../quran/quran';
+import { Storage } from '@ionic/storage';
+import * as Constants from '../../app/all/constants';
 
-@IonicPage({
-  segment: 'content'
-})
+@IonicPage()
 @Component({
   selector: 'page-content',
   templateUrl: 'content.html'
 })
 export class ContentPage implements OnInit {
-
   surahIndexes: Observable<SurahIndex[]>;
 
-  constructor(private surahIndexService: QuranIndexService, private navCtrl: NavController) {
+  constructor(private surahIndexService: QuranIndexService, private navParams: NavParams,
+    private storage: Storage) {
   }
 
   ngOnInit(): void {
-    this.surahIndexes = this.surahIndexService.getQuranIndex();
+    this.surahIndexes = this.surahIndexService.surahIndexArray;
   }
 
   goToPage(pageNumber: number) {
-    this.navCtrl.push(QuranPage.name, {
-      pageNumber: pageNumber
+    this.storage.set(Constants.PAGE_NUMBER_PARAM, pageNumber).then(val => {
+      this.navParams.data.mushafTabs.select(0);
     });
   }
 }

@@ -9,8 +9,15 @@ import { Observable } from 'rxjs';
 export class QuranIndexService {
 
   private readonly QURAN_INDEX_FILE_URL: string = Constants.MUSHAF_DATA_DIR + 'quran.index';
+  public surahIndexArray: Observable<SurahIndex[]>;
+  public surahIndexArr: SurahIndex[];
 
-  constructor(private httpRequest: HttpRequest) { }
+  constructor(private httpRequest: HttpRequest) {
+    this.surahIndexArray = this.getQuranIndex();
+    this.surahIndexArray.subscribe(arr => {
+      this.surahIndexArr = arr;
+    })
+  }
 
   /**
    * Parses quran indexes string then deserializes it into an array of SurahIndex.
@@ -18,7 +25,7 @@ export class QuranIndexService {
    * @param surahIndexJsonArr a string containg SurahIndex in json format, 
    * expected format [{surahName:"",pageNumber:1},..]
    */
-  fromJson(surahIndexJsonArr: string): SurahIndex[] {
+  private fromJson(surahIndexJsonArr: string): SurahIndex[] {
     console.debug(`Deserialize json string into array of SurahIndex`);
     let surahIndexArr: Array<SurahIndex> = new Array();
     let jsonArr: any = JSON.parse(surahIndexJsonArr);
@@ -32,7 +39,7 @@ export class QuranIndexService {
    * Calls http get quran.index file then calls {@link SurahIndexService#fromJson}.
    * @see HttpRequest#get
    */
-  getQuranIndex(): Observable<SurahIndex[]> {
+  private getQuranIndex(): Observable<SurahIndex[]> {
     console.debug('Get quran index file');
     return this.httpRequest.get(this.QURAN_INDEX_FILE_URL)
       .map((res: Response) => this.fromJson(res.text()));

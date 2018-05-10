@@ -1,0 +1,15 @@
+<ion-content>
+    <form (ngSubmit)='goToPage()'>
+      <ion-card>
+        <ion-card-content>
+          <ion-list no-line>
+            <ion-item>
+              <ion-input #input [(ngModel)]='pageNumber' type="text" placeholder="رقم الصفحة" name='pageNumber'></ion-input>
+            </ion-item>
+            <button ion-button block type="submit">موافق</button>
+            <button ion-button block type="button" (click)='cancel()'>الغاء</button>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </form>
+  </ion-content>

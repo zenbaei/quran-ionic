@@ -1,5 +1,6 @@
-<ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="الفهرس" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="اذهب إلى" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
+<ion-tabs #mushafTabs>
+  <ion-tab [root]="tab1Root" tabTitle="{{surahName}}" tabIcon="book" ></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="الفهرس" [rootParams]="params" tabIcon="clipboard"></ion-tab>
+  <ion-tab tabTitle="إذهب إلى" (ionSelect)='showGoToPopoverPage()' tabIcon="arrow-forward"></ion-tab>
+  <ion-tab tabTitle="{{gozeAndHezb}}"></ion-tab>
 </ion-tabs>

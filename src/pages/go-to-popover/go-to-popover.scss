@@ -1,0 +1,32 @@
+go-to-popover {
+    
+    .popover-content {
+        background-color: black;
+        width: 0;
+        padding: 2px, 2px;
+    }
+
+    ion-card.card {
+		box-shadow: none;
+		background: rgba(0, 0, 0, 0.5);
+		border-radius: 5px;
+    }
+    
+    .list > .item-block:first-child {
+		border: medium none;
+	}
+
+	.item {
+		margin-bottom: 10px;
+		background: rgba(255, 255, 255, 0.5);
+		border: medium none;
+
+		.text-input, {
+			color: black;
+        }
+	}
+
+	::-webkit-scrollbar {
+		display:none;
+	}
+}

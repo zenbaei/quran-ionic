@@ -22,7 +22,7 @@ export class QuranPageService {
         let pageMetadataArr: Array<QuranPageMetadata> = new Array();
         let jsonArr: any = JSON.parse(pageMetadataJsonArr);
         for (var json of jsonArr) {
-            pageMetadataArr.push(new QuranPageMetadata(json.fromAyah, json.toAyah, json.surahNumber));
+            pageMetadataArr.push(new QuranPageMetadata(json.fromAyah, json.toAyah, json.surahNumber, json.goze, json.hezb));
         }
         return pageMetadataArr;
     }
