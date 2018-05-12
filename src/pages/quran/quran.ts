@@ -19,7 +19,6 @@ export class QuranPage {
 
   private pageContent: string;
   private currentPageNumber: number = -1;
-  private arabicPageNumber: string= '';
 
   constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
     private storage: Storage, private navParams: NavParams, private quranIndexService: QuranIndexService) {
@@ -65,7 +64,6 @@ export class QuranPage {
     }
     this.storage.set(Constants.PAGE_NUMBER_PARAM, pageNumber).then(val => {
       this.currentPageNumber = pageNumber;
-      this.arabicPageNumber = ArabicUtils.toArabicNumber(pageNumber);
       this.findQuranPageByPageNumber(pageNumber);
     });
   }
@@ -111,9 +109,16 @@ export class QuranPage {
   }
 
   private setGozeAndHezbAndSurahName(metadata: QuranPageMetadata) {
-    localStorage.setItem(Constants.GOZE, metadata.goze.toString());
-    localStorage.setItem(Constants.HEZB, metadata.hezb);
-    localStorage.setItem(Constants.SURAH_NAME, this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName);  
+    sessionStorage.setItem(Constants.GOZE, ArabicUtils.toArabicNumber(metadata.goze));
+    sessionStorage.setItem(Constants.SURAH_NAME, this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName);  
+    this.setAndConvertHezbNumberToArabic(metadata);
+  }
+
+  private setAndConvertHezbNumberToArabic(metadata: QuranPageMetadata) {
+    let enNum: string = metadata.hezb.substring(metadata.hezb.length - 2).trim();
+    let arNum: string = ArabicUtils.toArabicNumber(Number(enNum));
+    let hezb: string = metadata.hezb.substring(0, metadata.hezb.length - 2).trim();
+    sessionStorage.setItem(Constants.HEZB, `${hezb} ${arNum}`);
   }
 
   /**

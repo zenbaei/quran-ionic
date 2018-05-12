@@ -28,8 +28,8 @@ export class TabsPage {
   }
 
   ngAfterViewChecked() {
-    this.gozeAndHezb = `الجزء ${localStorage.getItem(Constants.GOZE)} - ${localStorage.getItem(Constants.HEZB)}`;
-    this.surahName = `سورة ${localStorage.getItem(Constants.SURAH_NAME)}`;
+    this.gozeAndHezb = `الجزء ${sessionStorage.getItem(Constants.GOZE)} - ${sessionStorage.getItem(Constants.HEZB)}`;
+    this.surahName = `سورة ${sessionStorage.getItem(Constants.SURAH_NAME)}`;
     this.cdRef.detectChanges();
   }
 

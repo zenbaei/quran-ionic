@@ -3,6 +3,6 @@
         <div [ngClass]="{'mushaf-content border': currentPageNumber > 2, 'fateha-content fateha-border': currentPageNumber < 3}" 
           [innerHtml]="pageContent | safeHtml"></div> 
   </div>
-  <div class="mushaf-page-number">{{arabicPageNumber}}</div>
+  <div class="mushaf-page-number">{{currentPageNumber | arabic}}</div>
 </ion-content>
 
