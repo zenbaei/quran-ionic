@@ -17,7 +17,12 @@
 
 @font-face {
   font-family: uthmanic;
-  src: url("../assets/fonts/uthmanicV9.otf") format("truetype");
+  src: url("../assets/fonts/uthmanicV9.otf") format("opentype");
+}
+
+@font-face {
+  font-family: arabic;
+  src: url("../assets/fonts/traditional_arabic.ttf") format("truetype");
 }
 
 .mushaf-font {

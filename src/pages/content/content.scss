@@ -9,9 +9,7 @@ page-content {
 
     .border {
         border: 20px solid transparent;
-        -webkit-border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 20 round; /* Safari 3.1-5 */
-        -o-border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 20 round; /* Opera 11-12.1 */
-        border-image: url("../assets/img/mushaf-hole-border-with-no-content.png") 20 round;
+        border-image: url("../assets/img/mushaf-border.png") 20 round;
         margin-top: 2px;
     }
 
@@ -23,5 +21,9 @@ page-content {
 		margin-bottom: 10px;
 		background: rgba(255, 255, 255, 0.5);
         border: medium none;
+    }
+
+    .item-md .item-button {
+        font-size: 4vw;
     }
 }

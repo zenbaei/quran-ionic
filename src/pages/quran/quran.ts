@@ -10,7 +10,6 @@ import { AppUtils } from "../../app/util/app-utils/app-utils";
 import { Storage } from '@ionic/storage';
 import * as Constants from '../../app/all/constants';
 import { ArabicUtils } from '../../app/util/arabic-utils/arabic-utils';
-import { SurahIndex } from '../../app/domain/surah-index';
 
 @Component({
   selector: 'page-quran',
@@ -91,8 +90,7 @@ export class QuranPage {
     this.quranPageService.findPageMetadataByPageNumber(pageNumber)
       .subscribe(metadataArr => {
         metadataArr.forEach(metadata => this.findTafsirByMetadata(metadata));
-        this.setGozeAndHezb(metadataArr[0]);
-        this.setSurahNames(metadataArr);
+        this.setGozeAndHezbAndSurahName(metadataArr[0]);
       });
   }
 
@@ -112,24 +110,11 @@ export class QuranPage {
     return false;
   }
 
-  private setGozeAndHezb(metadata: QuranPageMetadata) {
+  private setGozeAndHezbAndSurahName(metadata: QuranPageMetadata) {
     localStorage.setItem(Constants.GOZE, metadata.goze.toString());
     localStorage.setItem(Constants.HEZB, metadata.hezb);
+    localStorage.setItem(Constants.SURAH_NAME, this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName);  
   }
-
-  private setSurahNames(metadataArr: QuranPageMetadata[]) {
-    let surahNames: string = '';
-    metadataArr.forEach(meta => {
-      if (meta.fromAyah !== 0 && meta.toAyah !== 0) { // like page 76
-        let surahIndex: SurahIndex = this.quranIndexService.surahIndexArr[(meta.surahNumber - 1)];
-        if (surahNames !== '') {
-          surahNames+= ' - '
-        }
-        surahNames += surahIndex.surahName;
-      }
-    });
-    localStorage.setItem(Constants.SURAH_NAME, surahNames);  
-  } 
 
   /**
    * It has an advantage over the ionic popover in that the popover position comes on top
