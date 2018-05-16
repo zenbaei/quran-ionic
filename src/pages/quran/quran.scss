@@ -1,5 +1,4 @@
 page-quran {
-    $no-border-font-size: 4.4vw;
     $no-border-padding: 4px;
     .no-justify {
         text-align-last: center;
@@ -11,7 +10,7 @@ page-quran {
         font-family: uthmanic;
     }
     .mushaf-border {
-        border: 13px solid transparent;
+        border: 12px solid transparent;
         border-image: url("../assets/img/mushaf-border.png") 20 round;
         padding: 2% 2% 0 2%;
     }
@@ -38,7 +37,7 @@ page-quran {
             line-height: 5.7vh;
         }
         .portrait-no-border {
-            font-size: $no-border-font-size;
+            font-size: 4.3;
             line-height: 6vh;
             padding: $no-border-padding;
         }
@@ -50,7 +49,7 @@ page-quran {
             line-height: $quran-line-height-landscape;
         }
         .landscape-no-border {
-            font-size: $no-border-font-size;
+            font-size: 4.4vw;
             line-height: $quran-line-height-landscape;
             padding: $no-border-padding;
         }

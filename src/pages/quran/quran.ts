@@ -116,7 +116,7 @@ export class QuranPage {
   }
 
   private setGozeAndHezbAndSurahName(metadata: QuranPageMetadata) {
-    let surahName: string = 'سورة ' + this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
+    let surahName: string = this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
     sessionStorage.setItem(Constants.SURAH_NAME, surahName);
     sessionStorage.setItem(Constants.GOZE_AND_HEZB, `الجزء ${metadata.goze} - ${metadata.hezb}`);
     sessionStorage.setItem(Constants.PAGE_NUMBER, `صفحة ${this.currentPageNumber}`);

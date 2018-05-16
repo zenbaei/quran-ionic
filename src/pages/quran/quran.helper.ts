@@ -33,8 +33,10 @@ export class QuranPageHelper {
         
             let search: Search = new Search(ayahToMatch + this.EXCLUDE, pageContentCopy);
 
+        
         if (!search.test()) {
-            throw new Error(`Ayah [${tafsir.ayah}] not matching target [${pageContentCopy}]`);
+            return pageContent;
+            //throw new Error(`Ayah [${tafsir.ayah}] not matching target [${pageContentCopy}]`);  // uncomment when dev
         }
 
         let matchedAyah: string = search.group().trim().replace(this.CHARS_TO_REMOVE, this.EMPTY);
