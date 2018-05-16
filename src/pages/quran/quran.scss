@@ -1,56 +1,58 @@
 page-quran {
-
-    .border {
-        border: 20px solid transparent;
-        border-image: url("../assets/img/mushaf-border.png") 20 round;
-    }
-
-    .mushaf-container {
-        text-align: center;
-    }
-
-    .mushaf-content {
-        background-color: aliceblue;
-        font-family: uthmanic;
-        font-size: 3.6vw;
-        line-height: 5.1vh;
-        direction: rtl;
-        padding: 2%;
-        text-align: justify;
-        text-align-last: justify;
-    }
-
+    $no-border-font-size: 4.4vw;
+    $no-border-padding: 4px;
     .no-justify {
         text-align-last: center;
     }
-    
-    .mushaf-page-number {
-        font-size: 3.6vw;
-        text-align: center;
-        padding-top: 5px;
-        font-family: arabic;
-    }
-
-    // tafsir
+     // tafsir
     .popover-title {
-        font-size: 3.6vw;
+        font-size: 4vw;
         font-weight: lighter;
         font-family: uthmanic;
     }
-
-    .fateha-border {
-        border: 70px solid transparent;
-        border-image: url("../assets/img/fateha-border.png") 130 round;
-        margin-top: 20%;
+    .mushaf-border {
+        border: 13px solid transparent;
+        border-image: url("../assets/img/mushaf-border.png") 20 round;
+        padding: 2% 2% 0 2%;
     }
-
-    .fateha-content {
-        background-color: aliceblue;
+    .fateha-border {
+        border: 68px solid transparent;
+        border-image: url("../assets/img/fateha-border.png") 130 round;
+    }
+    .mushaf-container {
         font-family: uthmanic;
-        font-size: 3.6vw;
-        line-height: 3.5vh;
         direction: rtl;
-        padding-top: 10%;
-        padding-bottom: 10%;
+        text-align: justify;
+        text-align-last: justify;
+        height: 90%; // if set to more first 2 pages scroll
+    }
+    .fateha-content {
+        text-align: center;
+        text-align-last: center;
+        padding: 10% 0 10% 0;
+        margin: 10% 0 0 0;
+    }
+    @media screen and (orientation: portrait) {
+        .portrait-with-border {
+            font-size: 4vw;
+            line-height: 5.7vh;
+        }
+        .portrait-no-border {
+            font-size: $no-border-font-size;
+            line-height: 6vh;
+            padding: $no-border-padding;
+        }
+    }
+    @media screen and (orientation: landscape) {
+        $quran-line-height-landscape: 17vh;
+        .landscape-with-border {
+            font-size: 4.1vw;
+            line-height: $quran-line-height-landscape;
+        }
+        .landscape-no-border {
+            font-size: $no-border-font-size;
+            line-height: $quran-line-height-landscape;
+            padding: $no-border-padding;
+        }
     }
 }

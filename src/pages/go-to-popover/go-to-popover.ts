@@ -27,7 +27,7 @@ export class GoToPopoverPage {
       return;
     }
     this.cancel();
-    this.storage.set(Constants.PAGE_NUMBER_PARAM, pageNumber).then(val => {
+    this.storage.set(Constants.PAGE_NUMBER, pageNumber).then(val => {
       this.navParams.data.mushafTabs.select(0);
     });
   }

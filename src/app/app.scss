@@ -38,3 +38,18 @@
 .fake-link:hover, .fake-link:focus {
   text-decoration: none;
 }
+
+::-webkit-scrollbar {
+  display:none;
+}
+
+.content {
+  background-color: aliceblue;
+}
+
+.custom-popover .popover-content {
+  //width: 80%;
+  //top: 70px;
+  //left: 30px;
+  //bottom: 70px
+}

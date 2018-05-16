@@ -34,3 +34,9 @@ which results in not finding last page tafisr
 
 back should not return to previous page
 orientation is not good for view
+
+page test width on
+552
+--info
+use landscape for larger font
+add with and without border tab + make sure 2nd line tafsir is not hidden

@@ -17,8 +17,9 @@ import { ArabicUtils } from '../../app/util/arabic-utils/arabic-utils';
 })
 export class QuranPage {
 
-  private pageContent: string;
+  private pageContent: string = '';
   private currentPageNumber: number = -1;
+  showBorder: Boolean = true;
 
   constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
     private storage: Storage, private navParams: NavParams, private quranIndexService: QuranIndexService) {
@@ -29,7 +30,7 @@ export class QuranPage {
    * use case; when selecting surah from content page and on opening application.
    */
   ionViewDidEnter() {
-    this.getPageNumberFromStorageAndLoad();
+    this.execute();
   }
 
   /**
@@ -37,16 +38,17 @@ export class QuranPage {
    * use case; after using go-to-popover.
    */
   ionSelected(){
-    this.getPageNumberFromStorageAndLoad();
+    this.execute();
   }
 
-  getPageNumberFromStorageAndLoad() {
-    this.storage.get(Constants.PAGE_NUMBER_PARAM).then(val => {
+  execute() {
+    this.storage.get(Constants.PAGE_NUMBER).then(val => {
       if (val === null) {
         this.loadPage(1);
       } else {
         this.loadPage(val);
       }
+      this.setShowBorder();
     });
   }
 
@@ -62,10 +64,15 @@ export class QuranPage {
     if (!AppUtils.isValidPageNumber(pageNumber)) {
       return;
     }
-    this.storage.set(Constants.PAGE_NUMBER_PARAM, pageNumber).then(val => {
+    this.storage.set(Constants.PAGE_NUMBER, pageNumber).then(val => {
       this.currentPageNumber = pageNumber;
       this.findQuranPageByPageNumber(pageNumber);
     });
+  }
+
+  setShowBorder() {
+    let shwBrd: string = sessionStorage.getItem(Constants.SHOW_BORDER);
+    this.showBorder = (shwBrd === null || shwBrd === 'true') ? true : false;
   }
 
   swipeEvent(event: any) {
@@ -109,16 +116,10 @@ export class QuranPage {
   }
 
   private setGozeAndHezbAndSurahName(metadata: QuranPageMetadata) {
-    sessionStorage.setItem(Constants.GOZE, ArabicUtils.toArabicNumber(metadata.goze));
-    sessionStorage.setItem(Constants.SURAH_NAME, this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName);  
-    this.setAndConvertHezbNumberToArabic(metadata);
-  }
-
-  private setAndConvertHezbNumberToArabic(metadata: QuranPageMetadata) {
-    let enNum: string = metadata.hezb.substring(metadata.hezb.length - 2).trim();
-    let arNum: string = ArabicUtils.toArabicNumber(Number(enNum));
-    let hezb: string = metadata.hezb.substring(0, metadata.hezb.length - 2).trim();
-    sessionStorage.setItem(Constants.HEZB, `${hezb} ${arNum}`);
+    let surahName: string = 'سورة ' + this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
+    sessionStorage.setItem(Constants.SURAH_NAME, surahName);
+    sessionStorage.setItem(Constants.GOZE_AND_HEZB, `الجزء ${metadata.goze} - ${metadata.hezb}`);
+    sessionStorage.setItem(Constants.PAGE_NUMBER, `صفحة ${this.currentPageNumber}`);
   }
 
   /**

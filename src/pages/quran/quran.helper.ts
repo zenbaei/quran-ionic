@@ -76,15 +76,15 @@ export class QuranPageHelper {
         let strArr: string[] = content.split('\n');
         let newContent: string = '';
         strArr.forEach(str => {
-            if (newContent === '') { //first-line
+            if (newContent === '' || newContent.split('\n').length == 2) { //first-line or second-line
                 str = QuranPageHelper.replacePopoverTopWithButtom(str);
             }
 
             if (str.trim().split(' ').length === 2 || str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
                     (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === 'بِسۡمِ') ) { // 'سورة النساء' || بسم الله الرحمن الرحيم
-                newContent += `<div ${this.NO_JUSTIFY_CLASS}>${str}</div>`;
+                newContent += `<div ${this.NO_JUSTIFY_CLASS}>${str}</div>\n`;
             } else {
-                newContent += `<div>${str}</div>`;
+                newContent += `<div>${str}</div>\n`;
             }
         });
         return newContent;

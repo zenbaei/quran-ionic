@@ -9,4 +9,14 @@ export class AppUtils {
         }
         return true;
     }
+
+    public static toBoolean(val: string): boolean {
+        if (val === null) {
+            return null;
+        } else if (val === 'false') {
+            return false;
+        }
+
+        return true;
+    }
 }

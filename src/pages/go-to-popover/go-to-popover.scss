@@ -1,32 +1,18 @@
 go-to-popover {
-    
-    .popover-content {
-        background-color: black;
-        width: 0;
-        padding: 2px, 2px;
+    .container {
+        background: lightgrey;
     }
-
-    ion-card.card {
-		box-shadow: none;
-		background: rgba(0, 0, 0, 0.5);
-		border-radius: 5px;
+    .text-input {
+        background: white;
+        height: 3rem;
     }
-    
-    .list > .item-block:first-child {
-		border: medium none;
-	}
-
-	.item {
-		margin-bottom: 10px;
-		background: rgba(255, 255, 255, 0.5);
-		border: medium none;
-
-		.text-input, {
-			color: black;
-        }
-	}
-
-	::-webkit-scrollbar {
-		display:none;
-	}
+    .popover-content .popover-md {
+        padding: 0px;
+        bottom: 0px;
+    }
+    .button-md {
+        height: 3rem;
+        font-style: bold; //font-family: uthmanic;
+        font-size: 1.4rem;
+    }
 }
