@@ -1,4 +1,6 @@
 page-quran {
+    $with-border-font-size: 3.7vw;
+    $no-border-font-size: 4vw;
     $no-border-padding: 4px;
     .no-justify {
         text-align-last: center;
@@ -10,12 +12,12 @@ page-quran {
         font-family: uthmanic;
     }
     .mushaf-border {
-        border: 12px solid transparent;
+        border: 10px solid transparent;
         border-image: url("../assets/img/mushaf-border.png") 20 round;
         padding: 2% 2% 0 2%;
     }
     .fateha-border {
-        border: 68px solid transparent;
+        border: 60px solid transparent;
         border-image: url("../assets/img/fateha-border.png") 130 round;
     }
     .mushaf-container {
@@ -33,11 +35,11 @@ page-quran {
     }
     @media screen and (orientation: portrait) {
         .portrait-with-border {
-            font-size: 4vw;
+            font-size: $with-border-font-size;
             line-height: 5.7vh;
         }
         .portrait-no-border {
-            font-size: 4.3;
+            font-size: $no-border-font-size;
             line-height: 6vh;
             padding: $no-border-padding;
         }
@@ -45,11 +47,11 @@ page-quran {
     @media screen and (orientation: landscape) {
         $quran-line-height-landscape: 17vh;
         .landscape-with-border {
-            font-size: 4.1vw;
+            font-size: $with-border-font-size;
             line-height: $quran-line-height-landscape;
         }
         .landscape-no-border {
-            font-size: 4.4vw;
+            font-size: $no-border-font-size;
             line-height: $quran-line-height-landscape;
             padding: $no-border-padding;
         }
