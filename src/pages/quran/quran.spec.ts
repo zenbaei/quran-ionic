@@ -9,6 +9,7 @@ import { QuranPage } from './quran';
 import { HttpModule } from '@angular/http';
 import { HttpRequest } from '../../app/core/http/http-request';
 import { Observable } from 'rxjs';
+import * as $ from 'jquery';
 
 describe('QuranPage', () => {
     let component: QuranPage;

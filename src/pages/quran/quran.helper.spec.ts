@@ -5,7 +5,7 @@ import { Tafsir } from '../../app/domain/tafsir';
 
 describe('QuranPageHelper', () => {
 
-    let STATIC_SPAN_CONTENT = 'class="fake-link tafsir" data-toggle="popover" data-placement="top" data-trigger="click"';
+    let STATIC_ATT = QuranPageHelper.ANCHOR_ATT;
 
     let tafsirArr: Tafsir[] = [
         new Tafsir("ربّ العالمين", 2, "مربّيهم ومالكهم ومدبر أمورهم"),
@@ -20,7 +20,7 @@ describe('QuranPageHelper', () => {
         let tafsirAyah: string = "ربّ العالمين";
         let ayahFromMushaf: string = "رَبِّ ٱلۡعَٰلَمِينَ";
         let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-        let exptectedSpan: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf}</span>`;
+        let exptectedSpan: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf}</a>`;
 
         let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FATEHA);
         let expected: string = TestData.SURAT_AL_FATEHA.replace(ayahFromMushaf, exptectedSpan);
@@ -49,8 +49,8 @@ describe('QuranPageHelper', () => {
 
         let ayahFromMushaf_1: string = `ٱهۡدِنَا`;
         let ayahFromMushaf_2: string = `ٱلصِّرَٰطَ`;
-        let exptectedSpan_1: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf_1}</span>`;
-        let exptectedSpan_2: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf_2}</span>`;        
+        let exptectedSpan_1: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf_1}</a>`;
+        let exptectedSpan_2: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf_2}</a>`;        
         let expected: string = TestData.SURAT_AL_FATEHA.replace(ayahFromMushaf_1, exptectedSpan_1);
         expected = expected.replace(ayahFromMushaf_2, exptectedSpan_2);
 
@@ -64,7 +64,7 @@ describe('QuranPageHelper', () => {
             let tafsirAyah: string = "أعوذ";
             let ayahFromMushaf: string = "أَعُوذُ";
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-            let exptectedSpan: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf}</span>`;
+            let exptectedSpan: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf}</a>`;
 
             let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
@@ -78,7 +78,7 @@ describe('QuranPageHelper', () => {
             let tafsirAyah: string = "بربّ الفلق";
             let ayahFromMushaf: string = "بِرَبِّ ٱلۡفَلَقِ";
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-            let exptectedSpan: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf}</span>`;
+            let exptectedSpan: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf}</a>`;
 
             let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
@@ -92,7 +92,7 @@ describe('QuranPageHelper', () => {
             let tafsirAyah: string = "بربّ الفلق";
             let ayahFromMushaf: string = "بِرَبِّ ٱلۡفَلَقِ";
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-            let exptectedSpan: string = `<span ${STATIC_SPAN_CONTENT} title="${tafsirText}">${ayahFromMushaf}</span>`;
+            let exptectedSpan: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf}</a>`;
 
             let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
@@ -104,7 +104,7 @@ describe('QuranPageHelper', () => {
         Then it should replace only the second word not one in span already`, () => {
         let ayah: string = "ٱعوذ";
         let tafsir: Tafsir = new Tafsir(ayah, 2, '');
-        let content: string = `<span ${STATIC_SPAN_CONTENT} title="">${ayah}</span>`;
+        let content: string = `<a ${STATIC_ATT} title="">${ayah}</a>`;
         let pageContent: string = content + ayah;
         let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, pageContent);
         expect(result).toEqual(content + content);

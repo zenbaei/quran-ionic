@@ -4,7 +4,7 @@ import { ContentPage } from '../content/content';
 import { QuranPage } from '../quran/quran';
 import { GoToPopoverPage } from '../go-to-popover/go-to-popover';
 import * as Constants from '../../app/all/constants';
-import { AppUtils } from '../../app/util/app-utils/app-utils';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-tabs',
@@ -19,14 +19,21 @@ export class TabsPage {
   gozeAndHezb: string = '1'; // if not intialized by any value then it won't show on tabs!
   surahName: string = '1';
   pageNumber: string = '1';
+  tabMargin: string;
+  readonly MARGIN_BOTTOM = 'margin-bottom';
 
-  constructor(private popoverCtrl: PopoverController, private cdRef: ChangeDetectorRef) {
+  constructor(private popoverCtrl: PopoverController, private cdRef: ChangeDetectorRef,
+    private screenOrientation: ScreenOrientation) {
   }
 
   ionViewDidEnter() {
     this.params = {
       mushafTabs: this.mushafTabs
     }
+    let self = this;
+    $(function () {
+      self.hideTabBar();
+    });
   }
 
   ngAfterViewChecked() {
@@ -39,14 +46,51 @@ export class TabsPage {
   showGoToPopoverPage() {
     let popover = this.popoverCtrl.create(GoToPopoverPage, {
       'mushafTabs': this.mushafTabs
-    }, {cssClass: 'custom-popover'});
+    }, { cssClass: 'custom-popover' });
     popover.present();
   }
 
-  toggleBorder() {
-    let showBorder: Boolean = AppUtils.toBoolean(sessionStorage.getItem(Constants.SHOW_BORDER));
-    let shwBrd: Boolean = (showBorder == null) ? false : !showBorder;
-    sessionStorage.setItem(Constants.SHOW_BORDER, shwBrd.toString());
-    this.mushafTabs.select(0);
+  toggleRotate() {
+    if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.PORTRAIT ||
+      this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY ||
+      this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.PORTRAIT_SECONDARY) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    } else {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    }
+  }
+
+  hideTabBar() {
+    let mrg: string = $('.scroll-content').css(this.MARGIN_BOTTOM);
+    if (mrg !== '0') {
+      setTimeout(() => {
+        this.tabMargin = mrg;
+        this.toggleTab('none', '0');
+        this.toggleShowTabButton('block');
+      }, 5000);
+    }
+  }
+
+  showTabBar() {
+    this.toggleTab('flex', this.tabMargin);
+    this.toggleShowTabButton('none');
+    this.hideTabBar();
+  }
+
+  toggleTab(display: string, margin: string) {
+    let elements = document.querySelectorAll(".tabbar");
+
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = display;
+      });
+    }
+
+    $('.scroll-content').css(this.MARGIN_BOTTOM, margin);
+    $('.fixed-content').css(this.MARGIN_BOTTOM, margin);
+  }
+
+  toggleShowTabButton(display: string) {
+    $('.bottom-right').css('display', display);
   }
 }

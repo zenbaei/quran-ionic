@@ -12,6 +12,8 @@ import { HttpRequest } from '../../app/core/http/http-request';
 import { Observable } from 'rxjs';
 import { NavController } from 'ionic-angular';
 import { NavMock } from '../../mocks';
+import { Storage } from '@ionic/storage';
+import * as Constants from '../../app/all/constants';
 
 describe('ContentPage', () => {
   let component: ContentPage;
@@ -22,7 +24,7 @@ describe('ContentPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MyApp, ContentPage],
-      providers: [QuranIndexService, HttpRequest,
+      providers: [QuranIndexService, Storage, HttpRequest,
         {
           provide: NavController,
           useClass: NavMock
@@ -58,13 +60,16 @@ describe('ContentPage', () => {
     });
   }));
 
-    it('Given Content have 2 SurahIndex buttons When button is clicked Then goToPage should be called', () => {
+    it('Given Content have 2 SurahIndex buttons When button is clicked Then goToPage should be called', (done) => {
         spyOn(component, 'goToPage').and.returnValue(Observable.of('Hi'));
         let surahIndexButtons: DebugElement[] = fixture.debugElement.queryAll(By.css('.button'));
 
         surahIndexButtons[1].triggerEventHandler('click', null);
         
-        expect(component.goToPage).toHaveBeenCalledWith(2);
+        this.storage.get(Constants.PAGE_NUMBER).then((val) => {
+          expect(val).toEqual('2');
+          done();
+        });
     });
 
   it('Given there are 2 surah index When surah index button is clicked Then it should be launch QuranPage', () => {

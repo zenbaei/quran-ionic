@@ -1,7 +1,8 @@
 <ion-tabs #mushafTabs>
   <ion-tab [root]="tab1Root" tabTitle="{{surahName}}" tabIcon="book" ></ion-tab>
-  <ion-tab tabTitle="إخفاء الإطار" (ionSelect)='toggleBorder()' tabIcon="search"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="الفهرس" [rootParams]="params" tabIcon="clipboard"></ion-tab>
+  <ion-tab tabTitle="نظام العرض" (ionSelect)='toggleRotate()' tabIcon="expand"></ion-tab>
   <ion-tab tabTitle="{{gozeAndHezb}}"></ion-tab>
   <ion-tab tabTitle="{{pageNumber}}"></ion-tab>
 </ion-tabs>
+<button id='show-tab-button' (click)='showTabBar()' class="bottom-right" style="display:none; opacity:0.5"><ion-icon name='arrow-dropup'></ion-icon></button>

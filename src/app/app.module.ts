@@ -11,15 +11,13 @@ import { QuranPageService } from './service/quran-page/quran-page.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { TafsirService } from './service/tafsir/tafsir.service';
 import { HttpRequest } from './core/http/http-request';
-import { File } from '@ionic-native/file';
 import { GoToPopoverPageModule } from '../pages/go-to-popover/go-to-popover.module';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Insomnia } from '@ionic-native/insomnia';
 import { QuranPage } from '../pages/quran/quran';
-
-import { ArabicNumberPipe } from '../pipes/arabic-number/arabic-number.pipe';
 import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
 
 @NgModule({
@@ -27,8 +25,7 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
     MyApp,
     TabsPage,
     QuranPage,
-    SafeHtmlPipe,
-    ArabicNumberPipe
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +49,8 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
     QuranPageService,
     TafsirService,
     HttpRequest,
-    File,
+    ScreenOrientation,
+    Insomnia,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

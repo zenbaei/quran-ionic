@@ -85,7 +85,7 @@ export class NavMock {
 }
 
 export class PlatformMock {
-  public ready(): Promise<{String}> {
+  public ready(): Promise<String> {
     return new Promise((resolve) => {
       resolve('READY');
     });

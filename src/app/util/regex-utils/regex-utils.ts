@@ -42,8 +42,6 @@ export class RegexUtils {
      */
     public static replaceMiddleAlefsWithNonSpaceZeroOrOneTime(str: string): string {
         console.debug(`Remove middle Alef from [${str}]`);
-        let regex: RegExp = new RegExp(ALEF_ABSTRACTED, GLOBAL);
-        var match;
         let strArr: Array<string> = str.split(SPACE);
         
         for (let i = 0; i < strArr.length; i++) {

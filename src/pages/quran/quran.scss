@@ -1,11 +1,8 @@
 page-quran {
-    $with-border-font-size: 3.7vw;
-    $no-border-font-size: 4vw;
-    $no-border-padding: 4px;
+    $quran-font-size: 3.7vw;
     .no-justify {
         text-align-last: center;
-    }
-     // tafsir
+    } // tafsir
     .popover-title {
         font-size: 4vw;
         font-weight: lighter;
@@ -15,10 +12,12 @@ page-quran {
         border: 10px solid transparent;
         border-image: url("../assets/img/mushaf-border.png") 20 round;
         padding: 2% 2% 0 2%;
+        background-color: aliceblue;
     }
     .fateha-border {
         border: 60px solid transparent;
         border-image: url("../assets/img/fateha-border.png") 130 round;
+        background-color: aliceblue;
     }
     .mushaf-container {
         font-family: uthmanic;
@@ -33,27 +32,27 @@ page-quran {
         padding: 10% 0 10% 0;
         margin: 10% 0 0 0;
     }
+    .mushaf-page-number {
+        font-size: 2.5vw;
+        text-align: center;
+        padding-top: 10px;
+        display: none;
+    }
     @media screen and (orientation: portrait) {
-        .portrait-with-border {
-            font-size: $with-border-font-size;
-            line-height: 5.7vh;
-        }
-        .portrait-no-border {
-            font-size: $no-border-font-size;
-            line-height: 6vh;
-            padding: $no-border-padding;
+        .portrait {
+            font-size: $quran-font-size;
+            line-height: 6.3vh;
         }
     }
     @media screen and (orientation: landscape) {
-        $quran-line-height-landscape: 17vh;
-        .landscape-with-border {
-            font-size: $with-border-font-size;
-            line-height: $quran-line-height-landscape;
+        .landscape {
+            font-size: $quran-font-size;
+            line-height: 17vh;
         }
-        .landscape-no-border {
-            font-size: $no-border-font-size;
-            line-height: $quran-line-height-landscape;
-            padding: $no-border-padding;
+        // tafsir
+        .popover-title {
+            font-size: 3.4vw;
         }
     }
+  
 }

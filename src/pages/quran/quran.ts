@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Content } from 'ionic-angular';
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
 import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { Tafsir } from '../../app/domain/tafsir';
@@ -9,20 +9,19 @@ import { QuranPageHelper } from './quran.helper';
 import { AppUtils } from "../../app/util/app-utils/app-utils";
 import { Storage } from '@ionic/storage';
 import * as Constants from '../../app/all/constants';
-import { ArabicUtils } from '../../app/util/arabic-utils/arabic-utils';
 
 @Component({
   selector: 'page-quran',
   templateUrl: 'quran.html'
 })
 export class QuranPage {
+  @ViewChild(Content) content: Content;
 
   private pageContent: string = '';
   private currentPageNumber: number = -1;
-  showBorder: Boolean = true;
 
   constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
-    private storage: Storage, private navParams: NavParams, private quranIndexService: QuranIndexService) {
+    private storage: Storage, private quranIndexService: QuranIndexService) {
   }
 
   /**
@@ -48,7 +47,6 @@ export class QuranPage {
       } else {
         this.loadPage(val);
       }
-      this.setShowBorder();
     });
   }
 
@@ -60,6 +58,13 @@ export class QuranPage {
     }
   }
 
+  scrollToTop() {
+    let self = this;
+    $(function() {
+      self.content.scrollToTop();
+    });
+  }
+
   loadPage(pageNumber: number) {
     if (!AppUtils.isValidPageNumber(pageNumber)) {
       return;
@@ -67,12 +72,8 @@ export class QuranPage {
     this.storage.set(Constants.PAGE_NUMBER, pageNumber).then(val => {
       this.currentPageNumber = pageNumber;
       this.findQuranPageByPageNumber(pageNumber);
+      this.scrollToTop();
     });
-  }
-
-  setShowBorder() {
-    let shwBrd: string = sessionStorage.getItem(Constants.SHOW_BORDER);
-    this.showBorder = (shwBrd === null || shwBrd === 'true') ? true : false;
   }
 
   swipeEvent(event: any) {

@@ -6,4 +6,3 @@ export const QURAN_PAGE_METADATA_FILE_EXTENSION = '.metadata';
 export const PAGE_NUMBER = 'pageNumber';
 export const SURAH_NAME = 'suranName';
 export const GOZE_AND_HEZB = 'gozeAndHezb';
-export const SHOW_BORDER =  'showBorder';

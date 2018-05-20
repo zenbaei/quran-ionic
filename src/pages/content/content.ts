@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, IonicPage, Tabs } from 'ionic-angular';
+import { NavParams, IonicPage } from 'ionic-angular';
 import { SurahIndex } from '../../app/domain/surah-index';
 import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { Observable } from 'rxjs';
-import { QuranPage } from '../quran/quran';
 import { Storage } from '@ionic/storage';
 import * as Constants from '../../app/all/constants';
 

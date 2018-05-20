@@ -1,4 +1,3 @@
-import { StringUtils } from "../string-utils/string-utils";
 export class ArabicUtils {
 
     public static toArabicNumber(enNumber: number): string {

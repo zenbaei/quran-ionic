@@ -1,8 +1,6 @@
-import { ArabicUtils } from "../../app/util/arabic-utils/arabic-utils";
 import { Tafsir } from '../../app/domain/tafsir';
 import { Search } from "../../app/util/search-utils/search";
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
-import { RegexUtils } from "../../app/util/regex-utils/regex-utils";
 import { StringUtils } from '../../app/util/string-utils/string-utils';
 
 export class QuranPageHelper {
@@ -13,7 +11,7 @@ export class QuranPageHelper {
     private static readonly EMPTY: string = '';
     private static readonly LINE_BREAK: string = '\n';
     private static readonly NO_JUSTIFY_CLASS = `class='no-justify'`;
-    private static readonly SPAN_CLASS = `class="fake-link tafsir" tabindex="0" data-toggle="popover" data-placement="top" data-trigger="focus"`;
+    public static readonly ANCHOR_ATT = `class="fake-link tafsir" tabindex="0" data-toggle="popover" data-placement="top" data-trigger="focus"`;
     /*
     * This will result in exact matching 'ayah' from tafsir. it was introduced to avoid matching quran ayah to tafsir.
     * like 'بَلَىٰ' from yassen 18 matches tafsir {"ayah":"هي رميم", "ayahNumber":78, "tafsir":"بالية أشدّ البلى"}
@@ -49,11 +47,11 @@ export class QuranPageHelper {
         */
         if (matchedAyah.indexOf(this.LINE_BREAK) > 0) {
             matchings = matchedAyah.split(this.LINE_BREAK);
-            let span_1: string = `<a ${this.SPAN_CLASS} title="${tafsir.tafsir}">${matchings[0].trim()}</a> `;
-            let span_2: string = `<a ${this.SPAN_CLASS} title="${tafsir.tafsir}">${matchings[1].trim()}</a>`;
+            let span_1: string = `<a ${this.ANCHOR_ATT} title="${tafsir.tafsir}">${matchings[0].trim()}</a> `;
+            let span_2: string = `<a ${this.ANCHOR_ATT} title="${tafsir.tafsir}">${matchings[1].trim()}</a>`;
             spans.push(span_1, span_2);
         } else {
-            let span_1: string = `<a ${this.SPAN_CLASS} title="${tafsir.tafsir}">${matchedAyah}</a>`;
+            let span_1: string = `<a ${this.ANCHOR_ATT} title="${tafsir.tafsir}">${matchedAyah}</a>`;
             spans.push(span_1);
         }
         

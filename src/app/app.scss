@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/v2/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,42 +12,42 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
 @font-face {
-  font-family: uthmanic;
-  src: url("../assets/fonts/uthmanicV9.otf") format("opentype");
-}
-
-@font-face {
-  font-family: arabic;
-  src: url("../assets/fonts/traditional_arabic.ttf") format("truetype");
-}
-
-.mushaf-font {
     font-family: uthmanic;
+    src: url("../assets/fonts/uthmanicV9.otf") format("opentype");
+}
+
+@font-face {
+    font-family: arabic;
+    src: url("../assets/fonts/traditional_arabic.ttf") format("truetype");
 }
 
 .fake-link {
-  color: red;
-  text-decoration: none;
-  cursor: pointer;
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.fake-link:hover, .fake-link:focus {
-  text-decoration: none;
+.fake-link:hover,
+.fake-link:focus {
+    text-decoration: none;
 }
 
 ::-webkit-scrollbar {
-  display:none;
-}
-
-.content {
-  background-color: aliceblue;
+    display: none;
 }
 
 .custom-popover .popover-content {
-  //width: 80%;
-  //top: 70px;
-  //left: 30px;
-  //bottom: 70px
+    //width: 80%;
+    //top: 70px;
+    //left: 30px;
+    //bottom: 70px
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+    background: darkgrey;
+    border-radius: 5px;
 }

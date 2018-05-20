@@ -1,12 +1,4 @@
 page-content {
-    .index {
-        background-color: aliceblue;
-    }
-
-    span {
-        //color: black
-    }
-
     .border {
         border: 20px solid transparent;
         border-image: url("../assets/img/mushaf-border.png") 20 round;
@@ -26,6 +18,10 @@ page-content {
     .item-md .item-button {
         font-size: 4vw;
         height: 40px;
+        font-family: uthmanic;
     }
-    
+
+    .content {
+        background-color: aliceblue;
+    }
 }
