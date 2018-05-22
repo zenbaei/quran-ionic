@@ -3,9 +3,20 @@ page-tabs {
         //height: 10%;
         font-family: uthmanic;
     }
-
     #tab-t0-3 {
         //font-family: arabic;
         //font-size: 1.2em;
+    }
+    .show-tab-btn {
+        position: absolute;
+        bottom: 5px;
+        right: 20px;
+        background: darkgrey;
+        border-radius: 5px;
+        display: none;
+        opacity: 0.5;
+    }
+    .hide-tab-btn {
+        @extend .show-tab-btn;
     }
 }

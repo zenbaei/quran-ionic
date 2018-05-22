@@ -7,7 +7,7 @@ import { RegexUtils } from "../../util/regex-utils/regex-utils";
 
 @Injectable()
 export class QuranPageService {
-    private LOCAL_FILE_PATH = 'file:///home/zenbaei/Documents/quran-html-output/';
+    //private LOCAL_FILE_PATH = 'file:///home/zenbaei/Documents/quran-html-output/';
 
     constructor(private httpRequest: HttpRequest) { }
 

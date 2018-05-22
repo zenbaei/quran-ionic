@@ -19,8 +19,11 @@ export class TabsPage {
   gozeAndHezb: string = '1'; // if not intialized by any value then it won't show on tabs!
   surahName: string = '1';
   pageNumber: string = '1';
-  tabMargin: string;
-  readonly MARGIN_BOTTOM = 'margin-bottom';
+  tabMarginHeight: string;
+  readonly MARGIN_BOTTOM_PRP = 'margin-bottom';
+  readonly SHOW_TAB_BTN_CLASS = '.show-tab-btn';
+  readonly HIDE_TAB_BTN_CLASS = '.hide-tab-btn';
+  readonly TAB_HEIGHT_CLASS = '.fixed-content';
 
   constructor(private popoverCtrl: PopoverController, private cdRef: ChangeDetectorRef,
     private screenOrientation: ScreenOrientation) {
@@ -31,8 +34,9 @@ export class TabsPage {
       mushafTabs: this.mushafTabs
     }
     let self = this;
-    $(function () {
-      self.hideTabBar();
+    $(function() {
+      self.tabMarginHeight =  $(self.TAB_HEIGHT_CLASS).css(self.MARGIN_BOTTOM_PRP);
+      self.toggleTabButton(true);
     });
   }
 
@@ -61,20 +65,15 @@ export class TabsPage {
   }
 
   hideTabBar() {
-    let mrg: string = $('.scroll-content').css(this.MARGIN_BOTTOM);
-    if (mrg !== '0') {
-      setTimeout(() => {
-        this.tabMargin = mrg;
-        this.toggleTab('none', '0');
-        this.toggleShowTabButton('block');
-      }, 5000);
-    }
+    let mrg: string = $(this.TAB_HEIGHT_CLASS).css(this.MARGIN_BOTTOM_PRP);
+    this.tabMarginHeight = mrg;
+    this.toggleTab('none', '0');
+    this.toggleTabButton(false);
   }
 
   showTabBar() {
-    this.toggleTab('flex', this.tabMargin);
-    this.toggleShowTabButton('none');
-    this.hideTabBar();
+    this.toggleTab('flex', this.tabMarginHeight);
+    this.toggleTabButton(true);
   }
 
   toggleTab(display: string, margin: string) {
@@ -86,11 +85,21 @@ export class TabsPage {
       });
     }
 
-    $('.scroll-content').css(this.MARGIN_BOTTOM, margin);
-    $('.fixed-content').css(this.MARGIN_BOTTOM, margin);
+    $('.scroll-content').css(this.MARGIN_BOTTOM_PRP, margin);
+    $(this.TAB_HEIGHT_CLASS).css(this.MARGIN_BOTTOM_PRP, margin);
   }
 
-  toggleShowTabButton(display: string) {
-    $('.bottom-right').css('display', display);
+  toggleTabButton(showTab: boolean) {
+    if (showTab) {
+      $(this.SHOW_TAB_BTN_CLASS).css('display', 'none');
+      $(this.HIDE_TAB_BTN_CLASS).css({
+        'display': 'block',
+        'bottom': Number(this.tabMarginHeight.replace('px','')) + 5
+      });
+    } else {
+      $(this.SHOW_TAB_BTN_CLASS).css('display', 'block');
+      $(this.HIDE_TAB_BTN_CLASS).css('display', 'none');
+    }
   }
 }
+
