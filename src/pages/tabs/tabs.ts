@@ -94,7 +94,7 @@ export class TabsPage {
       $(this.SHOW_TAB_BTN_CLASS).css('display', 'none');
       $(this.HIDE_TAB_BTN_CLASS).css({
         'display': 'block',
-        'bottom': Number(this.tabMarginHeight.replace('px','')) + 5
+        'bottom': (Number(this.tabMarginHeight.replace('px','')) + 5) + 'px'
       });
     } else {
       $(this.SHOW_TAB_BTN_CLASS).css('display', 'block');
