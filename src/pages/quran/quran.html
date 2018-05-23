@@ -3,7 +3,8 @@
     <div [ngClass]="{
       'mushaf-border': currentPageNumber > 2,
       'fateha-content': currentPageNumber < 3,
-      'fateha-border': currentPageNumber < 3    
+      'fateha-border': currentPageNumber < 3 ,
+      'moaouzat-content': currentPageNumber == 604   
     }"
       [innerHtml]="pageContent | safeHtml"></div>
   </div>
