@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.zenbaei.mushaf" version="0.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.zenbaei.mushaf" version="0.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>مصحف المدينة</name>
-    <description>مصحف المدينة ومعه تفسير كلمات قرآن</description>
+    <description>مصحف المدينة ومعه تفسير كلمات القرآن</description>
     <author email="zenbaei@gmail.com">Islam Zenbaei</author>
     <content src="index.html" />
     <access origin="*" />
