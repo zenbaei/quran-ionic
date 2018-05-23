@@ -1,5 +1,4 @@
 page-quran {
-    $quran-font-size: 3.7vw;
     .no-justify {
         text-align-last: center;
     } // tafsir
@@ -22,7 +21,7 @@ page-quran {
     .mushaf-container {
         font-family: uthmanic;
         direction: rtl;
-        text-align: justify;
+        //text-align: justify;
         text-align-last: justify;
         height: 90%; // if set to more first 2 pages scroll
     }
@@ -40,13 +39,13 @@ page-quran {
     }
     @media screen and (orientation: portrait) {
         .portrait {
-            font-size: $quran-font-size;
+            font-size: 4.1vw;
             line-height: 6.3vh;
         }
     }
     @media screen and (orientation: landscape) {
         .landscape {
-            font-size: $quran-font-size;
+            font-size: 4.2vw;
             line-height: 17vh;
         }
         // tafsir

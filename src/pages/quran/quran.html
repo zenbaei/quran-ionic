@@ -1,6 +1,6 @@
 <ion-content>
   <div class="mushaf-container portrait landscape" (swipe)="swipeEvent($event)">
-    <div [ngClass]="{
+    <div text-justify text-nowrap [ngClass]="{
       'mushaf-border': currentPageNumber > 2,
       'fateha-content': currentPageNumber < 3,
       'fateha-border': currentPageNumber < 3    
