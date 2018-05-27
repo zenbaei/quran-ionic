@@ -70,9 +70,6 @@ export class QuranPageHelper {
     }
 
     public static surrondEachLineInDiv(content: string): string {
-        if (content.indexOf('div') >= 0) { //in case of page with 2 or more metadata, surrondEachLineInDiv is called per every surah metadata
-            return content;
-        }
         let strArr: string[] = content.split('\n');
         let newContent: string = '';
         strArr.forEach(str => {

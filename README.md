@@ -22,7 +22,14 @@ $ ionic cordova platform add ios
 $ ionic cordova run ios
 ```
 
-Substitute ios for android if not on a Mac.
+# Run lab mode
+ionic serve --lab
+
+# Generate icon and splash
+ionic cordova resources
+#in case of login problem:
+ionic config set backend pro -g
+ionic login
 
 # How to run it
 after checking out the app:

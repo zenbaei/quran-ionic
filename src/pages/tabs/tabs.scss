@@ -1,22 +1,18 @@
 page-tabs {
-    .tabbar {
-        //height: 10%;
-        font-family: uthmanic;
-    }
-    #tab-t0-3 {
-        //font-family: arabic;
-        //font-size: 1.2em;
-    }
+    font-family: uthmanic;
     .show-tab-btn {
         position: absolute;
         bottom: 5px;
-        right: 20px;
+        right: 10px;
         background: darkgrey;
-        border-radius: 5px;
+        border-radius: 20px;
         display: none;
-        opacity: 0.5;
+        opacity: 0.6;
+        width: 30px;
+        height: 30px;
     }
     .hide-tab-btn {
+        //manipulated from tabs.ts
         @extend .show-tab-btn;
     }
 }

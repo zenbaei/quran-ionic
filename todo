@@ -42,3 +42,11 @@ page test width on
 --info
 use landscape for larger font
 add with and without border tab + make sure 2nd line tafsir is not hidden
+
+    <preference name="FadeSplashScreenDuration" value="300" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="ShowSplashScreen" value="true" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />

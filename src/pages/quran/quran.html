@@ -1,10 +1,11 @@
 <ion-content>
-  <div class="mushaf-container portrait landscape" (swipe)="swipeEvent($event)">
+  <div class="mushaf-container" (swipe)="swipeEvent($event)">
     <div [ngClass]="{
       'mushaf-border': currentPageNumber > 2,
       'fateha-content': currentPageNumber < 3,
       'fateha-border': currentPageNumber < 3 ,
-      'moaouzat-content': currentPageNumber == 604   
+      'moaouzat-content': currentPageNumber == 604,
+      'line-height-extended': extendLineHeight
     }"
       [innerHtml]="pageContent | safeHtml"></div>
   </div>

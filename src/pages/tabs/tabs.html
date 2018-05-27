@@ -1,9 +1,14 @@
-<ion-tabs #mushafTabs>
-  <ion-tab [root]="tab1Root" tabTitle="{{surahName}}" tabIcon="book" ></ion-tab>
+<ion-tabs #tabBar (ionChange)="tabSelected($event)">
+  <ion-tab [root]="tab1Root" tabTitle="{{surahName}}" tabIcon="book" tabBadge="{{pageNumber}}"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="الفهرس" [rootParams]="params" tabIcon="clipboard"></ion-tab>
   <ion-tab tabTitle="نظام العرض" (ionSelect)='toggleRotate()' tabIcon="expand"></ion-tab>
-  <ion-tab tabTitle="{{gozeAndHezb}}"></ion-tab>
-  <ion-tab tabTitle="{{pageNumber}}"></ion-tab>
+  <ion-tab [enabled]="isEnabled" tabIcon="add" (ionSelect)='increaseFont()' tabTitle="تكبير الخط"></ion-tab>
+  <ion-tab [enabled]="isEnabled" tabIcon="remove" (ionSelect)='decreaseFont()' tabTitle="تصغير الخط"></ion-tab>
 </ion-tabs>
-<button class='hide-tab-btn' (click)='hideTabBar()'><ion-icon name='arrow-dropdown'></ion-icon></button>
-<button class='show-tab-btn' (click)='showTabBar()'><ion-icon name='arrow-dropup'></ion-icon></button>
+
+<button class='hide-tab-btn' (click)='hideTabBar()'>
+  <ion-icon name='arrow-dropdown'></ion-icon>
+</button>
+<button class='show-tab-btn' (click)='showTabBar()'>
+  <ion-icon name='arrow-dropup'></ion-icon>
+</button>

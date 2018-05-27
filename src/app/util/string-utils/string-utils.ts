@@ -12,4 +12,16 @@ export class StringUtils {
         return target.replace(regex, replacement);
     }
 
+    /**
+     * Replacing with the use of regex because in case the string contains
+     * forward slash regex will throw exception.
+     */
+    public static safeReplaceAll(target: string, pattern: string, replacement: string) {
+        let newStr: string = target;
+        while (newStr.indexOf(pattern) >= 0) {
+            newStr = newStr.replace(pattern, replacement);
+        }
+        return newStr;
+    }
+
 }

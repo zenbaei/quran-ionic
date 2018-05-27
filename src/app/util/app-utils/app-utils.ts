@@ -1,3 +1,5 @@
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 export class AppUtils {
 
     private static readonly FIRST_PAGE = 1;
@@ -16,7 +18,15 @@ export class AppUtils {
         } else if (val === 'false') {
             return false;
         }
-
         return true;
     }
+
+    public static isPortrait(orientation: ScreenOrientation): boolean {
+        if (orientation.type === orientation.ORIENTATIONS.PORTRAIT ||
+            orientation.type === orientation.ORIENTATIONS.PORTRAIT_PRIMARY ||
+            orientation.type === orientation.ORIENTATIONS.PORTRAIT_SECONDARY) {
+          return true;
+        }
+        return false;
+      }
 }

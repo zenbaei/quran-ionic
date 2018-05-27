@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Content, Toast } from 'ionic-angular';
+import { Content } from 'ionic-angular';
 import { QuranPageService } from '../../app/service/quran-page/quran-page.service';
 import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
 import { Tafsir } from '../../app/domain/tafsir';
@@ -9,8 +9,10 @@ import { QuranPageHelper } from './quran.helper';
 import { AppUtils } from "../../app/util/app-utils/app-utils";
 import { Storage } from '@ionic/storage';
 import * as Constants from '../../app/all/constants';
+import { TabsPage } from '../tabs/tabs';
 import { ToastController } from 'ionic-angular';
-import { Events } from 'ionic-angular';
+import { resolve } from 'path';
+import { reject } from 'q';
 
 @Component({
   selector: 'page-quran',
@@ -21,16 +23,13 @@ export class QuranPage {
 
   private pageContent: string = '';
   private currentPageNumber: number = -1;
-  private extendLineHeight: boolean = false;
+  private isTabHidden: boolean = false;
   private gozeAndHezb: string = '';
-  private surahName: string = '';
-  private toast: Toast;
   readonly MUSHAF_CONTAINER_CLASS = '.mushaf-container';
 
   constructor(private quranPageService: QuranPageService, private tafsirService: TafsirService,
     private storage: Storage, private quranIndexService: QuranIndexService,
-    private toastCtl: ToastController, private events: Events) {
-    this.subscribeToEvents();
+    private toast: ToastController) {
   }
 
   /**
@@ -47,21 +46,23 @@ export class QuranPage {
     });
   }
 
-  ionViewWillLeave() {
-    this.dismissToast();
-  }
-
   /**
-   * Fired whenever the tab is reclicked without being on another tab.
+   * Fired whenever the tab is clicked.
    */
   ionSelected() {
     this.showInfo();
+    this.resizeFont();
   }
 
   /**
    * It's executed multiple times whenever the view is manipulated.
    */
   ngAfterViewChecked() {
+    if (this.currentPageNumber < 0) {
+      return; //async content are not loaded yet
+    }
+    this.initBootstrapPopover();
+    this.setIsTabHidden();
   }
 
   getSavedPageNumber(): Promise<number> {
@@ -72,27 +73,20 @@ export class QuranPage {
     });
   }
 
-  /**
-   * It works without using document ready, but it's just a better timing for showing the toast..
-   */
   executeWhenDocIsReady() {
     let self = this;
     $(function () {
       self.scrollToTop();
-      self.resizeFont();
       self.showInfo();
-      self.initBootstrapPopover();
+      self.resizeFont();
     });
   }
 
-  /**
-   * This flag is used in the html to set the corresponding css class.
-   */
-  setContentLineHeightFlag(status: Constants.TabStatus) {
-    if (status === Constants.TabStatus.HIDDEN) {
-      this.extendLineHeight = true;
+  setIsTabHidden() {
+    if (TabsPage.getTabMarginBottom() === '0px') {
+      this.isTabHidden = true;
     } else {
-      this.extendLineHeight = false;
+      this.isTabHidden = false;
     }
   }
 
@@ -102,14 +96,12 @@ export class QuranPage {
 
   loadPage(pageNumber: number) {
     this.currentPageNumber = pageNumber;
-    this.findQuranPageByPageNumber(pageNumber).then(val => {
-      this.executeWhenDocIsReady();
-    });
+    this.findQuranPageByPageNumber(pageNumber);
+    this.executeWhenDocIsReady();
   }
 
   swipeEvent(event: any) {
     let pgNu: number;
-
     if (event.direction === 2) {
       pgNu = this.currentPageNumber - 1;
     } else if (event.direction === 4) {
@@ -133,51 +125,40 @@ export class QuranPage {
     });
   }
 
-  private subscribeToEvents(): void {
-    this.events.subscribe(Constants.EVENT_FONT_CHANGED, () => {
-      this.resizeFont();
-    });
-    this.events.subscribe(Constants.EVENT_TOGGLE_TAB, (status: Constants.TabStatus) => {
-      this.setContentLineHeightFlag(status)
-    });
-  }
-
-  public findQuranPageByPageNumber(pageNumber: number): Promise<any> {
-    return new Promise((resolve) => {
-      this.quranPageService.findPageContentByPageNumber(pageNumber)
-        .subscribe(content => {
-          this.pageContent = content;
-          this.findMetadataByPageNumber(pageNumber).then(val => {
-            this.pageContent = QuranPageHelper.surrondEachLineInDiv(this.pageContent);
-            resolve();
-          });
+  public findQuranPageByPageNumber(pageNumber: number): void {
+    this.quranPageService.findPageContentByPageNumber(pageNumber)
+      .subscribe(val => {
+        this.findMetadataByPageNumber(pageNumber, val).then(cnt => {
+          this.pageContent = cnt;
         });
-    });
+      });
   }
 
-  private findMetadataByPageNumber(pageNumber: number): Promise<any> {
-    return new Promise((resolve) => {
+  private findMetadataByPageNumber(pageNumber: number, rawContent: string): Promise<string> {
+    let manipulatedContent: string = rawContent;
+    return new Promise((resolve, reject) => {
       this.quranPageService.findPageMetadataByPageNumber(pageNumber)
         .subscribe(metadataArr => {
-          metadataArr.forEach(meta => {
-            this.findTafsirByMetadata(meta).then(val => {
-              if (meta.surahNumber === metadataArr[metadataArr.length - 1].surahNumber) { // last one
-                this.setGozeAndHezbAndSurahName(metadataArr[0]); //always display first surah name
-                resolve();
-              }
-            });
-          })
+          metadataArr.forEach(metadata =>
+            this.findTafsirByMetadata(metadata, manipulatedContent).then(updatedContent => {
+              manipulatedContent = updatedContent;
+            })
+          );
+          resolve(manipulatedContent);
+          this.setGozeAndHezbAndSurahName(metadataArr[0]);
         });
     });
   }
 
-  private findTafsirByMetadata(metadata: QuranPageMetadata): Promise<any> {
-    return new Promise((resolve) => {
+  private findTafsirByMetadata(metadata: QuranPageMetadata, rawContent: string): Promise<string> {
+    let manipulatedContent: string = '';
+    return new Promise((resolve, reject) => {
       this.tafsirService.findTafsirBySurahNumber(metadata.surahNumber)
         .subscribe(tafsirArr => {
           tafsirArr.filter(tafsir => this.isTafsirWithinCurrentPageAyahRange(tafsir, metadata))
-            .forEach(tafsir => this.pageContent = QuranPageHelper.patchTafsirOnContent(tafsir, this.pageContent));
-          resolve();
+            .forEach(tafsir => manipulatedContent = QuranPageHelper.patchTafsirOnContent(tafsir, rawContent));
+          QuranPageHelper.surrondEachLineInDiv(manipulatedContent);
+          resolve(manipulatedContent);
         });
     });
   }
@@ -190,10 +171,10 @@ export class QuranPage {
   }
 
   private setGozeAndHezbAndSurahName(metadata: QuranPageMetadata) {
-    this.surahName = this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
-    sessionStorage.setItem(Constants.SURAH_NAME, this.surahName);
+    let surahName: string = this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
+    sessionStorage.setItem(Constants.SURAH_NAME, surahName);
     sessionStorage.setItem(Constants.PAGE_NUMBER, this.currentPageNumber.toString());
-    this.gozeAndHezb = `الجـزء ${metadata.goze} - ${metadata.hezb.replace('الحزب', 'الحـزب')}`;
+    this.gozeAndHezb = `الجزء ${metadata.goze} - ${metadata.hezb}`;
   }
 
   /**
@@ -202,26 +183,21 @@ export class QuranPage {
    */
   initBootstrapPopover() {
     let tafsirAnchors: JQuery<HTMLElement> = $('[data-toggle="popover"]');
+
     if (tafsirAnchors.length === 0) { // content not displayed yet
       return;
     }
+
     tafsirAnchors.popover();
   }
 
   showInfo() {
-    this.dismissToast();
-    this.toast = this.toastCtl.create({
-      message: `ســــــورة ${this.surahName} - (${this.gozeAndHezb})\nصــــــفحة ${this.currentPageNumber}`,
+    let toast = this.toast.create({
+      message: `(${this.gozeAndHezb}) صفحة ${this.currentPageNumber}`,
       duration: 3000,
-      position: 'middle'
+      position: 'bottom'
     });
-    this.toast.present();
-  }
-
-  private dismissToast() {
-    if (this.toast != null) {
-      this.toast.dismiss();
-    }
+    toast.present();
   }
 
   resizeFont() {

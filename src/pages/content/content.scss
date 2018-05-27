@@ -1,27 +1,47 @@
 page-content {
-    .border {
-        border: 20px solid transparent;
-        border-image: url("../assets/img/mushaf-border.png") 20 round;
-        margin-top: 2px;
+    font-family: uthmanic;
+    .right-grid {
+        width: 50%;
+        float: right;
+        border-left: 1px solid rgb(214, 214, 214);
     }
-
-    .list > .item-block:first-child {
-		border: medium none;
-	}
-
-	.item {
-		margin-bottom: 10px;
-		background: rgba(255, 255, 255, 0.5);
-        border: medium none;
+    .left-grid {
+        width: 50%;
+        float: left;
+        border-right: 1px solid rgb(214, 214, 214);
+        /*
+        ion-row:nth-of-type(odd) {
+            background: aliceblue;
+        }
+        */
     }
-
-    .item-md .item-button {
-        font-size: 4vw;
-        height: 40px;
+    .searchbar {
+        background: white;
+        border-radius: 10px;
+        position: sticky;
+        top: 0;
         font-family: uthmanic;
+        z-index: 1;
+        margin-right: 6px;
     }
-
-    .content {
-        background-color: aliceblue;
+    .searchbar-input {
+        direction: rtl;
+        background-color: darkgrey !important;
+        opacity: 0.5;
+        color: black !important;
+        font-size: 2rem !important;
+    }
+    button {
+        font-size: 4.5vw !important;
+        width: 100%;
+    }
+    ::placeholder {
+        color: rgb(53, 53, 53) !important;
+    }
+    @media screen and (orientation: landscape) {
+        button {
+            font-size: 3.5vw !important;
+            height: 50px !important;
+        }
     }
 }

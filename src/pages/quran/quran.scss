@@ -1,11 +1,13 @@
 page-quran {
     .no-justify {
         text-align-last: center;
-    } // tafsir
+    }
     .popover-title {
-        font-size: 4vw;
+        // tafsir
+        font-size: 5vw;
         font-weight: lighter;
         font-family: uthmanic;
+        //white-space: pre test on page 575
     }
     .mushaf-border {
         border: 10px solid transparent;
@@ -25,7 +27,7 @@ page-quran {
         text-align-last: justify;
         white-space: nowrap !important;
         height: 90%; // if set to more first 2 pages scroll
-        font-size: 3.8vw;
+        font-size: 3.7vw;
     }
     .fateha-content {
         text-align-last: center;
@@ -42,16 +44,16 @@ page-quran {
         display: none;
     }
     @media screen and (orientation: portrait) {
-        .portrait {
+        line-height: 5.7vh;
+        .line-height-extended {
             line-height: 6.3vh;
         }
     }
     @media screen and (orientation: landscape) {
-        .landscape {
-            line-height: 17vh;
-        } // tafsir
+        line-height: 17vh;
         .popover-title {
-            font-size: 3.4vw;
+            // tafsir
+            font-size: 3.5vw;
         }
     }
 }
