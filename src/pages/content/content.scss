@@ -1,26 +1,12 @@
 page-content {
-    font-family: uthmanic;
-    .right-grid {
-        width: 50%;
-        float: right;
-        border-left: 1px solid rgb(214, 214, 214);
-    }
-    .left-grid {
-        width: 50%;
-        float: left;
-        border-right: 1px solid rgb(214, 214, 214);
-        /*
-        ion-row:nth-of-type(odd) {
-            background: aliceblue;
-        }
-        */
+    .content-container {
+        display: flex;
     }
     .searchbar {
         background: white;
         border-radius: 10px;
         position: sticky;
         top: 0;
-        font-family: uthmanic;
         z-index: 1;
         margin-right: 6px;
     }
@@ -29,7 +15,7 @@ page-content {
         background-color: darkgrey !important;
         opacity: 0.5;
         color: black !important;
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
     }
     button {
         font-size: 4.5vw !important;
@@ -37,6 +23,10 @@ page-content {
     }
     ::placeholder {
         color: rgb(53, 53, 53) !important;
+        font-style: italic;
+    }
+    .vertical-line {
+        border: 1px solid rgb(214, 214, 214)
     }
     @media screen and (orientation: landscape) {
         button {

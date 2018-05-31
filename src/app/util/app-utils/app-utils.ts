@@ -21,12 +21,38 @@ export class AppUtils {
         return true;
     }
 
+    /**
+     * Must use mobile mode in browser or it'll give wrong results.
+     * 
+     * @param orientation 
+     */
     public static isPortrait(orientation: ScreenOrientation): boolean {
         if (orientation.type === orientation.ORIENTATIONS.PORTRAIT ||
             orientation.type === orientation.ORIENTATIONS.PORTRAIT_PRIMARY ||
             orientation.type === orientation.ORIENTATIONS.PORTRAIT_SECONDARY) {
+            console.debug(`Orientation is: Portrait`);
           return true;
         }
+        console.debug(`Orientation is: Landscape`);
         return false;
       }
+
+    public static isLandscape(): boolean {
+        console.log(`Window orientation ${window.orientation}`);
+        if (window.orientation === 'Landscape') {
+            console.log(`Orientation is: Landscape`);
+            return true;
+        }
+        console.log(`Orientation is: Portrait`);
+        return false;
+    }
+
+    public static matchMediaIsPortrait(): boolean {
+        if (window.matchMedia('screen and (orientation: portrait)')) {
+            console.log(`Orientation is: Portrait`);
+            return true;
+        }
+        console.log(`Orientation is: Landscape`);
+        return false;
+    }
 }

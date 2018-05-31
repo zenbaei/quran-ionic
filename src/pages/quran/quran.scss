@@ -6,8 +6,8 @@ page-quran {
         // tafsir
         font-size: 5vw;
         font-weight: lighter;
+        text-align-last: right;
         font-family: uthmanic;
-        //white-space: pre test on page 575
     }
     .mushaf-border {
         border: 10px solid transparent;
@@ -21,12 +21,10 @@ page-quran {
         background-color: aliceblue;
     }
     .mushaf-container {
-        font-family: uthmanic;
-        direction: rtl;
         text-align: justify;
         text-align-last: justify;
         white-space: nowrap !important;
-        height: 90%; // if set to more first 2 pages scroll
+        min-height: 90%; // if set to more first 2 pages scroll
         font-size: 3.7vw;
     }
     .fateha-content {
@@ -45,9 +43,6 @@ page-quran {
     }
     @media screen and (orientation: portrait) {
         line-height: 5.7vh;
-        .line-height-extended {
-            line-height: 6.3vh;
-        }
     }
     @media screen and (orientation: landscape) {
         line-height: 17vh;
@@ -55,5 +50,5 @@ page-quran {
             // tafsir
             font-size: 3.5vw;
         }
-    }
+    }   
 }

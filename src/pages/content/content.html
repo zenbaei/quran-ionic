@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-searchbar #surahSearchBar (ionInput)="getItems($event)" placeholder='بحث..'></ion-searchbar>
+  <ion-searchbar #surahSearchBar (ionInput)="getItems($event)" placeholder='ســـورة..'></ion-searchbar>
   <div class="content-container">
     <ion-grid class="right-grid">
         <ion-row *ngFor="let quranIdx of quranIdxArr">
@@ -8,7 +8,7 @@
           </ion-col>
         </ion-row>
     </ion-grid>
-    
+    <div class="vertical-line"></div>
     <ion-grid class="left-grid">
         <ion-row *ngFor="let quranIdx of quranIdxArr">
           <ion-col *ngIf="quranIdx.surahNumber > 57">

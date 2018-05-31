@@ -24,7 +24,9 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.insomnia.keepAwake();
-      timer(4000).subscribe(() => this.splashScreen.hide());
+      timer(4000).subscribe(() => {
+        this.splashScreen.hide();
+      });
     });
   }
 }

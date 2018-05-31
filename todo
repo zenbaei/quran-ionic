@@ -42,6 +42,8 @@ page test width on
 --info
 use landscape for larger font
 add with and without border tab + make sure 2nd line tafsir is not hidden
+test popover words space on 313 -> fixed
+test right popover on 8
 
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashScreenDelay" value="10000" />
@@ -50,3 +52,10 @@ add with and without border tab + make sure 2nd line tafsir is not hidden
     <preference name="ShowSplashScreen" value="true" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
+
+new release notes:
+- align popover text
+- change search placeholder on contents
+- add height line inc/dec (separate for each view)
+- font resize (separate for each view)
+- icon name
