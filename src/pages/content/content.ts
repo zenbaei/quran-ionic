@@ -31,7 +31,7 @@ export class ContentPage {
     });
   }
 
-  ionViewDidEnter() {
+  ionViewWillLeave() {
     this.surahSearchBar.clearInput(null);
     this.content.scrollToTop();
   }

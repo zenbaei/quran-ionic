@@ -77,8 +77,10 @@ export class QuranPageHelper {
                 str = QuranPageHelper.replacePopoverTopWithButtom(str);
             }
 
-            if (str.trim().split(' ').length === 2 || str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
-                    (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === 'بِسۡمِ') ) { // 'سورة النساء' || بسم الله الرحمن الرحيم
+            if (str.trim().split(' ').length === 2 || 
+                str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
+                (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === 'بِسۡمِ') ||
+                this.isCenteredLine(str)) { // 'سورة النساء' || بسم الله الرحمن الرحيم
                 newContent += `<div ${this.NO_JUSTIFY_CLASS}>${str}</div>\n`;
             } else {
                 newContent += `<div>${str}</div>\n`;
@@ -94,4 +96,35 @@ export class QuranPageHelper {
     private static replacePopoverTopWithButtom(str: string): string {
         return StringUtils.replaceAll(str, 'top', 'bottom');
     }
+
+    private static isCenteredLine(str: string): boolean {
+        if (str.indexOf(KAFROUN) != -1 ||
+            str.indexOf(MASAD) === 310 || 
+            str.indexOf(NASR) === 0 ||
+            str.indexOf(KAWTHAR) === 298 ||
+            str.indexOf(MAOUN) === 329 ||
+            str.indexOf(QAREA) === 174 ||
+            str === KORAYSH || 
+            str === FAJR ||
+            str === NAJM) {
+            return true;
+        }
+        return false;
+    }
 }
+
+//const EKHLAS = 'أَحَدُۢ ٤ ';
+//const FALAQ = 'وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ٥ ';
+//const NAS_1 = 'يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ ٥ ';
+//const NAS_2 = 'وَٱلنَّاسِ ٦';
+//const ASR = 'وَتَوَاصَوۡاْ بِٱلصَّبۡرِ';
+//const GHASHEYA = 'ثُمَّ إِنَّ عَلَيۡنَا حِسَابَهُم ٦٢ ';
+const KAFROUN = 'وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ ٥';
+const MASAD = 'مِّن مَّسَدِۢ';
+const NASR = 'وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ';
+const KAWTHAR = 'هُوَ ٱلۡأَبۡتَرُ';
+const MAOUN = 'وَيَمۡنَعُونَ ٱلۡمَاعُونَ';
+const KORAYSH = 'مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَوۡفِۢ ٤ ';
+const QAREA = 'نَارٌ حَامِيَةُۢ ١١ ';
+const FAJR = 'فَٱدۡخُلِي فِي عِبَٰدِي ٩٢ وَٱدۡخُلِي جَنَّتِي ٠٣ ';
+const NAJM = '١٦ فَٱسۡجُدُواْۤ لِلَّهِۤ وَٱعۡبُدُواْ۩ ٢٦ ';
