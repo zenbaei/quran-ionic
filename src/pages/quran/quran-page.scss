@@ -1,0 +1,74 @@
+page-quran {
+    .no-justify {
+        text-align: center;
+        text-align-last: center;
+    }
+    .popover-title {
+        // tafsir
+        font-size: 5vw;
+        font-weight: lighter;
+        text-align-last: right;
+        font-family: uthmanic;
+    }
+    .mushaf-border {
+        border: 10px solid transparent;
+        border-image: url("../assets/img/mushaf-border.png") 20 round;
+        -webkit-border-image: url("../assets/img/mushaf-border.png") 20 round;
+        padding: 2% 2% 0 2%;
+        background-color: aliceblue;
+    }
+    .fateha-border {
+        border: 60px solid transparent;
+        border-image: url("../assets/img/fateha-border.png") 130 round;
+        -webkit-border-image: url("../assets/img/fateha-border.png") 130 round;
+        background-color: aliceblue;
+    }
+    .mushaf-container {
+        text-align: justify;
+        text-align-last: justify;
+        white-space: nowrap !important;
+        min-height: 90%; // if set to more first 2 pages scroll
+        font-size: 3.7vw;
+    }
+    .fateha-content {
+        text-align: center;
+        text-align-last: center;
+        padding: 10% 0 10% 0;
+        margin: 10% 0 0 0;
+    }
+    .moaouzat-content {
+        text-align: center;
+        text-align-last: center;
+    }
+    .mushaf-page-number {
+        font-size: 2.5vw;
+        text-align: center;
+        padding-top: 10px;
+        display: none;
+    }
+    @media screen and (orientation: portrait) {
+        line-height: 2.9vh;
+    }
+    @media screen and (orientation: landscape) {
+        line-height: 14.2vh;
+        .popover-title {
+            // tafsir
+            font-size: 3.5vw;
+        }
+    }
+}
+
+.ios {
+    page-quran {
+        .ios-justify {
+            white-space: normal !important;
+            div:after {
+                content: "";
+                display: inline-block;
+                width: 100%;
+                height: 0;
+                visibility: hidden;
+            }
+        }
+    }
+}

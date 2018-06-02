@@ -6,8 +6,6 @@ export const QURAN_PAGE_METADATA_FILE_EXTENSION = '.metadata';
 export const PAGE_NUMBER = 'pageNumber';
 export const SURAH_NAME = 'suranName';
 export const GOZE_AND_HEZB = 'gozeAndHezb';
-export const PORTRAIT_QURAN_FONT_SIZE = 'portraitQuranFontSize';
-export const LANDSCAPE_QURAN_FONT_SIZE = 'landscapeQuranFontSize';
 
 export const CSS_MARGIN_BOTTOM = 'margin-bottom';
 export const CSS_FONT_SIZE = 'font-size';
@@ -18,6 +16,9 @@ export const EVENT_KEYBOARD_OPEN_LNDSCP = 'keyboardOpenOnLandscape';
 export const EVENT_LINE_HEIGHT_CHANGED = 'lineHeightChangedEvent';
 export const EVENT_FONT_CHANGED= 'fontChangedEvent';
 export const EVENT_HIDE_CONTROL_BUTTONS = 'hideContrlButtonsEvent';
+
+export const PLATFORM_ANDROID = 'android';
+export const PLATFORM_IOS = 'ios';
 
 export enum Status { SHOWN, HIDDEN };
 export enum Operator { INC, DEC };

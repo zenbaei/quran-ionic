@@ -39,16 +39,17 @@ ion-toast {
 }
 
 .toast-md .toast-wrapper {
-    text-align: center;
     border-radius: 10px;
     width: 90%;
     font-family: uthmanic;
-    white-space: pre-wrap;
+    white-space: pre-wrap !important;
 }
 
 .toast-message {
     padding: 0 !important;
     font-size: 4.5vw !important;
+    text-align: center !important;
+    text-align-last: center;
 }
 
 @media screen and (orientation: landscape) {

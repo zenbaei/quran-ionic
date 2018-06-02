@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavParams, ViewController } from 'ionic-angular'
-import { AppUtils } from '../../app/util/app-utils/app-utils';
 import * as Constants from '../../app/all/constants';
 import { Storage } from '@ionic/storage';
+import { QuranService } from '../../app/service/quran/quran-service';
 
 @IonicPage()
 @Component({
@@ -23,7 +23,7 @@ export class GoToPopoverPage {
 
   goToPage() {
     let pageNumber: number = Number(this.pageNumber.trim());
-    if (!AppUtils.isValidPageNumber(pageNumber)) {
+    if (!QuranService.isValidPageNumber(pageNumber)) {
       return;
     }
     this.cancel();

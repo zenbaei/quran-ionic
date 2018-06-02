@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavParams, IonicPage, Searchbar, Content, Keyboard, Events } from 'ionic-angular';
 import { QuranIndex } from '../../app/domain/quran-index';
-import { QuranIndexService } from '../../app/service/quran-index/quran-index.service';
+import { IndexService } from '../../app/service/index/index-service';
 import { Storage } from '@ionic/storage';
 import * as Constants from '../../app/all/constants';
 import { RegexUtils } from "../../app/util/regex-utils/regex-utils";
@@ -19,7 +19,7 @@ export class ContentPage {
   quranIdxArr: QuranIndex[] = [];
   searchQuery: string = '';
 
-  constructor(private surahIndexService: QuranIndexService, private navParams: NavParams,
+  constructor(private indexService: IndexService, private navParams: NavParams,
     private storage: Storage, private orientation: ScreenOrientation, private keyboard: Keyboard,
     private events: Events) {
     this.initializeItems();
@@ -37,7 +37,7 @@ export class ContentPage {
   }
 
   initializeItems() {
-    this.quranIdxArr = this.surahIndexService.surahIndexArr;
+    this.quranIdxArr = this.indexService.surahIndexArr;
   }
 
   getItems(ev: any) {

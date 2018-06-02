@@ -53,9 +53,12 @@ test right popover on 8
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
 
-new release notes:
-- align popover text
-- change search placeholder on contents
-- add height line inc/dec (separate for each view)
-- font resize (separate for each view)
-- icon name
+to be done:
+- prevent 2 first page from scroll because of the parent 100 div (ignore)
+- check toast size on ios (done)
+- make sure port/land : quranFont, md/ios lineheight are saved => done
+- make sure last pages are centerd
+- check migration => done
+- bootstrap pop close
+
+

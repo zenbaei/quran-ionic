@@ -1,7 +1,7 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { PopoverController, Tabs, Tab, Events } from 'ionic-angular';
 import { ContentPage } from '../content/content';
-import { QuranPage } from '../quran/quran';
+import { QuranPage } from '../quran/quran-page';
 import { GoToPopoverPage } from '../go-to-popover/go-to-popover';
 import * as Constants from '../../app/all/constants';
 import { Operator } from '../../app/all/constants';

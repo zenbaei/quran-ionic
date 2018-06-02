@@ -53,3 +53,14 @@ page-tabs {
         bottom: 25px;
     }
 }
+
+.ios {
+    page-tabs {
+        .line-height-ctls {
+            bottom: 64px;
+        }
+        .move-down {
+            bottom: 19px;
+        }
+    }
+}

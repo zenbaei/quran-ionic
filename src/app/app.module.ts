@@ -6,10 +6,10 @@ import { MyApp } from './app.component';
 import { ContentPage } from '../pages/content/content';
 import { ContentPageModule } from '../pages/content/content.module';
 import { TabsPage } from '../pages/tabs/tabs';
-import { QuranIndexService } from './service/quran-index/quran-index.service';
-import { QuranPageService } from './service/quran-page/quran-page.service';
+import { IndexService } from './service/index/index-service';
+import { QuranService } from './service/quran/quran-service';
 import { IonicStorageModule } from '@ionic/storage';
-import { TafsirService } from './service/tafsir/tafsir.service';
+import { TafsirService } from './service/tafsir/tafsir-service';
 import { HttpRequest } from './core/http/http-request';
 import { GoToPopoverPageModule } from '../pages/go-to-popover/go-to-popover.module';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,7 +17,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Insomnia } from '@ionic-native/insomnia';
-import { QuranPage } from '../pages/quran/quran';
+import { QuranPage } from '../pages/quran/quran-page';
 import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
 
 @NgModule({
@@ -45,8 +45,8 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
   providers: [
     StatusBar,
     SplashScreen,
-    QuranIndexService,
-    QuranPageService,
+    IndexService,
+    QuranService,
     TafsirService,
     HttpRequest,
     ScreenOrientation,
