@@ -24,9 +24,6 @@ page-quran {
         background-color: aliceblue;
     }
     .mushaf-container {
-        text-align: justify;
-        text-align-last: justify;
-        white-space: nowrap !important;
         min-height: 90%; // if set to more first 2 pages scroll
         font-size: 3.7vw;
     }
@@ -55,6 +52,13 @@ page-quran {
             // tafsir
             font-size: 3.5vw;
         }
+    }
+    .mushaf-text {
+        overflow-y: scroll !important;
+        text-align: justify;
+        text-align-last: justify;
+        text-justify: inter-word;
+        white-space: nowrap !important;
     }
 }
 

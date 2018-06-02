@@ -26,13 +26,16 @@ export class QuranPage {
   private gozeAndHezb: string = '';
   private surahName: string = '';
   private toast: Toast;
-  private firstRun: boolean = true;
 
   constructor(private quranPageService: QuranService, private tafsirService: TafsirService,
     private quranIndexService: IndexService, private toastCtl: ToastController,
     private events: Events, private orientation: ScreenOrientation,
     private platform: Platform) {
     this.subscribeToEvents();
+  }
+
+  ionViewDidLoad() {
+    this.resizeOnStartUp();
   }
 
   /**
@@ -72,7 +75,6 @@ export class QuranPage {
     let self = this;
     $(function () {
       self.scrollToTop();
-      self.firstTimeRun();
       self.showInfo();
       self.initBootstrapPopover();
     });
@@ -82,14 +84,7 @@ export class QuranPage {
     this.content.scrollToTop();
   }
 
-  /**
-   * A workaround as the lifecycle hooks either run before view is rendered or called multiple times
-   */
-  private firstTimeRun() {
-    if (!this.firstRun) {
-      return;
-    }
-
+  private resizeOnStartUp() {
     this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
       .then(val => {
         this.resizeLineHeight(val);
@@ -98,7 +93,6 @@ export class QuranPage {
     this.quranPageService.getFontSize(this.isPortrait())
       .then(val => {
         this.resizeFont(val);
-        this.firstRun = false;
       })
   }
 
@@ -154,6 +148,9 @@ export class QuranPage {
         .subscribe(content => {
           this.pageContent = content;
           this.findMetadataByPageNumber(pageNumber).then(val => {
+            if (!this.isAndroid()) {
+              //this.pageContent = QuranPageHelper.surroundEachWordInADiv(this.pageContent);
+            }
             this.pageContent = QuranPageHelper.surrondEachLineInDiv(this.pageContent, pageNumber);
             resolve();
           });

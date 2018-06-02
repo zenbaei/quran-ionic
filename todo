@@ -60,5 +60,6 @@ to be done:
 - make sure last pages are centerd
 - check migration => done
 - bootstrap pop close
-
+- nowrap on safari with jusify
+- check overflow scroll
 

@@ -10,8 +10,9 @@ export class QuranPageHelper {
     private static readonly CHARS_TO_REMOVE = new RegExp('<.*'); 
     private static readonly EMPTY: string = '';
     private static readonly LINE_BREAK: string = '\n';
-    private static readonly NO_JUSTIFY_CLASS = `class='no-justify'`;
+
     public static readonly ANCHOR_ATT = `class="fake-link tafsir" tabindex="0" data-toggle="popover" data-placement="top" data-trigger="focus"`;
+
     /*
     * This will result in exact matching 'ayah' from tafsir. it was introduced to avoid matching quran ayah to tafsir.
     * like 'بَلَىٰ' from yassen 18 matches tafsir {"ayah":"هي رميم", "ayahNumber":78, "tafsir":"بالية أشدّ البلى"}
@@ -69,10 +70,26 @@ export class QuranPageHelper {
         return pageContentCopy;
     }
 
-    public static surrondEachLineInDiv(content: string, pageNumber: number): string {
-        let strArr: string[] = content.split('\n');
+    public static surroundEachWordInADiv(content: string): string {
+        let lines: string[] = content.split(LINE_BREAK);
         let newContent: string = '';
-        strArr.forEach(str => {
+        // need to bypass splitting <a>
+        lines.forEach(line => {
+            let newLine: string = '';
+            let words: string[] = line.split(' ');
+            words.forEach(wrd => {
+                newLine += `<div>${wrd}</div>`;
+            });
+            newContent += newLine;
+        });
+
+        return newContent;
+    }
+
+    public static surrondEachLineInDiv(content: string, pageNumber: number): string {
+        let lines: string[] = content.split('\n');
+        let newContent: string = '';
+        lines.forEach(str => {
             if (newContent === '' || newContent.split('\n').length == 2) { //first-line or second-line
                 str = QuranPageHelper.replacePopoverTopWithButtom(str);
             }
@@ -81,7 +98,7 @@ export class QuranPageHelper {
                 str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
                 (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === 'بِسۡمِ') ||
                 this.isCenteredLine(str, pageNumber)) { // 'سورة النساء' || بسم الله الرحمن الرحيم
-                newContent += `<div ${this.NO_JUSTIFY_CLASS}>${str}</div>\n`;
+                newContent += `<div ${NO_JUSTIFY_CLASS}>${str}</div>\n`;
             } else {
                 newContent += `<div>${str}</div>\n`;
             }
@@ -99,11 +116,11 @@ export class QuranPageHelper {
 
     private static isCenteredLine(str: string, pageNumber: number): boolean {
         if (str.indexOf(KAFROUN) != -1 && (pageNumber === 603)  ||
-            str.indexOf(MASAD) === 310 && (pageNumber === 603) ||
-            str.indexOf(NASR) === 0 && (pageNumber === 603) ||
-            str.indexOf(KAWTHAR) === 298 && (pageNumber === 602) ||
-            str.indexOf(MAOUN) === 329 && (pageNumber === 602) ||
-            str.indexOf(QAREA) === 174 && (pageNumber === 600) ||
+            str.indexOf(MASAD) != -1 && (pageNumber === 603) ||
+            str.indexOf(NASR) != -1 && (pageNumber === 603) ||
+            str.indexOf(KAWTHAR) != -1 && (pageNumber === 602) ||
+            str.indexOf(MAOUN) != -1 && (pageNumber === 602) ||
+            str.indexOf(QAREA) != -1 && (pageNumber === 600) ||
             str === KORAYSH || 
             str === FAJR ||
             str === NAJM) {
@@ -128,3 +145,7 @@ const KORAYSH = 'مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَو�
 const QAREA = 'نَارٌ حَامِيَةُۢ ١١ ';
 const FAJR = 'فَٱدۡخُلِي فِي عِبَٰدِي ٩٢ وَٱدۡخُلِي جَنَّتِي ٠٣ ';
 const NAJM = '١٦ فَٱسۡجُدُواْۤ لِلَّهِۤ وَٱعۡبُدُواْ۩ ٢٦ ';
+
+const NO_JUSTIFY_CLASS = 'class = "no-justify"';
+
+const LINE_BREAK = '\n';

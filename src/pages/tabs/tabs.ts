@@ -7,6 +7,7 @@ import * as Constants from '../../app/all/constants';
 import { Operator } from '../../app/all/constants';
 import { AppUtils } from '../../app/util/app-utils/app-utils';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import * as $ from "jquery";
 
 @Component({
   selector: 'page-tabs',
@@ -34,8 +35,7 @@ export class TabsPage {
     this.subscribeToEvents();
   }
 
-  ionViewDidEnter() {
-    this.saveParamForContentPage();
+  ionViewDidLoad() {
     let self = this;
     $(function () {
       self.tabMarginHeight = self.getTabMarginBottom();
@@ -43,6 +43,11 @@ export class TabsPage {
     });
   }
 
+  ionViewDidEnter() {
+    this.saveParamForContentPage();
+  }
+
+  // TODO: change into event
   ngAfterViewChecked() {
     this.surahName = sessionStorage.getItem(Constants.SURAH_NAME);
     this.pageNumber = sessionStorage.getItem(Constants.PAGE_NUMBER);
