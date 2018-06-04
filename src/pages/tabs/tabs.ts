@@ -24,7 +24,6 @@ export class TabsPage {
   params = {}; // this object is passed through [rootParams] in tabs.html
   surahName: string = '1';
   pageNumber: string = '1';
-  tabMarginHeight: string;
   isTabCtlEnabled: boolean = true;
   showFontCtls: boolean = false;
   showLineHeightCtls: boolean = false;
@@ -33,14 +32,6 @@ export class TabsPage {
   constructor(private popoverCtrl: PopoverController, private cdRef: ChangeDetectorRef,
     private orientation: ScreenOrientation, private events: Events) {
     this.subscribeToEvents();
-  }
-
-  ionViewDidLoad() {
-    let self = this;
-    $(function () {
-      self.tabMarginHeight = self.getTabMarginBottom();
-      self.toggleTabButton(true);
-    });
   }
 
   ionViewDidEnter() {
@@ -97,25 +88,17 @@ export class TabsPage {
     this.tabBar.setTabbarHidden(true);
     this.toggleTabButton(false);
     this.isTabBarShown = false;
-    //this.fireToggleTabEvent(Status.HIDDEN);
   }
 
   public showTabBar() {
     this.tabBar.setTabbarHidden(false);
     this.toggleTabButton(true);
     this.isTabBarShown = true;
-    //this.fireToggleTabEvent(Status.SHOWN);
   }
 
   public getTabMarginBottom(): string {
     return $(this.TAB_CLASS).css(Constants.CSS_MARGIN_BOTTOM);
   }
-
-  /*
-  private fireToggleTabEvent(status: Constants.Status): void {
-    this.events.publish(Constants.EVENT_TOGGLE_TAB, status);
-  }
-  */
 
   private hideControlButtonsEvent() {
     this.hideControlButtons();
@@ -134,8 +117,7 @@ export class TabsPage {
     if (showTab) {
       $(this.SHOW_TAB_BTN_CLASS).css('display', 'none');
       $(this.HIDE_TAB_BTN_CLASS).css({
-        'display': 'block',
-        'bottom': (Number(this.tabMarginHeight.replace('px', '')) + 5) + 'px'
+        'display': 'block'
       });
     } else {
       $(this.SHOW_TAB_BTN_CLASS).css('display', 'block');

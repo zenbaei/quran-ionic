@@ -69,22 +69,6 @@ export class QuranPageHelper {
         return pageContentCopy;
     }
 
-    public static surroundEachWordInADiv(content: string): string {
-        let lines: string[] = content.split(LINE_BREAK);
-        let newContent: string = '';
-        // need to bypass splitting <a>
-        lines.forEach(line => {
-            let newLine: string = '';
-            let words: string[] = line.split(' ');
-            words.forEach(wrd => {
-                newLine += `<div>${wrd}</div>`;
-            });
-            newContent += newLine;
-        });
-
-        return newContent;
-    }
-
     public static surrondEachLineInDiv(content: string, pageNumber: number): string {
         let lines: string[] = content.split('\n');
         let newContent: string = '';

@@ -13,6 +13,8 @@ page-tabs {
     .hide-tab-btn {
         //manipulated from tabs.ts
         @extend .show-tab-btn;
+        bottom: 61px;
+        display: block;
     }
     .font-ctls {
         position: absolute;
@@ -61,6 +63,9 @@ page-tabs {
         }
         .move-down {
             bottom: 19px;
+        }
+        .hide-tab-btn {
+            bottom: 55px;
         }
     }
 }

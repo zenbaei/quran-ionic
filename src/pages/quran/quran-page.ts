@@ -148,9 +148,6 @@ export class QuranPage {
         .subscribe(content => {
           this.pageContent = content;
           this.findMetadataByPageNumber(pageNumber).then(val => {
-            if (!this.isAndroid()) {
-              //this.pageContent = QuranPageHelper.surroundEachWordInADiv(this.pageContent);
-            }
             this.pageContent = QuranPageHelper.surrondEachLineInDiv(this.pageContent, pageNumber);
             resolve();
           });
@@ -245,9 +242,8 @@ export class QuranPage {
   }
 
   private getToastMsg(): string {
-    return `ســــــورة ${this.surahName}  (${this.gozeAndHezb})${NEW_LINE}` +
-      `${this.platform.is(Constants.PLATFORM_ANDROID) ? '' : '  '}` +
-      `صــــــفحة ${this.currentPageNumber}`;
+    return `ســــــورة ${this.surahName} - (${this.gozeAndHezb})${NEW_LINE}` +
+      `${this.platform.is(Constants.PLATFORM_ANDROID) ? '' : '  '}`;
   }
 
   private fontChangedEvent(operator: Operator) {
