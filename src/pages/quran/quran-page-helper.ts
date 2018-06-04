@@ -6,8 +6,8 @@ import { StringUtils } from '../../app/util/string-utils/string-utils';
 export class QuranPageHelper {
 
     // both below vars were added to prevent replacing word inside a span already
-    private static EXCLUDE: string =  '(?!<)';
-    private static readonly CHARS_TO_REMOVE = new RegExp('<.*'); 
+    private static EXCLUDE: string = '(?!<)';
+    private static readonly CHARS_TO_REMOVE = new RegExp('<.*');
     private static readonly EMPTY: string = '';
     private static readonly LINE_BREAK: string = '\n';
 
@@ -17,8 +17,8 @@ export class QuranPageHelper {
     * This will result in exact matching 'ayah' from tafsir. it was introduced to avoid matching quran ayah to tafsir.
     * like 'بَلَىٰ' from yassen 18 matches tafsir {"ayah":"هي رميم", "ayahNumber":78, "tafsir":"بالية أشدّ البلى"}
     */
-    private static readonly NO_NORMALIZATION = '\\noNormalization'; 
-    
+    private static readonly NO_NORMALIZATION = '\\noNormalization';
+
 
     public static patchTafsirOnContent(tafsir: Tafsir, pageContent: string): string {
         console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
@@ -26,13 +26,12 @@ export class QuranPageHelper {
 
         // in case of no normalization, do exact match
         this.EXCLUDE = tafsir.ayah.indexOf(this.NO_NORMALIZATION) > -1 ? '' : this.EXCLUDE;
-        
+
         let ayahToMatch: string = tafsir.ayah.indexOf(this.NO_NORMALIZATION) > -1 ? tafsir.ayah.replace(this.NO_NORMALIZATION, '') :
             QuranService.normalizeString(tafsir.ayah);
-        
-            let search: Search = new Search(ayahToMatch + this.EXCLUDE, pageContentCopy);
 
-        
+        let search: Search = new Search(ayahToMatch + this.EXCLUDE, pageContentCopy);
+
         if (!search.test()) {
             return pageContent;
             //throw new Error(`Ayah [${tafsir.ayah}] not matching target [${pageContentCopy}]`);  // uncomment when dev
@@ -42,7 +41,7 @@ export class QuranPageHelper {
         // if on 2 lines then add span for each (before adding div for everyline it was working, so i had to make it that way after div for everyline)
         let spans: string[] = [];
         let matchings: string[] = [];
-        
+
         /* This will add tafsir span to both words when matching words with break within.
         * Don't remember what was the issue before adding it.
         */
@@ -55,7 +54,7 @@ export class QuranPageHelper {
             let span_1: string = `<a ${this.ANCHOR_ATT} title="${tafsir.tafsir}">${matchedAyah}</a>`;
             spans.push(span_1);
         }
-        
+
         if (spans.length > 1) {
             let regex_1: RegExp = new RegExp(matchings[0] + this.EXCLUDE);
             let regex_2: RegExp = new RegExp(matchings[1] + this.EXCLUDE);
@@ -94,18 +93,18 @@ export class QuranPageHelper {
                 str = QuranPageHelper.replacePopoverTopWithButtom(str);
             }
 
-            if (str.trim().split(' ').length === 2 || 
+            if (str.trim().split(' ').length === 2 ||
                 str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
                 (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === 'بِسۡمِ') ||
                 this.isCenteredLine(str, pageNumber)) { // 'سورة النساء' || بسم الله الرحمن الرحيم
-                newContent += `<div ${NO_JUSTIFY_CLASS}>${str}</div>\n`;
+                newContent += `<div ${NO_JUSTIFY_CLASS}><nobr>${str}</nobr></div>\n`;
             } else {
-                newContent += `<div>${str}</div>\n`;
+                newContent += `<div><nobr>${str}</nobr></div>\n`;
             }
         });
         return newContent;
     }
-   
+
     /**
      * It was added to avoid getting tafsir popover hidden when on first line.
      * @param str 
@@ -115,13 +114,13 @@ export class QuranPageHelper {
     }
 
     private static isCenteredLine(str: string, pageNumber: number): boolean {
-        if (str.indexOf(KAFROUN) != -1 && (pageNumber === 603)  ||
+        if (str.indexOf(KAFROUN) != -1 && (pageNumber === 603) ||
             str.indexOf(MASAD) != -1 && (pageNumber === 603) ||
             str.indexOf(NASR) != -1 && (pageNumber === 603) ||
             str.indexOf(KAWTHAR) != -1 && (pageNumber === 602) ||
             str.indexOf(MAOUN) != -1 && (pageNumber === 602) ||
             str.indexOf(QAREA) != -1 && (pageNumber === 600) ||
-            str === KORAYSH || 
+            str === KORAYSH ||
             str === FAJR ||
             str === NAJM) {
             return true;
@@ -130,12 +129,6 @@ export class QuranPageHelper {
     }
 }
 
-//const EKHLAS = 'أَحَدُۢ ٤ ';
-//const FALAQ = 'وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ٥ ';
-//const NAS_1 = 'يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ ٥ ';
-//const NAS_2 = 'وَٱلنَّاسِ ٦';
-//const ASR = 'وَتَوَاصَوۡاْ بِٱلصَّبۡرِ';
-//const GHASHEYA = 'ثُمَّ إِنَّ عَلَيۡنَا حِسَابَهُم ٦٢ ';
 const KAFROUN = 'وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ ٥';
 const MASAD = 'مِّن مَّسَدِۢ';
 const NASR = 'وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ';
