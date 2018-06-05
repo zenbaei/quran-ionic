@@ -77,10 +77,7 @@ export class QuranPageHelper {
                 str = QuranPageHelper.replacePopoverTopWithButtom(str);
             }
 
-            if (str.trim().split(' ').length === 2 ||
-                str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
-                (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === 'بِسۡمِ') ||
-                this.isCenteredLine(str, pageNumber)) { // 'سورة النساء' || بسم الله الرحمن الرحيم
+            if (this.isCenteredLine(str, pageNumber)) {
                 newContent += `<div ${NO_JUSTIFY_CLASS}><nobr>${str}</nobr></div>\n`;
             } else {
                 newContent += `<div><nobr>${str}</nobr></div>\n`;
@@ -98,12 +95,15 @@ export class QuranPageHelper {
     }
 
     private static isCenteredLine(str: string, pageNumber: number): boolean {
-        if (str.indexOf(KAFROUN) != -1 && (pageNumber === 603) ||
-            str.indexOf(MASAD) != -1 && (pageNumber === 603) ||
-            str.indexOf(NASR) != -1 && (pageNumber === 603) ||
-            str.indexOf(KAWTHAR) != -1 && (pageNumber === 602) ||
-            str.indexOf(MAOUN) != -1 && (pageNumber === 602) ||
-            str.indexOf(QAREA) != -1 && (pageNumber === 600) ||
+        if (str.trim().split(' ').length === 2 || // سورة النساء
+            str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
+            (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === BESM) || //بسم الله الرحمن الرحيم
+            (str.indexOf(KAFROUN) != -1 && pageNumber === 603) ||
+            (str.indexOf(MASAD) != -1 && pageNumber === 603) ||
+            (str.indexOf(NASR) != -1 && pageNumber === 603) ||
+            (str.indexOf(KAWTHAR) != -1 && pageNumber === 602) ||
+            (str.indexOf(MAOUN) != -1 && pageNumber === 602) ||
+            (str.indexOf(QAREA) != -1 && pageNumber === 600) ||
             str === KORAYSH ||
             str === FAJR ||
             str === NAJM) {
@@ -122,7 +122,5 @@ const KORAYSH = 'مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَو�
 const QAREA = 'نَارٌ حَامِيَةُۢ ١١ ';
 const FAJR = 'فَٱدۡخُلِي فِي عِبَٰدِي ٩٢ وَٱدۡخُلِي جَنَّتِي ٠٣ ';
 const NAJM = '١٦ فَٱسۡجُدُواْۤ لِلَّهِۤ وَٱعۡبُدُواْ۩ ٢٦ ';
-
+const BESM = 'بِسۡمِ';
 const NO_JUSTIFY_CLASS = 'class = "no-justify"';
-
-const LINE_BREAK = '\n';

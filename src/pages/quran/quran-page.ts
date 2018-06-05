@@ -242,8 +242,7 @@ export class QuranPage {
   }
 
   private getToastMsg(): string {
-    return `ســــــورة ${this.surahName} - (${this.gozeAndHezb})${NEW_LINE}` +
-      `${this.platform.is(Constants.PLATFORM_ANDROID) ? '' : '  '}`;
+    return `ســــــورة ${this.surahName} - (${this.gozeAndHezb})`;
   }
 
   private fontChangedEvent(operator: Operator) {
@@ -381,7 +380,6 @@ const PROPORTION: number = 0.1;
 
 const LINE_HEIGHT_UNIT: string = 'vh';
 const FONT_UNIT: string = 'vw';
-const NEW_LINE = '\n';
 
 const PORTRAIT_MIN_LINE_HEIGHT_SIZE_ANDROID: number = 3;
 const PORTRAIT_MAX_LINE_HEIGHT_SIZE_ANDROID: number = 10;
