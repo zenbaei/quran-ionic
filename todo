@@ -60,6 +60,10 @@ to be done:
 - make sure last pages are centerd
 - check migration => done
 - bootstrap pop close
-- nowrap on safari with jusify
-- check overflow scroll
+- nowrap on safari with jusify => done
+- check overflow scroll => breaks swipe
+- search bar with less right margin
+- not scrolling top when back to content (if no search)
+- set popover trigger from code
+
 

@@ -1,10 +1,10 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { Tafsir } from '../../domain/tafsir';
 import { TafsirService } from './tafsir-service';
+import * as Constants from './tafsir-service';
 import { HttpModule } from '@angular/http';
 import { HttpRequest } from '../../core/http/http-request';
 import { TestUtils } from '../../util/test-utils/test-utils';
-import * as Constants from '../../all/constants';
 
 describe('TafsirService', () => {
 

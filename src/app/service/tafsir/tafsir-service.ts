@@ -59,4 +59,4 @@ export class TafsirService {
 }
 
 export const TAFSIR_MAKHLOUF_DATA_DIR = Constants.BASE_DATA_DIR + 'tafsir/makhlouf/';
-const TAFSIR_FILE_EXTENSION = '.tafsir';
+export const TAFSIR_FILE_EXTENSION = '.tafsir';

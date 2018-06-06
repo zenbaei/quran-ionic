@@ -29,7 +29,7 @@ describe('QuranService', () => {
     it('Given http get is mocked to get the quran page When findPageContentByPageNumber is called Then it should return string content', (done) => {
         TestUtils.mockResponse(httpRequest, quranPageContent);
 
-        quranService.findPageContentByPageNumber(7)
+        quranService.findPageContentByPageNumber(7, false)
             .subscribe(content => {
                 expect(content).toEqual(quranPageContent);
                 done();
@@ -40,14 +40,14 @@ describe('QuranService', () => {
     });
 
     it('Given http get is mocked When findPageContentByPageNumber is called with a value out of range Then it should throw RangeError', () => {
-        quranService.findPageContentByPageNumber(0)
+        quranService.findPageContentByPageNumber(0, false)
             .subscribe(str => fail()
             , err => {
                 console.info(err.message);
                 expect(err instanceof RangeError).toBeTruthy();
             });
 
-        quranService.findPageContentByPageNumber(605)
+        quranService.findPageContentByPageNumber(605, false)
             .subscribe(str => fail()
             , err => {
                 console.info(err.message);

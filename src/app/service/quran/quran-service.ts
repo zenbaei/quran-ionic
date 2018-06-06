@@ -43,7 +43,7 @@ export class QuranService {
             return Observable.throw(new RangeError(`Page number [${pageNumber}] is out of valid range (1 - 604)`));
         }
 
-        let quranPageFileURL: string = MUSHAF_DATA_DIR
+        let quranPageFileURL: string = Constants.MUSHAF_DATA_DIR
             + `${pageNumber}/${pageNumber}` + this.getExtension(isAndroid);
 
         return this.httpRequest.get(quranPageFileURL)
@@ -77,7 +77,7 @@ export class QuranService {
             return Observable.throw(new RangeError(`Page number [${pageNumber}] is out of valid range (1 - 604)`));
         }
 
-        let pageMetadataURL: string = MUSHAF_DATA_DIR
+        let pageMetadataURL: string = Constants.MUSHAF_DATA_DIR
             + `${pageNumber}/${pageNumber}` + QURAN_METADATA_FILE_EXTENSION;
         return this.httpRequest.get(pageMetadataURL)
             .map(res => {
@@ -285,4 +285,3 @@ const LAST_PAGE = 604;
 export const ANDROID_QURAN_FILE_EXTENSION = '.android.quran';
 const IOS_QURAN_FILE_EXTENSION = '.quran';
 export const QURAN_METADATA_FILE_EXTENSION = '.metadata';
-export const MUSHAF_DATA_DIR = Constants.BASE_DATA_DIR + 'mushaf/';

@@ -5,13 +5,8 @@ import { StringUtils } from '../../app/util/string-utils/string-utils';
 
 export class QuranPageHelper {
 
-    // both below vars were added to prevent replacing word inside a span already
-    private static EXCLUDE: string = '(?!<)';
-    private static readonly CHARS_TO_REMOVE = new RegExp('<.*');
-    private static readonly EMPTY: string = '';
-    private static readonly LINE_BREAK: string = '\n';
-
-    public static readonly ANCHOR_ATT = `class="fake-link tafsir" tabindex="0" data-toggle="popover" data-placement="top" data-trigger="focus"`;
+    private static EXCLUDE: string = '(?!<)'; // to prevent replacing word inside a span already
+    
 
     /*
     * This will result in exact matching 'ayah' from tafsir. it was introduced to avoid matching quran ayah to tafsir.
@@ -24,49 +19,30 @@ export class QuranPageHelper {
         console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
         let pageContentCopy: string = pageContent;
 
-        // in case of no normalization, do exact match
-        this.EXCLUDE = tafsir.ayah.indexOf(this.NO_NORMALIZATION) > -1 ? '' : this.EXCLUDE;
-
-        let ayahToMatch: string = tafsir.ayah.indexOf(this.NO_NORMALIZATION) > -1 ? tafsir.ayah.replace(this.NO_NORMALIZATION, '') :
-            QuranService.normalizeString(tafsir.ayah);
-
-        let search: Search = new Search(ayahToMatch + this.EXCLUDE, pageContentCopy);
+        let search: Search = this.initSearch(tafsir, pageContentCopy);
 
         if (!search.test()) {
             return pageContent;
             //throw new Error(`Ayah [${tafsir.ayah}] not matching target [${pageContentCopy}]`);  // uncomment when dev
         }
 
-        let matchedAyah: string = search.group().trim().replace(this.CHARS_TO_REMOVE, this.EMPTY);
-        // if on 2 lines then add span for each (before adding div for everyline it was working, so i had to make it that way after div for everyline)
-        let spans: string[] = [];
-        let matchings: string[] = [];
+        let matchedAyah: string = search.group().trim().replace(CHARS_TO_REMOVE, EMPTY);
+        let replacement: string = `<a ${ANCHOR_ATT} title="${tafsir.tafsir}">${matchedAyah}</a>`;
 
-        /* This will add tafsir span to both words when matching words with break within.
-        * Don't remember what was the issue before adding it.
-        */
-        if (matchedAyah.indexOf(this.LINE_BREAK) > 0) {
-            matchings = matchedAyah.split(this.LINE_BREAK);
-            let span_1: string = `<a ${this.ANCHOR_ATT} title="${tafsir.tafsir}">${matchings[0].trim()}</a> `;
-            let span_2: string = `<a ${this.ANCHOR_ATT} title="${tafsir.tafsir}">${matchings[1].trim()}</a>`;
-            spans.push(span_1, span_2);
-        } else {
-            let span_1: string = `<a ${this.ANCHOR_ATT} title="${tafsir.tafsir}">${matchedAyah}</a>`;
-            spans.push(span_1);
-        }
-
-        if (spans.length > 1) {
-            let regex_1: RegExp = new RegExp(matchings[0] + this.EXCLUDE);
-            let regex_2: RegExp = new RegExp(matchings[1] + this.EXCLUDE);
-
-            pageContentCopy = pageContentCopy.replace(regex_1, spans[0]);
-            pageContentCopy = pageContentCopy.replace(regex_2, spans[1]);
-        } else {
-            let regex: RegExp = new RegExp(matchedAyah + this.EXCLUDE);
-            pageContentCopy = pageContentCopy.replace(regex, spans[0]);
-        }
+        let regex: RegExp = new RegExp(matchedAyah + this.EXCLUDE);
+        pageContentCopy = pageContentCopy.replace(regex, replacement);
 
         return pageContentCopy;
+    }
+
+    private static initSearch(tafsir: Tafsir, pageContentCopy: string): Search {
+        // in case of no normalization, do exact match
+        this.EXCLUDE = tafsir.ayah.indexOf(this.NO_NORMALIZATION) > -1 ? '' : this.EXCLUDE;
+
+        let ayahToMatch: string = tafsir.ayah.indexOf(this.NO_NORMALIZATION) > -1 ? tafsir.ayah.replace(this.NO_NORMALIZATION, '') :
+            QuranService.normalizeString(tafsir.ayah);
+
+        return new Search(ayahToMatch + this.EXCLUDE, pageContentCopy);
     }
 
     public static surrondEachLineInDiv(content: string, pageNumber: number): string {
@@ -112,6 +88,10 @@ export class QuranPageHelper {
         return false;
     }
 }
+
+const EMPTY: string = '';
+const ANCHOR_ATT = `class="fake-link tafsir" tabindex="0" data-toggle="popover" data-placement="top"`;
+const CHARS_TO_REMOVE = new RegExp('<.*'); // to prevent replacing word inside a span already
 
 const KAFROUN = 'وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ ٥';
 const MASAD = 'مِّن مَّسَدِۢ';

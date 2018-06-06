@@ -220,7 +220,10 @@ export class QuranPage {
     if (tafsirAnchors.length === 0) { // content not displayed yet
       return;
     }
-    tafsirAnchors.popover();
+
+    tafsirAnchors.popover({
+      trigger: 'focus'
+    });
   }
 
   public showInfo(): void {
