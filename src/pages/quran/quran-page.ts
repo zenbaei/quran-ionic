@@ -269,7 +269,7 @@ export class QuranPage {
   }
 
   /**
-  * Set line heights for both orientation in order to be available 
+  * Sets line heights for both orientation
   * @param lineHeight 
   */
   private resizeLineHeight(size: number) {
@@ -279,18 +279,14 @@ export class QuranPage {
       return;
     }
 
-    this.quranPageService.saveLineHeight(Number(size), this.isAndroid(), this.isPortrait());
+    this.quranPageService.saveLineHeight(Number(size), this.isPortrait());
     this.setLineHeightStyle(size);
   }
 
   private isValidLineHeight(size: number): boolean {
     console.debug(`Is valid line height: ${size}`);
-    if ((this.isPortrait() &&
-      NumberUtils.isBetween(size, PORTRAIT_MIN_LINE_HEIGHT_SIZE,
-        PORTRAIT_MAX_LINE_HEIGHT_SIZE)) ||
-      (!this.isPortrait() &&
-        NumberUtils.isBetween(size, LANDSCAPE_MIN_LINE_HEIGHT_SIZE,
-          LANDSCAPE_MAX_LINE_HEIGHT_SIZE))) {
+    if (NumberUtils.isBetween(size, MIN_LINE_HEIGHT_SIZE,
+      MAX_LINE_HEIGHT_SIZE)) {
       return true;
     }
     return false;
@@ -360,11 +356,8 @@ const PROPORTION: number = 0.1;
 const LINE_HEIGHT_UNIT: string = 'vh';
 const FONT_UNIT: string = 'vw';
 
-const PORTRAIT_MIN_LINE_HEIGHT_SIZE: number = 1;
-const PORTRAIT_MAX_LINE_HEIGHT_SIZE: number = 10;
-
-const LANDSCAPE_MIN_LINE_HEIGHT_SIZE: number = 1;
-const LANDSCAPE_MAX_LINE_HEIGHT_SIZE: number = 32;
+const MIN_LINE_HEIGHT_SIZE: number = 1;
+const MAX_LINE_HEIGHT_SIZE: number = 32;
 
 const MIN_QURAN_FONT_SIZE: number = 1;
 const MAX_QURAN_FONT_SIZE: number = 7;
