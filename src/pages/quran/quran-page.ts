@@ -144,7 +144,7 @@ export class QuranPage {
 
   public findQuranPageByPageNumber(pageNumber: number): Promise<any> {
     return new Promise((resolve) => {
-      this.quranPageService.findPageContentByPageNumber(pageNumber)
+      this.quranPageService.findPageContentByPageNumber(pageNumber, this.isAndroid())
         .subscribe(content => {
           this.pageContent = content;
           this.findMetadataByPageNumber(pageNumber).then(val => {
@@ -283,11 +283,11 @@ export class QuranPage {
   private isValidLineHeight(size: number): boolean {
     console.debug(`Is valid line height: ${size}`);
     if ((this.isPortrait() &&
-      NumberUtils.isBetween(size, this.getMinPortraitPlatformLineHeightSize(),
-        this.getMaxPortraitPlatformLineHeightSize())) ||
+      NumberUtils.isBetween(size, PORTRAIT_MIN_LINE_HEIGHT_SIZE,
+        PORTRAIT_MAX_LINE_HEIGHT_SIZE)) ||
       (!this.isPortrait() &&
-        NumberUtils.isBetween(size, this.getMinLandscapePlatformLineHeightSize(),
-          this.getMaxLandscapePlatformLineHeightSize()))) {
+        NumberUtils.isBetween(size, LANDSCAPE_MIN_LINE_HEIGHT_SIZE,
+          LANDSCAPE_MAX_LINE_HEIGHT_SIZE))) {
       return true;
     }
     return false;
@@ -341,30 +341,6 @@ export class QuranPage {
     return NumberUtils.isBetween(size, MIN_QURAN_FONT_SIZE, MAX_QURAN_FONT_SIZE);
   }
 
-  private getMinPortraitPlatformLineHeightSize(): number {
-    return this.isAndroid() ?
-      PORTRAIT_MIN_LINE_HEIGHT_SIZE_ANDROID :
-      PORTRAIT_MIN_LINE_HEIGHT_SIZE_IOS;
-  }
-
-  private getMinLandscapePlatformLineHeightSize(): number {
-    return this.isAndroid() ?
-      LANDSCAPE_MIN_LINE_HEIGHT_SIZE_ANDROID :
-      LANDSCAPE_MIN_LINE_HEIGHT_SIZE_IOS;
-  }
-
-  private getMaxPortraitPlatformLineHeightSize(): number {
-    return this.isAndroid() ?
-      PORTRAIT_MAX_LINE_HEIGHT_SIZE_ANDROID :
-      PORTRAIT_MAX_LINE_HEIGHT_SIZE_IOS;
-  }
-
-  private getMaxLandscapePlatformLineHeightSize(): number {
-    return this.isAndroid() ?
-      LANDSCAPE_MAX_LINE_HEIGHT_SIZE_ANDROID :
-      LANDSCAPE_MAX_LINE_HEIGHT_SIZE_IOS;
-  }
-
   private isPortrait(): boolean {
     return AppUtils.isPortrait(this.orientation);
   }
@@ -381,17 +357,11 @@ const PROPORTION: number = 0.1;
 const LINE_HEIGHT_UNIT: string = 'vh';
 const FONT_UNIT: string = 'vw';
 
-const PORTRAIT_MIN_LINE_HEIGHT_SIZE_ANDROID: number = 3;
-const PORTRAIT_MAX_LINE_HEIGHT_SIZE_ANDROID: number = 10;
+const PORTRAIT_MIN_LINE_HEIGHT_SIZE: number = 1;
+const PORTRAIT_MAX_LINE_HEIGHT_SIZE: number = 10;
 
-const LANDSCAPE_MIN_LINE_HEIGHT_SIZE_ANDROID: number = 10;
-const LANDSCAPE_MAX_LINE_HEIGHT_SIZE_ANDROID: number = 32;
-
-const PORTRAIT_MIN_LINE_HEIGHT_SIZE_IOS: number = 1;
-const PORTRAIT_MAX_LINE_HEIGHT_SIZE_IOS: number = 8;
-
-const LANDSCAPE_MIN_LINE_HEIGHT_SIZE_IOS: number = 5;
-const LANDSCAPE_MAX_LINE_HEIGHT_SIZE_IOS: number = 20;
+const LANDSCAPE_MIN_LINE_HEIGHT_SIZE: number = 1;
+const LANDSCAPE_MAX_LINE_HEIGHT_SIZE: number = 32;
 
 const MIN_QURAN_FONT_SIZE: number = 1;
 const MAX_QURAN_FONT_SIZE: number = 7;

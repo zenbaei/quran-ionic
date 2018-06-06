@@ -36,19 +36,26 @@ export class QuranService {
      * 
      * @returns Observable of string - page content or Observable of RangeError - if passed value is out of range
      */
-    findPageContentByPageNumber(pageNumber: number): Observable<string> {
+    findPageContentByPageNumber(pageNumber: number, isAndroid: boolean): Observable<string> {
         console.debug(`Find page content by page number [${pageNumber}]`);
 
         if (!this.isValidPageNumber(pageNumber)) {
             return Observable.throw(new RangeError(`Page number [${pageNumber}] is out of valid range (1 - 604)`));
         }
 
-        let quranPageFileURL: string = Constants.MUSHAF_DATA_DIR
-            + `${pageNumber}/${pageNumber}` + Constants.QURAN_PAGE_CONTENT_FILE_EXTENSION;
+        let quranPageFileURL: string = MUSHAF_DATA_DIR
+            + `${pageNumber}/${pageNumber}` + this.getExtension(isAndroid);
+
         return this.httpRequest.get(quranPageFileURL)
             .map(res => {
                 return res.text();
             });
+    }
+
+    private getExtension(isAndroid: boolean): string {
+        return isAndroid ?
+            ANDROID_QURAN_FILE_EXTENSION :
+            IOS_QURAN_FILE_EXTENSION;
     }
 
     /**
@@ -70,8 +77,8 @@ export class QuranService {
             return Observable.throw(new RangeError(`Page number [${pageNumber}] is out of valid range (1 - 604)`));
         }
 
-        let pageMetadataURL: string = Constants.MUSHAF_DATA_DIR
-            + `${pageNumber}/${pageNumber}` + Constants.QURAN_PAGE_METADATA_FILE_EXTENSION;
+        let pageMetadataURL: string = MUSHAF_DATA_DIR
+            + `${pageNumber}/${pageNumber}` + QURAN_METADATA_FILE_EXTENSION;
         return this.httpRequest.get(pageMetadataURL)
             .map(res => {
                 return this.fromJson(res.text());
@@ -274,3 +281,8 @@ const DEFAULT_LANDSCAPE_LINE_HEIGHT_SIZE_IOS: number = 9;
 
 const FIRST_PAGE = 1;
 const LAST_PAGE = 604;
+
+export const ANDROID_QURAN_FILE_EXTENSION = '.android.quran';
+const IOS_QURAN_FILE_EXTENSION = '.quran';
+export const QURAN_METADATA_FILE_EXTENSION = '.metadata';
+export const MUSHAF_DATA_DIR = Constants.BASE_DATA_DIR + 'mushaf/';

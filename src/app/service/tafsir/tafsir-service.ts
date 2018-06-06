@@ -8,8 +8,6 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TafsirService {
 
-  private readonly TAFSIR_FILE_EXTENSION = '.tafsir';
-
   constructor(private httpRequest: HttpRequest) { }
 
   /**
@@ -46,7 +44,7 @@ export class TafsirService {
       return Observable.throw(new RangeError(`Surah number [${surahNumber}] is out of range (1 - 114)`));
     }
 
-    let TAFSIR_FILE_URL = Constants.TAFSIR_MAKHLOUF_DATA_DIR + surahNumber + this.TAFSIR_FILE_EXTENSION;
+    let TAFSIR_FILE_URL = TAFSIR_MAKHLOUF_DATA_DIR + surahNumber + TAFSIR_FILE_EXTENSION;
 
     return this.httpRequest.get(TAFSIR_FILE_URL)
       .map((res: Response) => this.fromJson(res.text()));
@@ -59,3 +57,6 @@ export class TafsirService {
     return true;
   }
 }
+
+export const TAFSIR_MAKHLOUF_DATA_DIR = Constants.BASE_DATA_DIR + 'tafsir/makhlouf/';
+const TAFSIR_FILE_EXTENSION = '.tafsir';
