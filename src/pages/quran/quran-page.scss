@@ -57,6 +57,12 @@ page-quran {
             font-size: 3.5vw;
         }
     }
+    @supports (-webkit-overflow-scrolling: touch) {
+        /* CSS specific to iOS devices */
+        body {
+            cursor: pointer;
+        }
+    }
 }
 
 .ios {
