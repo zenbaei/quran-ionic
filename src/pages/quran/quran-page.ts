@@ -222,7 +222,8 @@ export class QuranPage {
     }
 
     tafsirAnchors.popover({
-      trigger: 'focus'
+      trigger: 'focus',
+      container: 'body'
     });
   }
 

@@ -90,7 +90,7 @@ export class QuranPageHelper {
 }
 
 const EMPTY: string = '';
-const ANCHOR_ATT = `class="fake-link tafsir" tabindex="0" data-toggle="popover" data-placement="top"`;
+const ANCHOR_ATT = `tabindex="0" role="botton" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;
 const CHARS_TO_REMOVE = new RegExp('<.*'); // to prevent replacing word inside a span already
 
 const KAFROUN = 'وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ ٥';
