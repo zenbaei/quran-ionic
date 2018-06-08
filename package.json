@@ -74,7 +74,8 @@
     "ts-node": "^3.3.0",
     "tslint": "4.5.0",
     "tslint-eslint-rules": "3.2.3",
-    "typescript": "~2.6.2"
+    "typescript": "~2.6.2",
+    "ios-deply": "@latest"
   },
   "description": "An Ionic project",
   "cordova": {
