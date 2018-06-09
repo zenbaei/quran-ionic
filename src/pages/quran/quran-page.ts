@@ -13,6 +13,8 @@ import { Events } from 'ionic-angular';
 import { Operator } from '../../app/all/constants';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NumberUtils } from "../../app/util/number-utils/number-utils";
+import { timer } from 'rxjs/observable/timer';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-quran',
@@ -30,12 +32,14 @@ export class QuranPage {
   constructor(private quranPageService: QuranService, private tafsirService: TafsirService,
     private quranIndexService: IndexService, private toastCtl: ToastController,
     private events: Events, private orientation: ScreenOrientation,
-    private platform: Platform) {
+    private platform: Platform, private storage: Storage) {
     this.subscribeToEvents();
   }
 
   ionViewDidLoad() {
-    this.resizeOnStartUp();
+    this.platform.ready().then(() =>
+      this.orientationChangedEvent()
+    );
   }
 
   /**
@@ -84,18 +88,6 @@ export class QuranPage {
     this.content.scrollToTop();
   }
 
-  private resizeOnStartUp() {
-    this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
-      .then(val => {
-        this.resizeLineHeight(val);
-      });
-
-    this.quranPageService.getFontSize(this.isPortrait())
-      .then(val => {
-        this.resizeFont(val);
-      })
-  }
-
   private loadPage(pageNumber: number) {
     this.currentPageNumber = pageNumber;
     this.findQuranPageByPageNumber(pageNumber).then(val => {
@@ -138,7 +130,9 @@ export class QuranPage {
       this.lineHeightChangedEvent(operator)
     });
     this.orientation.onChange().subscribe(() =>
-      this.orientationChangedEvent()
+      timer(1000).subscribe(() =>
+        this.orientationChangedEvent()
+      )
     );
   }
 
@@ -250,8 +244,25 @@ export class QuranPage {
   }
 
   private fontChangedEvent(operator: Operator) {
+    this.showFontChangingWarning();
     operator === Operator.INC ? this.increaseFont() :
       this.decreaseFont();
+  }
+
+  private showFontChangingWarning(): void {
+    this.storage.get(IS_FONT_CHANGE_WARNING_DISPLAYED).then(val => {
+      if (val != null) {
+        return;
+      }
+      this.toast = this.toastCtl.create({
+        message: CHANGING_FONT_WARNING_MSG,
+        showCloseButton: true,
+        closeButtonText: 'إغلاق',
+        position: 'middle'
+      });
+      this.toast.present();
+      this.storage.set(IS_FONT_CHANGE_WARNING_DISPLAYED, 'y');
+    });
   }
 
   private lineHeightChangedEvent(operator: Operator) {
@@ -260,6 +271,7 @@ export class QuranPage {
   }
 
   private orientationChangedEvent() {
+    console.debug(`Orientation is: ${this.orientation.type}`);
     this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
       .then(val => {
         this.resizeLineHeight(val);
@@ -285,7 +297,6 @@ export class QuranPage {
   }
 
   private isValidLineHeight(size: number): boolean {
-    console.debug(`Is valid line height: ${size}`);
     if (NumberUtils.isBetween(size, MIN_LINE_HEIGHT_SIZE,
       MAX_LINE_HEIGHT_SIZE)) {
       return true;
@@ -334,6 +345,7 @@ export class QuranPage {
   }
 
   private setFontSizeStyle(size: number) {
+    console.debug(`Set font size: ${size}`);
     $(MUSHAF_CONTAINER_CLASS).css(Constants.CSS_FONT_SIZE, size + FONT_UNIT);
   }
 
@@ -362,3 +374,6 @@ const MAX_LINE_HEIGHT_SIZE: number = 32;
 
 const MIN_QURAN_FONT_SIZE: number = 1;
 const MAX_QURAN_FONT_SIZE: number = 7;
+
+const IS_FONT_CHANGE_WARNING_DISPLAYED: string = 'isFontChangeWarningDisplayed';
+const CHANGING_FONT_WARNING_MSG: string = 'برجاء الإنتباه عند تكبير الخط أنه قد تخرج بعض سطور المصحف خارج الإطار وذلك نظرا لإخنلاف طولها';

@@ -7,7 +7,7 @@ export class Search {
     }
 
     private search() {
-        console.debug(`Search for [${this.what}] inside [${this.target}]`);
+        //console.debug(`Search for [${this.what}] inside [${this.target}]`);
         let regex: RegExp = new RegExp(this.what);
         this.match = regex.exec(this.target);
     }

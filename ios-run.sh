@@ -1,10 +1,8 @@
 #!/bin/sh
 
-DEVICE="$1"
-
-if ["$DEVICE" = "e"];
-then
-	ionic cordova emulate ios -lc
+if [ "$1" = "e" ]; then
+	#ionic cordova emulate --list
+	ionic cordova emulate ios --target "iPhone-6s"
 else
 	#-l hangs at splashscreen
 	ionic cordova run ios --device --debug

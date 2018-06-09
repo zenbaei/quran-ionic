@@ -10,7 +10,7 @@ export class RegexUtils {
      * @param str 
      */
     public static addLineBreakAfterEachWord(str: string): string {
-        console.debug(`Add line breaks after each word from ${str}`);
+        //console.debug(`Add line breaks after each word from ${str}`);
         let splited: string[] = str.split(' ');
         let result: string = '';
         for (let i = 0; i < splited.length; i++) {
@@ -20,18 +20,18 @@ export class RegexUtils {
                 result += splited[i] + SPACE + LINE_TERMINATOR + ZERO_OR_ONE;
             }
         }
-        console.debug(`After adding line breaks [${result}]`);
+        //console.debug(`After adding line breaks [${result}]`);
         return result.trim();
     }
 
     public static removeTashkil(str: string): string {
-        console.debug(`Remove Tashkil from [${str}]`);
+        //console.debug(`Remove Tashkil from [${str}]`);
         for (let s of TASHKIL_CHARACTERS_ARRAY) {
             if (str.indexOf(s) > 0) {
                 str = StringUtils.replaceAll(str, s, EMPTY_STRING);
             }
         }
-        console.debug(`After removing Tashkil ${str}`);
+        //console.debug(`After removing Tashkil ${str}`);
         return str;
     }
 
@@ -41,7 +41,7 @@ export class RegexUtils {
      * @param str 
      */
     public static replaceMiddleAlefsWithNonSpaceZeroOrOneTime(str: string): string {
-        console.debug(`Remove middle Alef from [${str}]`);
+        //console.debug(`Remove middle Alef from [${str}]`);
         let strArr: Array<string> = str.split(SPACE);
         
         for (let i = 0; i < strArr.length; i++) {
@@ -55,7 +55,7 @@ export class RegexUtils {
         }
 
         let result: string = this.concatenateWords(strArr);
-        console.debug(`After removing middle Alef ${result}`);
+        //console.debug(`After removing middle Alef ${result}`);
         return result;
     }
 
@@ -76,7 +76,7 @@ export class RegexUtils {
      * @param str 
      */
     public static addRegexNonWhiteSpaceMetaCharInBetween(str: string) {
-        console.debug(`Add dot for zero or one time, twice [${str}]`);
+        //console.debug(`Add dot for zero or one time, twice [${str}]`);
         let result: string = EMPTY_STRING;
         for (let i = 0; i < str.length; i++) {
             let char: string = str.charAt(i);
@@ -99,12 +99,12 @@ export class RegexUtils {
      * @param str 
      */
     public static replaceAlefWithRegexDotMetaChar(str: string) {
-        console.debug(`Remove every Alef from [${str}]`);
+        //console.debug(`Remove every Alef from [${str}]`);
         let result: string = str;
         for (let c of ALEFS) {
             result = StringUtils.replaceAll(result, c, ONE_CHAR + ZERO_OR_ONE);
         }
-        console.debug(`After removing every Alef ${result.trim()}`);
+        //console.debug(`After removing every Alef ${result.trim()}`);
         return result;
     }
 
@@ -126,7 +126,7 @@ export class RegexUtils {
         for (let w of splitStr) {
             result += w + SPACE;
         }
-        console.debug(`After removing first Alef ${result.trim()}`);
+        //console.debug(`After removing first Alef ${result.trim()}`);
         return result.trim();
     }
 
@@ -147,7 +147,7 @@ export class RegexUtils {
         }
         return -1;
     }
-e
+
     public static replaceWhiteSpaceWithRegexSpaceChar(str: string): string {
         return str.replace(' ', WHITE_SPACE + ONE_OR_MORE);
     }

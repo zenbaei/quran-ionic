@@ -19,7 +19,6 @@ export class QuranService {
    * expected format [{fromAyah:1, toAyah:2, surahNumber:""},..]
    */
     fromJson(pageMetadataJsonArr: string): QuranPageMetadata[] {
-        console.debug(`Deserialize json string into array of QuranPageMetadata`);
         let pageMetadataArr: Array<QuranPageMetadata> = new Array();
         let jsonArr: any = JSON.parse(pageMetadataJsonArr);
         for (var json of jsonArr) {
@@ -181,6 +180,7 @@ export class QuranService {
     }
 
     public getFontSize(isPortrait: boolean): Promise<number> {
+        console.debug(`Get font size - isPortrait: ${isPortrait}`);
         let key: string = this.getFontKeyByOrientation(isPortrait);
         return new Promise((resolve) => {
             this.storage.get(key).then(val => {
@@ -193,7 +193,7 @@ export class QuranService {
     }
 
     public saveFontSize(size: number, isPortrait: boolean): void {
-        console.debug(`save font size: ${size}`);
+        console.debug(`Save font size: ${size} - isPortrait: ${isPortrait}`);
         this.storage.set(this.getFontKeyByOrientation(isPortrait), size.toString());
     }
 
@@ -204,13 +204,14 @@ export class QuranService {
     }
 
     public saveLineHeight(size: number, isPortrait: boolean): void {
-        console.debug(`save line height: ${size} - orienation Portrait: ${isPortrait}`)
+        console.debug(`Save line height: ${size} - isPortrait: ${isPortrait}`);
         this.storage.set(
             this.getLineHeightKey(isPortrait),
             size.toString());
     }
 
     public getLineHeight(isAndroid: boolean, isPortrait: boolean): Promise<number> {
+        console.debug(`Get line height - isAndroid: ${isAndroid} - isPortrait: ${isPortrait}`);
         let key: string = this.getLineHeightKey(isPortrait);
 
         return new Promise(resolve => {

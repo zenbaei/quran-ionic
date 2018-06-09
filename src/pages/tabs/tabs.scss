@@ -58,6 +58,14 @@ page-tabs {
 
 .ios {
     page-tabs {
+        .show-tab-btn {
+            width: 40px;
+            height: 40px;
+        }
+        .increase-font-btn {
+            width: 55px;
+            height: 55px;
+        }
         .line-height-ctls {
             bottom: 64px;
         }

@@ -8,6 +8,7 @@ import { Operator } from '../../app/all/constants';
 import { AppUtils } from '../../app/util/app-utils/app-utils';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import * as $ from "jquery";
+import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'page-tabs',
@@ -35,10 +36,10 @@ export class TabsPage {
   }
 
   ionViewDidEnter() {
+    // TODO: change into event
     this.saveParamForContentPage();
   }
 
-  // TODO: change into event
   ngAfterViewChecked() {
     this.surahName = sessionStorage.getItem(Constants.SURAH_NAME);
     this.pageNumber = sessionStorage.getItem(Constants.PAGE_NUMBER);
@@ -76,12 +77,15 @@ export class TabsPage {
     }
   }
 
-  toggleRotate() {
+  toggleOrientation() {
     if (AppUtils.isPortrait(this.orientation)) {
       this.orientation.lock(this.orientation.ORIENTATIONS.LANDSCAPE);
     } else {
       this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
     }
+    timer(10000).subscribe(() => 
+      this.orientation.unlock()
+    );
   }
 
   public hideTabBar() {

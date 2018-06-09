@@ -6,17 +6,9 @@ import { StringUtils } from '../../app/util/string-utils/string-utils';
 export class QuranPageHelper {
 
     private static EXCLUDE: string = '(?!<)'; // to prevent replacing word inside a span already
-    
-
-    /*
-    * This will result in exact matching 'ayah' from tafsir. it was introduced to avoid matching quran ayah to tafsir.
-    * like 'بَلَىٰ' from yassen 18 matches tafsir {"ayah":"هي رميم", "ayahNumber":78, "tafsir":"بالية أشدّ البلى"}
-    */
-    private static readonly NO_NORMALIZATION = '\\noNormalization';
-
 
     public static patchTafsirOnContent(tafsir: Tafsir, pageContent: string): string {
-        console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
+        //console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
         let pageContentCopy: string = pageContent;
 
         let search: Search = this.initSearch(tafsir, pageContentCopy);
@@ -37,9 +29,10 @@ export class QuranPageHelper {
 
     private static initSearch(tafsir: Tafsir, pageContentCopy: string): Search {
         // in case of no normalization, do exact match
-        this.EXCLUDE = tafsir.ayah.indexOf(this.NO_NORMALIZATION) > -1 ? '' : this.EXCLUDE;
+        this.EXCLUDE = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ? '' : this.EXCLUDE;
 
-        let ayahToMatch: string = tafsir.ayah.indexOf(this.NO_NORMALIZATION) > -1 ? tafsir.ayah.replace(this.NO_NORMALIZATION, '') :
+        let ayahToMatch: string = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ? 
+            tafsir.ayah.replace(NO_NORMALIZATION, '') :
             QuranService.normalizeString(tafsir.ayah);
 
         return new Search(ayahToMatch + this.EXCLUDE, pageContentCopy);
@@ -104,3 +97,4 @@ const FAJR = 'فَٱدۡخُلِي فِي عِبَٰدِي ٩٢ وَٱدۡخُل
 const NAJM = '١٦ فَٱسۡجُدُواْۤ لِلَّهِۤ وَٱعۡبُدُواْ۩ ٢٦ ';
 const BESM = 'بِسۡمِ';
 const NO_JUSTIFY_CLASS = 'class = "no-justify"';
+const NO_NORMALIZATION = '\\noNormalization';

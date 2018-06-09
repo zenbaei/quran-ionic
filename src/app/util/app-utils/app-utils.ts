@@ -20,10 +20,10 @@ export class AppUtils {
         if (orientation.type === orientation.ORIENTATIONS.PORTRAIT ||
             orientation.type === orientation.ORIENTATIONS.PORTRAIT_PRIMARY ||
             orientation.type === orientation.ORIENTATIONS.PORTRAIT_SECONDARY) {
-            console.debug(`Orientation is: Portrait`);
+            //console.debug(`Orientation is: Portrait`);
           return true;
         }
-        console.debug(`Orientation is: Landscape`);
+        //console.debug(`Orientation is: Landscape`);
         return false;
       }
 
