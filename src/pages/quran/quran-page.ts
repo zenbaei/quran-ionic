@@ -130,7 +130,7 @@ export class QuranPage {
       this.lineHeightChangedEvent(operator)
     });
     this.orientation.onChange().subscribe(() =>
-      timer(1000).subscribe(() =>
+      timer(500).subscribe(() =>
         this.orientationChangedEvent()
       )
     );
@@ -376,4 +376,4 @@ const MIN_QURAN_FONT_SIZE: number = 1;
 const MAX_QURAN_FONT_SIZE: number = 7;
 
 const IS_FONT_CHANGE_WARNING_DISPLAYED: string = 'isFontChangeWarningDisplayed';
-const CHANGING_FONT_WARNING_MSG: string = 'برجاء الإنتباه عند تكبير الخط أنه قد تخرج بعض سطور المصحف خارج الإطار وذلك نظرا لإخنلاف طولها';
+const CHANGING_FONT_WARNING_MSG: string = 'برجاء الإنتباه عند تكبير الخط أنه قد تخرج بعض سطور المصحف خارج الإطار';
