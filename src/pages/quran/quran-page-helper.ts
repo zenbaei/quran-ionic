@@ -19,7 +19,7 @@ export class QuranPageHelper {
         }
 
         let matchedAyah: string = search.group().trim().replace(CHARS_TO_REMOVE, EMPTY);
-        let replacement: string = `<a ${ANCHOR_ATT} title="${tafsir.tafsir}">${matchedAyah}</a>`;
+        let replacement: string = `<a ${ANCHOR_ATT} data-content="${tafsir.tafsir}">${matchedAyah}</a>`;
 
         let regex: RegExp = new RegExp(matchedAyah + this.EXCLUDE);
         pageContentCopy = pageContentCopy.replace(regex, replacement);
