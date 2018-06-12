@@ -1,5 +1,5 @@
 page-content {
-    .content-container {
+    .container {
         display: flex;
     }
     .searchbar {
@@ -21,10 +21,10 @@ page-content {
         height: 40px !important;
         border-radius: 30px !important;
     }
-    button {
+    .index-button {
         font-size: 5.5vw !important;
-        width: 100%;
-    }
+        width: 90%;
+    }   
     ::placeholder {
         color: rgb(53, 53, 53) !important;
         font-style: italic;
@@ -33,9 +33,16 @@ page-content {
         border: 1px solid rgb(214, 214, 214)
     }
     @media screen and (orientation: landscape) {
-        button {
+        .searchbar {
+            width: 80%;
+        }
+        .searchbar-input {
+            height: 50px !important;
+        }
+        .index-button {
             font-size: 4vw !important;
             height: 70px !important;
         }
+
     }
 }

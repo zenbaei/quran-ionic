@@ -30,7 +30,7 @@ export class QuranPageHelper {
         // in case of no normalization, do exact match
         this.EXCLUDE = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ? '' : this.EXCLUDE;
 
-        let ayahToMatch: string = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ? 
+        let ayahToMatch: string = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ?
             tafsir.ayah.replace(NO_NORMALIZATION, '') :
             QuranService.normalizeString(tafsir.ayah);
 
@@ -60,9 +60,9 @@ export class QuranPageHelper {
             (str.indexOf(KAWTHAR) != -1 && pageNumber === 602) ||
             (str.indexOf(MAOUN) != -1 && pageNumber === 602) ||
             (str.indexOf(QAREA) != -1 && pageNumber === 600) ||
-            str === KORAYSH ||
-            str === FAJR ||
-            str === NAJM) {
+            (str === KORAYSH && pageNumber === 602) ||
+            (str === FAJR && pageNumber === 593) ||
+            (str === NAJM && pageNumber === 528)) {
             return true;
         }
         return false;
@@ -70,17 +70,17 @@ export class QuranPageHelper {
 }
 
 const EMPTY: string = '';
-const ANCHOR_ATT = `tabindex="0" role="botton" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;
+const ANCHOR_ATT = `tabindex="0" role="button" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;
 const CHARS_TO_REMOVE = new RegExp('<.*'); // to prevent replacing word inside a span already
 
-const KAFROUN = 'وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ ٥';
+const KAFROUN = 'وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ';
 const MASAD = 'مِّن مَّسَدِۢ';
 const NASR = 'وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ';
 const KAWTHAR = 'هُوَ ٱلۡأَبۡتَرُ';
 const MAOUN = 'وَيَمۡنَعُونَ ٱلۡمَاعُونَ';
-const KORAYSH = 'مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَوۡفِۢ ٤ ';
-const QAREA = 'نَارٌ حَامِيَةُۢ ١١ ';
-const FAJR = 'فَٱدۡخُلِي فِي عِبَٰدِي ٩٢ وَٱدۡخُلِي جَنَّتِي ٠٣ ';
-const NAJM = '١٦ فَٱسۡجُدُواْۤ لِلَّهِۤ وَٱعۡبُدُواْ۩ ٢٦ ';
+const KORAYSH = 'مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَوۡفِۢ';
+const QAREA = 'نَارٌ حَامِيَةُۢ';
+const FAJR = 'فَٱدۡخُلِي فِي عِبَٰدِي ';
+const NAJM = 'فَٱسۡجُدُواْۤ لِلَّهِۤ وَٱعۡبُدُواْ';
 const BESM = 'بِسۡمِ';
 const NO_NORMALIZATION = '\\noNormalization';

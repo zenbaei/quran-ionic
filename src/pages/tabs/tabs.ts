@@ -29,6 +29,7 @@ export class TabsPage {
   showFontCtls: boolean = false;
   showLineHeightCtls: boolean = false;
   isTabBarShown: boolean = true;
+  firstClick: boolean = true; // ios rotation workaround
 
   constructor(private popoverCtrl: PopoverController, private cdRef: ChangeDetectorRef,
     private orientation: ScreenOrientation, private events: Events) {
@@ -78,12 +79,19 @@ export class TabsPage {
   }
 
   toggleOrientation() {
+    if (!this.firstClick) {
+      this.orientation.unlock(); // on ios will revert to the previous physical mobile rotation
+      this.firstClick = true;
+      return;
+    }
+
     if (AppUtils.isPortrait(this.orientation)) {
       this.orientation.lock(this.orientation.ORIENTATIONS.LANDSCAPE);
     } else {
       this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
     }
 
+    this.firstClick = false;
     //check it with android
     /*
     timer(10000).subscribe(() => {

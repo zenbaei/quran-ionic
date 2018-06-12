@@ -1,10 +1,10 @@
 <ion-content>
   <ion-searchbar #surahSearchBar (ionInput)="getItems($event)" placeholder='ســـورة..'></ion-searchbar>
-  <div class="content-container">
+  <div class="container">
     <ion-grid>
         <ion-row *ngFor="let quranIdx of quranIdxArr">
           <ion-col *ngIf="quranIdx.surahNumber < 58">
-            <button ion-button clear (click)="goToPage(quranIdx.pageNumber)">{{quranIdx.surahNumber}} - {{quranIdx.surahName}}</button>
+            <button class="index-button" ion-button clear (click)="goToPage(quranIdx.pageNumber)">{{quranIdx.surahNumber}} - {{quranIdx.surahName}}</button>
           </ion-col>
         </ion-row>
     </ion-grid>
@@ -12,7 +12,7 @@
     <ion-grid>
         <ion-row *ngFor="let quranIdx of quranIdxArr">
           <ion-col *ngIf="quranIdx.surahNumber > 57">
-            <button ion-button clear (click)="goToPage(quranIdx.pageNumber)">{{quranIdx.surahNumber}} - {{quranIdx.surahName}}</button>
+            <button class="index-button" ion-button clear (click)="goToPage(quranIdx.pageNumber)">{{quranIdx.surahNumber}} - {{quranIdx.surahName}}</button>
           </ion-col>
         </ion-row>
     </ion-grid>

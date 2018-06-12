@@ -51,7 +51,6 @@ export class QuranPage {
     this.quranPageService.getPageNumber().then(val => {
       let pgNu: number = (val === null) ? 1 : val;
       this.loadPage(pgNu).then(() => { 
-        this.dismissInfoToast();
         this.showInfoToast();
       });
     });
@@ -109,6 +108,7 @@ export class QuranPage {
 
     if (QuranService.isValidPageNumber(pageNumber)) {
       this.clearPopover();
+      this.dismissInfoToast();
       this.quranPageService.savePageNumber(pageNumber);
       this.loadPage(pageNumber);
     }
@@ -269,6 +269,7 @@ export class QuranPage {
     console.debug(`Orientation is: ${this.orientation.type}`);
 
     this.clearPopover();
+    this.dismissInfoToast();
 
     this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
       .then(val => {
