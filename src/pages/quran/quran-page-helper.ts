@@ -54,15 +54,17 @@ export class QuranPageHelper {
         if (str.trim().split(' ').length === 2 || // سورة النساء
             str.trim().split(' ').length === 3 || // 'سورة آل عمرآن'
             (str.trim().split(' ').length === 4 && str.trim().split(' ')[0] === BESM) || //بسم الله الرحمن الرحيم
-            (str.indexOf(KAFROUN) != -1 && pageNumber === 603) ||
-            (str.indexOf(MASAD) != -1 && pageNumber === 603) ||
-            (str.indexOf(NASR) != -1 && pageNumber === 603) ||
+            (str.indexOf(NAJM) != -1 && pageNumber === 528) ||
+            (str.indexOf(GHASHEYA) != -1 && pageNumber === 593) ||
+            (str.indexOf(FAJR) != -1 && pageNumber === 594) ||
+            (str.indexOf(QAREA) != -1 && pageNumber === 600) ||
             (str.indexOf(KAWTHAR) != -1 && pageNumber === 602) ||
             (str.indexOf(MAOUN) != -1 && pageNumber === 602) ||
-            (str.indexOf(QAREA) != -1 && pageNumber === 600) ||
             (str.indexOf(KORAYSH) != -1 && pageNumber === 602) ||
-            (str.indexOf(FAJR) != -1 && pageNumber === 593) ||
-            (str.indexOf(NAJM) != -1 && pageNumber === 528)) {
+            (str.indexOf(KAFROUN) != -1 && pageNumber === 603) ||
+            (str.indexOf(MASAD) != -1 && pageNumber === 603) ||
+            (str.indexOf(NASR) != -1 && pageNumber === 603))
+            {
             return true;
         }
         return false;
@@ -73,7 +75,8 @@ const EMPTY: string = '';
 const ANCHOR_ATT = `tabindex="0" role="button" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;
 const CHARS_TO_REMOVE = new RegExp('<.*'); // to prevent replacing word inside a span already
 
-const KAFROUN = 'لَكُمۡ دِينُكُمۡ وَلِيَ دِينِ';
+const GHASHEYA = 'ثُمَّ إِنَّ عَلَيۡنَا حِسَابَهُم';
+const KAFROUN = 'وَلِيَ دِينِ';
 const MASAD = 'مِّن مَّسَدِۢ';
 const NASR = 'وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ';
 const KAWTHAR = 'هُوَ ٱلۡأَبۡتَرُ';
