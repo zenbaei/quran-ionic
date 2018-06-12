@@ -60,9 +60,9 @@ export class QuranPageHelper {
             (str.indexOf(KAWTHAR) != -1 && pageNumber === 602) ||
             (str.indexOf(MAOUN) != -1 && pageNumber === 602) ||
             (str.indexOf(QAREA) != -1 && pageNumber === 600) ||
-            (str === KORAYSH && pageNumber === 602) ||
-            (str === FAJR && pageNumber === 593) ||
-            (str === NAJM && pageNumber === 528)) {
+            (str.indexOf(KORAYSH) != -1 && pageNumber === 602) ||
+            (str.indexOf(FAJR) != -1 && pageNumber === 593) ||
+            (str.indexOf(NAJM) != -1 && pageNumber === 528)) {
             return true;
         }
         return false;
@@ -73,7 +73,7 @@ const EMPTY: string = '';
 const ANCHOR_ATT = `tabindex="0" role="button" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;
 const CHARS_TO_REMOVE = new RegExp('<.*'); // to prevent replacing word inside a span already
 
-const KAFROUN = 'وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ';
+const KAFROUN = 'لَكُمۡ دِينُكُمۡ وَلِيَ دِينِ';
 const MASAD = 'مِّن مَّسَدِۢ';
 const NASR = 'وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ';
 const KAWTHAR = 'هُوَ ٱلۡأَبۡتَرُ';
