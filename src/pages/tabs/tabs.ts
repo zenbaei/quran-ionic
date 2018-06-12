@@ -8,7 +8,6 @@ import { Operator } from '../../app/all/constants';
 import { AppUtils } from '../../app/util/app-utils/app-utils';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import * as $ from "jquery";
-import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'page-tabs',

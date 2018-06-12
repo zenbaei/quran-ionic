@@ -12,7 +12,6 @@ page-quran {
         padding: 10% 0 10% 0;
     }
     .mushaf-container {
-        //min-height: 90%; // if set to more first 2 pages scroll
         font-size: 3.7vw;
         text-align: justify;
         text-align-last: justify;
@@ -36,20 +35,15 @@ page-quran {
         text-align: center;
         text-align-last: center;
     }
+    .ellipsis {
+        text-overflow: ellipsis; 
+    }
     @media screen and (orientation: portrait) {
         line-height: 2.9vh;
     }
     @media screen and (orientation: landscape) {
         line-height: 14.2vh;
     }
-}
-
-.md {
-    page-quran {
-        .ellipsis {
-            text-overflow: ellipsis; 
-        }
-    }    
 }
 
 .ios {

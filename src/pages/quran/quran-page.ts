@@ -208,7 +208,7 @@ export class QuranPage {
     this.surahName = this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
     sessionStorage.setItem(Constants.SURAH_NAME, this.surahName);
     sessionStorage.setItem(Constants.PAGE_NUMBER, this.currentPageNumber.toString());
-    this.gozeAndHezb = `الجـزء ${metadata.goze} - ${metadata.hezb.replace('الحزب', 'الحـزب')}`;
+    this.gozeAndHezb = `الجزء ${metadata.goze} - ${metadata.hezb}`;
   }
 
   /**
@@ -251,7 +251,7 @@ export class QuranPage {
   }
 
   private getInfoMsg(): string {
-    return `ســــــورة ${this.surahName} - (${this.gozeAndHezb})`;
+    return `${this.surahName} - (${this.gozeAndHezb})`;
   }
 
   private fontChangedEvent(operator: Operator) {
