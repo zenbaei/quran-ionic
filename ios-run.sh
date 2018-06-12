@@ -5,5 +5,5 @@ if [ "$1" = "e" ]; then
 	ionic cordova emulate ios --target "iPhone-6s"
 else
 	#-l hangs at splashscreen
-	ionic cordova run ios --device --debug
+	ionic cordova run ios --devicee
 fi

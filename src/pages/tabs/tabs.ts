@@ -8,7 +8,6 @@ import { Operator } from '../../app/all/constants';
 import { AppUtils } from '../../app/util/app-utils/app-utils';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import * as $ from "jquery";
-import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'page-tabs',
@@ -83,9 +82,6 @@ export class TabsPage {
     } else {
       this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
     }
-    timer(10000).subscribe(() => 
-      this.orientation.unlock()
-    );
   }
 
   public hideTabBar() {
@@ -98,10 +94,6 @@ export class TabsPage {
     this.tabBar.setTabbarHidden(false);
     this.toggleTabButton(true);
     this.isTabBarShown = true;
-  }
-
-  public getTabMarginBottom(): string {
-    return $(this.TAB_CLASS).css(Constants.CSS_MARGIN_BOTTOM);
   }
 
   private hideControlButtonsEvent() {

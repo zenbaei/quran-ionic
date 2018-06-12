@@ -14,10 +14,10 @@ page-content {
         background-color: darkgrey !important;
         opacity: 0.5;
         color: black !important;
-        font-size: 1.5rem !important;
+        font-size: 18px !important;
     }
     button {
-        font-size: 4.5vw !important;
+        font-size: 5.5vw !important;
         width: 100%;
     }
     ::placeholder {
@@ -29,8 +29,19 @@ page-content {
     }
     @media screen and (orientation: landscape) {
         button {
-            font-size: 3.5vw !important;
-            height: 50px !important;
+            font-size: 4vw !important;
+            height: 70px !important;
+        }
+    }
+}
+
+.ios {
+    page-content {
+        .searchbar {
+            margin-right: 8px;
+        }
+        .searchbar-input {
+            height: 40px;
         }
     }
 }

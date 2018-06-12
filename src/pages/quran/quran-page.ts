@@ -33,13 +33,13 @@ export class QuranPage {
     private quranIndexService: IndexService, private toastCtl: ToastController,
     private events: Events, private orientation: ScreenOrientation,
     private platform: Platform, private storage: Storage) {
-    this.subscribeToEvents();
   }
 
   ionViewDidLoad() {
-    this.platform.ready().then(() =>
-      this.orientationChangedEvent()
-    );
+    this.platform.ready().then(() => {
+      this.orientationChangedEvent();
+      this.subscribeToEvents();
+    });
   }
 
   /**
@@ -48,20 +48,18 @@ export class QuranPage {
    */
   ionViewDidEnter() {
     this.quranPageService.getPageNumber().then(val => {
-      if (val === null) {
-        this.loadPage(1);
-      } else {
-        this.loadPage(val);
-      }
+      let pgNu: number = (val === null) ? 1 : val;
+      this.loadPage(pgNu).then(() => this.showInfo());
     });
   }
 
   ionViewWillLeave() {
     this.dismissToast();
+    this.clearPopover();
   }
 
   /**
-   * Fired whenever the tab is reclicked without being on another tab.
+   * Fires whenever the tab is reclicked without being on another tab.
    */
   ionSelected() {
     this.showInfo();
@@ -79,8 +77,7 @@ export class QuranPage {
     let self = this;
     $(function () {
       self.scrollToTop();
-      self.showInfo();
-      self.initBootstrapPopover();
+      self.initPopover();
     });
   }
 
@@ -88,10 +85,13 @@ export class QuranPage {
     this.content.scrollToTop();
   }
 
-  private loadPage(pageNumber: number) {
+  private loadPage(pageNumber: number): Promise<any> {
     this.currentPageNumber = pageNumber;
-    this.findQuranPageByPageNumber(pageNumber).then(val => {
-      this.executeWhenDocIsReady();
+    return new Promise((resolve) => {
+      this.findQuranPageByPageNumber(pageNumber).then(val => {
+        this.executeWhenDocIsReady();
+        resolve();
+      });
     });
   }
 
@@ -103,6 +103,7 @@ export class QuranPage {
     }
 
     if (QuranService.isValidPageNumber(pageNumber)) {
+      this.clearPopover();
       this.quranPageService.savePageNumber(pageNumber);
       this.loadPage(pageNumber);
     }
@@ -130,7 +131,7 @@ export class QuranPage {
       this.lineHeightChangedEvent(operator)
     });
     this.orientation.onChange().subscribe(() =>
-      timer(500).subscribe(() =>
+      timer(100).subscribe(() =>
         this.orientationChangedEvent()
       )
     );
@@ -209,7 +210,7 @@ export class QuranPage {
    * It has an advantage over the ionic popover in that the popover position comes on top
    * of the span rather that in a static position as ionic popover
    */
-  initBootstrapPopover() {
+  initPopover() {
     let tafsirAnchors: JQuery<HTMLElement> = $('[data-toggle="popover"]');
     if (tafsirAnchors.length === 0) { // content not displayed yet
       return;
@@ -221,11 +222,19 @@ export class QuranPage {
     });
   }
 
+  private clearPopover() {
+    let tafsirAnchors: JQuery<HTMLElement> = $('[data-toggle="popover"]');
+    if (tafsirAnchors.length === 0) { // content not displayed yet
+      return;
+    }
+    tafsirAnchors.popover("hide");
+  }
+
   public showInfo(): void {
     this.dismissToast();
     this.toast = this.toastCtl.create({
-      message: this.getToastMsg(),
-      duration: 3000,
+      message: this.getInfoMsg(),
+      duration: 5000,
       position: 'middle'
     });
     this.toast.present();
@@ -233,29 +242,27 @@ export class QuranPage {
 
   private dismissToast() {
     if (this.toast != null) {
-      this.toast.subscribe(() => {
-        this.toast.dismiss();
-      });
+      this.toast.dismissAll();
     }
   }
 
-  private getToastMsg(): string {
+  private getInfoMsg(): string {
     return `ســــــورة ${this.surahName} - (${this.gozeAndHezb})`;
   }
 
   private fontChangedEvent(operator: Operator) {
-    this.showFontChangingWarning();
+    this.showFontChangeWarning();
     operator === Operator.INC ? this.increaseFont() :
       this.decreaseFont();
   }
 
-  private showFontChangingWarning(): void {
+  private showFontChangeWarning(): void {
     this.storage.get(IS_FONT_CHANGE_WARNING_DISPLAYED).then(val => {
       if (val != null) {
         return;
       }
       this.toast = this.toastCtl.create({
-        message: CHANGING_FONT_WARNING_MSG,
+        message: this.getFontChangeWarningMsg(),
         showCloseButton: true,
         closeButtonText: 'إغلاق',
         position: 'middle'
@@ -272,6 +279,8 @@ export class QuranPage {
 
   private orientationChangedEvent() {
     console.debug(`Orientation is: ${this.orientation.type}`);
+    this.clearPopover();
+
     this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
       .then(val => {
         this.resizeLineHeight(val);
@@ -306,7 +315,7 @@ export class QuranPage {
 
   private setLineHeightStyle(size: number) {
     console.debug(`Set line height style: ${size}`);
-    $(PAGE_SELECTOR_CLASS).css(Constants.CSS_LINE_HEIGHT, size + LINE_HEIGHT_UNIT);
+    $(PAGE_SELECTOR_ELEMENT).css(Constants.CSS_LINE_HEIGHT, size + LINE_HEIGHT_UNIT);
   }
 
   public increaseLineHeight(): void {
@@ -346,7 +355,7 @@ export class QuranPage {
 
   private setFontSizeStyle(size: number) {
     console.debug(`Set font size: ${size}`);
-    $(MUSHAF_CONTAINER_CLASS).css(Constants.CSS_FONT_SIZE, size + FONT_UNIT);
+    $(FONT_SELECTOR_ID).css(Constants.CSS_FONT_SIZE, size + FONT_UNIT);
   }
 
   private isValidFontSize(size: number): boolean {
@@ -360,10 +369,19 @@ export class QuranPage {
   private isAndroid(): boolean {
     return this.platform.is(Constants.PLATFORM_ANDROID);
   }
+
+  private getFontChangeWarningMsg(): string {
+    let platformMsg: string = this.isAndroid() ?
+      `عندها سيظهر لك ثلاث نقاط '...' فقم` :
+      'عندها قم';
+
+    return `برجاء الإنتباه عند تكبير الخط أنه قد تتجاوز بعض سطور المصحف إطار الشاشة وذلك نظرا لإختلاف أطوال السطور; `
+      + `${platformMsg} بتصغير الخط مرة اخرى ليظهر لك السطر كاملا`;
+  }
 }
 
-const MUSHAF_CONTAINER_CLASS = '.mushaf-container';
-const PAGE_SELECTOR_CLASS = 'page-quran';
+const FONT_SELECTOR_ID = '#font-selector';
+const PAGE_SELECTOR_ELEMENT = 'page-quran';
 const PROPORTION: number = 0.1;
 
 const LINE_HEIGHT_UNIT: string = 'vh';
@@ -376,4 +394,3 @@ const MIN_QURAN_FONT_SIZE: number = 1;
 const MAX_QURAN_FONT_SIZE: number = 7;
 
 const IS_FONT_CHANGE_WARNING_DISPLAYED: string = 'isFontChangeWarningDisplayed';
-const CHANGING_FONT_WARNING_MSG: string = 'برجاء الإنتباه عند تكبير الخط أنه قد تخرج بعض سطور المصحف خارج الإطار';

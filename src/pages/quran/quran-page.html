@@ -1,13 +1,16 @@
 <ion-content>
   <div style="height: 100%" (swipe)="swipeEvent($event)" (tap)="tapEvent($event)">
-    <div class="mushaf-container">
-      <div [ngClass]="{
-      'mushaf-border': currentPageNumber > 2,
-      'fateha-content': currentPageNumber < 3,
-      'fateha-border': currentPageNumber < 3 ,
-      'moaouzat-content': currentPageNumber == 604,
-      'ios-justify': true
-    }" [innerHtml]="pageContent | safeHtml"></div>
+    <div [ngClass]="{ 
+      'mushaf-container': currentPageNumber > 2,
+      'mushaf-container-fateha': currentPageNumber < 3}">
+      <div style="background-color: aliceblue" [ngClass]="{ 
+        'mushaf-padding': currentPageNumber > 2,
+        'fateha-padding': currentPageNumber < 3}">
+        <div id="font-selector" [ngClass]="{
+            'moaouzat-content': currentPageNumber == 604,
+            'ios-justify': true}" [innerHtml]="pageContent | safeHtml">
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

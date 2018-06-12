@@ -3,66 +3,53 @@ page-quran {
         text-align: center;
         text-align-last: center;
     }
-    .popover-title {
-        // tafsir
-        font-size: 5vw;
-        font-weight: lighter;
-        text-align-last: right;
-        font-family: uthmanic;
-    }
-    .mushaf-border {
-        border: 10px solid transparent;
-        border-image: url("../assets/img/mushaf-border.png") 20 round;
-        -webkit-border-image: url("../assets/img/mushaf-border.png") 20 round;
+    .mushaf-padding {
+        //border: 10px solid transparent;
+        //border-image: url("../assets/img/mushaf-border.png") 20 round;
         padding: 2% 2% 0 2%;
-        background-color: aliceblue;
     }
-    .fateha-border {
-        border: 60px solid transparent;
-        border-image: url("../assets/img/fateha-border.png") 130 round;
-        -webkit-border-image: url("../assets/img/fateha-border.png") 130 round;
-        background-color: aliceblue;
+    .fateha-padding {
+        padding: 10% 0 10% 0;
     }
     .mushaf-container {
-        min-height: 90%; // if set to more first 2 pages scroll
+        //min-height: 90%; // if set to more first 2 pages scroll
         font-size: 3.7vw;
         text-align: justify;
         text-align-last: justify;
         text-justify: inter-word !important;
         white-space: nowrap !important;
+        overflow: hidden;
+        border: 10px solid transparent;
+        border-image: url("../assets/img/mushaf-border.png") 20 round;
+        -webkit-border-image: url("../assets/img/mushaf-border.png") 20 round;
     }
-    .fateha-content {
+    .mushaf-container-fateha {
+        @extend .mushaf-container;
+        border: 60px solid transparent;
+        border-image: url("../assets/img/fateha-border.png") 120 round;
+        -webkit-border-image: url("../assets/img/fateha-border.png") 120 round;
         text-align: center;
         text-align-last: center;
-        padding: 10% 0 10% 0;
-        margin: 10% 0 0 0;
+        margin-top: 20%;
     }
     .moaouzat-content {
         text-align: center;
         text-align-last: center;
-    }
-    .mushaf-page-number {
-        font-size: 2.5vw;
-        text-align: center;
-        padding-top: 10px;
-        display: none;
     }
     @media screen and (orientation: portrait) {
         line-height: 2.9vh;
     }
     @media screen and (orientation: landscape) {
         line-height: 14.2vh;
-        .popover-title {
-            // tafsir
-            font-size: 3.5vw;
-        }
     }
-    @supports (-webkit-overflow-scrolling: touch) {
-        /* CSS specific to iOS devices */
-        body {
-            cursor: pointer;
+}
+
+.md {
+    page-quran {
+        .ellipsis {
+            text-overflow: ellipsis; 
         }
-    }
+    }    
 }
 
 .ios {

@@ -62,8 +62,10 @@ to be done:
 - bootstrap pop close
 - nowrap on safari with jusify => done
 - check overflow scroll => breaks swipe
-- search bar with less right margin
+- search bar with right margin for ios  -> done
 - not scrolling top when back to content (if no search)
-- set popover trigger from code
+- set popover trigger from code +> done
+- orientation doesn't work unless the phone is on the corresponding orientation
+- background color on ios not working
 
 

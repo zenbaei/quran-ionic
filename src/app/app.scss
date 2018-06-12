@@ -38,42 +38,48 @@ ion-toast {
     opacity: 0.9;
 }
 
-.toast-md .toast-wrapper {
+.toast-wrapper {
     border-radius: 10px;
-    width: 90%;
+    width: 90% !important;
     font-family: uthmanic;
-    white-space: pre-wrap !important;
 }
 
 .toast-message {
-    padding: 0 !important;
-    font-size: 4.5vw !important;
+    font-size: 5vw !important;
     text-align: center !important;
-    text-align-last: center;
 }
 
 @media screen and (orientation: landscape) {
+    .toast-wrapper {
+        width: 70% !important;
+    }
     .toast-message {
         font-size: 3.5vw !important;
-    }
-}
-
-@keyframes lds-eclipse {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    50% {
-        -webkit-transform: rotate(180deg);
-        transform: rotate(180deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
     }
 }
 
 ion-app {
     font-family: uthmanic !important;
     direction: rtl !important;
+}
+
+.popover-body {
+    // tafsir
+    font-size: 22px;
+    font-weight: lighter;
+    text-align-last: right;
+    font-family: uthmanic;
+    background: #f7f7f7;
+}
+
+@media screen and (orientation: landscape) {
+    .popover-body {
+        font-size: 26px;
+    }
+}
+
+.ios {
+    .tab-button {
+        font-size: 1.4rem !important;
+    }
 }

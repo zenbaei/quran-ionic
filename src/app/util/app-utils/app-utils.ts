@@ -26,14 +26,14 @@ export class AppUtils {
         //console.debug(`Orientation is: Landscape`);
         return false;
       }
-
-    public static isLandscape(): boolean {
+    
+    public static isProtraitWindow(): boolean {
         console.log(`Window orientation ${window.orientation}`);
-        if (window.orientation === 'Landscape') {
-            console.log(`Orientation is: Landscape`);
+        if (window.orientation === 'Portrait') {
+            console.log(`Orientation is: Portrait`);
             return true;
         }
-        console.log(`Orientation is: Portrait`);
+        console.log(`Orientation is: Landscape`);
         return false;
     }
 

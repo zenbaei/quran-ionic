@@ -43,13 +43,13 @@ export class QuranPageHelper {
         let newContent: string = '';
         lines.forEach(str => {
             if (newContent === '' || newContent.split('\n').length == 2) { //first-line or second-line
-                str = QuranPageHelper.replacePopoverTopWithButtom(str);
+                //str = QuranPageHelper.replacePopoverTopWithButtom(str);
             }
 
             if (this.isCenteredLine(str, pageNumber)) {
-                newContent += `<div ${NO_JUSTIFY_CLASS}><nobr>${str}</nobr></div>\n`;
+                newContent += `<div class='no-justify'><nobr>${str}</nobr></div>\n`;
             } else {
-                newContent += `<div><nobr>${str}</nobr></div>\n`;
+                newContent += `<div class='ellipsis'><nobr>${str}</nobr></div>\n`;
             }
         });
         return newContent;
@@ -96,5 +96,4 @@ const QAREA = 'نَارٌ حَامِيَةُۢ ١١ ';
 const FAJR = 'فَٱدۡخُلِي فِي عِبَٰدِي ٩٢ وَٱدۡخُلِي جَنَّتِي ٠٣ ';
 const NAJM = '١٦ فَٱسۡجُدُواْۤ لِلَّهِۤ وَٱعۡبُدُواْ۩ ٢٦ ';
 const BESM = 'بِسۡمِ';
-const NO_JUSTIFY_CLASS = 'class = "no-justify"';
 const NO_NORMALIZATION = '\\noNormalization';
