@@ -8,6 +8,7 @@ import { Operator } from '../../app/all/constants';
 import { AppUtils } from '../../app/util/app-utils/app-utils';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import * as $ from "jquery";
+import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'page-tabs',
@@ -82,6 +83,13 @@ export class TabsPage {
     } else {
       this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
     }
+
+    //check it with android
+    /*
+    timer(10000).subscribe(() => {
+      this.orientation.unlock();
+    });
+    */
   }
 
   public hideTabBar() {

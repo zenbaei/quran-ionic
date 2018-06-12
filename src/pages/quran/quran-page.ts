@@ -27,7 +27,8 @@ export class QuranPage {
   private currentPageNumber: number = -1;
   private gozeAndHezb: string = '';
   private surahName: string = '';
-  private toast: Toast;
+  private infoToast: Toast;
+  private fontToast: Toast;
 
   constructor(private quranPageService: QuranService, private tafsirService: TafsirService,
     private quranIndexService: IndexService, private toastCtl: ToastController,
@@ -49,12 +50,15 @@ export class QuranPage {
   ionViewDidEnter() {
     this.quranPageService.getPageNumber().then(val => {
       let pgNu: number = (val === null) ? 1 : val;
-      this.loadPage(pgNu).then(() => this.showInfo());
+      this.loadPage(pgNu).then(() => { 
+        this.dismissInfoToast();
+        this.showInfoToast();
+      });
     });
   }
 
   ionViewWillLeave() {
-    this.dismissToast();
+    this.dismissInfoToast();
     this.clearPopover();
   }
 
@@ -62,7 +66,8 @@ export class QuranPage {
    * Fires whenever the tab is reclicked without being on another tab.
    */
   ionSelected() {
-    this.showInfo();
+    this.dismissInfoToast();
+    this.showInfoToast();
   }
 
   /**
@@ -230,19 +235,18 @@ export class QuranPage {
     tafsirAnchors.popover("hide");
   }
 
-  public showInfo(): void {
-    this.dismissToast();
-    this.toast = this.toastCtl.create({
+  public showInfoToast(): void {
+    this.infoToast = this.toastCtl.create({
       message: this.getInfoMsg(),
       duration: 5000,
       position: 'middle'
     });
-    this.toast.present();
+    this.infoToast.present();
   }
 
-  private dismissToast() {
-    if (this.toast != null) {
-      this.toast.dismissAll();
+  private dismissInfoToast() {
+    if (this.infoToast != null) {
+      this.infoToast.dismissAll();
     }
   }
 
@@ -256,22 +260,6 @@ export class QuranPage {
       this.decreaseFont();
   }
 
-  private showFontChangeWarning(): void {
-    this.storage.get(IS_FONT_CHANGE_WARNING_DISPLAYED).then(val => {
-      if (val != null) {
-        return;
-      }
-      this.toast = this.toastCtl.create({
-        message: this.getFontChangeWarningMsg(),
-        showCloseButton: true,
-        closeButtonText: 'إغلاق',
-        position: 'middle'
-      });
-      this.toast.present();
-      this.storage.set(IS_FONT_CHANGE_WARNING_DISPLAYED, 'y');
-    });
-  }
-
   private lineHeightChangedEvent(operator: Operator) {
     operator === Operator.INC ? this.increaseLineHeight() :
       this.decreaseLineHeight();
@@ -279,6 +267,7 @@ export class QuranPage {
 
   private orientationChangedEvent() {
     console.debug(`Orientation is: ${this.orientation.type}`);
+
     this.clearPopover();
 
     this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
@@ -370,13 +359,29 @@ export class QuranPage {
     return this.platform.is(Constants.PLATFORM_ANDROID);
   }
 
+  private showFontChangeWarning(): void {
+    this.storage.get(IS_FONT_CHANGE_WARNING_DISPLAYED).then(val => {
+      if (val != null) {
+        return;
+      }
+      this.fontToast = this.toastCtl.create({
+        message: this.getFontChangeWarningMsg(),
+        showCloseButton: true,
+        closeButtonText: 'إغلاق',
+        position: 'middle'
+      });
+      this.fontToast.present();
+      this.storage.set(IS_FONT_CHANGE_WARNING_DISPLAYED, 'y');
+    });
+  }
+
   private getFontChangeWarningMsg(): string {
     let platformMsg: string = this.isAndroid() ?
       `عندها سيظهر لك ثلاث نقاط '...' فقم` :
       'عندها قم';
 
-    return `برجاء الإنتباه عند تكبير الخط أنه قد تتجاوز بعض سطور المصحف إطار الشاشة وذلك نظرا لإختلاف أطوال السطور; `
-      + `${platformMsg} بتصغير الخط مرة اخرى ليظهر لك السطر كاملا`;
+    return `برجاء الإنتباه عند تكبير الخط أنه قد تتجاوز بعض سطور المصحف إطار الشاشة وذلك نظرا لإختلاف أطوال السطور. `
+      + `${platformMsg} بتصغير الخط مرة اخرى ليظهر لك السطر كاملا.`;
   }
 }
 

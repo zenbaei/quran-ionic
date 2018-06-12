@@ -4,17 +4,22 @@ page-content {
     }
     .searchbar {
         background: white;
-        border-radius: 10px;
         position: sticky;
         top: 0;
         z-index: 1;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10px;
     }
     .searchbar-input {
         direction: rtl;
         background-color: darkgrey !important;
         opacity: 0.5;
         color: black !important;
-        font-size: 18px !important;
+        font-size: 20px !important;
+        height: 40px !important;
+        border-radius: 30px !important;
     }
     button {
         font-size: 5.5vw !important;
@@ -31,17 +36,6 @@ page-content {
         button {
             font-size: 4vw !important;
             height: 70px !important;
-        }
-    }
-}
-
-.ios {
-    page-content {
-        .searchbar {
-            margin-right: 8px;
-        }
-        .searchbar-input {
-            height: 40px;
         }
     }
 }

@@ -1,7 +1,6 @@
 import { Tafsir } from '../../app/domain/tafsir';
 import { Search } from "../../app/util/search-utils/search";
 import { QuranService } from '../../app/service/quran/quran-service';
-import { StringUtils } from '../../app/util/string-utils/string-utils';
 
 export class QuranPageHelper {
 
@@ -42,10 +41,6 @@ export class QuranPageHelper {
         let lines: string[] = content.split('\n');
         let newContent: string = '';
         lines.forEach(str => {
-            if (newContent === '' || newContent.split('\n').length == 2) { //first-line or second-line
-                //str = QuranPageHelper.replacePopoverTopWithButtom(str);
-            }
-
             if (this.isCenteredLine(str, pageNumber)) {
                 newContent += `<div class='no-justify'><nobr>${str}</nobr></div>\n`;
             } else {
@@ -53,14 +48,6 @@ export class QuranPageHelper {
             }
         });
         return newContent;
-    }
-
-    /**
-     * It was added to avoid getting tafsir popover hidden when on first line.
-     * @param str 
-     */
-    private static replacePopoverTopWithButtom(str: string): string {
-        return StringUtils.replaceAll(str, 'top', 'bottom');
     }
 
     private static isCenteredLine(str: string, pageNumber: number): boolean {
