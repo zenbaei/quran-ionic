@@ -4,8 +4,6 @@ page-quran {
         text-align-last: center;
     }
     .mushaf-padding {
-        //border: 10px solid transparent;
-        //border-image: url("../assets/img/mushaf-border.png") 20 round;
         padding: 2% 2% 0 2%;
     }
     .fateha-padding {
@@ -36,7 +34,12 @@ page-quran {
         text-align-last: center;
     }
     .ellipsis {
+        /*
+        text-align: right;
+        text-align-last: right;
+        overflow: hidden;
         text-overflow: ellipsis; 
+        */
     }
     @media screen and (orientation: portrait) {
         line-height: 2.9vh;
