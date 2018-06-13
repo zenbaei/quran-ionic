@@ -20,16 +20,17 @@ page-tabs {
         position: absolute;
         bottom: 70px;
     }
-    .increase-font-btn {
+    .increase-font-btn, .increase-line-height-btn {
         background: black;
         border-radius: 50%;
         opacity: 0.7;
         width: 45px;
         height: 45px;
         color: white;
+        outline: none !important;
     }
     .decrease-font-btn {
-        @extend .increase-line-height-btn;
+        @extend .increase-font-btn;
         margin-right: 10px;
     }
     .line-height-ctls {
@@ -38,9 +39,6 @@ page-tabs {
         left: 12px;
         display: flex;
         flex-direction: column;
-    }
-    .increase-line-height-btn {
-        @extend .increase-font-btn;
     }
     .decrease-line-height-btn {
         @extend .increase-line-height-btn;
