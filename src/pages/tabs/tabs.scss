@@ -24,8 +24,8 @@ page-tabs {
         background: black;
         border-radius: 50%;
         opacity: 0.7;
-        width: 45px;
-        height: 45px;
+        width: 55px;
+        height: 55px;
         color: white;
         outline: none !important;
     }
@@ -41,7 +41,7 @@ page-tabs {
         flex-direction: column;
     }
     .decrease-line-height-btn {
-        @extend .increase-line-height-btn;
+        @extend .increase-font-btn;
         margin-bottom: 10px;
     }
     .flex-centered-container {
@@ -59,10 +59,6 @@ page-tabs {
         .show-tab-btn {
             width: 40px;
             height: 40px;
-        }
-        .increase-font-btn {
-            width: 55px;
-            height: 55px;
         }
         .line-height-ctls {
             bottom: 64px;
