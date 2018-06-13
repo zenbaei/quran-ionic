@@ -1,1 +1,1 @@
-ionic cordova build ios --prod --release
+ionic cordova build ios --prod
