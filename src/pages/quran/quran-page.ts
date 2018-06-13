@@ -376,14 +376,16 @@ export class QuranPage {
     });
   }
 
+  
   private getFontChangeWarningMsg(): string {
-    let platformMsg: string = this.isAndroid() ?
+    let platformMsg: string = false ? //this.isAndroid()
       `عندها سيظهر لك ثلاث نقاط '...' فقم` :
       'عندها قم';
 
     return `برجاء الإنتباه عند تكبير الخط أنه قد تتجاوز بعض سطور المصحف إطار الشاشة وذلك نظرا لإختلاف أطوال السطور. `
       + `${platformMsg} بتصغير الخط مرة اخرى ليظهر لك السطر كاملا.`;
   }
+  
 }
 
 const FONT_SELECTOR_ID = '#font-selector';
