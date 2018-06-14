@@ -23,7 +23,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.insomnia.keepAwake();
-      this.quranService.doVarMigration();
+	  //this.quranService.doVarMigration();
       timer(4000).subscribe(() => {
         this.splashScreen.hide();
       });
