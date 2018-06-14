@@ -75,6 +75,10 @@ ion-toast {
     }
 }
 
+.button {
+    outline: none !important;
+}
+
 .ios {
     .tab-button {
         font-size: 1.4rem !important;
