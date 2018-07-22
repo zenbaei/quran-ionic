@@ -68,4 +68,7 @@ to be done:
 - orientation doesn't work unless the phone is on the corresponding orientation
 - background color on ios not working
 
-
+--22 jun:
+resize android hide tab button as ios
+check overflow event to change from justify to right algin
+re-add code for setting move down button dynamically
