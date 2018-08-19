@@ -4,6 +4,7 @@
   <ion-tab tabTitle="نظام العرض" (ionSelect)='toggleOrientation()' tabIcon="expand"></ion-tab>
   <ion-tab [enabled]="isTabCtlEnabled" tabIcon="md-icon-plus-minus" (ionSelect)='toggleFontCtls()' tabTitle="الخــط"></ion-tab>
   <ion-tab [enabled]="isTabCtlEnabled" tabIcon="resize" (ionSelect)='toggleLineHeightCtls()' tabTitle="الإرتـفاع"></ion-tab>
+  <ion-tab tabIcon="arrow-round-back" (ionSelect)='showGoToPopoverPage()' tabTitle="إذهب إلى"></ion-tab>
 </ion-tabs>
 
 <button class='hide-tab-btn' (click)='hideTabBar()'>

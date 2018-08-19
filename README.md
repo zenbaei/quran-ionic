@@ -61,3 +61,7 @@ $ cordova-check-plugins --update=auto
 
 # Check app problems:
 $ ionic doctor
+
+# Mobile views on Browser:
+http://localhost:8100/?ionicplatform=android
+http://localhost:8100/ionic-lab

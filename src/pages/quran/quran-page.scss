@@ -15,7 +15,7 @@ page-quran {
         text-align-last: justify;
         text-justify: inter-word !important;
         white-space: nowrap !important;
-        overflow: hidden;
+        overflow: visible;
         border: 10px solid transparent;
         border-image: url("../assets/img/mushaf-border.png") 20 round;
         -webkit-border-image: url("../assets/img/mushaf-border.png") 20 round;

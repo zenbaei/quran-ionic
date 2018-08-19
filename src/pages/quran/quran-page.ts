@@ -15,6 +15,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NumberUtils } from "../../app/util/number-utils/number-utils";
 import { timer } from 'rxjs/observable/timer';
 import { Storage } from '@ionic/storage';
+import { promise } from 'selenium-webdriver';
 
 @Component({
   selector: 'page-quran',
@@ -29,6 +30,8 @@ export class QuranPage {
   private surahName: string = '';
   private infoToast: Toast;
   private fontToast: Toast;
+  private mainDivWidth: number;
+  private infoToastPromise: Promise<any>;
 
   constructor(private quranPageService: QuranService, private tafsirService: TafsirService,
     private quranIndexService: IndexService, private toastCtl: ToastController,
@@ -50,7 +53,7 @@ export class QuranPage {
   ionViewDidEnter() {
     this.quranPageService.getPageNumber().then(val => {
       let pgNu: number = (val === null) ? 1 : val;
-      this.loadPage(pgNu).then(() => { 
+      this.loadPage(pgNu).then(() => {
         this.showInfoToast();
       });
     });
@@ -66,7 +69,7 @@ export class QuranPage {
    */
   ionSelected() {
     this.dismissInfoToast();
-    this.showInfoToast();
+    this.ionViewDidEnter();
   }
 
   /**
@@ -82,6 +85,7 @@ export class QuranPage {
     $(function () {
       self.scrollToTop();
       self.initPopover();
+      self.addOverflowEvent();
     });
   }
 
@@ -238,15 +242,16 @@ export class QuranPage {
   public showInfoToast(): void {
     this.infoToast = this.toastCtl.create({
       message: this.getInfoMsg(),
-      duration: 5000,
+      duration: 3000,
       position: 'middle'
     });
     this.infoToast.present();
   }
 
   private dismissInfoToast() {
-    if (this.infoToast != null) {
-      this.infoToast.dismissAll();
+    if (this.infoToast) {
+      this.infoToast.dismiss();
+      this.infoToast = null;
     }
   }
 
@@ -376,7 +381,66 @@ export class QuranPage {
     });
   }
 
-  
+  private addOverflowEvent(): void {
+    $('.mushaf-container').bind('overflow', this.OnOverflowChanged);
+  }
+
+  private setMainDivWidth(): void {
+    this.mainDivWidth = $('.mushaf-container').width();
+  }
+
+  private increaseNobrWidth(): void {
+    $('nobr').toArray().forEach(el => {
+      this.adjustFont(el);
+    });
+  }
+
+  private adjustFont(element: HTMLElement): void {
+    let width: string = element.style.width;
+    element.style.fontSize = Number(width) < this.mainDivWidth ?
+      this.calculateFontSize(element, true) :
+      this.calculateFontSize(element, false);
+  }
+
+  private calculateFontSize(element: HTMLElement, add: boolean): string {
+    let fontSize = element.style.fontSize.replace('vw', '');
+    if (add) {
+      return Number(fontSize) + 0.5 + 'vw';
+    } else {
+      return Number(fontSize) - 0.5 + 'vw';
+    }
+  }
+
+  private OnOverflowChanged(event): void {
+    if (event.type == "overflow") {
+      switch (event.detail) {
+        case 0:
+          alert("The vertical scrollbar has appeared.");
+          break;
+        case 1:
+          alert("The horizontal scrollbar has appeared.");
+          break;
+        case 2:
+          alert("The horizontal and vertical scrollbars have both appeared.");
+          break;
+      }
+    }
+    else {
+      switch (event.detail) {
+        case 0:
+          alert("The vertical scrollbar has disappeared.");
+          break;
+        case 1:
+          alert("The horizontal scrollbar has disappeared.");
+          break;
+        case 2:
+          alert("The horizontal and vertical scrollbars have both disappeared.");
+          break;
+      }
+    }
+  }
+
+
   private getFontChangeWarningMsg(): string {
     let platformMsg: string = false ? //this.isAndroid()
       `عندها سيظهر لك ثلاث نقاط '...' فقم` :
@@ -385,7 +449,7 @@ export class QuranPage {
     return `برجاء الإنتباه عند تكبير الخط أنه قد تتجاوز بعض سطور المصحف إطار الشاشة وذلك نظرا لإختلاف أطوال السطور. `
       + `${platformMsg} بتصغير الخط مرة اخرى ليظهر لك السطر كاملا.`;
   }
-  
+
 }
 
 const FONT_SELECTOR_ID = '#font-selector';

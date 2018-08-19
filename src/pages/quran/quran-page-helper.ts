@@ -1,6 +1,7 @@
 import { Tafsir } from '../../app/domain/tafsir';
 import { Search } from "../../app/util/search-utils/search";
 import { QuranService } from '../../app/service/quran/quran-service';
+import { PAGES_FONT } from './quran-page-constants';
 
 export class QuranPageHelper {
 
@@ -40,11 +41,12 @@ export class QuranPageHelper {
     public static surrondEachLineInDiv(content: string, pageNumber: number): string {
         let lines: string[] = content.split('\n');
         let newContent: string = '';
-        lines.forEach(str => {
+
+        lines.forEach((str, index) => {
             if (this.isCenteredLine(str, pageNumber)) {
                 newContent += `<div class='no-justify'><nobr>${str}</nobr></div>\n`;
             } else {
-                newContent += `<div class='ellipsis'><nobr>${str}</nobr></div>\n`;
+                newContent += `<div style="font-size:${this.getFontSize(pageNumber, index + 1)}"><nobr>${str}</nobr></div>\n`;
             }
         });
         return newContent;
@@ -64,12 +66,20 @@ export class QuranPageHelper {
             (str.indexOf(KORAYSH) != -1 && pageNumber === 602) ||
             (str.indexOf(KAFROUN) != -1 && pageNumber === 603) ||
             (str.indexOf(MASAD) != -1 && pageNumber === 603) ||
-            (str.indexOf(NASR) != -1 && pageNumber === 603))
-            {
+            (str.indexOf(NASR) != -1 && pageNumber === 603)) {
             return true;
         }
         return false;
     }
+
+    private static getFontSize(pageNumber: number, lineNumber: number): string {
+        let lnNuFtSz: Map<number, number> = PAGES_FONT.get(pageNumber);
+        if (lnNuFtSz != null && lnNuFtSz.get(lineNumber) != null) {
+            return lnNuFtSz.get(lineNumber) + 'vw';
+        }
+        return '4.8vw';
+    }
+
 }
 
 const EMPTY: string = '';

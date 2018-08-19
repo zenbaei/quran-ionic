@@ -1,18 +1,24 @@
 go-to-popover {
     .container {
-        background: lightgrey;
+        background: black;
+        opacity: 0.7;
+        border-radius: 20px !important;
     }
     .text-input {
         background: white;
         height: 3rem;
+        direction: rtl;
     }
     .popover-content .popover-md {
-        padding: 0px;
+        padding: 0px !important;
         bottom: 0px;
     }
     .button-md {
         height: 3rem;
         font-style: bold; //font-family: uthmanic;
         font-size: 1.4rem;
+    }
+    .scroll-content {
+        padding-bottom: 0px !important;
     }
 }
