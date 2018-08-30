@@ -42,10 +42,13 @@ page-quran {
         */
     }
     @media screen and (orientation: portrait) {
-        line-height: 2.9vh;
+        line-height: 5.8vh;
+        .line-height-extended {
+            line-height: 6.5vh;
+        }
     }
     @media screen and (orientation: landscape) {
-        line-height: 14.2vh;
+        line-height: 17vh;
     }
 }
 
@@ -60,6 +63,15 @@ page-quran {
                 height: 0;
                 visibility: hidden;
             }
+        }
+        @media screen and (orientation: portrait) {
+            line-height: 2.9vh;
+            .line-height-extended {
+                line-height: 3.5vh;
+            }
+        }
+        @media screen and (orientation: landscape) {
+            line-height: 9vh;
         }
     }
 }

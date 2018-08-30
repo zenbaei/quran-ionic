@@ -44,7 +44,7 @@ export class QuranPageHelper {
 
         lines.forEach((str, index) => {
             if (this.isCenteredLine(str, pageNumber)) {
-                newContent += `<div class='no-justify'><nobr>${str}</nobr></div>\n`;
+                newContent += `<div style="font-size:${DEFAULT_FONT_SIZE}" class='no-justify'><nobr>${str}</nobr></div>\n`;
             } else {
                 newContent += `<div style="font-size:${this.getFontSize(pageNumber, index + 1)}"><nobr>${str}</nobr></div>\n`;
             }
@@ -77,7 +77,7 @@ export class QuranPageHelper {
         if (lnNuFtSz != null && lnNuFtSz.get(lineNumber) != null) {
             return lnNuFtSz.get(lineNumber) + 'vw';
         }
-        return '4.8vw';
+        return DEFAULT_FONT_SIZE;
     }
 
 }
@@ -99,3 +99,4 @@ const FAJR = 'فَٱدۡخُلِي فِي عِبَٰدِي ';
 const NAJM = 'فَٱسۡجُدُواْۤ لِلَّهِۤ وَٱعۡبُدُواْ';
 const BESM = 'بِسۡمِ';
 const NO_NORMALIZATION = '\\noNormalization';
+const DEFAULT_FONT_SIZE = '4.8vw';

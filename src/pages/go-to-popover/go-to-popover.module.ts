@@ -8,12 +8,6 @@ import { GoToPopoverPage } from './go-to-popover';
   ],
   imports: [
     IonicPageModule.forChild(GoToPopoverPage),
-  ],
-  exports: [
-    GoToPopoverPage
-  ],
-  entryComponents: [
-    GoToPopoverPage
   ]
 })
 export class GoToPopoverPageModule {}

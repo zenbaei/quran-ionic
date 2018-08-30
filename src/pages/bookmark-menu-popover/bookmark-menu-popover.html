@@ -1,0 +1,22 @@
+<ion-content>
+    <div class='container'>
+      <ion-list radio-group [(ngModel)]="bookmarkType" name="bookmarkType">
+        <ion-item>
+          <ion-label>ختمة تلاوة</ion-label>
+          <ion-radio value={{Bookmark.read}} checked="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>ختمة حفظ</ion-label>
+          <ion-radio value={{Bookmark.study}}></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label>ختمة متنوعة</ion-label>
+            <ion-radio value={{Bookmark.different}}></ion-radio>
+          </ion-item>
+        <ion-item>
+          <button style="width:50px" ion-button type="button" (click)='save()'>حفظ</button>
+          <button ion-button type="button" (click)='cancel()'>إلـغـــاء</button>
+        </ion-item>
+      </ion-list>
+    </div>
+</ion-content>

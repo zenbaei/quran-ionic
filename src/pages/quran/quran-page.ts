@@ -15,7 +15,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NumberUtils } from "../../app/util/number-utils/number-utils";
 import { timer } from 'rxjs/observable/timer';
 import { Storage } from '@ionic/storage';
-import { promise } from 'selenium-webdriver';
 
 @Component({
   selector: 'page-quran',
@@ -30,8 +29,7 @@ export class QuranPage {
   private surahName: string = '';
   private infoToast: Toast;
   private fontToast: Toast;
-  private mainDivWidth: number;
-  private infoToastPromise: Promise<any>;
+  private extendLineHeight: boolean = false;
 
   constructor(private quranPageService: QuranService, private tafsirService: TafsirService,
     private quranIndexService: IndexService, private toastCtl: ToastController,
@@ -138,6 +136,9 @@ export class QuranPage {
     });
     this.events.subscribe(Constants.EVENT_LINE_HEIGHT_CHANGED, (operator: Operator) => {
       this.lineHeightChangedEvent(operator)
+    });
+    this.events.subscribe(Constants.EVENT_TOGGLE_TAB, (status: Constants.Status) => {
+      this.setContentLineHeightFlag(status)
     });
     this.orientation.onChange().subscribe(() =>
       timer(100).subscribe(() =>
@@ -276,6 +277,7 @@ export class QuranPage {
     this.clearPopover();
     this.dismissInfoToast();
 
+    /*
     this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
       .then(val => {
         this.resizeLineHeight(val);
@@ -283,6 +285,7 @@ export class QuranPage {
 
     this.quranPageService.getFontSize(this.isPortrait())
       .then(val => this.resizeFont(val));
+    */
   }
 
   /**
@@ -381,34 +384,16 @@ export class QuranPage {
     });
   }
 
+  /**
+   * This flag is used in the html to set the corresponding css class.
+   */
+  setContentLineHeightFlag(status: Constants.Status) {
+    this.extendLineHeight = (status === Constants.Status.HIDDEN) ?
+      true : false;
+  }
+
   private addOverflowEvent(): void {
     $('.mushaf-container').bind('overflow', this.OnOverflowChanged);
-  }
-
-  private setMainDivWidth(): void {
-    this.mainDivWidth = $('.mushaf-container').width();
-  }
-
-  private increaseNobrWidth(): void {
-    $('nobr').toArray().forEach(el => {
-      this.adjustFont(el);
-    });
-  }
-
-  private adjustFont(element: HTMLElement): void {
-    let width: string = element.style.width;
-    element.style.fontSize = Number(width) < this.mainDivWidth ?
-      this.calculateFontSize(element, true) :
-      this.calculateFontSize(element, false);
-  }
-
-  private calculateFontSize(element: HTMLElement, add: boolean): string {
-    let fontSize = element.style.fontSize.replace('vw', '');
-    if (add) {
-      return Number(fontSize) + 0.5 + 'vw';
-    } else {
-      return Number(fontSize) - 0.5 + 'vw';
-    }
   }
 
   private OnOverflowChanged(event): void {
@@ -439,7 +424,6 @@ export class QuranPage {
       }
     }
   }
-
 
   private getFontChangeWarningMsg(): string {
     let platformMsg: string = false ? //this.isAndroid()

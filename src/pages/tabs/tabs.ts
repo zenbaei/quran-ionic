@@ -1,5 +1,5 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { PopoverController, Tabs, Tab, Events } from 'ionic-angular';
+import { PopoverController, Tabs, Tab, Events, NavController } from 'ionic-angular';
 import { ContentPage } from '../content/content';
 import { QuranPage } from '../quran/quran-page';
 import { GoToPopoverPage } from '../go-to-popover/go-to-popover';
@@ -8,6 +8,7 @@ import { Operator } from '../../app/all/constants';
 import { AppUtils } from '../../app/util/app-utils/app-utils';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import * as $ from "jquery";
+import { BookmarkMenuPopoverPage } from '../bookmark-menu-popover/bookmark-menu-popover';
 
 @Component({
   selector: 'page-tabs',
@@ -27,17 +28,23 @@ export class TabsPage {
   isTabCtlEnabled: boolean = true;
   showFontCtls: boolean = false;
   showLineHeightCtls: boolean = false;
-  isTabBarShown: boolean = true;
   firstClick: boolean = true; // ios rotation workaround
+  tabMarginHeight: string;
 
   constructor(private popoverCtrl: PopoverController, private cdRef: ChangeDetectorRef,
-    private orientation: ScreenOrientation, private events: Events) {
+    private orientation: ScreenOrientation, private events: Events, private nav: NavController) {
     this.subscribeToEvents();
   }
 
   ionViewDidEnter() {
     // TODO: change into event
     this.saveParamForContentPage();
+
+    let self = this;
+    $(function () {
+      self.tabMarginHeight = self.getTabMarginBottom();
+      self.toggleTabButton(true);
+    });
   }
 
   ngAfterViewChecked() {
@@ -55,8 +62,8 @@ export class TabsPage {
     //TODO: impl need to be changed
     let selectedHistory: string[] = this.tabBar._selectHistory;
     let lastSelection: string = selectedHistory[selectedHistory.length - 1];
-    if (tab.root == QuranPage || tab.index == 3 || tab.index == 4 ||
-      (tab.index == 2 && lastSelection == 't0-0')) {
+    if (tab.root == QuranPage || tab.index == 3 ||
+         (lastSelection == 't0-0' && (tab.index == 2 || tab.index == 4))) {
       this.isTabCtlEnabled = true;
     } else {
       this.isTabCtlEnabled = false;
@@ -64,7 +71,11 @@ export class TabsPage {
     }
   }
 
-  showGoToPopoverPage() {
+  getTabMarginBottom(): string {
+    return $(this.TAB_CLASS).css(Constants.CSS_MARGIN_BOTTOM);
+  }
+
+  showGoToPopover() {
     let popover = this.popoverCtrl.create(GoToPopoverPage, {
       'tabBar': this.tabBar
     }, { cssClass: 'custom-popover' });
@@ -91,25 +102,24 @@ export class TabsPage {
     }
 
     this.firstClick = false;
-    //check it with android
-    /*
-    timer(10000).subscribe(() => {
-      this.orientation.unlock();
-    });
-    */
   }
 
   public hideTabBar() {
     this.tabBar.setTabbarHidden(true);
     this.toggleTabButton(false);
-    this.isTabBarShown = false;
+    this.fireToggleTabEvent(Constants.Status.HIDDEN);
   }
 
   public showTabBar() {
     this.tabBar.setTabbarHidden(false);
     this.toggleTabButton(true);
-    this.isTabBarShown = true;
+    this.fireToggleTabEvent(Constants.Status.SHOWN);
   }
+
+  private fireToggleTabEvent(status: Constants.Status): void {
+    this.events.publish(Constants.EVENT_TOGGLE_TAB, status);
+  }
+
 
   private hideControlButtonsEvent() {
     this.hideControlButtons();
@@ -128,7 +138,8 @@ export class TabsPage {
     if (showTab) {
       $(this.SHOW_TAB_BTN_CLASS).css('display', 'none');
       $(this.HIDE_TAB_BTN_CLASS).css({
-        'display': 'block'
+        'display': 'block',
+        'bottom': (Number(this.tabMarginHeight.replace('px', '')) + 2) + 'px'
       });
     } else {
       $(this.SHOW_TAB_BTN_CLASS).css('display', 'block');
@@ -147,6 +158,13 @@ export class TabsPage {
 
   public toggleFontCtls() {
     this.showFontCtls = !this.showFontCtls;
+  }
+
+  public showBookmarkPopover() {
+    let popover = this.popoverCtrl.create(BookmarkMenuPopoverPage, {
+      'tabBar': this.tabBar
+    }, { cssClass: 'custom-popover' });
+    popover.present();
   }
 
   public toggleLineHeightCtls() {

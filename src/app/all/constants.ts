@@ -12,7 +12,7 @@ export const CSS_LINE_HEIGHT = 'line-height';
 export const EVENT_TOGGLE_TAB = 'toggleTabEvent';
 export const EVENT_KEYBOARD_OPEN_LNDSCP = 'keyboardOpenOnLandscape';
 export const EVENT_LINE_HEIGHT_CHANGED = 'lineHeightChangedEvent';
-export const EVENT_FONT_CHANGED= 'fontChangedEvent';
+export const EVENT_FONT_CHANGED = 'fontChangedEvent';
 export const EVENT_HIDE_CONTROL_BUTTONS = 'hideContrlButtonsEvent';
 
 export const PLATFORM_ANDROID = 'android';
@@ -20,3 +20,8 @@ export const PLATFORM_IOS = 'ios';
 
 export enum Status { SHOWN, HIDDEN };
 export enum Operator { INC, DEC };
+export const Bookmark = {
+    read: 'readBookmark',
+    study: 'studyBookmark',
+    different: 'differentBookmark'
+}

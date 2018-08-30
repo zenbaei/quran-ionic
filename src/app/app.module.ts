@@ -19,6 +19,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Insomnia } from '@ionic-native/insomnia';
 import { QuranPage } from '../pages/quran/quran-page';
 import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
+import { BookmarkMenuPopoverPageModule } from '../pages/bookmark-menu-popover/bookmark-menu-popover.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     ContentPageModule,
-    GoToPopoverPageModule
+    GoToPopoverPageModule,
+    BookmarkMenuPopoverPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
