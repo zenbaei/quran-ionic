@@ -33,8 +33,7 @@ var read = () => {
 var write = (filename, quran) => {
     let file = filename + '.html.json';
     console.log(`Writing file: ${file}`);
-    fs.writeFile(file, JSON.stringify(quran, null, '\t'), (err) => {
-    });
+    //fs.writeFile(file, JSON.stringify(quran, null, '\t'), (err) => {});
 }
 
 function generateQuranHtml(pageNumber, data, filename) {
