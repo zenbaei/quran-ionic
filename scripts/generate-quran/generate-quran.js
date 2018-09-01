@@ -31,8 +31,9 @@ var read = () => {
 }
 
 var write = (filename, quran) => {
-    console.log(`Writing file: ${filename}`);
-    fs.writeFile(`${filename}.json`, JSON.stringify(quran), (err) => {
+    let file = filename + '.html.json';
+    console.log(`Writing file: ${file}`);
+    fs.writeFile(file, JSON.stringify(quran, null, '\t'), (err) => {
     });
 }
 
