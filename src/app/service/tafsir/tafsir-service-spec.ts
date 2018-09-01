@@ -28,7 +28,7 @@ describe('TafsirService', () => {
     }));
 
     it('Given a string containg array of Tafsir in json format When fromJson is called Then it should return array of Tafsir object', () => {
-        let tafsirs: Tafsir[] = tafsirService.fromJson(tafsirContent);
+        let tafsirs: Tafsir[] = tafsirService.toObject(tafsirContent);
         expect(tafsirs).toBeTruthy();
 
         expect(tafsirs.length).toBe(2);
@@ -43,7 +43,7 @@ describe('TafsirService', () => {
 
     it('Given http get is mocked to get tafsir content When findTafsirBySurahNumber is called Then it should return string content', (done) => {
         TestUtils.mockResponse(httpRequest, tafsirContent);
-        let tafsirArr: Tafsir[] = tafsirService.fromJson(tafsirContent);
+        let tafsirArr: Tafsir[] = tafsirService.toObject(tafsirContent);
         tafsirService.findTafsirBySurahNumber(1)
             .subscribe(content => {
                 expect(content).toEqual(tafsirArr);

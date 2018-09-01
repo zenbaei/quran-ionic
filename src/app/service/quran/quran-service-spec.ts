@@ -56,7 +56,7 @@ describe('QuranService', () => {
     });
 
     it('Given a string containg array of QuranPageMetada in json format When fromJson is called Then it should return array of QuranPageMetada object', () => {
-        let quranPageMetadataArr: QuranPageMetadata[] = quranService.fromJson(quranPageMetadata);
+        let quranPageMetadataArr: QuranPageMetadata[] = quranService.toObject(quranPageMetadata);
         expect(quranPageMetadataArr).toBeTruthy();
 
         expect(quranPageMetadataArr.length).toBe(2);
@@ -72,7 +72,7 @@ describe('QuranService', () => {
     it(`Given http get is mocked to get the quran page metadata When findPageMetadataByPageNumber is called 
         Then it should return QuranPageMetadata array`, (done) => {
         TestUtils.mockResponse(httpRequest, quranPageMetadata);
-        let quranPageMetadataArr: QuranPageMetadata[] = quranService.fromJson(quranPageMetadata);
+        let quranPageMetadataArr: QuranPageMetadata[] = quranService.toObject(quranPageMetadata);
         quranService.findPageMetadataByPageNumber(1)
             .subscribe(content => {
                 expect(content).toEqual(quranPageMetadataArr);

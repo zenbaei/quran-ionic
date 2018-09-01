@@ -27,7 +27,7 @@ describe('IndexService', () => {
     }));
 
     it('Given a string containg array of SurahIndex in json format When fromJson is called Then it should return array of SurahIndex object', () => {
-        let surahIndexes: Index[] = quranIndexService.fromJson(quranIndexContent);
+        let surahIndexes: Index[] = quranIndexService.toObject(quranIndexContent);
         expect(surahIndexes).toBeTruthy();
 
         expect(surahIndexes.length).toBe(2);

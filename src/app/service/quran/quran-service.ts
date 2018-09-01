@@ -17,15 +17,15 @@ export class QuranService {
     //private LOCAL_FILE_PATH = 'file:///home/zenbaei/Documents/quran-html-output/';
 
     constructor(private httpRequest: HttpRequest, private storage: Storage, private tafsirService: TafsirService,
-        private indexService: IndexService, private fileSaver: FileSaver) { }
+        private indexService: IndexService) { }
 
-    /**
+  /**
    * Parses quran page metadata json string then deserializes it into an array of QuranPageMetadata.
    * 
    * @param pageMetadataJsonArr a string containg QuranPageMetadata in json format, 
    * expected format [{fromAyah:1, toAyah:2, surahNumber:""},..]
    */
-    fromJson(pageMetadataJsonArr: string): QuranPageMetadata[] {
+    toObject(pageMetadataJsonArr: string): QuranPageMetadata[] {
         let pageMetadataArr: Array<QuranPageMetadata> = new Array();
         let jsonArr: any = JSON.parse(pageMetadataJsonArr);
         for (var json of jsonArr) {
@@ -87,7 +87,7 @@ export class QuranService {
             + `${pageNumber}/${pageNumber}` + QURAN_METADATA_FILE_EXTENSION;
         return this.httpRequest.get(pageMetadataURL)
             .map(res => {
-                return this.fromJson(res.text());
+                return this.toObject(res.text());
             });
     }
 
@@ -288,57 +288,8 @@ export class QuranService {
         });
     }
 
-    private generateQuranHtml(pageNumber: number, data: string, filename: string, fileSaver: any) {
-        console.log(`Generating quran files started`);
-        let start: any = Date.now();
-        let quran: Quran = new Quran(pageNumber);
-        this.findPageMetadataByPageNumber(pageNumber)
-            .subscribe(metas => {
-                metas.forEach(meta => {
-                    this.tafsirService.findTafsirBySurahNumber(meta.surahNumber)
-                        .subscribe(tafsirArr => {
-                            tafsirArr
-                                .filter(tafsir => this.isTafsirWithinCurrentPage(tafsir, meta))
-                                .forEach(tafsir => data = QuranServiceHelper.patchTafsirOverContent(tafsir, data));
-                            if (this.isLastMetadata(meta, metas)) {
-                                this.setGozeAndHezbAndSurahName(quran, metas[0]); //always display first surah name
-                                quran.data = QuranServiceHelper.surrondEachLineInDiv(data, pageNumber);
-                                fileSaver(filename, quran);
-                            }
-                        });
-                });
-            });
-
-        console.log(`Generating quran finished at: ${Math.floor((Date.now() - start) / 1000)} seconds`);
-    }
-
-    private setGozeAndHezbAndSurahName(quran: Quran, metadata: QuranPageMetadata) {
-        quran.surahName = this.indexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
-
-        //sessionStorage.setItem(Constants.PAGE_NUMBER, this.currentPageNumber.toString());
-        quran.goze = metadata.goze;
-        quran.hezb = metadata.hezb;
-    }
-
-    /**
-     * In case of quran page with multiple surahs (metadata), we need to make sure saving is executed after
-     * the whole page is processed (tasfir).
-     * @param meta 
-     * @param metas 
-     */
-    private isLastMetadata(meta: QuranPageMetadata, metas: QuranPageMetadata[]): boolean {
-        if (metas[metas.length - 1].surahNumber === meta.surahNumber) {
-            return true;
-        }
-        return false;
-    }
-
-    private isTafsirWithinCurrentPage(tafsir: Tafsir, metadata: QuranPageMetadata): boolean {
-        if (tafsir.ayahNumber >= metadata.fromAyah && tafsir.ayahNumber <= metadata.toAyah) {
-            return true;
-        }
-        return false;
-    }
+   
+    
 
 }
 

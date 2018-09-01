@@ -16,7 +16,7 @@ export class TafsirService {
      * @param tafsirJsonArr a string containg an array of Tasfir in json format,
      * expected format [{"ayah":'', "ayahNumber":2, "tafsir":''},..]
      */
-  fromJson(tafsirJsonArr: string): Tafsir[] {
+  toObject(tafsirJsonArr: string): Tafsir[] {
     console.debug(`Deserialize tafsir json array into an array of Tafsir`);
     let tafsirArr: Array<Tafsir> = new Array();
     let jsonArr: any = JSON.parse(tafsirJsonArr);
@@ -47,7 +47,7 @@ export class TafsirService {
     let TAFSIR_FILE_URL = TAFSIR_MAKHLOUF_DATA_DIR + surahNumber + TAFSIR_FILE_EXTENSION;
 
     return this.httpRequest.get(TAFSIR_FILE_URL)
-      .map((res: Response) => this.fromJson(res.text()));
+      .map((res: Response) => this.toObject(res.text()));
   }
 
   private isValidSurahNumbersurahNumber(surahNumber: number): boolean {

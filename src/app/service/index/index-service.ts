@@ -12,7 +12,6 @@ export class IndexService {
   public surahIndexArr: Index[];
 
   constructor(private httpRequest: HttpRequest) {
-
     this.getQuranIndex().subscribe(arr => {
       this.surahIndexArr = arr;
     })
@@ -24,7 +23,7 @@ export class IndexService {
    * @param surahIndexJsonArr a string containg SurahIndex in json format, 
    * expected format [{surahName:"",pageNumber:1},..]
    */
-  public fromJson(surahIndexJsonArr: string): Index[] {
+  public toObject(surahIndexJsonArr: string): Index[] {
     console.debug(`Deserialize json string into array of SurahIndex`);
     let surahIndexArr: Array<Index> = new Array();
     let jsonArr: any = JSON.parse(surahIndexJsonArr);
@@ -41,7 +40,7 @@ export class IndexService {
   public getQuranIndex(): Observable<Index[]> {
     console.debug('Get quran index file');
     return this.httpRequest.get(this.QURAN_INDEX_FILE_URL)
-      .map((res: Response) => this.fromJson(res.text()));
+      .map((res: Response) => this.toObject(res.text()));
   }
 
 }
