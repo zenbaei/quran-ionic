@@ -1,4 +1,8 @@
 var Search = require('./search');
+var regexUtils = require('./regex-utils');
+const { PAGES_FONT } = require('./constants');
+
+var EXCLUDE = '(?!<)'; // to prevent replacing word inside a span already
 
 function patchTafsirOverContent(tafsir, pageContent) {
     //console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
@@ -13,7 +17,7 @@ function patchTafsirOverContent(tafsir, pageContent) {
     let matchedAyah = search.group().trim().replace(CHARS_TO_REMOVE, EMPTY);
     let replacement = `<a ${ANCHOR_ATT} data-content="${tafsir.tafsir}">${matchedAyah}</a>`;
 
-    let regex = new RegExp(matchedAyah + this.EXCLUDE);
+    let regex = new RegExp(matchedAyah + EXCLUDE);
     pageContentCopy = pageContentCopy.replace(regex, replacement);
 
     return pageContentCopy;
@@ -26,8 +30,8 @@ function initSearch(tafsir, pageContentCopy) {
     let ayahToMatch = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ?
         tafsir.ayah.replace(NO_NORMALIZATION, '') :
         normalizeString(tafsir.ayah);
-
-    return new Search(ayahToMatch + this.EXCLUDE, pageContentCopy);
+    
+    return new Search(ayahToMatch + EXCLUDE, pageContentCopy);
 }
 
 function surrondEachLineInDiv(content, pageNumber) {
@@ -72,7 +76,15 @@ function getFontSize(pageNumber, lineNumber) {
     return DEFAULT_FONT_SIZE;
 }
 
-var EXCLUDE = '(?!<)'; // to prevent replacing word inside a span already
+function normalizeString(str) {
+    return regexUtils.addLineBreakAfterEachWord(
+        regexUtils.replaceFirstAlefCharWithAlefSkoon(
+            regexUtils.replaceMiddleAlefsWithNonSpaceZeroOrOneTime(
+                regexUtils.addRegexNonWhiteSpaceMetaCharInBetween(
+                    regexUtils.removeTashkil(str)))));
+}
+
+
 
 const EMPTY = '';
 const ANCHOR_ATT = `tabindex="0" role="button" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;

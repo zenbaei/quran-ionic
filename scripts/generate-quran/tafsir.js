@@ -26,6 +26,7 @@ function findTafsirBySurahNumber(surahNumber) {
 
     return new Promise((resolve) => {
         fs.readFile(filename, { encoding: 'utf8' }, (err, data) => {
+            //console.log(filename);
             resolve(toObject(data));
         });
     })

@@ -2,6 +2,7 @@ import { Tafsir } from '../../domain/tafsir';
 import { Search } from "../../util/search-utils/search";
 import { QuranService } from './quran-service';
 import { PAGES_FONT } from '../../../pages/quran/quran-page-constants';
+import { RegexUtils } from "../../util/regex-utils/regex-utils";
 
 export class QuranServiceHelper {
 
@@ -33,7 +34,7 @@ export class QuranServiceHelper {
 
         let ayahToMatch: string = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ?
             tafsir.ayah.replace(NO_NORMALIZATION, '') :
-            QuranService.normalizeString(tafsir.ayah);
+            this.normalizeString(tafsir.ayah);
 
         return new Search(ayahToMatch + this.EXCLUDE, pageContentCopy);
     }
@@ -78,6 +79,20 @@ export class QuranServiceHelper {
             return lnNuFtSz.get(lineNumber) + 'vw';
         }
         return DEFAULT_FONT_SIZE;
+    }
+
+       /**
+     * First removes tashkil then add non white space match (for zero or one time) after each character in the string 
+     * then replaces first abstracted alef with (one char or zero) then replaces middle alef (which will have .?.? after it from 
+     * addRegexDotMetaCharInBetween) in that case it will match quran text whether it has alaf in between or not.
+     * @param str 
+     */
+    private static normalizeString(str: string): string {
+        return RegexUtils.addLineBreakAfterEachWord(
+            RegexUtils.replaceFirstAlefCharWithAlefSkoon(
+                RegexUtils.replaceMiddleAlefsWithNonSpaceZeroOrOneTime(
+                    RegexUtils.addRegexNonWhiteSpaceMetaCharInBetween(
+                        RegexUtils.removeTashkil(str)))));
     }
 
 }

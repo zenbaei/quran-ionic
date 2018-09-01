@@ -31,15 +31,12 @@ var read = () => {
 }
 
 var write = (filename, quran) => {
-    console.log(`writing to.. ${dir}`);
+    console.log(`Writing file: ${filename}`);
     fs.writeFile(`${filename}.json`, JSON.stringify(quran), (err) => {
-        console.log(err);
     });
 }
 
 function generateQuranHtml(pageNumber, data, filename) {
-    console.log(`Generating quran files started`);
-    let start = Date.now();
     let quran = new Quran(pageNumber);
 
     metadata.findMetadataByPageNumber(pageNumber)
@@ -60,8 +57,6 @@ function generateQuranHtml(pageNumber, data, filename) {
 
             });
         });
-
-    console.log(`Generating quran finished at: ${Math.floor((Date.now() - start) / 1000)} seconds`);
 }
 
 function setGozeAndHezbAndSurahName(quran, metadata) {

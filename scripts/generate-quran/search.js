@@ -1,6 +1,7 @@
 module.exports = class Search {
 
     constructor(what, target) {
+        
         this.what = what;
         this.target = target;
         this.search();

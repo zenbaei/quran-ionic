@@ -3,14 +3,13 @@ import { Observable } from 'rxjs';
 import { HttpRequest } from '../../core/http/http-request';
 import * as Constants from '../../all/constants';
 import { QuranPageMetadata } from '../../domain/quran-page-metadata';
-import { RegexUtils } from "../../util/regex-utils/regex-utils";
+
 import { Storage } from '@ionic/storage';
 import { TafsirService } from '../tafsir/tafsir-service';
 import { Tafsir } from '../../domain/tafsir';
 import { QuranServiceHelper } from './quran-service-helper';
 import { IndexService } from '../index/index-service';
 import { Quran } from '../../domain/quran';
-import { FileSaver } from '../../core/io/file/file-saver';
 
 @Injectable()
 export class QuranService {
@@ -96,20 +95,6 @@ export class QuranService {
             return false;
         }
         return true;
-    }
-
-    /**
-     * First removes tashkil then add non white space match (for zero or one time) after each character in the string 
-     * then replaces first abstracted alef with (one char or zero) then replaces middle alef (which will have .?.? after it from 
-     * addRegexDotMetaCharInBetween) in that case it will match quran text whether it has alaf in between or not.
-     * @param str 
-     */
-    public static normalizeString(str: string): string {
-        return RegexUtils.addLineBreakAfterEachWord(
-            RegexUtils.replaceFirstAlefCharWithAlefSkoon(
-                RegexUtils.replaceMiddleAlefsWithNonSpaceZeroOrOneTime(
-                    RegexUtils.addRegexNonWhiteSpaceMetaCharInBetween(
-                        RegexUtils.removeTashkil(str)))));
     }
 
     /*
@@ -287,9 +272,6 @@ export class QuranService {
             }
         });
     }
-
-   
-    
 
 }
 
