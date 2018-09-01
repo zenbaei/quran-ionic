@@ -32,7 +32,7 @@ var read = () => {
 
 var write = (filename, quran) => {
     let file = filename + '.html.json';
-    console.log(`Writing file: ${file}`);
+    //console.log(`Writing file: ${file}`);
     //fs.writeFile(file, JSON.stringify(quran, null, '\t'), (err) => {});
 }
 
@@ -83,24 +83,6 @@ function isTafsirWithinCurrentPage(tafsir, metadata) {
         return true;
     }
     return false;
-}
-
-
-
-
-
-
-
-
-
-
-
-function normalizeString(str) {
-    return RegexUtils.addLineBreakAfterEachWord(
-        RegexUtils.replaceFirstAlefCharWithAlefSkoon(
-            RegexUtils.replaceMiddleAlefsWithNonSpaceZeroOrOneTime(
-                RegexUtils.addRegexNonWhiteSpaceMetaCharInBetween(
-                    RegexUtils.removeTashkil(str)))));
 }
 
 

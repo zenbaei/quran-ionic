@@ -1,0 +1,16 @@
+[
+	{
+		"fromAyah": 123,
+		"toAyah": 129,
+		"surahNumber": 9,
+		"goze": 11,
+		"hezb": "نصف الحزب 21"
+	},
+	{
+		"fromAyah": 0,
+		"toAyah": 0,
+		"surahNumber": 10,
+		"goze": 11,
+		"hezb": "نصف الحزب 21"
+	}
+]

@@ -27,13 +27,13 @@ function findTafsirBySurahNumber(surahNumber) {
     return new Promise((resolve) => {
         fs.readFile(filename, { encoding: 'utf8' }, (err, data) => {
             //console.log(filename);
-            rewriteTafsirFileInPrettyJson(filename, toObject(data));
+            //rewriteTafsirFileInPrettyFormat(filename, toObject(data));
             resolve(toObject(data));
         });
     })
 }
 
-function rewriteTafsirFileInPrettyJson(filename, data) {
+function rewriteTafsirFileInPrettyFormat(filename, data) {
     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) => {});
 }
 

@@ -27,9 +27,16 @@ function findMetadataByPageNumber(pageNumber) {
 
     return new Promise((resolve) => {
         fs.readFile(filename, { encoding: 'UTF-8' }, (err, data) => {
+            rewriteMetadataFileInPrettyFormat(filename, toObject(data));
             resolve(toObject(data));
         });
     })
+}
+
+function rewriteMetadataFileInPrettyFormat(filename, data) {
+    console.log(`Rewriting file ${filename}`);
+    fs.writeFile(filename + '.json', JSON.stringify(data, null, '\t'), (err) => {});
+    fs.unlink(filename);
 }
 
 module.exports = {
