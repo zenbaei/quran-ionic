@@ -65,3 +65,8 @@ $ ionic doctor
 # Mobile views on Browser:
 http://localhost:8100/?ionicplatform=android
 http://localhost:8100/ionic-lab
+
+# Adding a module that has no types
+In typings.d.ts add: 
+declare module "file-saver";
+then import * as FileSaver from "file-saver";

@@ -5,7 +5,7 @@ import { IndexService } from '../../app/service/index/index-service';
 import { Tafsir } from '../../app/domain/tafsir';
 import { TafsirService } from '../../app/service/tafsir/tafsir-service';
 import { QuranPageMetadata } from '../../app/domain/quran-page-metadata';
-import { QuranPageHelper } from './quran-page-helper';
+import { QuranServiceHelper } from '../../app/service/quran/quran-service-helper';
 import { AppUtils } from "../../app/util/app-utils/app-utils";
 import * as Constants from '../../app/all/constants';
 import { ToastController } from 'ionic-angular';
@@ -15,6 +15,10 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NumberUtils } from "../../app/util/number-utils/number-utils";
 import { timer } from 'rxjs/observable/timer';
 import { Storage } from '@ionic/storage';
+import { Quran } from '../../app/domain/quran';
+import { Observable } from 'rxjs';
+
+declare var $: any;
 
 @Component({
   selector: 'page-quran',
@@ -30,9 +34,10 @@ export class QuranPage {
   private infoToast: Toast;
   private fontToast: Toast;
   private extendLineHeight: boolean = false;
+  qurans: Promise<Quran[]>;
 
-  constructor(private quranPageService: QuranService, private tafsirService: TafsirService,
-    private quranIndexService: IndexService, private toastCtl: ToastController,
+  constructor(private quranService: QuranService,
+    private toastCtl: ToastController,
     private events: Events, private orientation: ScreenOrientation,
     private platform: Platform, private storage: Storage) {
   }
@@ -41,6 +46,11 @@ export class QuranPage {
     this.platform.ready().then(() => {
       this.orientationChangedEvent();
       this.subscribeToEvents();
+      /*
+      var self = this;
+      $(function () {
+        self.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
+      })*/
     });
   }
 
@@ -49,12 +59,7 @@ export class QuranPage {
    * use case; when selecting surah from content page and on opening application.
    */
   ionViewDidEnter() {
-    this.quranPageService.getPageNumber().then(val => {
-      let pgNu: number = (val === null) ? 1 : val;
-      this.loadPage(pgNu).then(() => {
-        this.showInfoToast();
-      });
-    });
+    this.loadSavedPageOnStart();
   }
 
   ionViewWillLeave() {
@@ -66,8 +71,10 @@ export class QuranPage {
    * Fires whenever the tab is reclicked without being on another tab.
    */
   ionSelected() {
-    this.dismissInfoToast();
-    this.ionViewDidEnter();
+    // ionViewWillLeave is called
+    this.quranService.getSavedPageNumber().then(pageNumber => {
+      this.getInfoMsg(pageNumber).then(msg => this.showInfoToast(msg));
+    })
   }
 
   /**
@@ -75,59 +82,116 @@ export class QuranPage {
    */
   ngAfterViewChecked() { }
 
-  /**
-   * It works without using document ready, but it's just a better timing for showing the toast..
-   */
-  private executeWhenDocIsReady() {
-    let self = this;
-    $(function () {
-      self.scrollToTop();
-      self.initPopover();
-      self.addOverflowEvent();
+  loadSavedPageOnStart() {
+    this.quranService.getSavedPageNumber().then(pageNumber => {
+      this.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
+      $('#flipbook').turn('page', pageNumber);
+      this.getInfoMsg(pageNumber).then((msg) => this.showInfoToast(msg));
     });
+  }
+
+  private executeWhenPageIsTurned() {
+    this.scrollToTop();
+    this.initPopover();
+    this.addOverflowEvent();
+  }
+
+  private addFlipAnimation() {
+    let self = this;
+    $("#flipbook").turn({
+      width: '100%',
+      height: '100%',
+      display: 'single',
+      elevation: 50,
+      acceleration: true,
+      gradients: true,
+      autoCenter: true,
+      duration: 1000,
+      pages: 604,
+      when: {
+        turning: function (e, page, view) {
+          self.ionViewWillLeave();
+        },
+        missing: function (e, pages) {
+          for (var i = 0; i < pages.length; i++)
+            self.addPage(pages[i], $(this));
+        },
+        end: function (e, pages) {
+          self.executeWhenPageIsTurned();
+        }
+      }
+    });
+  }
+
+
+
+  private addPage(page, book) {
+    var id, pages = book.turn('pages');
+    var element = $('<div/>', {});
+
+    if (book.turn('addPage', element, page)) {
+      this.storage.get(page).then((val) => {
+        let innerDiv = `<div class="${this.evaluateBorderClasses(page)}">
+            <div style="background-color: aliceblue" class="${this.evaluatePaddingClasses(page)}">
+              <div id="font-selector" class="${this.evaluateContentClasses(page)}">
+                ${JSON.parse(val).data}
+              </div>
+            </div>
+          </div>`
+        element.html(innerDiv);
+      });
+    }
+  }
+
+  evaluateBorderClasses(page: number): string {
+    let classes: string = '';
+
+    if (page < 3) {
+      classes = 'mushaf-container-fateha';
+    } else {
+      classes = 'mushaf-container';
+    }
+
+    if (this.extendLineHeight) {
+      classes += ', line-height-extended';
+    }
+
+    return classes;
+  }
+
+  evaluatePaddingClasses(page: number): string {
+    if (page < 3) {
+      return 'fateha-padding'
+    } else {
+      return 'mushaf-padding';
+    }
+  }
+
+  evaluateContentClasses(page: number): string {
+    let classes: string = 'ios-justify';
+    if (page == 604) {
+      classes += ', moaouzat-content';
+    }
+    return classes;
   }
 
   private scrollToTop() {
     this.content.scrollToTop();
   }
 
-  private loadPage(pageNumber: number): Promise<any> {
-    this.currentPageNumber = pageNumber;
-    return new Promise((resolve) => {
-      this.findQuranPageByPageNumber(pageNumber).then(val => {
-        this.executeWhenDocIsReady();
-        resolve();
-      });
-    });
-  }
-
   public swipeEvent(event: any): void {
-    let pageNumber: number = this.calculatePageNumber(event);
-
-    if (pageNumber === -1) {
-      return;
+    if (event.direction === 2) {
+      $('#flipbook').turn('previous');
+    } else if (event.direction === 4) {
+      $('#flipbook').turn('next');
     }
 
-    if (QuranService.isValidPageNumber(pageNumber)) {
-      this.clearPopover();
-      this.dismissInfoToast();
-      this.quranPageService.savePageNumber(pageNumber);
-      this.loadPage(pageNumber);
-    }
+    let pageNumber: number = $('#flipbook').turn('page');
+    this.quranService.savePageNumber(pageNumber);
   }
 
   public tapEvent(event: any): void {
     this.events.publish(Constants.EVENT_HIDE_CONTROL_BUTTONS);
-  }
-
-  private calculatePageNumber(event: any): number {
-    if (event.direction === 2) {
-      return this.currentPageNumber - 1;
-    } else if (event.direction === 4) {
-      return this.currentPageNumber + 1;
-    } else {
-      return -1;
-    }
   }
 
   private subscribeToEvents(): void {
@@ -145,75 +209,6 @@ export class QuranPage {
         this.orientationChangedEvent()
       )
     );
-  }
-
-  public findQuranPageByPageNumber(pageNumber: number): Promise<any> {
-    return new Promise((resolve) => {
-      this.quranPageService.findPageContentByPageNumber(pageNumber, this.isAndroid())
-        .subscribe(content => {
-          this.pageContent = content;
-          this.findMetadataByPageNumber(pageNumber).then(val => {
-            this.pageContent = QuranPageHelper.surrondEachLineInDiv(this.pageContent, pageNumber);
-            resolve();
-          });
-        });
-    });
-  }
-
-  private findMetadataByPageNumber(pageNumber: number): Promise<any> {
-    return new Promise((resolve) => {
-      this.quranPageService.findPageMetadataByPageNumber(pageNumber)
-        .subscribe(metas => {
-          this.processMetadatas(metas).then(() => {
-            this.setGozeAndHezbAndSurahName(metas[0]); //always display first surah name
-            resolve();
-          });
-        });
-    });
-  }
-
-  private processMetadatas(metas: QuranPageMetadata[]): Promise<any> {
-    return new Promise((resolve) => {
-      metas.forEach(meta => {
-        this.findTafsirByMetadata(meta).then(() => {
-          if (this.isLastMetadata(meta, metas)) {
-            resolve();
-          }
-        });
-      });
-    });
-  }
-
-  private isLastMetadata(meta: QuranPageMetadata, metas: QuranPageMetadata[]): boolean {
-    if (metas[metas.length - 1].surahNumber === meta.surahNumber) {
-      return true;
-    }
-    return false;
-  }
-
-  private findTafsirByMetadata(metadata: QuranPageMetadata): Promise<any> {
-    return new Promise((resolve) => {
-      this.tafsirService.findTafsirBySurahNumber(metadata.surahNumber)
-        .subscribe(tafsirArr => {
-          tafsirArr.filter(tafsir => this.isTafsirWithinCurrentPageAyahRange(tafsir, metadata))
-            .forEach(tafsir => this.pageContent = QuranPageHelper.patchTafsirOnContent(tafsir, this.pageContent));
-          resolve();
-        });
-    });
-  }
-
-  private isTafsirWithinCurrentPageAyahRange(tafsir: Tafsir, metadata: QuranPageMetadata): boolean {
-    if (tafsir.ayahNumber >= metadata.fromAyah && tafsir.ayahNumber <= metadata.toAyah) {
-      return true;
-    }
-    return false;
-  }
-
-  private setGozeAndHezbAndSurahName(metadata: QuranPageMetadata) {
-    this.surahName = this.quranIndexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
-    sessionStorage.setItem(Constants.SURAH_NAME, this.surahName);
-    sessionStorage.setItem(Constants.PAGE_NUMBER, this.currentPageNumber.toString());
-    this.gozeAndHezb = `الجزء ${metadata.goze} - ${metadata.hezb}`;
   }
 
   /**
@@ -240,9 +235,9 @@ export class QuranPage {
     tafsirAnchors.popover("hide");
   }
 
-  public showInfoToast(): void {
+  public showInfoToast(msg: string): void {
     this.infoToast = this.toastCtl.create({
-      message: this.getInfoMsg(),
+      message: msg,
       duration: 3000,
       position: 'middle'
     });
@@ -256,8 +251,14 @@ export class QuranPage {
     }
   }
 
-  private getInfoMsg(): string {
-    return `${this.surahName} - (${this.gozeAndHezb})`;
+  private getInfoMsg(pageNumber: number): Promise<string> {
+    return new Promise((resolve) => {
+      this.storage.get(pageNumber.toString()).then((val) => {
+        let json: any = JSON.parse(val);
+        resolve(`${json.surahName} - (الجزء ${json.goze} - ${json.hezb})`);
+      });
+    });
+
   }
 
   private fontChangedEvent(operator: Operator) {
@@ -299,7 +300,7 @@ export class QuranPage {
       return;
     }
 
-    this.quranPageService.saveLineHeight(Number(size), this.isPortrait());
+    this.quranService.saveLineHeight(Number(size), this.isPortrait());
     this.setLineHeightStyle(size);
   }
 
@@ -317,26 +318,26 @@ export class QuranPage {
   }
 
   public increaseLineHeight(): void {
-    this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
+    this.quranService.getLineHeight(this.isAndroid(), this.isPortrait())
       .then(val => {
         this.resizeLineHeight(val + PROPORTION);
       });
   }
 
   public decreaseLineHeight(): void {
-    this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
+    this.quranService.getLineHeight(this.isAndroid(), this.isPortrait())
       .then(val => {
         this.resizeLineHeight(val - PROPORTION);
       });
   }
 
   public increaseFont() {
-    this.quranPageService.getFontSize(this.isPortrait())
+    this.quranService.getFontSize(this.isPortrait())
       .then(val => this.resizeFont(val + PROPORTION))
   }
 
   public decreaseFont() {
-    this.quranPageService.getFontSize(this.isPortrait())
+    this.quranService.getFontSize(this.isPortrait())
       .then(val => this.resizeFont(val - PROPORTION))
   }
 
@@ -347,7 +348,7 @@ export class QuranPage {
       return;
     }
 
-    this.quranPageService.saveFontSize(size, this.isPortrait());
+    this.quranService.saveFontSize(size, this.isPortrait());
     this.setFontSizeStyle(size);
   }
 
@@ -450,3 +451,4 @@ const MIN_QURAN_FONT_SIZE: number = 1;
 const MAX_QURAN_FONT_SIZE: number = 7;
 
 const IS_FONT_CHANGE_WARNING_DISPLAYED: string = 'isFontChangeWarningDisplayed';
+const MAIN_DIV = '<div style="height: 100%" (swipe)="swipeEvent($event)" (tap)="tapEvent($event)"/>';

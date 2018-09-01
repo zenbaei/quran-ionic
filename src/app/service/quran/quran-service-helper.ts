@@ -1,13 +1,13 @@
-import { Tafsir } from '../../app/domain/tafsir';
-import { Search } from "../../app/util/search-utils/search";
-import { QuranService } from '../../app/service/quran/quran-service';
-import { PAGES_FONT } from './quran-page-constants';
+import { Tafsir } from '../../domain/tafsir';
+import { Search } from "../../util/search-utils/search";
+import { QuranService } from './quran-service';
+import { PAGES_FONT } from '../../../pages/quran/quran-page-constants';
 
-export class QuranPageHelper {
+export class QuranServiceHelper {
 
     private static EXCLUDE: string = '(?!<)'; // to prevent replacing word inside a span already
 
-    public static patchTafsirOnContent(tafsir: Tafsir, pageContent: string): string {
+    public static patchTafsirOverContent(tafsir: Tafsir, pageContent: string): string {
         //console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
         let pageContentCopy: string = pageContent;
 
@@ -83,7 +83,7 @@ export class QuranPageHelper {
 }
 
 const EMPTY: string = '';
-const ANCHOR_ATT = `tabindex="0" role="button" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;
+export const ANCHOR_ATT = `tabindex="0" role="button" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;
 const CHARS_TO_REMOVE = new RegExp('<.*'); // to prevent replacing word inside a span already
 
 const RAAD = 'عِلۡمُ ٱلۡكِتَٰبِ';

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavParams, IonicPage, Searchbar, Content, Keyboard, Events } from 'ionic-angular';
-import { QuranIndex } from '../../app/domain/quran-index';
+import { Index } from '../../app/domain';
 import { IndexService } from '../../app/service/index/index-service';
 import { Storage } from '@ionic/storage';
 import * as Constants from '../../app/all/constants';
@@ -16,7 +16,7 @@ import { AppUtils } from '../../app/util/app-utils/app-utils';
 export class ContentPage {
   @ViewChild('surahSearchBar') surahSearchBar: Searchbar;
   @ViewChild(Content) content: Content;
-  quranIdxArr: QuranIndex[] = [];
+  quranIdxArr: Index[] = [];
   searchQuery: string = '';
 
   constructor(private indexService: IndexService, private navParams: NavParams,

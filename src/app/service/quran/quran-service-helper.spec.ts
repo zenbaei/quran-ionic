@@ -1,11 +1,12 @@
-import { QuranPageHelper } from "./quran-page-helper";
-import { Search } from "../../app/util/search-utils/search";
-import * as TestData from "../../test-data";
-import { Tafsir } from '../../app/domain/tafsir';
+import { QuranServiceHelper } from "./quran-service-helper";
+import *  as Constants from "./quran-service-helper";
+import { Search } from "../../util/search-utils/search";
+import * as TestData from "../../../test-data";
+import { Tafsir } from '../../domain/tafsir';
 
 describe('QuranPageHelper', () => {
 
-    let STATIC_ATT = QuranPageHelper.ANCHOR_ATT;
+    let STATIC_ATT = Constants.ANCHOR_ATT;
 
     let tafsirArr: Tafsir[] = [
         new Tafsir("ربّ العالمين", 2, "مربّيهم ومالكهم ومدبر أمورهم"),
@@ -15,20 +16,20 @@ describe('QuranPageHelper', () => {
         new Tafsir("الضّالين", 7, "النصارى وكذا أشباههم في الضلال")
     ];
 
-    it('Given quran content and tafsir is provided When patchTafsirOnContent is called Then it should replace the matched string with tafsir span', () => {
+    it('Given quran content and tafsir is provided When patchTafsirOverContent is called Then it should replace the matched string with tafsir span', () => {
         let tafsirText: string = "مربّيهم ومالكهم ومدبر أمورهم";
         let tafsirAyah: string = "ربّ العالمين";
         let ayahFromMushaf: string = "رَبِّ ٱلۡعَٰلَمِينَ";
         let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
         let exptectedSpan: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf}</a>`;
 
-        let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FATEHA);
+        let result: string = QuranServiceHelper.patchTafsirOverContent(tafsir, TestData.SURAT_AL_FATEHA);
         let expected: string = TestData.SURAT_AL_FATEHA.replace(ayahFromMushaf, exptectedSpan);
         expect(result).toEqual(expected);
     });
 
-    it('Given quran content and tafsir is provided When patchTafsirOnContent is called Then it should throw no Error exception', () => {
-        tafsirArr.forEach(tf => QuranPageHelper.patchTafsirOnContent(tf, TestData.SURAT_AL_FATEHA));
+    it('Given quran content and tafsir is provided When patchTafsirOverContent is called Then it should throw no Error exception', () => {
+        tafsirArr.forEach(tf => QuranServiceHelper.patchTafsirOverContent(tf, TestData.SURAT_AL_FATEHA));
     });
 
     it(`Given a string with line break is provided 
@@ -40,12 +41,12 @@ describe('QuranPageHelper', () => {
         });
 
     it(`Given a string with line break is provided 
-    When it's matched and patchTafsirOnContent is called 
+    When it's matched and patchTafsirOverContent is called 
     Then it should replace the matched strings with 2 tafsir span`, () => {
             let tafsirText: string = "تفسير";
             let tafsirAyah: string = "اهدنا الصّراط";
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
-            let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FATEHA);
+            let result: string = QuranServiceHelper.patchTafsirOverContent(tafsir, TestData.SURAT_AL_FATEHA);
 
             let ayahFromMushaf_1: string = `ٱهۡدِنَا`;
             let ayahFromMushaf_2: string = `ٱلصِّرَٰطَ`;
@@ -58,7 +59,7 @@ describe('QuranPageHelper', () => {
         });
 
     it(`Given quran content for surat elfalaq 1 and tafsir is provided 
-        When patchTafsirOnContent is called 
+        When patchTafsirOverContent is called 
         Then it should replace the matched string with tafsir span`, () => {
             let tafsirText: string = "أعْتـَصِمُ وأسْتجير";
             let tafsirAyah: string = "أعوذ";
@@ -66,13 +67,13 @@ describe('QuranPageHelper', () => {
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
             let exptectedSpan: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf}</a>`;
 
-            let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
+            let result: string = QuranServiceHelper.patchTafsirOverContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
             expect(result).toEqual(expected);
         });
 
     it(`Given quran content for surat elfalaq 2 and tafsir is provided 
-        When patchTafsirOnContent is called 
+        When patchTafsirOverContent is called 
         Then it should replace the matched string with tafsir span`, () => {
             let tafsirText: string = "بربّ الصّـبْح والخَـلـْـق كلـّهمْ";
             let tafsirAyah: string = "بربّ الفلق";
@@ -80,13 +81,13 @@ describe('QuranPageHelper', () => {
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
             let exptectedSpan: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf}</a>`;
 
-            let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
+            let result: string = QuranServiceHelper.patchTafsirOverContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
             expect(result).toEqual(expected);
         });
 
     it(`Given quran content and tafsir is provided 
-        When patchTafsirOnContent is called 
+        When patchTafsirOverContent is called 
         Then it should replace the matched string with tafsir span`, () => {
             let tafsirText: string = "بربّ الصّـبْح والخَـلـْـق كلـّهمْ";
             let tafsirAyah: string = "بربّ الفلق";
@@ -94,7 +95,7 @@ describe('QuranPageHelper', () => {
             let tafsir: Tafsir = new Tafsir(tafsirAyah, 2, tafsirText);
             let exptectedSpan: string = `<a ${STATIC_ATT} title="${tafsirText}">${ayahFromMushaf}</a>`;
 
-            let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, TestData.SURAT_AL_FALAQ);
+            let result: string = QuranServiceHelper.patchTafsirOverContent(tafsir, TestData.SURAT_AL_FALAQ);
             let expected: string = TestData.SURAT_AL_FALAQ.replace(ayahFromMushaf, exptectedSpan);
             expect(result).toEqual(expected);
         });
@@ -106,7 +107,7 @@ describe('QuranPageHelper', () => {
             let tafsir: Tafsir = new Tafsir(ayah, 2, '');
             let content: string = `<a ${STATIC_ATT} title="">${ayah}</a>`;
             let pageContent: string = content + ayah;
-            let result: string = QuranPageHelper.patchTafsirOnContent(tafsir, pageContent);
+            let result: string = QuranServiceHelper.patchTafsirOverContent(tafsir, pageContent);
             expect(result).toEqual(content + content);
         });
 

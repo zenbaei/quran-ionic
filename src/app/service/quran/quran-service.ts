@@ -5,12 +5,19 @@ import * as Constants from '../../all/constants';
 import { QuranPageMetadata } from '../../domain/quran-page-metadata';
 import { RegexUtils } from "../../util/regex-utils/regex-utils";
 import { Storage } from '@ionic/storage';
+import { TafsirService } from '../tafsir/tafsir-service';
+import { Tafsir } from '../../domain/tafsir';
+import { QuranServiceHelper } from './quran-service-helper';
+import { IndexService } from '../index/index-service';
+import { Quran } from '../../domain/quran';
+import { FileSaver } from '../../core/io/file/file-saver';
 
 @Injectable()
 export class QuranService {
     //private LOCAL_FILE_PATH = 'file:///home/zenbaei/Documents/quran-html-output/';
 
-    constructor(private httpRequest: HttpRequest, private storage: Storage) { }
+    constructor(private httpRequest: HttpRequest, private storage: Storage, private tafsirService: TafsirService,
+        private indexService: IndexService, private fileSaver: FileSaver) { }
 
     /**
    * Parses quran page metadata json string then deserializes it into an array of QuranPageMetadata.
@@ -167,9 +174,13 @@ export class QuranService {
         localStorage.removeItem(LANDSCAPE_QURAN_FONT_SIZE);
     }
 
-    public getPageNumber(): Promise<number> {
-        return new Promise((resolve, reject) => {
+    public getSavedPageNumber(): Promise<number> {
+        return new Promise((resolve) => {
             this.storage.get(Constants.PAGE_NUMBER).then(val => {
+                if (!val) {
+                    this.savePageNumber(1);
+                    resolve(1);
+                }
                 resolve(val);
             });
         });
@@ -254,6 +265,79 @@ export class QuranService {
             return false;
         }
         return true;
+    }
+
+    public findAll(): Promise<Quran[]> {
+        let qurans: Quran[] = new Array();
+        return new Promise((resolve) => {
+            for (let i = 1; i <= 604; i++) {
+                this.storage.get(i.toString()).then(qr => {
+                    let quran: Quran = new Quran(i);
+                    let json: any = JSON.parse(qr);
+                    quran.data = json.data;
+                    quran.goze = json.goze;
+                    quran.hezb = json.hezb;
+                    quran.surahName = json.surahName;
+                    qurans.push(quran);
+
+                    if (i == 604) { // done loading
+                        resolve(qurans);
+                    }
+                });
+            }
+        });
+    }
+
+    private generateQuranHtml(pageNumber: number, data: string, filename: string, fileSaver: any) {
+        console.log(`Generating quran files started`);
+        let start: any = Date.now();
+        let quran: Quran = new Quran(pageNumber);
+        this.findPageMetadataByPageNumber(pageNumber)
+            .subscribe(metas => {
+                metas.forEach(meta => {
+                    this.tafsirService.findTafsirBySurahNumber(meta.surahNumber)
+                        .subscribe(tafsirArr => {
+                            tafsirArr
+                                .filter(tafsir => this.isTafsirWithinCurrentPage(tafsir, meta))
+                                .forEach(tafsir => data = QuranServiceHelper.patchTafsirOverContent(tafsir, data));
+                            if (this.isLastMetadata(meta, metas)) {
+                                this.setGozeAndHezbAndSurahName(quran, metas[0]); //always display first surah name
+                                quran.data = QuranServiceHelper.surrondEachLineInDiv(data, pageNumber);
+                                fileSaver(filename, quran);
+                            }
+                        });
+                });
+            });
+
+        console.log(`Generating quran finished at: ${Math.floor((Date.now() - start) / 1000)} seconds`);
+    }
+
+    private setGozeAndHezbAndSurahName(quran: Quran, metadata: QuranPageMetadata) {
+        quran.surahName = this.indexService.surahIndexArr[(metadata.surahNumber - 1)].surahName;
+
+        //sessionStorage.setItem(Constants.PAGE_NUMBER, this.currentPageNumber.toString());
+        quran.goze = metadata.goze;
+        quran.hezb = metadata.hezb;
+    }
+
+    /**
+     * In case of quran page with multiple surahs (metadata), we need to make sure saving is executed after
+     * the whole page is processed (tasfir).
+     * @param meta 
+     * @param metas 
+     */
+    private isLastMetadata(meta: QuranPageMetadata, metas: QuranPageMetadata[]): boolean {
+        if (metas[metas.length - 1].surahNumber === meta.surahNumber) {
+            return true;
+        }
+        return false;
+    }
+
+    private isTafsirWithinCurrentPage(tafsir: Tafsir, metadata: QuranPageMetadata): boolean {
+        if (tafsir.ayahNumber >= metadata.fromAyah && tafsir.ayahNumber <= metadata.toAyah) {
+            return true;
+        }
+        return false;
     }
 
 }

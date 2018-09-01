@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { QuranIndex } from '../../domain/quran-index';
+import { Index } from '../../domain';
 import { IndexService } from './index-service';
 import { HttpModule } from '@angular/http';
 import { HttpRequest } from '../../core/http/http-request';
@@ -27,7 +27,7 @@ describe('IndexService', () => {
     }));
 
     it('Given a string containg array of SurahIndex in json format When fromJson is called Then it should return array of SurahIndex object', () => {
-        let surahIndexes: QuranIndex[] = quranIndexService.fromJson(quranIndexContent);
+        let surahIndexes: Index[] = quranIndexService.fromJson(quranIndexContent);
         expect(surahIndexes).toBeTruthy();
 
         expect(surahIndexes.length).toBe(2);
