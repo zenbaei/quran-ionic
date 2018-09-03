@@ -1,86 +1,96 @@
 {
 	"pageNumber": 501,
-	"data": "<div style=\"font-size:4.5vw\">
+	"data": "<div style='font-size:4.5vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أخبرني\">أَفَرَءَيۡتَ
-				</a> مَنِ ٱتَّخَذَ إِلَٰهَهُۥ هَوَىٰهُ وَأَضَلَّهُ ٱللَّهُ عَلَىٰ عِلۡمٖ وَخَتَمَ عَلَىٰ سَمۡعِهِۦ 
+				<a data-content='أخبرني' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أَفَرَءَيۡتَ
+				</a> 
+				مَنِ ٱتَّخَذَ إِلَٰهَهُۥ هَوَىٰهُ وَأَضَلَّهُ ٱللَّهُ عَلَىٰ عِلۡمٖ وَخَتَمَ عَلَىٰ سَمۡعِهِۦ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَقَلۡبِهِۦ وَجَعَلَ عَلَىٰ بَصَرِهِۦ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"غطاءً حتى لا يُـبْـصِرَ الرّشد\">غِشَٰوَةٗ
-				</a> فَمَن يَهۡدِيهِ مِنۢ بَعۡدِ ٱللَّهِۚ أَفَلَا 
+				<a data-content='غطاءً حتى لا يُـبْـصِرَ الرّشد' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					غِشَٰوَةٗ
+				</a> 
+				فَمَن يَهۡدِيهِ مِنۢ بَعۡدِ ٱللَّهِۚ أَفَلَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.6vw\">
+		<div style='font-size:4.6vw'>
 			<nobr>
 				تَذَكَّرُونَ ٢٣ وَقَالُواْ مَا هِيَ إِلَّا حَيَاتُنَا ٱلدُّنۡيَا نَمُوتُ وَنَحۡيَا وَمَا يُهۡلِكُنَآ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				إِلَّا ٱلدَّهۡرُۚ وَمَا لَهُم بِذَٰلِكَ مِنۡ عِلۡمٍۖ إِنۡ هُمۡ إِلَّا يَظُنُّونَ ٤٢ وَإِذَا تُتۡلَىٰ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				عَلَيۡهِمۡ ءَايَٰتُنَا بَيِّنَٰتٖ مَّا كَانَ حُجَّتَهُمۡ إِلَّآ أَن قَالُواْ ٱئۡتُواْ بِ‍َٔابَآئِنَآ إِن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				كُنتُمۡ صَٰدِقِينَ ٥٢ قُلِ ٱللَّهُ يُحۡيِيكُمۡ ثُمَّ يُمِيتُكُمۡ ثُمَّ يَجۡمَعُكُمۡ إِلَىٰ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.3vw\">
+		<div style='font-size:4.3vw'>
 			<nobr>
 				يَوۡمِ ٱلۡقِيَٰمَةِ لَا رَيۡبَ فِيهِ وَلَٰكِنَّ أَكۡثَرَ ٱلنَّاسِ لَا يَعۡلَمُونَ ٦٢ وَلِلَّهِ مُلۡكُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِۚ وَيَوۡمَ تَقُومُ ٱلسَّاعَةُ يَوۡمَئِذٖ يَخۡسَرُ ٱلۡمُبۡطِلُونَ ٧٢ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.6vw\">
+		<div style='font-size:4.6vw'>
 			<nobr>
 				وَتَرَىٰ كُلَّ أُمَّةٖ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"باركة على الرّكب لشدة الهوْل\">جَاثِيَةٗۚ
-				</a> كُلُّ أُمَّةٖ تُدۡعَىٰٓ إِلَىٰ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"صحائف أعمالها\">كِتَٰبِهَا
-				</a> ٱلۡيَوۡمَ تُجۡزَوۡنَ مَا كُنتُمۡ 
+				<a data-content='باركة على الرّكب لشدة الهوْل' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					جَاثِيَةٗۚ
+				</a> 
+				كُلُّ أُمَّةٖ تُدۡعَىٰٓ إِلَىٰ 
+				<a data-content='صحائف أعمالها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					كِتَٰبِهَا
+				</a> 
+				ٱلۡيَوۡمَ تُجۡزَوۡنَ مَا كُنتُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تَعۡمَلُونَ ٨٢ هَٰذَا كِتَٰبُنَا يَنطِقُ عَلَيۡكُم بِٱلۡحَقِّۚ إِنَّا كُنَّا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"نأمر الملائكة بنسخ\">نَسۡتَنسِخُ
+				<a data-content='نأمر الملائكة بنسخ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					نَسۡتَنسِخُ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مَا كُنتُمۡ تَعۡمَلُونَ ٩٢ فَأَمَّا ٱلَّذِينَ ءَامَنُواْ وَعَمِلُواْ ٱلصَّٰلِحَٰتِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَيُدۡخِلُهُمۡ رَبُّهُمۡ فِي رَحۡمَتِهِۦۚ ذَٰلِكَ هُوَ ٱلۡفَوۡزُ ٱلۡمُبِينُ ٠٣ وَأَمَّا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.4vw\">
+		<div style='font-size:4.4vw'>
 			<nobr>
 				ٱلَّذِينَ كَفَرُوٓاْ أَفَلَمۡ تَكُنۡ ءَايَٰتِي تُتۡلَىٰ عَلَيۡكُمۡ فَٱسۡتَكۡبَرۡتُمۡ وَكُنتُمۡ قَوۡمٗا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مُّجۡرِمِينَ ١٣ وَإِذَا قِيلَ إِنَّ وَعۡدَ ٱللَّهِ حَقّٞ وَٱلسَّاعَةُ لَا رَيۡبَ فِيهَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.7vw\">
+		<div style='font-size:4.7vw'>
 			<nobr>
 				قُلۡتُم مَّا نَدۡرِي مَا ٱلسَّاعَةُ إِن نَّظُنُّ إِلَّا ظَنّٗا وَمَا نَحۡنُ بِمُسۡتَيۡقِنِينَ ٢٣
 			</nobr>

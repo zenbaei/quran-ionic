@@ -1,96 +1,114 @@
 {
 	"pageNumber": 259,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تعطي ثمرها الذي يُؤكل\">تُؤۡتِيٓ أُكُلَهَا
-				</a> كُلَّ حِينِۢ بِإِذۡنِ رَبِّهَاۗ وَيَضۡرِبُ ٱللَّهُ ٱلۡأَمۡثَالَ 
+				<a data-content='تعطي ثمرها الذي يُؤكل' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تُؤۡتِيٓ أُكُلَهَا
+				</a> 
+				كُلَّ حِينِۢ بِإِذۡنِ رَبِّهَاۗ وَيَضۡرِبُ ٱللَّهُ ٱلۡأَمۡثَالَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				لِلنَّاسِ لَعَلَّهُمۡ يَتَذَكَّرُونَ ٥٢ وَمَثَلُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"كلمة الكفر والضّلال\">كَلِمَةٍ خَبِيثَةٖ
+				<a data-content='كلمة الكفر والضّلال' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					كَلِمَةٍ خَبِيثَةٖ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				كَشَجَرَةٍ خَبِيثَةٍ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"اقتُلِعت جثّتها من أصلها\">ٱجۡتُثَّتۡ
-				</a> مِن فَوۡقِ ٱلۡأَرۡضِ مَا لَهَا مِن 
+				<a data-content='اقتُلِعت جثّتها من أصلها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱجۡتُثَّتۡ
+				</a> 
+				مِن فَوۡقِ ٱلۡأَرۡضِ مَا لَهَا مِن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				قَرَارٖ ٦٢ يُثَبِّتُ ٱللَّهُ ٱلَّذِينَ ءَامَنُواْ بِٱلۡقَوۡلِ ٱلثَّابِتِ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"في القبر عند السّؤال\">فِي ٱلۡحَيَوٰةِ
+				<a data-content='في القبر عند السّؤال' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فِي ٱلۡحَيَوٰةِ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلدُّنۡيَا وَفِي ٱلۡأٓخِرَةِۖ وَيُضِلُّ ٱللَّهُ ٱلظَّٰلِمِينَۚ وَيَفۡعَلُ ٱللَّهُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مَا يَشَآءُ ٧٢ ۞أَلَمۡ تَرَ إِلَى ٱلَّذِينَ بَدَّلُواْ نِعۡمَتَ ٱللَّهِ كُفۡرٗا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَأَحَلُّواْ قَوۡمَهُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"دار الهلاك (جهنّم)\">دَارَ ٱلۡبَوَارِ
-				</a> ٨٢ جَهَنَّمَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"يدخلونها أو يُقاسون حرّها\">يَصۡلَوۡنَهَاۖ
-				</a> وَبِئۡسَ 
+				<a data-content='دار الهلاك (جهنّم)' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					دَارَ ٱلۡبَوَارِ
+				</a> 
+				٨٢ جَهَنَّمَ 
+				<a data-content='يدخلونها أو يُقاسون حرّها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					يَصۡلَوۡنَهَاۖ
+				</a> 
+				وَبِئۡسَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡقَرَارُ ٩٢ وَجَعَلُواْ لِلَّهِ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أمثالا من الأوثان يعبدونها\">أَندَادٗا
-				</a> لِّيُضِلُّواْ عَن سَبِيلِهِۦۗ قُلۡ 
+				<a data-content='أمثالا من الأوثان يعبدونها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أَندَادٗا
+				</a> 
+				لِّيُضِلُّواْ عَن سَبِيلِهِۦۗ قُلۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تَمَتَّعُواْ فَإِنَّ مَصِيرَكُمۡ إِلَى ٱلنَّارِ ٠٣ قُل لِّعِبَادِيَ ٱلَّذِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ءَامَنُواْ يُقِيمُواْ ٱلصَّلَوٰةَ وَيُنفِقُواْ مِمَّا رَزَقۡنَٰهُمۡ سِرّٗا وَعَلَانِيَةٗ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مِّن قَبۡلِ أَن يَأۡتِيَ يَوۡمٞ لَّا بَيۡعٞ فِيهِ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا مُخالّة ولا مُوادّة\">وَلَا خِلَٰلٌ
-				</a> ١٣ ٱللَّهُ ٱلَّذِي 
+				<a data-content='لا مُخالّة ولا مُوادّة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَلَا خِلَٰلٌ
+				</a> 
+				١٣ ٱللَّهُ ٱلَّذِي 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				خَلَقَ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَ وَأَنزَلَ مِنَ ٱلسَّمَآءِ مَآءٗ فَأَخۡرَجَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بِهِۦ مِنَ ٱلثَّمَرَٰتِ رِزۡقٗا لَّكُمۡۖ وَسَخَّرَ لَكُمُ ٱلۡفُلۡكَ لِتَجۡرِيَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فِي ٱلۡبَحۡرِ بِأَمۡرِهِۦۖ وَسَخَّرَ لَكُمُ ٱلۡأَنۡهَٰرَ ٢٣ وَسَخَّرَ لَكُمُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلشَّمۡسَ وَٱلۡقَمَرَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"دائمين في منافعهما لكم\">دَآئِبَيۡنِۖ
-				</a> وَسَخَّرَ لَكُمُ ٱلَّيۡلَ وَٱلنَّهَارَ ٣٣
+				<a data-content='دائمين في منافعهما لكم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					دَآئِبَيۡنِۖ
+				</a> 
+				وَسَخَّرَ لَكُمُ ٱلَّيۡلَ وَٱلنَّهَارَ ٣٣
 			</nobr>
 		</div>
 		",

@@ -1,128 +1,180 @@
 {
 	"pageNumber": 535,
-	"data": "<div style=\"font-size:4.6vw\">
+	"data": "<div style='font-size:4.6vw'>
 			<nobr>
 				يَطُوفُ عَلَيۡهِمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مُبْـقون على هيئة الولدان في البهاء\">وِلۡدَٰنٞ مُّخَلَّدُونَ
-				</a> ١٧ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أقداح لا عُرى لها ولا خراطيم\">بِأَكۡوَابٖ
+				<a data-content='مُبْـقون على هيئة الولدان في البهاء' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وِلۡدَٰنٞ مُّخَلَّدُونَ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أوان لها عُرى وخراطيم\">وَأَبَارِيقَ
+				١٧ 
+				<a data-content='أقداح لا عُرى لها ولا خراطيم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					بِأَكۡوَابٖ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"خمْر أو قدَح فيه خمْر\">وَكَأۡسٖ
+				
+				<a data-content='أوان لها عُرى وخراطيم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَأَبَارِيقَ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"خمْر جارية من العيون\">مِّن مَّعِينٖ
+				
+				<a data-content='خمْر أو قدَح فيه خمْر' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَكَأۡسٖ
 				</a> 
+				
+				<a data-content='خمْر جارية من العيون' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مِّن مَّعِينٖ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				١٨ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا يُصيبهم صداع بشربها\">لَّا يُصَدَّعُونَ عَنۡهَا
+				<a data-content='لا يُصيبهم صداع بشربها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَّا يُصَدَّعُونَ عَنۡهَا
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا تذهَبُ عقولهم بسببها\">وَلَا يُنزِفُونَ
-				</a> ١٩ وَفَٰكِهَةٖ مِّمَّا يَتَخَيَّرُونَ 
+				
+				<a data-content='لا تذهَبُ عقولهم بسببها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَلَا يُنزِفُونَ
+				</a> 
+				١٩ وَفَٰكِهَةٖ مِّمَّا يَتَخَيَّرُونَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٢٠ وَلَحۡمِ طَيۡرٖ مِّمَّا يَشۡتَهُونَ ٢١ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"نساء بيض واسعات الأعين حِسانُها\">وَحُورٌ عِينٞ
-				</a> ٢٢ كَأَمۡثَٰلِ ٱللُّؤۡلُوِٕ 
-			</nobr>
-		</div>
-		<div style=\"font-size:4.8vw\">
-			<nobr>
-				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"المصون في أصدافه مما يغيّره\">ٱلۡمَكۡنُونِ
-				</a> ٢٣ جَزَآءَۢ بِمَا كَانُواْ يَعۡمَلُونَ ٢٤ لَا يَسۡمَعُونَ فِيهَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"كلاما لا خير فيه أو باطلا\">لَغۡوٗا
+				<a data-content='نساء بيض واسعات الأعين حِسانُها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَحُورٌ عِينٞ
 				</a> 
+				٢٢ كَأَمۡثَٰلِ ٱللُّؤۡلُوِٕ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.6vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"ولا نسبة إلى الإثم أو لا ما يوجبه\">وَلَا تَأۡثِيمًا
-				</a> ٢٥ إِلَّا قِيلٗا سَلَٰمٗا سَلَٰمٗا ٢٦ وَأَصۡحَٰبُ ٱلۡيَمِينِ مَآ أَصۡحَٰبُ 
+				<a data-content='المصون في أصدافه مما يغيّره' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡمَكۡنُونِ
+				</a> 
+				٢٣ جَزَآءَۢ بِمَا كَانُواْ يَعۡمَلُونَ ٢٤ لَا يَسۡمَعُونَ فِيهَا 
+				<a data-content='كلاما لا خير فيه أو باطلا' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَغۡوٗا
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.6vw'>
+			<nobr>
+				
+				<a data-content='ولا نسبة إلى الإثم أو لا ما يوجبه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَلَا تَأۡثِيمًا
+				</a> 
+				٢٥ إِلَّا قِيلٗا سَلَٰمٗا سَلَٰمٗا ٢٦ وَأَصۡحَٰبُ ٱلۡيَمِينِ مَآ أَصۡحَٰبُ 
+			</nobr>
+		</div>
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡيَمِينِ ٢٧ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"في شجر النـّـبَـق ينعّمون به\">فِي سِدۡرٖ
+				<a data-content='في شجر النـّـبَـق ينعّمون به' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فِي سِدۡرٖ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مقطوع شوكه\">مَّخۡضُودٖ
-				</a> ٢٨ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"شجر الموز أو مثله\">وَطَلۡحٖ
+				
+				<a data-content='مقطوع شوكه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مَّخۡضُودٖ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"نضّد بالحمْل من أسفله إلى أعلاه\">مَّنضُودٖ
-				</a> ٢٩ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"دائم لا يتقلّص أو ممتدّ منبسط\">وَظِلّٖ مَّمۡدُودٖ
+				٢٨ 
+				<a data-content='شجر الموز أو مثله' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَطَلۡحٖ
 				</a> 
+				
+				<a data-content='نضّد بالحمْل من أسفله إلى أعلاه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مَّنضُودٖ
+				</a> 
+				٢٩ 
+				<a data-content='دائم لا يتقلّص أو ممتدّ منبسط' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَظِلّٖ مَّمۡدُودٖ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٣٠ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مصبوب يجري في غير أخاديد\">وَمَآءٖ مَّسۡكُوبٖ
-				</a> ٣١ وَفَٰكِهَةٖ كَثِيرَةٖ ٣٢ لَّا مَقۡطُوعَةٖ وَلَا مَمۡنُوعَةٖ 
+				<a data-content='مصبوب يجري في غير أخاديد' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَمَآءٖ مَّسۡكُوبٖ
+				</a> 
+				٣١ وَفَٰكِهَةٖ كَثِيرَةٖ ٣٢ لَّا مَقۡطُوعَةٖ وَلَا مَمۡنُوعَةٖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٣٣ وَفُرُشٖ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"على الأسرّة أو منضدّة مرتفعة\">مَّرۡفُوعَةٍ
-				</a> ٣٤ إِنَّآ أَنشَأۡنَٰهُنَّ إِنشَآءٗ ٣٥ فَجَعَلۡنَٰهُنَّ أَبۡكَارًا 
+				<a data-content='على الأسرّة أو منضدّة مرتفعة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مَّرۡفُوعَةٍ
+				</a> 
+				٣٤ إِنَّآ أَنشَأۡنَٰهُنَّ إِنشَآءٗ ٣٥ فَجَعَلۡنَٰهُنَّ أَبۡكَارًا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٣٦ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"متحبّبات إلى أزواجهنّ\">عُرُبًا
+				<a data-content='متحبّبات إلى أزواجهنّ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					عُرُبًا
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مسْتويات في السّنّ\">أَتۡرَابٗا
-				</a> ٣٧ لِّأَصۡحَٰبِ ٱلۡيَمِينِ ٣٨ ثُلَّةٞ مِّنَ ٱلۡأَوَّلِينَ ٣٩ 
+				
+				<a data-content='مسْتويات في السّنّ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أَتۡرَابٗا
+				</a> 
+				٣٧ لِّأَصۡحَٰبِ ٱلۡيَمِينِ ٣٨ ثُلَّةٞ مِّنَ ٱلۡأَوَّلِينَ ٣٩ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَثُلَّةٞ مِّنَ ٱلۡأٓخِرِينَ ٤٠ وَأَصۡحَٰبُ ٱلشِّمَالِ مَآ أَصۡحَٰبُ ٱلشِّمَالِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٤١ فِي 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"ريح شديدة الحرارة تدخل المَسام\">سَمُومٖ
+				<a data-content='ريح شديدة الحرارة تدخل المَسام' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					سَمُومٖ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"ماءٍ بالغ غاية الحرارة\">وَحَمِيمٖ
-				</a> ٤٢ وَظِلّٖ مِّن 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"دخان شديد السّواد أو نار\">يَحۡمُومٖ
-				</a> ٤٣ لَّا بَارِدٖ 
+				
+				<a data-content='ماءٍ بالغ غاية الحرارة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَحَمِيمٖ
+				</a> 
+				٤٢ وَظِلّٖ مِّن 
+				<a data-content='دخان شديد السّواد أو نار' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					يَحۡمُومٖ
+				</a> 
+				٤٣ لَّا بَارِدٖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا نافع من أذى الحرّ\">وَلَا كَرِيمٍ
-				</a> ٤٤ إِنَّهُمۡ كَانُواْ قَبۡلَ ذَٰلِكَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"منعّمين متّبعين أهواء أنفسهم\">مُتۡرَفِينَ
-				</a> ٤٥ وَكَانُواْ 
+				<a data-content='لا نافع من أذى الحرّ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَلَا كَرِيمٍ
+				</a> 
+				٤٤ إِنَّهُمۡ كَانُواْ قَبۡلَ ذَٰلِكَ 
+				<a data-content='منعّمين متّبعين أهواء أنفسهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مُتۡرَفِينَ
+				</a> 
+				٤٥ وَكَانُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				يُصِرُّونَ عَلَى 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الذنب العظيم – الشرك\">ٱلۡحِنثِ
-				</a> ٱلۡعَظِيمِ ٤٦ وَكَانُواْ يَقُولُونَ أَئِذَا مِتۡنَا وَكُنَّا 
+				<a data-content='الذنب العظيم – الشرك' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡحِنثِ
+				</a> 
+				ٱلۡعَظِيمِ ٤٦ وَكَانُواْ يَقُولُونَ أَئِذَا مِتۡنَا وَكُنَّا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تُرَابٗا وَعِظَٰمًا أَءِنَّا لَمَبۡعُوثُونَ ٤٧ أَوَ ءَابَآؤُنَا ٱلۡأَوَّلُونَ ٤٨ قُلۡ إِنَّ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡأَوَّلِينَ وَٱلۡأٓخِرِينَ ٤٩ لَمَجۡمُوعُونَ إِلَىٰ مِيقَٰتِ يَوۡمٖ مَّعۡلُومٖ ٥٠
 			</nobr>

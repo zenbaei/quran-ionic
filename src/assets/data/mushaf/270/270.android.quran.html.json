@@ -1,94 +1,110 @@
 {
 	"pageNumber": 270,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				ثُمَّ يَوۡمَ ٱلۡقِيَٰمَةِ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"يُذلّهم ويهينهم بالعذاب\">يُخۡزِيهِمۡ
-				</a> وَيَقُولُ أَيۡنَ شُرَكَآءِيَ ٱلَّذِينَ 
+				<a data-content='يُذلّهم ويهينهم بالعذاب' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					يُخۡزِيهِمۡ
+				</a> 
+				وَيَقُولُ أَيۡنَ شُرَكَآءِيَ ٱلَّذِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				كُنتُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تُخاصمون وتعادون الأنيباء فيهم\">تُشَٰٓقُّونَ فِيهِمۡۚ
-				</a> قَالَ ٱلَّذِينَ أُوتُواْ ٱلۡعِلۡمَ إِنَّ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الذلّ والهوان\">ٱلۡخِزۡيَ
+				<a data-content='تُخاصمون وتعادون الأنيباء فيهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تُشَٰٓقُّونَ فِيهِمۡۚ
 				</a> 
+				قَالَ ٱلَّذِينَ أُوتُواْ ٱلۡعِلۡمَ إِنَّ 
+				<a data-content='الذلّ والهوان' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡخِزۡيَ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡيَوۡمَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"العذاب\">وَٱلسُّوٓءَ
-				</a> عَلَى ٱلۡكَٰفِرِينَ ٧٢ ٱلَّذِينَ تَتَوَفَّىٰهُمُ ٱلۡمَلَٰٓئِكَةُ 
+				<a data-content='العذاب' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَٱلسُّوٓءَ
+				</a> 
+				عَلَى ٱلۡكَٰفِرِينَ ٧٢ ٱلَّذِينَ تَتَوَفَّىٰهُمُ ٱلۡمَلَٰٓئِكَةُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ظَالِمِيٓ أَنفُسِهِمۡۖ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أظهروا الإستسلام والخضوع\">فَأَلۡقَوُاْ ٱلسَّلَمَ
-				</a> مَا كُنَّا نَعۡمَلُ مِن سُوٓءِۢۚ بَلَىٰٓۚ 
+				<a data-content='أظهروا الإستسلام والخضوع' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَأَلۡقَوُاْ ٱلسَّلَمَ
+				</a> 
+				مَا كُنَّا نَعۡمَلُ مِن سُوٓءِۢۚ بَلَىٰٓۚ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				إِنَّ ٱللَّهَ عَلِيمُۢ بِمَا كُنتُمۡ تَعۡمَلُونَ ٨٢ فَٱدۡخُلُوٓاْ أَبۡوَٰبَ جَهَنَّمَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:5.1vw\">
+		<div style='font-size:5.1vw'>
 			<nobr>
 				خَٰلِدِينَ فِيهَاۖ فَلَبِئۡسَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مأواهم ومقامُهم\">مَثۡوَى ٱلۡمُتَكَبِّرِينَ
-				</a> ٩٢ ۞وَقِيلَ 
+				<a data-content='مأواهم ومقامُهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مَثۡوَى ٱلۡمُتَكَبِّرِينَ
+				</a> 
+				٩٢ ۞وَقِيلَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				لِلَّذِينَ ٱتَّقَوۡاْ مَاذَآ أَنزَلَ رَبُّكُمۡۚ قَالُواْ خَيۡرٗاۗ لِّلَّذِينَ أَحۡسَنُواْ فِي 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				هَٰذِهِ ٱلدُّنۡيَا حَسَنَةٞۚ وَلَدَارُ ٱلۡأٓخِرَةِ خَيۡرٞۚ وَلَنِعۡمَ دَارُ ٱلۡمُتَّقِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٠٣ جَنَّٰتُ عَدۡنٖ يَدۡخُلُونَهَا تَجۡرِي مِن تَحۡتِهَا ٱلۡأَنۡهَٰرُۖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				لَهُمۡ فِيهَا مَا يَشَآءُونَۚ كَذَٰلِكَ يَجۡزِي ٱللَّهُ ٱلۡمُتَّقِينَ ١٣ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلَّذِينَ تَتَوَفَّىٰهُمُ ٱلۡمَلَٰٓئِكَةُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"طاهرين من دنس الشّرك والمعاصي\">طَيِّبِينَ
-				</a> يَقُولُونَ سَلَٰمٌ عَلَيۡكُمُ 
+				<a data-content='طاهرين من دنس الشّرك والمعاصي' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					طَيِّبِينَ
+				</a> 
+				يَقُولُونَ سَلَٰمٌ عَلَيۡكُمُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱدۡخُلُواْ ٱلۡجَنَّةَ بِمَا كُنتُمۡ تَعۡمَلُونَ ٢٣ هَلۡ يَنظُرُونَ إِلَّآ أَن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تَأۡتِيَهُمُ ٱلۡمَلَٰٓئِكَةُ أَوۡ يَأۡتِيَ أَمۡرُ رَبِّكَۚ كَذَٰلِكَ فَعَلَ ٱلَّذِينَ مِن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				قَبۡلِهِمۡۚ وَمَا ظَلَمَهُمُ ٱللَّهُ وَلَٰكِن كَانُوٓاْ أَنفُسَهُمۡ يَظۡلِمُونَ ٣٣ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَأَصَابَهُمۡ سَيِّ‍َٔاتُ مَا عَمِلُواْ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أحاط أو نزل بهم\">وَحَاقَ بِهِم
-				</a> مَّا كَانُواْ بِهِۦ يَسۡتَهۡزِءُونَ ٤٣
+				<a data-content='أحاط أو نزل بهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَحَاقَ بِهِم
+				</a> 
+				مَّا كَانُواْ بِهِۦ يَسۡتَهۡزِءُونَ ٤٣
 			</nobr>
 		</div>
 		",

@@ -1,88 +1,98 @@
 {
 	"pageNumber": 122,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				وَمَا لَنَا لَا نُؤۡمِنُ بِٱللَّهِ وَمَا جَآءَنَا مِنَ ٱلۡحَقِّ وَنَطۡمَعُ أَن يُدۡخِلَنَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				رَبُّنَا مَعَ ٱلۡقَوۡمِ ٱلصَّٰلِحِينَ ٨٤ فَأَثَٰبَهُمُ ٱللَّهُ بِمَا قَالُواْ جَنَّٰتٖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تَجۡرِي مِن تَحۡتِهَا ٱلۡأَنۡهَٰرُ خَٰلِدِينَ فِيهَاۚ وَذَٰلِكَ جَزَآءُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡمُحۡسِنِينَ ٨٥ وَٱلَّذِينَ كَفَرُواْ وَكَذَّبُواْ بِ‍َٔايَٰتِنَآ أُوْلَٰٓئِكَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				أَصۡحَٰبُ ٱلۡجَحِيمِ ٨٦ يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ لَا تُحَرِّمُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				طَيِّبَٰتِ مَآ أَحَلَّ ٱللَّهُ لَكُمۡ وَلَا تَعۡتَدُوٓاْۚ إِنَّ ٱللَّهَ لَا يُحِبُّ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡمُعۡتَدِينَ ٨٧ وَكُلُواْ مِمَّا رَزَقَكُمُ ٱللَّهُ حَلَٰلٗا طَيِّبٗاۚ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَٱتَّقُواْ ٱللَّهَ ٱلَّذِيٓ أَنتُم بِهِۦ مُؤۡمِنُونَ ٨٨ لَا يُؤَاخِذُكُمُ ٱللَّهُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"هو أن يحلف على الشيء معتقدا صدقه والأمر بخلافه أو ما يجري على اللسان مما لا يقصد به اليمين\">بِٱللَّغۡوِ فِيٓ أَيۡمَٰنِكُمۡ
-				</a> وَلَٰكِن يُؤَاخِذُكُم بِمَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"وثقتموها بالقصد والنية\">عَقَّدتُّمُ ٱلۡأَيۡمَٰنَۖ
+				<a data-content='هو أن يحلف على الشيء معتقدا صدقه والأمر بخلافه أو ما يجري على اللسان مما لا يقصد به اليمين' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					بِٱللَّغۡوِ فِيٓ أَيۡمَٰنِكُمۡ
 				</a> 
+				وَلَٰكِن يُؤَاخِذُكُم بِمَا 
+				<a data-content='وثقتموها بالقصد والنية' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					عَقَّدتُّمُ ٱلۡأَيۡمَٰنَۖ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَكَفَّٰرَتُهُۥٓ إِطۡعَامُ عَشَرَةِ مَسَٰكِينَ مِنۡ أَوۡسَطِ مَا تُطۡعِمُونَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				أَهۡلِيكُمۡ أَوۡ كِسۡوَتُهُمۡ أَوۡ تَحۡرِيرُ رَقَبَةٖۖ فَمَن لَّمۡ يَجِدۡ فَصِيَامُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ثَلَٰثَةِ أَيَّامٖۚ ذَٰلِكَ كَفَّٰرَةُ أَيۡمَٰنِكُمۡ إِذَا حَلَفۡتُمۡۚ وَٱحۡفَظُوٓاْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				أَيۡمَٰنَكُمۡۚ كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ لَكُمۡ ءَايَٰتِهِۦ لَعَلَّكُمۡ تَشۡكُرُونَ ٨٩ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓاْ إِنَّمَا ٱلۡخَمۡرُ وَٱلۡمَيۡسِرُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"حجارة حول الكعبة يعظمونها\">وَٱلۡأَنصَابُ
+				<a data-content='حجارة حول الكعبة يعظمونها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَٱلۡأَنصَابُ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"قداح الإستقسام في الجاهلية\">وَٱلۡأَزۡلَٰمُ
+				
+				<a data-content='قداح الإستقسام في الجاهلية' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَٱلۡأَزۡلَٰمُ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"خبيث - قذر - نجس\">رِجۡسٞ
-				</a> مِّنۡ عَمَلِ ٱلشَّيۡطَٰنِ فَٱجۡتَنِبُوهُ لَعَلَّكُمۡ تُفۡلِحُونَ ٩٠
+				<a data-content='خبيث - قذر - نجس' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					رِجۡسٞ
+				</a> 
+				مِّنۡ عَمَلِ ٱلشَّيۡطَٰنِ فَٱجۡتَنِبُوهُ لَعَلَّكُمۡ تُفۡلِحُونَ ٩٠
 			</nobr>
 		</div>
 		",

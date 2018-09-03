@@ -1,100 +1,122 @@
 {
 	"pageNumber": 407,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				وَمِنۡ ءَايَٰتِهِۦٓ أَن تَقُومَ ٱلسَّمَآءُ وَٱلۡأَرۡضُ بِأَمۡرِهِۦۚ ثُمَّ إِذَا دَعَاكُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				دَعۡوَةٗ مِّنَ ٱلۡأَرۡضِ إِذَآ أَنتُمۡ تَخۡرُجُونَ ٥٢ وَلَهُۥ مَن فِي ٱلسَّمَٰوَٰتِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَٱلۡأَرۡضِۖ كُلّٞ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مُطيعون مُنقادون لإرادته\">لَّهُۥ قَٰنِتُونَ
-				</a> ٦٢ وَهُوَ ٱلَّذِي يَبۡدَؤُاْ ٱلۡخَلۡقَ ثُمَّ 
+				<a data-content='مُطيعون مُنقادون لإرادته' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَّهُۥ قَٰنِتُونَ
+				</a> 
+				٦٢ وَهُوَ ٱلَّذِي يَبۡدَؤُاْ ٱلۡخَلۡقَ ثُمَّ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				يُعِيدُهُۥ وَهُوَ أَهۡوَنُ عَلَيۡهِۚ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الوصف الأعلى في الكمال والجلال\">وَلَهُ ٱلۡمَثَلُ ٱلۡأَعۡلَىٰ
-				</a> فِي ٱلسَّمَٰوَٰتِ 
+				<a data-content='الوصف الأعلى في الكمال والجلال' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَلَهُ ٱلۡمَثَلُ ٱلۡأَعۡلَىٰ
+				</a> 
+				فِي ٱلسَّمَٰوَٰتِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَٱلۡأَرۡضِۚ وَهُوَ ٱلۡعَزِيزُ ٱلۡحَكِيمُ ٧٢ ضَرَبَ لَكُم مَّثَلٗا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مِّنۡ أَنفُسِكُمۡۖ هَل لَّكُم مِّن مَّا مَلَكَتۡ أَيۡمَٰنُكُم مِّن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				شُرَكَآءَ فِي مَا رَزَقۡنَٰكُمۡ فَأَنتُمۡ فِيهِ سَوَآءٞ تَخَافُونَهُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				كَخِيفَتِكُمۡ أَنفُسَكُمۡۚ كَذَٰلِكَ نُفَصِّلُ ٱلۡأٓيَٰتِ لِقَوۡمٖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				يَعۡقِلُونَ ٨٢ بَلِ ٱتَّبَعَ ٱلَّذِينَ ظَلَمُوٓاْ أَهۡوَآءَهُم بِغَيۡرِ عِلۡمٖۖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَمَن يَهۡدِي مَنۡ أَضَلَّ ٱللَّهُۖ وَمَا لَهُم مِّن نَّٰصِرِينَ ٩٢ فَأَقِمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"قوّمْهُ وعدّلْهُ\">وَجۡهَكَ
+				<a data-content='قوّمْهُ وعدّلْهُ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَجۡهَكَ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"دين التوحيد والإسلام\">لِلدِّينِ
+				
+				<a data-content='دين التوحيد والإسلام' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لِلدِّينِ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مائلا إليه مُستقيما عليه\">حَنِيفٗاۚ
+				
+				<a data-content='مائلا إليه مُستقيما عليه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					حَنِيفٗاۚ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الزموها وهي دين الإسلام\">فِطۡرَتَ ٱللَّهِ
-				</a> ٱلَّتِي 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"جبَلهم وطَبَعهم عليها\">فَطَرَ ٱلنَّاسَ عَلَيۡهَاۚ
+				
+				<a data-content='الزموها وهي دين الإسلام' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فِطۡرَتَ ٱللَّهِ
 				</a> 
+				ٱلَّتِي 
+				<a data-content='جبَلهم وطَبَعهم عليها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَطَرَ ٱلنَّاسَ عَلَيۡهَاۚ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				لَا تَبۡدِيلَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لدينه الذي فطرهم عليه\">لِخَلۡقِ ٱللَّهِۚ
+				<a data-content='لدينه الذي فطرهم عليه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لِخَلۡقِ ٱللَّهِۚ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"المُستقيم الذي لا عِوَج فيه\">ذَٰلِكَ ٱلدِّينُ ٱلۡقَيِّمُ
-				</a> وَلَٰكِنَّ أَكۡثَرَ 
+				
+				<a data-content='المُستقيم الذي لا عِوَج فيه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ذَٰلِكَ ٱلدِّينُ ٱلۡقَيِّمُ
+				</a> 
+				وَلَٰكِنَّ أَكۡثَرَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلنَّاسِ لَا يَعۡلَمُونَ ٠٣ ۞
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"راجعين إليه بالتـّــوبة والإخلاص\">مُنِيبِينَ إِلَيۡهِ
-				</a> وَٱتَّقُوهُ وَأَقِيمُواْ 
+				<a data-content='راجعين إليه بالتـّــوبة والإخلاص' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مُنِيبِينَ إِلَيۡهِ
+				</a> 
+				وَٱتَّقُوهُ وَأَقِيمُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلصَّلَوٰةَ وَلَا تَكُونُواْ مِنَ ٱلۡمُشۡرِكِينَ ١٣ مِنَ ٱلَّذِينَ فَرَّقُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				دِينَهُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"فِرقا مُختلفة الأهواء\">وَكَانُواْ شِيَعٗاۖ
-				</a> كُلُّ حِزۡبِۢ بِمَا لَدَيۡهِمۡ فَرِحُونَ ٢٣
+				<a data-content='فِرقا مُختلفة الأهواء' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَكَانُواْ شِيَعٗاۖ
+				</a> 
+				كُلُّ حِزۡبِۢ بِمَا لَدَيۡهِمۡ فَرِحُونَ ٢٣
 			</nobr>
 		</div>
 		",

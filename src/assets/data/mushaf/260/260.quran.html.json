@@ -1,86 +1,94 @@
 {
 	"pageNumber": 260,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				وَءَاتَىٰكُم مِّن كُلِّ مَا سَأَلۡتُمُوهُۚ وَإِن تَعُدُّواْ نِعۡمَتَ ٱللَّهِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا تطيقوا عدّها لعدم تناهيها\">لَا تُحۡصُوهَآۗ
-				</a> إِنَّ ٱلۡإِنسَٰنَ لَظَلُومٞ كَفَّارٞ ٣٤ وَإِذۡ قَالَ إِبۡرَٰهِيمُ 
+				<a data-content='لا تطيقوا عدّها لعدم تناهيها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَا تُحۡصُوهَآۗ
+				</a> 
+				إِنَّ ٱلۡإِنسَٰنَ لَظَلُومٞ كَفَّارٞ ٣٤ وَإِذۡ قَالَ إِبۡرَٰهِيمُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				رَبِّ ٱجۡعَلۡ هَٰذَا ٱلۡبَلَدَ ءَامِنٗا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أبعِدني ونحّني\">وَٱجۡنُبۡنِي
-				</a> وَبَنِيَّ أَن نَّعۡبُدَ 
+				<a data-content='أبعِدني ونحّني' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَٱجۡنُبۡنِي
+				</a> 
+				وَبَنِيَّ أَن نَّعۡبُدَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡأَصۡنَامَ ٣٥ رَبِّ إِنَّهُنَّ أَضۡلَلۡنَ كَثِيرٗا مِّنَ ٱلنَّاسِۖ فَمَن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تَبِعَنِي فَإِنَّهُۥ مِنِّيۖ وَمَنۡ عَصَانِي فَإِنَّكَ غَفُورٞ رَّحِيمٞ ٣٦ رَّبَّنَآ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				إِنِّيٓ أَسۡكَنتُ مِن ذُرِّيَّتِي بِوَادٍ غَيۡرِ ذِي زَرۡعٍ عِندَ بَيۡتِكَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡمُحَرَّمِ رَبَّنَا لِيُقِيمُواْ ٱلصَّلَوٰةَ فَٱجۡعَلۡ أَفۡ‍ِٔدَةٗ مِّنَ ٱلنَّاسِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تسرع إليه شوقا ووٍدادا\">تَهۡوِيٓ إِلَيۡهِمۡ
-				</a> وَٱرۡزُقۡهُم مِّنَ ٱلثَّمَرَٰتِ لَعَلَّهُمۡ يَشۡكُرُونَ 
+				<a data-content='تسرع إليه شوقا ووٍدادا' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تَهۡوِيٓ إِلَيۡهِمۡ
+				</a> 
+				وَٱرۡزُقۡهُم مِّنَ ٱلثَّمَرَٰتِ لَعَلَّهُمۡ يَشۡكُرُونَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٣٧ رَبَّنَآ إِنَّكَ تَعۡلَمُ مَا نُخۡفِي وَمَا نُعۡلِنُۗ وَمَا يَخۡفَىٰ عَلَى ٱللَّهِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مِن شَيۡءٖ فِي ٱلۡأَرۡضِ وَلَا فِي ٱلسَّمَآءِ ٣٨ ٱلۡحَمۡدُ لِلَّهِ ٱلَّذِي 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَهَبَ لِي عَلَى ٱلۡكِبَرِ إِسۡمَٰعِيلَ وَإِسۡحَٰقَۚ إِنَّ رَبِّي لَسَمِيعُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلدُّعَآءِ ٣٩ رَبِّ ٱجۡعَلۡنِي مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِيۚ رَبَّنَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَتَقَبَّلۡ دُعَآءِ ٤٠ رَبَّنَا ٱغۡفِرۡ لِي وَلِوَٰلِدَيَّ وَلِلۡمُؤۡمِنِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				يَوۡمَ يَقُومُ ٱلۡحِسَابُ ٤١ وَلَا تَحۡسَبَنَّ ٱللَّهَ غَٰفِلًا عَمَّا يَعۡمَلُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلظَّٰلِمُونَۚ إِنَّمَا يُؤَخِّرُهُمۡ لِيَوۡمٖ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"ترتفع دون أن تطرف من الهول\">تَشۡخَصُ فِيهِ ٱلۡأَبۡصَٰرُ
-				</a> ٤٢
+				<a data-content='ترتفع دون أن تطرف من الهول' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تَشۡخَصُ فِيهِ ٱلۡأَبۡصَٰرُ
+				</a> 
+				٤٢
 			</nobr>
 		</div>
 		",

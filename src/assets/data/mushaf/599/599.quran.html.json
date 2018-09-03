@@ -1,106 +1,134 @@
 {
 	"pageNumber": 599,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				إِنَّ ٱلَّذِينَ كَفَرُواْ مِنۡ أَهۡلِ ٱلۡكِتَٰبِ وَٱلۡمُشۡرِكِينَ فِي نَارِ جَهَنَّمَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				خَٰلِدِينَ فِيهَآۚ أُوْلَٰٓئِكَ هُمۡ شَرُّ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الخلائق أو البَشَر\">ٱلۡبَرِيَّةِ
-				</a> ٦ إِنَّ ٱلَّذِينَ ءَامَنُواْ 
+				<a data-content='الخلائق أو البَشَر' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡبَرِيَّةِ
+				</a> 
+				٦ إِنَّ ٱلَّذِينَ ءَامَنُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَعَمِلُواْ ٱلصَّٰلِحَٰتِ أُوْلَٰٓئِكَ هُمۡ خَيۡرُ ٱلۡبَرِيَّةِ ٧ جَزَآؤُهُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				عِندَ رَبِّهِمۡ جَنَّٰتُ عَدۡنٖ تَجۡرِي مِن تَحۡتِهَا ٱلۡأَنۡهَٰرُ خَٰلِدِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فِيهَآ أَبَدٗاۖ رَّضِيَ ٱللَّهُ عَنۡهُمۡ وَرَضُواْ عَنۡهُۚ ذَٰلِكَ لِمَنۡ خَشِيَ رَبَّهُۥ ٨ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\" class='no-justify'>
+		<div style='font-size:4.8vw' class='no-justify'>
 			<nobr>
 				سُورَةُ الزَّلۡزَلَةِ
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\" class='no-justify'>
+		<div style='font-size:4.8vw' class='no-justify'>
 			<nobr>
 				بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				إِذَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"حـُرّكت تحْريكا عَـنيفا مُتكرّرا عند النفخة الأولى\">زُلۡزِلَتِ ٱلۡأَرۡضُ
-				</a> زِلۡزَالَهَا ١ وَأَخۡرَجَتِ ٱلۡأَرۡضُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"كُنـوزها ومَوْتاها في النّـفخة الثانية\">أَثۡقَالَهَا
-				</a> ٢ وَقَالَ 
+				<a data-content='حـُرّكت تحْريكا عَـنيفا مُتكرّرا عند النفخة الأولى' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					زُلۡزِلَتِ ٱلۡأَرۡضُ
+				</a> 
+				زِلۡزَالَهَا ١ وَأَخۡرَجَتِ ٱلۡأَرۡضُ 
+				<a data-content='كُنـوزها ومَوْتاها في النّـفخة الثانية' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أَثۡقَالَهَا
+				</a> 
+				٢ وَقَالَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡإِنسَٰنُ مَا لَهَا ٣ يَوۡمَئِذٖ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تدُلّ بحالِها على ما عُملَ عليها\">تُحَدِّثُ أَخۡبَارَهَا
-				</a> ٤ بِأَنَّ رَبَّكَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"جَعَل في حالِها دِلالة على ذلك\">أَوۡحَىٰ لَهَا
+				<a data-content='تدُلّ بحالِها على ما عُملَ عليها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تُحَدِّثُ أَخۡبَارَهَا
 				</a> 
+				٤ بِأَنَّ رَبَّكَ 
+				<a data-content='جَعَل في حالِها دِلالة على ذلك' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أَوۡحَىٰ لَهَا
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٥ يَوۡمَئِذٖ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"يَخْـرجونَ منْ قُـبُورهمْ إلى المَحْـشَر\">يَصۡدُرُ ٱلنَّاسُ
+				<a data-content='يَخْـرجونَ منْ قُـبُورهمْ إلى المَحْـشَر' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					يَصۡدُرُ ٱلنَّاسُ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مُـتـفرّقين على حَسَب أحْـوالِهمْ\">أَشۡتَاتٗا
-				</a> لِّيُرَوۡاْ أَعۡمَٰلَهُمۡ ٦ فَمَن يَعۡمَلۡ 
+				
+				<a data-content='مُـتـفرّقين على حَسَب أحْـوالِهمْ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أَشۡتَاتٗا
+				</a> 
+				لِّيُرَوۡاْ أَعۡمَٰلَهُمۡ ٦ فَمَن يَعۡمَلۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"وَزْنَ أصْـغر نملةٍ أو هَـباءَةٍ\">مِثۡقَالَ ذَرَّةٍ
-				</a> خَيۡرٗا يَرَهُۥ ٧ وَمَن يَعۡمَلۡ مِثۡقَالَ ذَرَّةٖ شَرّٗا يَرَهُۥ ٨ 
+				<a data-content='وَزْنَ أصْـغر نملةٍ أو هَـباءَةٍ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مِثۡقَالَ ذَرَّةٍ
+				</a> 
+				خَيۡرٗا يَرَهُۥ ٧ وَمَن يَعۡمَلۡ مِثۡقَالَ ذَرَّةٖ شَرّٗا يَرَهُۥ ٨ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\" class='no-justify'>
+		<div style='font-size:4.8vw' class='no-justify'>
 			<nobr>
 				سُورَةُ العَادِيَاتِ
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\" class='no-justify'>
+		<div style='font-size:4.8vw' class='no-justify'>
 			<nobr>
 				بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"(قسمٌ) بالخيْـل تـَـعْـدو في الغَزْو\">وَٱلۡعَٰدِيَٰتِ
+				<a data-content='(قسمٌ) بالخيْـل تـَـعْـدو في الغَزْو' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَٱلۡعَٰدِيَٰتِ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"هُوَ صَوْتُ أنـْـفاسِها إذا عَدَتْ\">ضَبۡحٗا
-				</a> ١ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"المُـخْرجات النار بصكّ حَوافِرها\">فَٱلۡمُورِيَٰتِ قَدۡحٗا
-				</a> ٢ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"المباغِتات للعدوّ وَقـْـتَ الصّباح\">فَٱلۡمُغِيرَٰتِ
+				
+				<a data-content='هُوَ صَوْتُ أنـْـفاسِها إذا عَدَتْ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ضَبۡحٗا
 				</a> 
+				١ 
+				<a data-content='المُـخْرجات النار بصكّ حَوافِرها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَٱلۡمُورِيَٰتِ قَدۡحٗا
+				</a> 
+				٢ 
+				<a data-content='المباغِتات للعدوّ وَقـْـتَ الصّباح' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَٱلۡمُغِيرَٰتِ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				صُبۡحٗا ٣ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"هـيّـجْنَ في الصّـبْح غبارًا\">فَأَثَرۡنَ بِهِۦ نَقۡعٗا
-				</a> ٤ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"فـتـَـوَسّـــْطنَ فيه مِنَ الأعداء\">فَوَسَطۡنَ بِهِۦ جَمۡعًا
-				</a> ٥
+				<a data-content='هـيّـجْنَ في الصّـبْح غبارًا' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَأَثَرۡنَ بِهِۦ نَقۡعٗا
+				</a> 
+				٤ 
+				<a data-content='فـتـَـوَسّـــْطنَ فيه مِنَ الأعداء' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَوَسَطۡنَ بِهِۦ جَمۡعًا
+				</a> 
+				٥
 			</nobr>
 		</div>
 		",

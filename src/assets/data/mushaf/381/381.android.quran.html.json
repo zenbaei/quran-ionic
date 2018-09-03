@@ -1,96 +1,116 @@
 {
 	"pageNumber": 381,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				وَلَقَدۡ أَرۡسَلۡنَآ إِلَىٰ ثَمُودَ أَخَاهُمۡ صَٰلِحًا أَنِ ٱعۡبُدُواْ ٱللَّهَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَإِذَا هُمۡ فَرِيقَانِ يَخۡتَصِمُونَ ٤٥ قَالَ يَٰقَوۡمِ لِمَ تَسۡتَعۡجِلُونَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بِٱلسَّيِّئَةِ قَبۡلَ ٱلۡحَسَنَةِۖ لَوۡلَا تَسۡتَغۡفِرُونَ ٱللَّهَ لَعَلَّكُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تُرۡحَمُونَ ٦٤ قَالُواْ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تشاءمنا حيث أصبنا بالشّدائد\">ٱطَّيَّرۡنَا
-				</a> بِكَ وَبِمَن مَّعَكَۚ قَالَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"شؤمكم عملكم المكتوب عليكم عنده تعالى\">طَٰٓئِرُكُمۡ
+				<a data-content='تشاءمنا حيث أصبنا بالشّدائد' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱطَّيَّرۡنَا
 				</a> 
+				بِكَ وَبِمَن مَّعَكَۚ قَالَ 
+				<a data-content='شؤمكم عملكم المكتوب عليكم عنده تعالى' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					طَٰٓئِرُكُمۡ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				عِندَ ٱللَّهِۖ بَلۡ أَنتُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"يفتنكم الشّيطان بوسوسته\">قَوۡمٞ تُفۡتَنُونَ
-				</a> ٧٤ وَكَانَ فِي ٱلۡمَدِينَةِ 
+				<a data-content='يفتنكم الشّيطان بوسوسته' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					قَوۡمٞ تُفۡتَنُونَ
+				</a> 
+				٧٤ وَكَانَ فِي ٱلۡمَدِينَةِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أشخاص من الرّؤساء مع كلّ رهط\">تِسۡعَةُ رَهۡطٖ
-				</a> يُفۡسِدُونَ فِي ٱلۡأَرۡضِ وَلَا يُصۡلِحُونَ ٨٤ 
+				<a data-content='أشخاص من الرّؤساء مع كلّ رهط' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تِسۡعَةُ رَهۡطٖ
+				</a> 
+				يُفۡسِدُونَ فِي ٱلۡأَرۡضِ وَلَا يُصۡلِحُونَ ٨٤ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				قَالُواْ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تحالفوا بالله أو احلِفوا به\">تَقَاسَمُواْ بِٱللَّهِ
+				<a data-content='تحالفوا بالله أو احلِفوا به' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تَقَاسَمُواْ بِٱللَّهِ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لنقتلنّهم ليلا بغتة\">لَنُبَيِّتَنَّهُۥ وَأَهۡلَهُۥ
-				</a> ثُمَّ لَنَقُولَنَّ لِوَلِيِّهِۦ 
+				
+				<a data-content='لنقتلنّهم ليلا بغتة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَنُبَيِّتَنَّهُۥ وَأَهۡلَهُۥ
+				</a> 
+				ثُمَّ لَنَقُولَنَّ لِوَلِيِّهِۦ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مَا شَهِدۡنَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"هلاكهم\">مَهۡلِكَ أَهۡلِهِۦ
-				</a> وَإِنَّا لَصَٰدِقُونَ ٩٤ وَمَكَرُواْ 
+				<a data-content='هلاكهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مَهۡلِكَ أَهۡلِهِۦ
+				</a> 
+				وَإِنَّا لَصَٰدِقُونَ ٩٤ وَمَكَرُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مَكۡرٗا وَمَكَرۡنَا مَكۡرٗا وَهُمۡ لَا يَشۡعُرُونَ ٠٥ فَٱنظُرۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				كَيۡفَ كَانَ عَٰقِبَةُ مَكۡرِهِمۡ أَنَّا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أهلكناهم\">دَمَّرۡنَٰهُمۡ
-				</a> وَقَوۡمَهُمۡ 
+				<a data-content='أهلكناهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					دَمَّرۡنَٰهُمۡ
+				</a> 
+				وَقَوۡمَهُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				أَجۡمَعِينَ ١٥ فَتِلۡكَ بُيُوتُهُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"خالية خربَة أو ساقطة متهدّمة\">خَاوِيَةَۢ
-				</a> بِمَا ظَلَمُوٓاْۚ إِنَّ 
+				<a data-content='خالية خربَة أو ساقطة متهدّمة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					خَاوِيَةَۢ
+				</a> 
+				بِمَا ظَلَمُوٓاْۚ إِنَّ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فِي ذَٰلِكَ لَأٓيَةٗ لِّقَوۡمٖ يَعۡلَمُونَ ٢٥ وَأَنجَيۡنَا ٱلَّذِينَ ءَامَنُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَكَانُواْ يَتَّقُونَ ٣٥ وَلُوطًا إِذۡ قَالَ لِقَوۡمِهِۦٓ أَتَأۡتُونَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡفَٰحِشَةَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا تبالون إظهارها مَجَانَة\">وَأَنتُمۡ تُبۡصِرُونَ
-				</a> ٤٥ أَئِنَّكُمۡ لَتَأۡتُونَ ٱلرِّجَالَ 
+				<a data-content='لا تبالون إظهارها مَجَانَة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَأَنتُمۡ تُبۡصِرُونَ
+				</a> 
+				٤٥ أَئِنَّكُمۡ لَتَأۡتُونَ ٱلرِّجَالَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				شَهۡوَةٗ مِّن دُونِ ٱلنِّسَآءِۚ بَلۡ أَنتُمۡ قَوۡمٞ تَجۡهَلُونَ ٥٥
 			</nobr>

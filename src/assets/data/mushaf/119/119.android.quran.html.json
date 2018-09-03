@@ -1,82 +1,88 @@
 {
 	"pageNumber": 119,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				وَلَوۡ أَنَّ أَهۡلَ ٱلۡكِتَٰبِ ءَامَنُواْ وَٱتَّقَوۡاْ لَكَفَّرۡنَا عَنۡهُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				سَيِّ‍َٔاتِهِمۡ وَلَأَدۡخَلۡنَٰهُمۡ جَنَّٰتِ ٱلنَّعِيمِ ٥٦ وَلَوۡ أَنَّهُمۡ أَقَامُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلتَّوۡرَىٰةَ وَٱلۡإِنجِيلَ وَمَآ أُنزِلَ إِلَيۡهِم مِّن رَّبِّهِمۡ لَأَكَلُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مِن فَوۡقِهِمۡ وَمِن تَحۡتِ أَرۡجُلِهِمۚ مِّنۡهُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"معتدلة - هم من أسلم منهم\">أُمَّةٞ مُّقۡتَصِدَةٞۖ
+				<a data-content='معتدلة - هم من أسلم منهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أُمَّةٞ مُّقۡتَصِدَةٞۖ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَكَثِيرٞ مِّنۡهُمۡ سَآءَ مَا يَعۡمَلُونَ ٦٦ ۞يَٰٓأَيُّهَا ٱلرَّسُولُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بَلِّغۡ مَآ أُنزِلَ إِلَيۡكَ مِن رَّبِّكَۖ وَإِن لَّمۡ تَفۡعَلۡ فَمَا بَلَّغۡتَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				رِسَالَتَهُۥۚ وَٱللَّهُ يَعۡصِمُكَ مِنَ ٱلنَّاسِۗ إِنَّ ٱللَّهَ لَا يَهۡدِي ٱلۡقَوۡمَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡكَٰفِرِينَ ٧٦ قُلۡ يَٰٓأَهۡلَ ٱلۡكِتَٰبِ لَسۡتُمۡ عَلَىٰ شَيۡءٍ حَتَّىٰ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تُقِيمُواْ ٱلتَّوۡرَىٰةَ وَٱلۡإِنجِيلَ وَمَآ أُنزِلَ إِلَيۡكُم مِّن رَّبِّكُمۡۗ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَلَيَزِيدَنَّ كَثِيرٗا مِّنۡهُم مَّآ أُنزِلَ إِلَيۡكَ مِن رَّبِّكَ طُغۡيَٰنٗا وَكُفۡرٗاۖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"فلا تحزن ولا تتأسف\">فَلَا تَأۡسَ
-				</a> عَلَى ٱلۡقَوۡمِ ٱلۡكَٰفِرِينَ ٨٦ إِنَّ ٱلَّذِينَ ءَامَنُواْ وَٱلَّذِينَ 
+				<a data-content='فلا تحزن ولا تتأسف' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَلَا تَأۡسَ
+				</a> 
+				عَلَى ٱلۡقَوۡمِ ٱلۡكَٰفِرِينَ ٨٦ إِنَّ ٱلَّذِينَ ءَامَنُواْ وَٱلَّذِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				هَادُواْ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"عبدة الكواكب أو الملائكة - مبتدأ خبره مؤخرا 'كذلك'\">وَٱلصَّٰبِ‍ُٔونَ
-				</a> وَٱلنَّصَٰرَىٰ مَنۡ ءَامَنَ بِٱللَّهِ وَٱلۡيَوۡمِ ٱلۡأٓخِرِ 
+				<a data-content='عبدة الكواكب أو الملائكة - مبتدأ خبره مؤخرا 'كذلك'' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَٱلصَّٰبِ‍ُٔونَ
+				</a> 
+				وَٱلنَّصَٰرَىٰ مَنۡ ءَامَنَ بِٱللَّهِ وَٱلۡيَوۡمِ ٱلۡأٓخِرِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَعَمِلَ صَٰلِحٗا فَلَا خَوۡفٌ عَلَيۡهِمۡ وَلَا هُمۡ يَحۡزَنُونَ ٩٦ لَقَدۡ أَخَذۡنَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مِيثَٰقَ بَنِيٓ إِسۡرَٰٓءِيلَ وَأَرۡسَلۡنَآ إِلَيۡهِمۡ رُسُلٗاۖ كُلَّمَا جَآءَهُمۡ رَسُولُۢ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بِمَا لَا تَهۡوَىٰٓ أَنفُسُهُمۡ فَرِيقٗا كَذَّبُواْ وَفَرِيقٗا يَقۡتُلُونَ ٠٧
 			</nobr>

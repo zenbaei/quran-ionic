@@ -15,7 +15,7 @@ function patchTafsirOverContent(tafsir, content) {
     }
 
     let matchedAyah = search.group().trim().replace(CHARS_TO_REMOVE, EMPTY);
-    let replacement = `<a ${ANCHOR_ATT} data-content="${tafsir.tafsir}">${matchedAyah}</a>`;
+    let replacement = `<a data-content='${tafsir.tafsir}' ${POPOVER_ATT}>${matchedAyah}</a>`;
 
     let regex = new RegExp(matchedAyah + search.exclude);
     return content.replace(regex, replacement);
@@ -39,10 +39,10 @@ function surrondEachLineInDiv(content, pageNumber) {
     lines.forEach((str, index) => {
         if (isCenteredLine(str, pageNumber)) {
             newContent += 
-        `<div style="font-size:${DEFAULT_FONT_SIZE}" class='no-justify'>${BT}<nobr>${BTT}${str}${BT}</nobr>${B}</div>${B}`;
+        `<div style='font-size:${DEFAULT_FONT_SIZE}' class='no-justify'>${BT}<nobr>${BTT}${str}${BT}</nobr>${B}</div>${B}`;
         } else {
             newContent += 
-                `<div style="font-size:${getFontSize(pageNumber, index + 1)}">${BT}<nobr>${BTT}${str}${BT}</nobr>${B}</div>${B}`;
+                `<div style='font-size:${getFontSize(pageNumber, index + 1)}'>${BT}<nobr>${BTT}${str}${BT}</nobr>${B}</div>${B}`;
         }
     });
     return newContent;
@@ -87,7 +87,7 @@ function normalizeString(str) {
 
 
 const EMPTY = '';
-const ANCHOR_ATT = `tabindex="0" role="button" class="fake-link tafsir" data-toggle="popover" data-placement="top"`;
+const POPOVER_ATT = `tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'`;
 const CHARS_TO_REMOVE = new RegExp('<.*'); // to prevent replacing word inside a span already
 
 const RAAD = 'عِلۡمُ ٱلۡكِتَٰبِ';

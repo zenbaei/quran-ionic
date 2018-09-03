@@ -1,98 +1,120 @@
 {
 	"pageNumber": 553,
-	"data": "<div style=\"font-size:4.8vw\" class='no-justify'>
+	"data": "<div style='font-size:4.8vw' class='no-justify'>
 			<nobr>
 				سُورَةُ الجُمُعَةِ
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\" class='no-justify'>
+		<div style='font-size:4.8vw' class='no-justify'>
 			<nobr>
 				بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"يُنـزّهه ويُمَجّده تعالى ويدلّ عليه\">يُسَبِّحُ لِلَّهِ
-				</a> مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مالك الأشياء كلّها\">ٱلۡمَلِكِ
+				<a data-content='يُنـزّهه ويُمَجّده تعالى ويدلّ عليه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					يُسَبِّحُ لِلَّهِ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"البليغ في النّـزاهة عن النّـقائص\">ٱلۡقُدُّوسِ
+				مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِ 
+				<a data-content='مالك الأشياء كلّها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡمَلِكِ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"القادر الغالب القاهر\">ٱلۡعَزِيزِ
+				
+				<a data-content='البليغ في النّـزاهة عن النّـقائص' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡقُدُّوسِ
 				</a> 
+				
+				<a data-content='القادر الغالب القاهر' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡعَزِيزِ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡحَكِيمِ ١ هُوَ ٱلَّذِي بَعَثَ فِي 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"العرب المعاصرين له صلى الله عليه وسلم\">ٱلۡأُمِّيِّ‍ۧنَ
-				</a> رَسُولٗا مِّنۡهُمۡ يَتۡلُواْ عَلَيۡهِمۡ 
+				<a data-content='العرب المعاصرين له صلى الله عليه وسلم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡأُمِّيِّ‍ۧنَ
+				</a> 
+				رَسُولٗا مِّنۡهُمۡ يَتۡلُواْ عَلَيۡهِمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ءَايَٰتِهِۦ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"يُطهّرُهم من أدناس الجاهليّة\">وَيُزَكِّيهِمۡ
-				</a> وَيُعَلِّمُهُمُ ٱلۡكِتَٰبَ وَٱلۡحِكۡمَةَ وَإِن كَانُواْ 
+				<a data-content='يُطهّرُهم من أدناس الجاهليّة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَيُزَكِّيهِمۡ
+				</a> 
+				وَيُعَلِّمُهُمُ ٱلۡكِتَٰبَ وَٱلۡحِكۡمَةَ وَإِن كَانُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مِن قَبۡلُ لَفِي ضَلَٰلٖ مُّبِينٖ ٢ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"من العَرَب\">وَءَاخَرِينَ مِنۡهُمۡ
+				<a data-content='من العَرَب' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَءَاخَرِينَ مِنۡهُمۡ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لمْ يلحقوا بهمْ بَعد وسيلحقون\">لَمَّا يَلۡحَقُواْ بِهِمۡۚ
+				
+				<a data-content='لمْ يلحقوا بهمْ بَعد وسيلحقون' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَمَّا يَلۡحَقُواْ بِهِمۡۚ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَهُوَ ٱلۡعَزِيزُ ٱلۡحَكِيمُ ٣ ذَٰلِكَ فَضۡلُ ٱللَّهِ يُؤۡتِيهِ مَن يَشَآءُۚ وَٱللَّهُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ذُو ٱلۡفَضۡلِ ٱلۡعَظِيمِ ٤ مَثَلُ ٱلَّذِينَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"كُـلّـفوا العمل بما فيها (اليهود)\">حُمِّلُواْ ٱلتَّوۡرَىٰةَ
-				</a> ثُمَّ لَمۡ 
+				<a data-content='كُـلّـفوا العمل بما فيها (اليهود)' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					حُمِّلُواْ ٱلتَّوۡرَىٰةَ
+				</a> 
+				ثُمَّ لَمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				يَحۡمِلُوهَا كَمَثَلِ ٱلۡحِمَارِ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"كُتـبا عظاما ولا ينتفع بها\">يَحۡمِلُ أَسۡفَارَۢاۚ
-				</a> بِئۡسَ مَثَلُ ٱلۡقَوۡمِ 
+				<a data-content='كُتـبا عظاما ولا ينتفع بها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					يَحۡمِلُ أَسۡفَارَۢاۚ
+				</a> 
+				بِئۡسَ مَثَلُ ٱلۡقَوۡمِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلَّذِينَ كَذَّبُواْ بِ‍َٔايَٰتِ ٱللَّهِۚ وَٱللَّهُ لَا يَهۡدِي ٱلۡقَوۡمَ ٱلظَّٰلِمِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٥ قُلۡ يَٰٓأَيُّهَا ٱلَّذِينَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تديّـنوا باليهودية\">هَادُوٓاْ
-				</a> إِن زَعَمۡتُمۡ أَنَّكُمۡ أَوۡلِيَآءُ لِلَّهِ مِن 
+				<a data-content='تديّـنوا باليهودية' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					هَادُوٓاْ
+				</a> 
+				إِن زَعَمۡتُمۡ أَنَّكُمۡ أَوۡلِيَآءُ لِلَّهِ مِن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				دُونِ ٱلنَّاسِ فَتَمَنَّوُاْ ٱلۡمَوۡتَ إِن كُنتُمۡ صَٰدِقِينَ ٦ وَلَا يَتَمَنَّوۡنَهُۥٓ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				أَبَدَۢا بِمَا قَدَّمَتۡ أَيۡدِيهِمۡۚ وَٱللَّهُ عَلِيمُۢ بِٱلظَّٰلِمِينَ ٧ قُلۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				إِنَّ ٱلۡمَوۡتَ ٱلَّذِي تَفِرُّونَ مِنۡهُ فَإِنَّهُۥ مُلَٰقِيكُمۡۖ ثُمَّ تُرَدُّونَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				إِلَىٰ عَٰلِمِ ٱلۡغَيۡبِ وَٱلشَّهَٰدَةِ فَيُنَبِّئُكُم بِمَا كُنتُمۡ تَعۡمَلُونَ ٨
 			</nobr>

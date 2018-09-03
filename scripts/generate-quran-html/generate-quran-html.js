@@ -1,3 +1,5 @@
+"use strict"
+
 var fs = require('fs');
 var metadata = require('./metadata');
 var index = require('.');
@@ -10,6 +12,10 @@ var surahIndexArr;
 const L1 = '\n\t\t';
 const L2 = L1 + '\t';
 const L3 = L2 + '\t';
+const L4 = L3 + '\t';
+const ANCHOR_OPENING = '<a ';
+const ANCHOR_CLOSING = '</a> ';
+const ANCHOR_BODY = "'top'>";
 
 (function start() {
     index.getQuranIndex().then((val) => {
@@ -17,11 +23,6 @@ const L3 = L2 + '\t';
         read();
     });
 })();
-
-/*
-http.createServer(function (req, res) {
-}).listen(8080);
-*/
 
 var read = () => {
     for (let name of ['quran', 'android.quran']) { 
@@ -77,19 +78,6 @@ function setGozeAndHezbAndSurahName(quran, metadata) {
     quran.hezb = metadata.hezb;
 }
 
-/**
- * In case of quran page with multiple surahs (metadata), we need to make sure saving is executed after
- * the whole page is processed (tasfir).
- * @param meta 
- * @param metas 
- */
-function isLastMetadata(meta, metas) {
-    if (metas[metas.length - 1].surahNumber === meta.surahNumber) {
-        return true;
-    }
-    return false;
-}
-
 function isTafsirWithinCurrentPage(tafsir, metadata) {
     if (tafsir.ayahNumber >= metadata.fromAyah && tafsir.ayahNumber <= metadata.toAyah) {
         return true;
@@ -101,8 +89,10 @@ function formatData(data) {
     var result = stringUtils.replaceAll(data, B, L1);
     result = stringUtils.replaceAll(result, BT, L2);
     result = stringUtils.replaceAll(result, BTT, L3);
-    result = stringUtils.replaceAll(result, '<a ', L3 + '<a ');
-    result = stringUtils.replaceAll(result, '</a> ', L3 + '</a> ');
+    result = stringUtils.replaceAll(result, ANCHOR_OPENING, L3 + ANCHOR_OPENING);
+    result = stringUtils.replaceAll(result, ANCHOR_CLOSING, L3 + ANCHOR_CLOSING + L3);
+    result = stringUtils.replaceAll(result, ANCHOR_BODY, ANCHOR_BODY + L4);
+    
     return result;
 }
 

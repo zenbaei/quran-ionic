@@ -1,94 +1,112 @@
 {
 	"pageNumber": 452,
-	"data": "<div style=\"font-size:4.3vw\">
+	"data": "<div style='font-size:4.3vw'>
 			<nobr>
 				مَا لَكُمۡ كَيۡفَ تَحۡكُمُونَ ١٥٤ أَفَلَا تَذَكَّرُونَ ١٥٥ أَمۡ لَكُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"حجّة وبرهان\">سُلۡطَٰنٞ
-				</a> مُّبِينٞ ١٥٦ 
+				<a data-content='حجّة وبرهان' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					سُلۡطَٰنٞ
+				</a> 
+				مُّبِينٞ ١٥٦ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَأۡتُواْ بِكِتَٰبِكُمۡ إِن كُنتُمۡ صَٰدِقِينَ ١٥٧ وَجَعَلُواْ بَيۡنَهُۥ وَبَيۡنَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الملائكة أو الشّياطين\">ٱلۡجِنَّةِ
+				<a data-content='الملائكة أو الشّياطين' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡجِنَّةِ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				نَسَبٗاۚ وَلَقَدۡ عَلِمَتِ ٱلۡجِنَّةُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"إنّ الكفار لمحضرون للنّار\">إِنَّهُمۡ لَمُحۡضَرُونَ
-				</a> ١٥٨ سُبۡحَٰنَ ٱللَّهِ عَمَّا 
+				<a data-content='إنّ الكفار لمحضرون للنّار' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					إِنَّهُمۡ لَمُحۡضَرُونَ
+				</a> 
+				١٥٨ سُبۡحَٰنَ ٱللَّهِ عَمَّا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				يَصِفُونَ ١٥٩ إِلَّا عِبَادَ ٱللَّهِ ٱلۡمُخۡلَصِينَ ١٦٠ فَإِنَّكُمۡ وَمَا تَعۡبُدُونَ ١٦١ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مَآ أَنتُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"بمضلّين أو مفسدين على الله أحدا\">عَلَيۡهِ بِفَٰتِنِينَ
-				</a> ١٦٢ إِلَّا مَنۡ هُوَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"داخلها أو مقاسٍ حرّها\">صَالِ ٱلۡجَحِيمِ
-				</a> ١٦٣ وَمَا مِنَّآ إِلَّا 
+				<a data-content='بمضلّين أو مفسدين على الله أحدا' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					عَلَيۡهِ بِفَٰتِنِينَ
+				</a> 
+				١٦٢ إِلَّا مَنۡ هُوَ 
+				<a data-content='داخلها أو مقاسٍ حرّها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					صَالِ ٱلۡجَحِيمِ
+				</a> 
+				١٦٣ وَمَا مِنَّآ إِلَّا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.7vw\">
+		<div style='font-size:4.7vw'>
 			<nobr>
 				لَهُۥ مَقَامٞ مَّعۡلُومٞ ١٦٤ وَإِنَّا لَنَحۡنُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أنفسنا في مقام العبادة\">ٱلصَّآفُّونَ
-				</a> ١٦٥ وَإِنَّا لَنَحۡنُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"المنزّهون الله تعالى عمّا لا يليق بجلاله\">ٱلۡمُسَبِّحُونَ
+				<a data-content='أنفسنا في مقام العبادة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلصَّآفُّونَ
 				</a> 
+				١٦٥ وَإِنَّا لَنَحۡنُ 
+				<a data-content='المنزّهون الله تعالى عمّا لا يليق بجلاله' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡمُسَبِّحُونَ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				١٦٦ وَإِن كَانُواْ لَيَقُولُونَ ١٦٧ لَوۡ أَنَّ عِندَنَا ذِكۡرٗا مِّنَ ٱلۡأَوَّلِينَ ١٦٨ لَكُنَّا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				عِبَادَ ٱللَّهِ ٱلۡمُخۡلَصِينَ ١٦٩ فَكَفَرُواْ بِهِۦۖ فَسَوۡفَ يَعۡلَمُونَ ١٧٠ وَلَقَدۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				سَبَقَتۡ كَلِمَتُنَا لِعِبَادِنَا ٱلۡمُرۡسَلِينَ ١٧١ إِنَّهُمۡ لَهُمُ ٱلۡمَنصُورُونَ ١٧٢ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَإِنَّ جُندَنَا لَهُمُ ٱلۡغَٰلِبُونَ ١٧٣ فَتَوَلَّ عَنۡهُمۡ حَتَّىٰ حِينٖ ١٧٤ وَأَبۡصِرۡهُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَسَوۡفَ يُبۡصِرُونَ ١٧٥ أَفَبِعَذَابِنَا يَسۡتَعۡجِلُونَ ١٧٦ فَإِذَا نَزَلَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"بفِنائهم والمراد: بهم\">بِسَاحَتِهِمۡ
+				<a data-content='بفِنائهم والمراد: بهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					بِسَاحَتِهِمۡ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَسَآءَ صَبَاحُ ٱلۡمُنذَرِينَ ١٧٧ وَتَوَلَّ عَنۡهُمۡ حَتَّىٰ حِينٖ ١٧٨ وَأَبۡصِرۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَسَوۡفَ يُبۡصِرُونَ ١٧٩ سُبۡحَٰنَ رَبِّكَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الغلبة والقدرة والبطش\">رَبِّ ٱلۡعِزَّةِ
-				</a> عَمَّا يَصِفُونَ 
+				<a data-content='الغلبة والقدرة والبطش' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					رَبِّ ٱلۡعِزَّةِ
+				</a> 
+				عَمَّا يَصِفُونَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				١٨٠ وَسَلَٰمٌ عَلَى ٱلۡمُرۡسَلِينَ ١٨١ وَٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ١٨٢ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\" class='no-justify'>
+		<div style='font-size:4.8vw' class='no-justify'>
 			<nobr>
 				سُورَةُ صٓ
 			</nobr>

@@ -1,106 +1,134 @@
 {
 	"pageNumber": 377,
-	"data": "<div style=\"font-size:4.8vw\" class='no-justify'>
+	"data": "<div style='font-size:4.8vw' class='no-justify'>
 			<nobr>
 				بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				طسٓۚ تِلۡكَ ءَايَٰتُ ٱلۡقُرۡءَانِ وَكِتَابٖ مُّبِينٍ ١ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"هادٍ من الضّلالة\">هُدٗى
-				</a> وَبُشۡرَىٰ 
+				<a data-content='هادٍ من الضّلالة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					هُدٗى
+				</a> 
+				وَبُشۡرَىٰ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				لِلۡمُؤۡمِنِينَ ٢ ٱلَّذِينَ يُقِيمُونَ ٱلصَّلَوٰةَ وَيُؤۡتُونَ ٱلزَّكَوٰةَ وَهُم 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بِٱلۡأٓخِرَةِ هُمۡ يُوقِنُونَ ٣ إِنَّ ٱلَّذِينَ لَا يُؤۡمِنُونَ بِٱلۡأٓخِرَةِ زَيَّنَّا لَهُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				أَعۡمَٰلَهُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"يعمون عن الرّشد أو يتحيّرون\">فَهُمۡ يَعۡمَهُونَ
-				</a> ٤ أُوْلَٰٓئِكَ ٱلَّذِينَ لَهُمۡ سُوٓءُ ٱلۡعَذَابِ 
+				<a data-content='يعمون عن الرّشد أو يتحيّرون' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَهُمۡ يَعۡمَهُونَ
+				</a> 
+				٤ أُوْلَٰٓئِكَ ٱلَّذِينَ لَهُمۡ سُوٓءُ ٱلۡعَذَابِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَهُمۡ فِي ٱلۡأٓخِرَةِ هُمُ ٱلۡأَخۡسَرُونَ ٥ وَإِنَّكَ لَتُلَقَّى ٱلۡقُرۡءَانَ مِن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.4vw\">
+		<div style='font-size:4.4vw'>
 			<nobr>
 				لَّدُنۡ حَكِيمٍ عَلِيمٍ ٦ إِذۡ قَالَ مُوسَىٰ لِأَهۡلِهِۦٓ إِنِّيٓ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أبصرتها إبصارا بيـّــنا\">ءَانَسۡتُ نَارٗا
-				</a> سَ‍َٔاتِيكُم 
+				<a data-content='أبصرتها إبصارا بيـّــنا' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ءَانَسۡتُ نَارٗا
+				</a> 
+				سَ‍َٔاتِيكُم 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.4vw\">
+		<div style='font-size:4.4vw'>
 			<nobr>
 				مِّنۡهَا بِخَبَرٍ أَوۡ ءَاتِيكُم 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"بشُعلة نار ساطعة مقبوسة من أصلها\">بِشِهَابٖ قَبَسٖ
-				</a> لَّعَلَّكُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تستدفئون بها من البرد\">تَصۡطَلُونَ
-				</a> ٧ فَلَمَّا جَآءَهَا 
+				<a data-content='بشُعلة نار ساطعة مقبوسة من أصلها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					بِشِهَابٖ قَبَسٖ
+				</a> 
+				لَّعَلَّكُمۡ 
+				<a data-content='تستدفئون بها من البرد' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تَصۡطَلُونَ
+				</a> 
+				٧ فَلَمَّا جَآءَهَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				نُودِيَ أَنۢ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"قدّس وطُهّرَ وزيد خيرا\">بُورِكَ
+				<a data-content='قدّس وطُهّرَ وزيد خيرا' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					بُورِكَ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الذين في ذلك الوادي الذي بدا فيه النور وهم موسى والملائكة\">مَن فِي ٱلنَّارِ وَمَنۡ حَوۡلَهَا
-				</a> وَسُبۡحَٰنَ ٱللَّهِ رَبِّ 
+				
+				<a data-content='الذين في ذلك الوادي الذي بدا فيه النور وهم موسى والملائكة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مَن فِي ٱلنَّارِ وَمَنۡ حَوۡلَهَا
+				</a> 
+				وَسُبۡحَٰنَ ٱللَّهِ رَبِّ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡعَٰلَمِينَ ٨ يَٰمُوسَىٰٓ إِنَّهُۥٓ أَنَا ٱللَّهُ ٱلۡعَزِيزُ ٱلۡحَكِيمُ ٩ وَأَلۡقِ عَصَاكَۚ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.6vw\">
+		<div style='font-size:4.6vw'>
 			<nobr>
 				فَلَمَّا رَءَاهَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تتحرّك بشدة واضطراب\">تَهۡتَزُّ
+				<a data-content='تتحرّك بشدة واضطراب' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تَهۡتَزُّ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"حيّة خفيفة في سرعة حركتها\">كَأَنَّهَا جَآنّٞ
-				</a> وَلَّىٰ مُدۡبِرٗا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لم يرجع على عقِبه أو لم يلتفت\">وَلَمۡ يُعَقِّبۡۚ
-				</a> يَٰمُوسَىٰ لَا تَخَفۡ 
+				
+				<a data-content='حيّة خفيفة في سرعة حركتها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					كَأَنَّهَا جَآنّٞ
+				</a> 
+				وَلَّىٰ مُدۡبِرٗا 
+				<a data-content='لم يرجع على عقِبه أو لم يلتفت' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَلَمۡ يُعَقِّبۡۚ
+				</a> 
+				يَٰمُوسَىٰ لَا تَخَفۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				إِنِّي لَا يَخَافُ لَدَيَّ ٱلۡمُرۡسَلُونَ ١٠ إِلَّا مَن ظَلَمَ ثُمَّ بَدَّلَ حُسۡنَۢا بَعۡدَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.7vw\">
+		<div style='font-size:4.7vw'>
 			<nobr>
 				سُوٓءٖ فَإِنِّي غَفُورٞ رَّحِيمٞ ١١ وَأَدۡخِلۡ يَدَكَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"فتحة القميص حيث يُدخل الرّأس\">فِي جَيۡبِكَ
-				</a> تَخۡرُجۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"نيّرة يغلب نورها نور الشمس\">بَيۡضَآءَ
-				</a> مِنۡ 
+				<a data-content='فتحة القميص حيث يُدخل الرّأس' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فِي جَيۡبِكَ
+				</a> 
+				تَخۡرُجۡ 
+				<a data-content='نيّرة يغلب نورها نور الشمس' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					بَيۡضَآءَ
+				</a> 
+				مِنۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.7vw\">
+		<div style='font-size:4.7vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"غير داء برص ونحوه\">غَيۡرِ سُوٓءٖۖ
-				</a> فِي تِسۡعِ ءَايَٰتٍ إِلَىٰ فِرۡعَوۡنَ وَقَوۡمِهِۦٓۚ إِنَّهُمۡ كَانُواْ قَوۡمٗا فَٰسِقِينَ 
+				<a data-content='غير داء برص ونحوه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					غَيۡرِ سُوٓءٖۖ
+				</a> 
+				فِي تِسۡعِ ءَايَٰتٍ إِلَىٰ فِرۡعَوۡنَ وَقَوۡمِهِۦٓۚ إِنَّهُمۡ كَانُواْ قَوۡمٗا فَٰسِقِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:5.1vw\">
+		<div style='font-size:5.1vw'>
 			<nobr>
 				١٢ فَلَمَّا جَآءَتۡهُمۡ ءَايَٰتُنَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"واضحة بيّـنة هادية\">مُبۡصِرَةٗ
-				</a> قَالُواْ هَٰذَا سِحۡرٞ مُّبِينٞ ١٣
+				<a data-content='واضحة بيّـنة هادية' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مُبۡصِرَةٗ
+				</a> 
+				قَالُواْ هَٰذَا سِحۡرٞ مُّبِينٞ ١٣
 			</nobr>
 		</div>
 		",

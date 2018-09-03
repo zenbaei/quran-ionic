@@ -451,4 +451,3 @@ const MIN_QURAN_FONT_SIZE: number = 1;
 const MAX_QURAN_FONT_SIZE: number = 7;
 
 const IS_FONT_CHANGE_WARNING_DISPLAYED: string = 'isFontChangeWarningDisplayed';
-const MAIN_DIV = '<div style="height: 100%" (swipe)="swipeEvent($event)" (tap)="tapEvent($event)"/>';

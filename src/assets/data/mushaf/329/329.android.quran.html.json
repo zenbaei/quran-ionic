@@ -1,94 +1,110 @@
 {
 	"pageNumber": 329,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				وَمِنَ ٱلشَّيَٰطِينِ مَن 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"في البحار لاستخراج نفائسها\">يَغُوصُونَ لَهُۥ
-				</a> وَيَعۡمَلُونَ عَمَلٗا دُونَ 
+				<a data-content='في البحار لاستخراج نفائسها' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					يَغُوصُونَ لَهُۥ
+				</a> 
+				وَيَعۡمَلُونَ عَمَلٗا دُونَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ذَٰلِكَۖ وَكُنَّا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"من الزّيغ عن أمره أو الإفساد\">لَهُمۡ حَٰفِظِينَ
-				</a> ٢٨ ۞وَأَيُّوبَ إِذۡ نَادَىٰ 
+				<a data-content='من الزّيغ عن أمره أو الإفساد' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَهُمۡ حَٰفِظِينَ
+				</a> 
+				٢٨ ۞وَأَيُّوبَ إِذۡ نَادَىٰ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				رَبَّهُۥٓ أَنِّي مَسَّنِيَ ٱلضُّرُّ وَأَنتَ أَرۡحَمُ ٱلرَّٰحِمِينَ ٣٨ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَٱسۡتَجَبۡنَا لَهُۥ فَكَشَفۡنَا مَا بِهِۦ مِن ضُرّٖۖ وَءَاتَيۡنَٰهُ أَهۡلَهُۥ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَمِثۡلَهُم مَّعَهُمۡ رَحۡمَةٗ مِّنۡ عِندِنَا وَذِكۡرَىٰ لِلۡعَٰبِدِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٤٨ وَإِسۡمَٰعِيلَ وَإِدۡرِيسَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"قيل هو إلياس عليه السّلام\">وَذَا ٱلۡكِفۡلِۖ
-				</a> كُلّٞ مِّنَ ٱلصَّٰبِرِينَ 
+				<a data-content='قيل هو إلياس عليه السّلام' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَذَا ٱلۡكِفۡلِۖ
+				</a> 
+				كُلّٞ مِّنَ ٱلصَّٰبِرِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٥٨ وَأَدۡخَلۡنَٰهُمۡ فِي رَحۡمَتِنَآۖ إِنَّهُم مِّنَ ٱلصَّٰلِحِينَ ٦٨ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"صاحب الحوت يونس عليه السّلام\">وَذَا ٱلنُّونِ
-				</a> إِذ ذَّهَبَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"غضبان على قومه لكُـفرهم\">مُغَٰضِبٗا
-				</a> فَظَنَّ أَن 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لن نضيّق عليه بحبس ونحوه\">لَّن نَّقۡدِرَ عَلَيۡهِ
+				<a data-content='صاحب الحوت يونس عليه السّلام' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَذَا ٱلنُّونِ
 				</a> 
+				إِذ ذَّهَبَ 
+				<a data-content='غضبان على قومه لكُـفرهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مُغَٰضِبٗا
+				</a> 
+				فَظَنَّ أَن 
+				<a data-content='لن نضيّق عليه بحبس ونحوه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَّن نَّقۡدِرَ عَلَيۡهِ
+				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَنَادَىٰ فِي ٱلظُّلُمَٰتِ أَن لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبۡحَٰنَكَ إِنِّي 
 			</nobr>
 		</div>
-		<div style=\"font-size:5.1vw\">
+		<div style='font-size:5.1vw'>
 			<nobr>
 				كُنتُ مِنَ ٱلظَّٰلِمِينَ ٧٨ فَٱسۡتَجَبۡنَا لَهُۥ وَنَجَّيۡنَٰهُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:5.1vw\">
+		<div style='font-size:5.1vw'>
 			<nobr>
 				مِنَ ٱلۡغَمِّۚ وَكَذَٰلِكَ نُ‍ۨجِي ٱلۡمُؤۡمِنِينَ ٨٨ وَزَكَرِيَّآ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				إِذۡ نَادَىٰ رَبَّهُۥ رَبِّ لَا تَذَرۡنِي فَرۡدٗا وَأَنتَ خَيۡرُ ٱلۡوَٰرِثِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:5.1vw\">
+		<div style='font-size:5.1vw'>
 			<nobr>
 				٩٨ فَٱسۡتَجَبۡنَا لَهُۥ وَوَهَبۡنَا لَهُۥ يَحۡيَىٰ وَأَصۡلَحۡنَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:5.1vw\">
+		<div style='font-size:5.1vw'>
 			<nobr>
 				لَهُۥ زَوۡجَهُۥٓۚ إِنَّهُمۡ كَانُواْ يُسَٰرِعُونَ فِي ٱلۡخَيۡرَٰتِ 
 			</nobr>
 		</div>
-		<div style=\"font-size:5.1vw\">
+		<div style='font-size:5.1vw'>
 			<nobr>
 				وَيَدۡعُونَنَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"رجاءً في الثّواب وخوفا من العِقاب\">رَغَبٗا وَرَهَبٗاۖ
-				</a> وَكَانُواْ لَنَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"متذلّلين خاضعين\">خَٰشِعِينَ
-				</a> ٠٩
+				<a data-content='رجاءً في الثّواب وخوفا من العِقاب' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					رَغَبٗا وَرَهَبٗاۖ
+				</a> 
+				وَكَانُواْ لَنَا 
+				<a data-content='متذلّلين خاضعين' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					خَٰشِعِينَ
+				</a> 
+				٠٩
 			</nobr>
 		</div>
 		",

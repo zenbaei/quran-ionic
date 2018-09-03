@@ -1,94 +1,112 @@
 {
 	"pageNumber": 550,
-	"data": "<div style=\"font-size:4.7vw\">
+	"data": "<div style='font-size:4.7vw'>
 			<nobr>
 				لَقَدۡ كَانَ لَكُمۡ فِيهِمۡ أُسۡوَةٌ حَسَنَةٞ لِّمَن كَانَ يَرۡجُواْ ٱللَّهَ وَٱلۡيَوۡمَ ٱلۡأٓخِرَۚ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.4vw\">
+		<div style='font-size:4.4vw'>
 			<nobr>
 				وَمَن يَتَوَلَّ فَإِنَّ ٱللَّهَ هُوَ ٱلۡغَنِيُّ ٱلۡحَمِيدُ ٦ ۞عَسَى ٱللَّهُ أَن يَجۡعَلَ بَيۡنَكُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَبَيۡنَ ٱلَّذِينَ عَادَيۡتُم مِّنۡهُم مَّوَدَّةٗۚ وَٱللَّهُ قَدِيرٞۚ وَٱللَّهُ غَفُورٞ رَّحِيمٞ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٧ لَّا يَنۡهَىٰكُمُ ٱللَّهُ عَنِ ٱلَّذِينَ لَمۡ يُقَٰتِلُوكُمۡ فِي ٱلدِّينِ وَلَمۡ يُخۡرِجُوكُم 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مِّن دِيَٰرِكُمۡ أَن 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تحْسنوا إليهم وتكرموهم\">تَبَرُّوهُمۡ
+				<a data-content='تحْسنوا إليهم وتكرموهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					تَبَرُّوهُمۡ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تـُـفـضوا إليهم بالقسْط والعدل\">وَتُقۡسِطُوٓاْ إِلَيۡهِمۡۚ
-				</a> إِنَّ ٱللَّهَ يُحِبُّ ٱلۡمُقۡسِطِينَ 
+				
+				<a data-content='تـُـفـضوا إليهم بالقسْط والعدل' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَتُقۡسِطُوٓاْ إِلَيۡهِمۡۚ
+				</a> 
+				إِنَّ ٱللَّهَ يُحِبُّ ٱلۡمُقۡسِطِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٨ إِنَّمَا يَنۡهَىٰكُمُ ٱللَّهُ عَنِ ٱلَّذِينَ قَٰتَلُوكُمۡ فِي ٱلدِّينِ وَأَخۡرَجُوكُم مِّن 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				دِيَٰرِكُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"عاوَنوا الذين قاتلوكم وأخرجوكم\">وَظَٰهَرُواْ
-				</a> عَلَىٰٓ إِخۡرَاجِكُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أن تتخذوهم أولياء\">أَن تَوَلَّوۡهُمۡۚ
-				</a> وَمَن يَتَوَلَّهُمۡ فَأُوْلَٰٓئِكَ 
+				<a data-content='عاوَنوا الذين قاتلوكم وأخرجوكم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَظَٰهَرُواْ
+				</a> 
+				عَلَىٰٓ إِخۡرَاجِكُمۡ 
+				<a data-content='أن تتخذوهم أولياء' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أَن تَوَلَّوۡهُمۡۚ
+				</a> 
+				وَمَن يَتَوَلَّهُمۡ فَأُوْلَٰٓئِكَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.4vw\">
+		<div style='font-size:4.4vw'>
 			<nobr>
 				هُمُ ٱلظَّٰلِمُونَ ٩ يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓاْ إِذَا جَآءَكُمُ ٱلۡمُؤۡمِنَٰتُ مُهَٰجِرَٰتٖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"فاختبروهن وكان ذلك بالتحْـليف\">فَٱمۡتَحِنُوهُنَّۖ
-				</a> ٱللَّهُ أَعۡلَمُ بِإِيمَٰنِهِنَّۖ فَإِنۡ عَلِمۡتُمُوهُنَّ مُؤۡمِنَٰتٖ فَلَا 
+				<a data-content='فاختبروهن وكان ذلك بالتحْـليف' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَٱمۡتَحِنُوهُنَّۖ
+				</a> 
+				ٱللَّهُ أَعۡلَمُ بِإِيمَٰنِهِنَّۖ فَإِنۡ عَلِمۡتُمُوهُنَّ مُؤۡمِنَٰتٖ فَلَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				تَرۡجِعُوهُنَّ إِلَى ٱلۡكُفَّارِۖ لَا هُنَّ حِلّٞ لَّهُمۡ وَلَا هُمۡ يَحِلُّونَ لَهُنَّۖ وَءَاتُوهُم 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.6vw\">
+		<div style='font-size:4.6vw'>
 			<nobr>
 				مَّآ أَنفَقُواْۚ وَلَا جُنَاحَ عَلَيۡكُمۡ أَن تَنكِحُوهُنَّ إِذَآ ءَاتَيۡتُمُوهُنَّ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مُهورهنّ\">أُجُورَهُنَّۚ
+				<a data-content='مُهورهنّ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أُجُورَهُنَّۚ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَلَا تُمۡسِكُواْ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"بعقود نكاح المشركات\">بِعِصَمِ ٱلۡكَوَافِرِ
-				</a> وَسۡ‍َٔلُواْ مَآ أَنفَقۡتُمۡ وَلۡيَسۡ‍َٔلُواْ مَآ أَنفَقُواْۚ 
+				<a data-content='بعقود نكاح المشركات' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					بِعِصَمِ ٱلۡكَوَافِرِ
+				</a> 
+				وَسۡ‍َٔلُواْ مَآ أَنفَقۡتُمۡ وَلۡيَسۡ‍َٔلُواْ مَآ أَنفَقُواْۚ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.4vw\">
+		<div style='font-size:4.4vw'>
 			<nobr>
 				ذَٰلِكُمۡ حُكۡمُ ٱللَّهِ يَحۡكُمُ بَيۡنَكُمۡۖ وَٱللَّهُ عَلِيمٌ حَكِيمٞ ٠١ وَإِن 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"انفلتَ أحدٌ بردّة\">فَاتَكُمۡ
+				<a data-content='انفلتَ أحدٌ بردّة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَاتَكُمۡ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				شَيۡءٞ مِّنۡ أَزۡوَٰجِكُمۡ إِلَى ٱلۡكُفَّارِ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"فَغَزوتم فغَنمتم منهمْ\">فَعَاقَبۡتُمۡ
-				</a> فَ‍َٔاتُواْ ٱلَّذِينَ ذَهَبَتۡ 
+				<a data-content='فَغَزوتم فغَنمتم منهمْ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَعَاقَبۡتُمۡ
+				</a> 
+				فَ‍َٔاتُواْ ٱلَّذِينَ ذَهَبَتۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				أَزۡوَٰجُهُم مِّثۡلَ مَآ أَنفَقُواْۚ وَٱتَّقُواْ ٱللَّهَ ٱلَّذِيٓ أَنتُم بِهِۦ مُؤۡمِنُونَ ١١
 			</nobr>

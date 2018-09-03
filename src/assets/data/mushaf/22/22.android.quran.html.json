@@ -1,92 +1,108 @@
 {
 	"pageNumber": 22,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				۞سَيَقُولُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الخفاف العقول (اليهود ومن شاكلهم في إنكار تحويل القبلة)\">ٱلسُّفَهَآءُ
-				</a> مِنَ ٱلنَّاسِ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أيّ شيء صرفهم\">مَا وَلَّىٰهُمۡ
+				<a data-content='الخفاف العقول (اليهود ومن شاكلهم في إنكار تحويل القبلة)' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلسُّفَهَآءُ
 				</a> 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"عن بيت المقدس\">عَن قِبۡلَتِهِمُ
-				</a> ٱلَّتِي كَانُواْ 
+				مِنَ ٱلنَّاسِ 
+				<a data-content='أيّ شيء صرفهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مَا وَلَّىٰهُمۡ
+				</a> 
+				
+				<a data-content='عن بيت المقدس' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					عَن قِبۡلَتِهِمُ
+				</a> 
+				ٱلَّتِي كَانُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				عَلَيۡهَاۚ قُل لِّلَّهِ ٱلۡمَشۡرِقُ وَٱلۡمَغۡرِبُۚ يَهۡدِي مَن يَشَآءُ إِلَىٰ صِرَٰطٖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مُّسۡتَقِيمٖ ٢٤١ وَكَذَٰلِكَ جَعَلۡنَٰكُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"خيارا أو متوسّطين مُعتدلين\">أُمَّةٗ وَسَطٗا
-				</a> لِّتَكُونُواْ 
+				<a data-content='خيارا أو متوسّطين مُعتدلين' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أُمَّةٗ وَسَطٗا
+				</a> 
+				لِّتَكُونُواْ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				شُهَدَآءَ عَلَى ٱلنَّاسِ وَيَكُونَ ٱلرَّسُولُ عَلَيۡكُمۡ شَهِيدٗاۗ وَمَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				جَعَلۡنَا ٱلۡقِبۡلَةَ ٱلَّتِي كُنتَ عَلَيۡهَآ إِلَّا لِنَعۡلَمَ مَن يَتَّبِعُ ٱلرَّسُولَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				مِمَّن 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"يرتدّ عن الإسلام عند تحويل القبلة إلى الكعبة\">يَنقَلِبُ عَلَىٰ عَقِبَيۡهِۚ
-				</a> وَإِن كَانَتۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لشاقّة ثقيلة على النّفوس\">لَكَبِيرَةً
-				</a> إِلَّا عَلَى ٱلَّذِينَ 
+				<a data-content='يرتدّ عن الإسلام عند تحويل القبلة إلى الكعبة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					يَنقَلِبُ عَلَىٰ عَقِبَيۡهِۚ
+				</a> 
+				وَإِن كَانَتۡ 
+				<a data-content='لشاقّة ثقيلة على النّفوس' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لَكَبِيرَةً
+				</a> 
+				إِلَّا عَلَى ٱلَّذِينَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				هَدَى ٱللَّهُۗ وَمَا كَانَ ٱللَّهُ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"صلاتكم إلى بيت المقدس\">لِيُضِيعَ إِيمَٰنَكُمۡۚ
-				</a> إِنَّ ٱللَّهَ 
+				<a data-content='صلاتكم إلى بيت المقدس' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					لِيُضِيعَ إِيمَٰنَكُمۡۚ
+				</a> 
+				إِنَّ ٱللَّهَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بِٱلنَّاسِ لَرَءُوفٞ رَّحِيمٞ ٣٤١ قَدۡ نَرَىٰ تَقَلُّبَ وَجۡهِكَ فِي ٱلسَّمَآءِۖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَلَنُوَلِّيَنَّكَ قِبۡلَةٗ تَرۡضَىٰهَاۚ فَوَلِّ وَجۡهَكَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"تلقاء الكعبة\">شَطۡرَ ٱلۡمَسۡجِدِ
+				<a data-content='تلقاء الكعبة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					شَطۡرَ ٱلۡمَسۡجِدِ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡحَرَامِۚ وَحَيۡثُ مَا كُنتُمۡ فَوَلُّواْ وُجُوهَكُمۡ شَطۡرَهُۥۗ وَإِنَّ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلَّذِينَ أُوتُواْ ٱلۡكِتَٰبَ لَيَعۡلَمُونَ أَنَّهُ ٱلۡحَقُّ مِن رَّبِّهِمۡۗ وَمَا ٱللَّهُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بِغَٰفِلٍ عَمَّا يَعۡمَلُونَ ٤٤١ وَلَئِنۡ أَتَيۡتَ ٱلَّذِينَ أُوتُواْ ٱلۡكِتَٰبَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بِكُلِّ ءَايَةٖ مَّا تَبِعُواْ قِبۡلَتَكَۚ وَمَآ أَنتَ بِتَابِعٖ قِبۡلَتَهُمۡۚ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَمَا بَعۡضُهُم بِتَابِعٖ قِبۡلَةَ بَعۡضٖۚ وَلَئِنِ ٱتَّبَعۡتَ أَهۡوَآءَهُم مِّنۢ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				بَعۡدِ مَا جَآءَكَ مِنَ ٱلۡعِلۡمِ إِنَّكَ إِذٗا لَّمِنَ ٱلظَّٰلِمِينَ ٥٤١
 			</nobr>

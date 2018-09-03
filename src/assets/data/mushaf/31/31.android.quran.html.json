@@ -1,98 +1,120 @@
 {
 	"pageNumber": 31,
-	"data": "<div style=\"font-size:4.8vw\">
+	"data": "<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلۡحَجُّ أَشۡهُرٞ مَّعۡلُومَٰتٞۚ فَمَن 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"ألزم نفسه بالإحرام\">فَرَضَ
-				</a> فِيهِنَّ ٱلۡحَجَّ فَلَا 
+				<a data-content='ألزم نفسه بالإحرام' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَرَضَ
+				</a> 
+				فِيهِنَّ ٱلۡحَجَّ فَلَا 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"فلا وقاع أو فلا إفحاش في القول\">رَفَثَ
-				</a> وَلَا فُسُوقَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا خصام ولا مماراة ولا ملاحاةٌ فيه\">وَلَا جِدَالَ فِي ٱلۡحَجِّۗ
-				</a> وَمَا تَفۡعَلُواْ مِنۡ 
+				<a data-content='فلا وقاع أو فلا إفحاش في القول' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					رَفَثَ
+				</a> 
+				وَلَا فُسُوقَ 
+				<a data-content='لا خصام ولا مماراة ولا ملاحاةٌ فيه' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَلَا جِدَالَ فِي ٱلۡحَجِّۗ
+				</a> 
+				وَمَا تَفۡعَلُواْ مِنۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				خَيۡرٖ يَعۡلَمۡهُ ٱللَّهُۗ وَتَزَوَّدُواْ فَإِنَّ خَيۡرَ ٱلزَّادِ ٱلتَّقۡوَىٰۖ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَٱتَّقُونِ يَٰٓأُوْلِي ٱلۡأَلۡبَٰبِ ٧٩١ لَيۡسَ عَلَيۡكُمۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"إثم وحرج\">جُنَاحٌ
+				<a data-content='إثم وحرج' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					جُنَاحٌ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				أَن تَبۡتَغُواْ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"رزق بالتجارة والإكتساب في الحجّ\">فَضۡلٗا
-				</a> مِّن رَّبِّكُمۡۚ فَإِذَآ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"دفعتم أنفسكم بكثرة وسِرتم\">أَفَضۡتُم
-				</a> مِّنۡ 
+				<a data-content='رزق بالتجارة والإكتساب في الحجّ' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فَضۡلٗا
+				</a> 
+				مِّن رَّبِّكُمۡۚ فَإِذَآ 
+				<a data-content='دفعتم أنفسكم بكثرة وسِرتم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					أَفَضۡتُم
+				</a> 
+				مِّنۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				عَرَفَٰتٖ فَٱذۡكُرُواْ ٱللَّهَ عِندَ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مُزدلفة كلّها أو جبل قُزح\">ٱلۡمَشۡعَرِ ٱلۡحَرَامِۖ
+				<a data-content='مُزدلفة كلّها أو جبل قُزح' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					ٱلۡمَشۡعَرِ ٱلۡحَرَامِۖ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				وَٱذۡكُرُوهُ كَمَا هَدَىٰكُمۡ وَإِن كُنتُم مِّن قَبۡلِهِۦ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				لَمِنَ ٱلضَّآلِّينَ ٨٩١ ثُمَّ أَفِيضُواْ مِنۡ حَيۡثُ أَفَاضَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ٱلنَّاسُ وَٱسۡتَغۡفِرُواْ ٱللَّهَۚ إِنَّ ٱللَّهَ غَفُورٞ رَّحِيمٞ ٩٩١ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				فَإِذَا قَضَيۡتُم 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"عباداتكم الحجّيّة\">مَّنَٰسِكَكُمۡ
-				</a> فَٱذۡكُرُواْ ٱللَّهَ كَذِكۡرِكُمۡ 
+				<a data-content='عباداتكم الحجّيّة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					مَّنَٰسِكَكُمۡ
+				</a> 
+				فَٱذۡكُرُواْ ٱللَّهَ كَذِكۡرِكُمۡ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				ءَابَآءَكُمۡ أَوۡ أَشَدَّ ذِكۡرٗاۗ فَمِنَ ٱلنَّاسِ مَن يَقُولُ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا وَمَا لَهُۥ فِي ٱلۡأٓخِرَةِ مِنۡ 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"نصيب من الخير أو قدر\">خَلَٰقٖ
+				<a data-content='نصيب من الخير أو قدر' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					خَلَٰقٖ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				٠٠٢ وَمِنۡهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا 
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"النّعمة والعافية والتوفيق\">فِي ٱلدُّنۡيَا حَسَنَةٗ
+				<a data-content='النّعمة والعافية والتوفيق' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					فِي ٱلدُّنۡيَا حَسَنَةٗ
 				</a> 
+				
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				
-				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الرّحمة والإحسان والنّجاة\">وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ
-				</a> وَقِنَا عَذَابَ ٱلنَّارِ ١٠٢ أُوْلَٰٓئِكَ 
+				<a data-content='الرّحمة والإحسان والنّجاة' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
+					وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ
+				</a> 
+				وَقِنَا عَذَابَ ٱلنَّارِ ١٠٢ أُوْلَٰٓئِكَ 
 			</nobr>
 		</div>
-		<div style=\"font-size:4.8vw\">
+		<div style='font-size:4.8vw'>
 			<nobr>
 				لَهُمۡ نَصِيبٞ مِّمَّا كَسَبُواْۚ وَٱللَّهُ سَرِيعُ ٱلۡحِسَابِ ٢٠٢
 			</nobr>
