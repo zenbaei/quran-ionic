@@ -1,6 +1,91 @@
 {
 	"pageNumber": 396,
-	"data": "<div style=\"font-size:4.8vw\"><nobr>إِنَّ ٱلَّذِي فَرَضَ عَلَيۡكَ ٱلۡقُرۡءَانَ لَرَآدُّكَ إِلَىٰ <a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مكّة المكرّمة ظاهرا عليها\">مَعَادٖۚ</a> قُل رَّبِّيٓ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>أَعۡلَمُ مَن جَآءَ بِٱلۡهُدَىٰ وَمَنۡ هُوَ فِي ضَلَٰلٖ مُّبِينٖ ٥٨ وَمَا كُنتَ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>تَرۡجُوٓاْ أَن يُلۡقَىٰٓ إِلَيۡكَ ٱلۡكِتَٰبُ إِلَّا رَحۡمَةٗ مِّن رَّبِّكَۖ فَلَا </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>تَكُونَنَّ <a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مُعينا لهم على ما هم عليه\">ظَهِيرٗا لِّلۡكَٰفِرِينَ</a> ٦٨ وَلَا يَصُدُّنَّكَ عَنۡ ءَايَٰتِ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>ٱللَّهِ بَعۡدَ إِذۡ أُنزِلَتۡ إِلَيۡكَۖ وَٱدۡعُ إِلَىٰ رَبِّكَۖ وَلَا تَكُونَنَّ مِنَ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>ٱلۡمُشۡرِكِينَ ٧٨ وَلَا تَدۡعُ مَعَ ٱللَّهِ إِلَٰهًا ءَاخَرَۘ لَآ إِلَٰهَ إِلَّا هُوَۚ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>كُلُّ شَيۡءٍ هَالِكٌ إِلَّا وَجۡهَهُۥۚ لَهُ ٱلۡحُكۡمُ وَإِلَيۡهِ تُرۡجَعُونَ ٨٨ </nobr></div>\n<div style=\"font-size:4.8vw\" class='no-justify'><nobr>سُورَةُ العَنكَبُوتِ</nobr></div>\n<div style=\"font-size:4.8vw\" class='no-justify'><nobr>بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>الٓمٓ ١ أَحَسِبَ ٱلنَّاسُ أَن يُتۡرَكُوٓاْ أَن يَقُولُوٓاْ ءَامَنَّا وَهُمۡ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr><a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا يُمتحنون بالمشاقّ والشّدائد ليتميّز المُخلص من المنافق\">لَا يُفۡتَنُونَ</a> ٢ وَلَقَدۡ فَتَنَّا ٱلَّذِينَ مِن قَبۡلِهِمۡۖ فَلَيَعۡلَمَنَّ ٱللَّهُ ٱلَّذِينَ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>صَدَقُواْ وَلَيَعۡلَمَنَّ ٱلۡكَٰذِبِينَ ٣ أَمۡ حَسِبَ ٱلَّذِينَ يَعۡمَلُونَ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>ٱلسَّيِّ‍َٔاتِ <a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أن يُعجزونا ويفوتونا\">أَن يَسۡبِقُونَاۚ</a> سَآءَ مَا يَحۡكُمُونَ ٤ مَن كَانَ يَرۡجُواْ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>لِقَآءَ ٱللَّهِ فَإِنَّ <a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الوقت المعيّن للبعث والجزاء\">أَجَلَ ٱللَّهِ</a> لَأٓتٖۚ وَهُوَ ٱلسَّمِيعُ ٱلۡعَلِيمُ ٥ وَمَن </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>جَٰهَدَ فَإِنَّمَا يُجَٰهِدُ لِنَفۡسِهِۦٓۚ إِنَّ ٱللَّهَ لَغَنِيٌّ عَنِ ٱلۡعَٰلَمِينَ ٦</nobr></div>\n",
+	"data": "<div style=\"font-size:4.8vw\">
+			<nobr>
+				إِنَّ ٱلَّذِي فَرَضَ عَلَيۡكَ ٱلۡقُرۡءَانَ لَرَآدُّكَ إِلَىٰ 
+				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مكّة المكرّمة ظاهرا عليها\">مَعَادٖۚ
+				</a> قُل رَّبِّيٓ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				أَعۡلَمُ مَن جَآءَ بِٱلۡهُدَىٰ وَمَنۡ هُوَ فِي ضَلَٰلٖ مُّبِينٖ ٥٨ وَمَا كُنتَ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				تَرۡجُوٓاْ أَن يُلۡقَىٰٓ إِلَيۡكَ ٱلۡكِتَٰبُ إِلَّا رَحۡمَةٗ مِّن رَّبِّكَۖ فَلَا 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				تَكُونَنَّ 
+				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"مُعينا لهم على ما هم عليه\">ظَهِيرٗا لِّلۡكَٰفِرِينَ
+				</a> ٦٨ وَلَا يَصُدُّنَّكَ عَنۡ ءَايَٰتِ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				ٱللَّهِ بَعۡدَ إِذۡ أُنزِلَتۡ إِلَيۡكَۖ وَٱدۡعُ إِلَىٰ رَبِّكَۖ وَلَا تَكُونَنَّ مِنَ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				ٱلۡمُشۡرِكِينَ ٧٨ وَلَا تَدۡعُ مَعَ ٱللَّهِ إِلَٰهًا ءَاخَرَۘ لَآ إِلَٰهَ إِلَّا هُوَۚ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				كُلُّ شَيۡءٍ هَالِكٌ إِلَّا وَجۡهَهُۥۚ لَهُ ٱلۡحُكۡمُ وَإِلَيۡهِ تُرۡجَعُونَ ٨٨ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\" class='no-justify'>
+			<nobr>
+				سُورَةُ العَنكَبُوتِ
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\" class='no-justify'>
+			<nobr>
+				بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				الٓمٓ ١ أَحَسِبَ ٱلنَّاسُ أَن يُتۡرَكُوٓاْ أَن يَقُولُوٓاْ ءَامَنَّا وَهُمۡ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				
+				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"لا يُمتحنون بالمشاقّ والشّدائد ليتميّز المُخلص من المنافق\">لَا يُفۡتَنُونَ
+				</a> ٢ وَلَقَدۡ فَتَنَّا ٱلَّذِينَ مِن قَبۡلِهِمۡۖ فَلَيَعۡلَمَنَّ ٱللَّهُ ٱلَّذِينَ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				صَدَقُواْ وَلَيَعۡلَمَنَّ ٱلۡكَٰذِبِينَ ٣ أَمۡ حَسِبَ ٱلَّذِينَ يَعۡمَلُونَ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				ٱلسَّيِّ‍َٔاتِ 
+				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"أن يُعجزونا ويفوتونا\">أَن يَسۡبِقُونَاۚ
+				</a> سَآءَ مَا يَحۡكُمُونَ ٤ مَن كَانَ يَرۡجُواْ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				لِقَآءَ ٱللَّهِ فَإِنَّ 
+				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"الوقت المعيّن للبعث والجزاء\">أَجَلَ ٱللَّهِ
+				</a> لَأٓتٖۚ وَهُوَ ٱلسَّمِيعُ ٱلۡعَلِيمُ ٥ وَمَن 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				جَٰهَدَ فَإِنَّمَا يُجَٰهِدُ لِنَفۡسِهِۦٓۚ إِنَّ ٱللَّهَ لَغَنِيٌّ عَنِ ٱلۡعَٰلَمِينَ ٦
+			</nobr>
+		</div>
+		",
 	"hezb": "نصف الحزب 40",
 	"goze": 20,
 	"surahName": "القَصَصِ"

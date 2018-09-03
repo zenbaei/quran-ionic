@@ -1,6 +1,85 @@
 {
 	"pageNumber": 79,
-	"data": "<div style=\"font-size:4.8vw\"><nobr>۞وَلَكُمۡ نِصۡفُ مَا تَرَكَ أَزۡوَٰجُكُمۡ إِن لَّمۡ يَكُن </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>لَّهُنَّ وَلَدٞۚ فَإِن كَانَ لَهُنَّ وَلَدٞ فَلَكُمُ ٱلرُّبُعُ مِمَّا </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>تَرَكۡنَۚ مِنۢ بَعۡدِ وَصِيَّةٖ يُوصِينَ بِهَآ أَوۡ دَيۡنٖۚ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>وَلَهُنَّ ٱلرُّبُعُ مِمَّا تَرَكۡتُمۡ إِن لَّمۡ يَكُن لَّكُمۡ وَلَدٞۚ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>فَإِن كَانَ لَكُمۡ وَلَدٞ فَلَهُنَّ ٱلثُّمُنُ مِمَّا تَرَكۡتُمۚ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>مِّنۢ بَعۡدِ وَصِيَّةٖ تُوصُونَ بِهَآ أَوۡ دَيۡنٖۗ وَإِن كَانَ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>رَجُلٞ يُورَثُ <a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"ميِّتا لا ولد له ولا والد\">كَلَٰلَةً</a> أَوِ ٱمۡرَأَةٞ وَلَهُۥٓ أَخٌ أَوۡ أُخۡتٞ فَلِكُلِّ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>وَٰحِدٖ مِّنۡهُمَا ٱلسُّدُسُۚ فَإِن كَانُوٓاْ أَكۡثَرَ مِن ذَٰلِكَ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>فَهُمۡ شُرَكَآءُ فِي ٱلثُّلُثِۚ مِنۢ بَعۡدِ وَصِيَّةٖ يُوصَىٰ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>بِهَآ أَوۡ دَيۡنٍ غَيۡرَ مُضَآرّٖۚ وَصِيَّةٗ مِّنَ ٱللَّهِۗ وَٱللَّهُ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>عَلِيمٌ حَلِيمٞ ٢١ تِلۡكَ <a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"شرائعه وأحكامه المفروضة\">حُدُودُ ٱللَّهِۚ</a> وَمَن يُطِعِ ٱللَّهَ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>وَرَسُولَهُۥ يُدۡخِلۡهُ جَنَّٰتٖ تَجۡرِي مِن تَحۡتِهَا </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>ٱلۡأَنۡهَٰرُ خَٰلِدِينَ فِيهَاۚ وَذَٰلِكَ ٱلۡفَوۡزُ ٱلۡعَظِيمُ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>٣١ وَمَن يَعۡصِ ٱللَّهَ وَرَسُولَهُۥ وَيَتَعَدَّ حُدُودَهُۥ </nobr></div>\n<div style=\"font-size:4.8vw\"><nobr>يُدۡخِلۡهُ نَارًا خَٰلِدٗا فِيهَا وَلَهُۥ عَذَابٞ مُّهِينٞ ٤١</nobr></div>\n",
+	"data": "<div style=\"font-size:4.8vw\">
+			<nobr>
+				۞وَلَكُمۡ نِصۡفُ مَا تَرَكَ أَزۡوَٰجُكُمۡ إِن لَّمۡ يَكُن 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				لَّهُنَّ وَلَدٞۚ فَإِن كَانَ لَهُنَّ وَلَدٞ فَلَكُمُ ٱلرُّبُعُ مِمَّا 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				تَرَكۡنَۚ مِنۢ بَعۡدِ وَصِيَّةٖ يُوصِينَ بِهَآ أَوۡ دَيۡنٖۚ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				وَلَهُنَّ ٱلرُّبُعُ مِمَّا تَرَكۡتُمۡ إِن لَّمۡ يَكُن لَّكُمۡ وَلَدٞۚ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				فَإِن كَانَ لَكُمۡ وَلَدٞ فَلَهُنَّ ٱلثُّمُنُ مِمَّا تَرَكۡتُمۚ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				مِّنۢ بَعۡدِ وَصِيَّةٖ تُوصُونَ بِهَآ أَوۡ دَيۡنٖۗ وَإِن كَانَ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				رَجُلٞ يُورَثُ 
+				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"ميِّتا لا ولد له ولا والد\">كَلَٰلَةً
+				</a> أَوِ ٱمۡرَأَةٞ وَلَهُۥٓ أَخٌ أَوۡ أُخۡتٞ فَلِكُلِّ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				وَٰحِدٖ مِّنۡهُمَا ٱلسُّدُسُۚ فَإِن كَانُوٓاْ أَكۡثَرَ مِن ذَٰلِكَ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				فَهُمۡ شُرَكَآءُ فِي ٱلثُّلُثِۚ مِنۢ بَعۡدِ وَصِيَّةٖ يُوصَىٰ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				بِهَآ أَوۡ دَيۡنٍ غَيۡرَ مُضَآرّٖۚ وَصِيَّةٗ مِّنَ ٱللَّهِۗ وَٱللَّهُ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				عَلِيمٌ حَلِيمٞ ٢١ تِلۡكَ 
+				<a tabindex=\"0\" role=\"button\" class=\"fake-link tafsir\" data-toggle=\"popover\" data-placement=\"top\" data-content=\"شرائعه وأحكامه المفروضة\">حُدُودُ ٱللَّهِۚ
+				</a> وَمَن يُطِعِ ٱللَّهَ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				وَرَسُولَهُۥ يُدۡخِلۡهُ جَنَّٰتٖ تَجۡرِي مِن تَحۡتِهَا 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				ٱلۡأَنۡهَٰرُ خَٰلِدِينَ فِيهَاۚ وَذَٰلِكَ ٱلۡفَوۡزُ ٱلۡعَظِيمُ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				٣١ وَمَن يَعۡصِ ٱللَّهَ وَرَسُولَهُۥ وَيَتَعَدَّ حُدُودَهُۥ 
+			</nobr>
+		</div>
+		<div style=\"font-size:4.8vw\">
+			<nobr>
+				يُدۡخِلۡهُ نَارًا خَٰلِدٗا فِيهَا وَلَهُۥ عَذَابٞ مُّهِينٞ ٤١
+			</nobr>
+		</div>
+		",
 	"hezb": "ثلاثة أرباع الحزب 8",
 	"goze": 4,
 	"surahName": "النِّسَاءِ"

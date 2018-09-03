@@ -24,7 +24,7 @@ http.createServer(function (req, res) {
 */
 
 var read = () => {
-    for (let name of ['quran']) { //, 'android.quran'
+    for (let name of ['quran', 'android.quran']) { 
         for (let i = 1; i <= 604; i++) {
             let filename = `${BASE_DIR}/${i}/${i}.${name}`;
             fs.readFile(filename, { encoding: 'UTF-8' }, (err, data) => {
