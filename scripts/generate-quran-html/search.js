@@ -1,9 +1,9 @@
 module.exports = class Search {
 
-    constructor(what, target) {
-        
-        this.what = what;
+    constructor(what, target, exclude) {    
+        this.what = what + exclude;
         this.target = target;
+        this.exclude = exclude;
         this.search();
     }
 

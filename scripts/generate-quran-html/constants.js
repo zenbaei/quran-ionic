@@ -1,6 +1,9 @@
 BASE_DIR = '../../src/assets/data/mushaf';
 
 const BIGGER_FONT = 5.1;
+const BREAK = '</br>';
+const BREAK_WITH_TAB = '</bt>';
+const BREAK_WITH_2_TABS = '</btt>';
 
 const PAGES_FONT = new Map()
 .set(2, new Map()
@@ -669,5 +672,8 @@ const PAGES_FONT = new Map()
 
 module.exports = {
     BASE_DIR: BASE_DIR,
-    PAGES_FONT: PAGES_FONT
+    PAGES_FONT: PAGES_FONT,
+    B: BREAK,
+    BT: BREAK_WITH_TAB,
+    BTT: BREAK_WITH_2_TABS
 } 

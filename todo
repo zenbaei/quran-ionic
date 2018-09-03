@@ -72,3 +72,16 @@ to be done:
 resize android hide tab button as ios
 check overflow event to change from justify to right algin
 re-add code for setting move down button dynamically
+
+
+revise those:
+        modified:   src/assets/data/mushaf/14/14.quran.html.json
+        modified:   src/assets/data/mushaf/304/304.quran.html.json
+        modified:   src/assets/data/mushaf/336/336.quran.html.json
+        modified:   src/assets/data/mushaf/443/443.quran.html.json
+        modified:   src/assets/data/mushaf/519/519.quran.html.json
+        modified:   src/assets/data/mushaf/523/523.quran.html.json
+        modified:   src/assets/data/mushaf/528/528.quran.html.json
+        modified:   src/assets/data/mushaf/573/573.quran.html.json
+        modified:   src/assets/data/mushaf/598/598.quran.html.json
+        modified:   src/assets/data/mushaf/604/604.quran.html.json

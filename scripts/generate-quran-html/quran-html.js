@@ -1,37 +1,35 @@
+"use strict";
+
 var Search = require('./search');
 var regexUtils = require('./regex-utils');
-const { PAGES_FONT } = require('./constants');
+const { PAGES_FONT, B, BT, BTT } = require('./constants');
 
-var EXCLUDE = '(?!<)'; // to prevent replacing word inside a span already
-
-function patchTafsirOverContent(tafsir, pageContent) {
+function patchTafsirOverContent(tafsir, content) {
     //console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
-    let pageContentCopy = pageContent;
 
-    let search = initSearch(tafsir, pageContentCopy);
+    let exclude = '(?!<)'; // to prevent replacing word inside a span already
+    let search = initSearch(tafsir, content, exclude);
 
     if (!search.test()) {
-        throw new Error(`Ayah [${tafsir.ayah}] not matching target [${pageContentCopy}]`);  // uncomment when dev
+        throw new Error(`Ayah [${tafsir.ayah}] not matching target [${content}]`);  // uncomment when dev
     }
 
     let matchedAyah = search.group().trim().replace(CHARS_TO_REMOVE, EMPTY);
     let replacement = `<a ${ANCHOR_ATT} data-content="${tafsir.tafsir}">${matchedAyah}</a>`;
 
-    let regex = new RegExp(matchedAyah + EXCLUDE);
-    pageContentCopy = pageContentCopy.replace(regex, replacement);
-
-    return pageContentCopy;
+    let regex = new RegExp(matchedAyah + search.exclude);
+    return content.replace(regex, replacement);
 }
 
-function initSearch(tafsir, pageContentCopy) {
+function initSearch(tafsir, content, exclude) {
     // in case of no normalization, do exact match
-    EXCLUDE = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ? '' : EXCLUDE;
+    exclude = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ? '' : exclude;
 
     let ayahToMatch = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ?
         tafsir.ayah.replace(NO_NORMALIZATION, '') :
         normalizeString(tafsir.ayah);
     
-    return new Search(ayahToMatch + EXCLUDE, pageContentCopy);
+    return new Search(ayahToMatch, content, exclude);
 }
 
 function surrondEachLineInDiv(content, pageNumber) {
@@ -40,9 +38,11 @@ function surrondEachLineInDiv(content, pageNumber) {
 
     lines.forEach((str, index) => {
         if (isCenteredLine(str, pageNumber)) {
-            newContent += `<div style="font-size:${DEFAULT_FONT_SIZE}" class='no-justify'><nobr>${str}</nobr></div>\n`;
+            newContent += 
+        `<div style="font-size:${DEFAULT_FONT_SIZE}" class='no-justify'>${BT}<nobr>${BTT}${str}${BT}</nobr>${B}</div>${B}`;
         } else {
-            newContent += `<div style="font-size:${getFontSize(pageNumber, index + 1)}"><nobr>${str}</nobr></div>\n`;
+            newContent += 
+                `<div style="font-size:${getFontSize(pageNumber, index + 1)}">${BT}<nobr>${BTT}${str}${BT}</nobr>${B}</div>${B}`;
         }
     });
     return newContent;

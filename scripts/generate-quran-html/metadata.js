@@ -23,11 +23,10 @@ function toObject(metadataJsonArr) {
 function findMetadataByPageNumber(pageNumber) {
     //console.debug(`Find quran page metadata by page number [${pageNumber}]`);
 
-    let filename = `${BASE_DIR}/${pageNumber}/${pageNumber}.metadata`;
+    let filename = `${BASE_DIR}/${pageNumber}/${pageNumber}.metadata.json`;
 
     return new Promise((resolve) => {
         fs.readFile(filename, { encoding: 'UTF-8' }, (err, data) => {
-            rewriteMetadataFileInPrettyFormat(filename, toObject(data));
             resolve(toObject(data));
         });
     })

@@ -1,114 +1,572 @@
-[{"surahName":"الفَاتِحَةِ","pageNumber":1, "surahNumber":1},
-{"surahName":"البَقَرَةِ","pageNumber":2, "surahNumber":2},
-{"surahName":"آلِ عِمۡرَانَ","pageNumber":50, "surahNumber":3},
-{"surahName":"النِّسَاءِ","pageNumber":77, "surahNumber":4},
-{"surahName":"المَائ‍ِدَةِ","pageNumber":106, "surahNumber":5},
-{"surahName":"الأَنعَامِ","pageNumber":128, "surahNumber":6},
-{"surahName":"الأَعۡرَافِ","pageNumber":151, "surahNumber":7},
-{"surahName":"الأَنفَالِ","pageNumber":177, "surahNumber":8},
-{"surahName":"التَّوۡبَةِ","pageNumber":187, "surahNumber":9},
-{"surahName":"يُونُسَ","pageNumber":208, "surahNumber":10},
-{"surahName":"هُودٍ","pageNumber":221, "surahNumber":11},
-{"surahName":"يُوسُفَ","pageNumber":235, "surahNumber":12},
-{"surahName":"الرَّعۡدِ","pageNumber":249, "surahNumber":13},
-{"surahName":"إِبۡرَاهِيمَ","pageNumber":255, "surahNumber":14},
-{"surahName":"الحِجۡرِ","pageNumber":262, "surahNumber":15},
-{"surahName":"النَّحۡلِ","pageNumber":267, "surahNumber":16},
-{"surahName":"الإِسۡرَاءِ","pageNumber":282, "surahNumber":17},
-{"surahName":"الكَهۡفِ","pageNumber":293, "surahNumber":18},
-{"surahName":"مَرۡيَمَ","pageNumber":305, "surahNumber":19},
-{"surahName":"طه","pageNumber":312, "surahNumber":20},
-{"surahName":"الأَنبيَاءِ","pageNumber":322, "surahNumber":21},
-{"surahName":"الحَجِّ","pageNumber":332, "surahNumber":22},
-{"surahName":"المُؤۡمِنُونَ","pageNumber":342, "surahNumber":23},
-{"surahName":"النُّورِ","pageNumber":350, "surahNumber":24},
-{"surahName":"الفُرۡقَانِ","pageNumber":359, "surahNumber":25},
-{"surahName":"الشُّعَرَاءِ","pageNumber":367, "surahNumber":26},
-{"surahName":"النَّمۡلِ","pageNumber":377, "surahNumber":27},
-{"surahName":"القَصَصِ","pageNumber":385, "surahNumber":28},
-{"surahName":"العَنكَبُوتِ","pageNumber":396, "surahNumber":29},
-{"surahName":"الرُّومِ","pageNumber":404, "surahNumber":30},
-{"surahName":"لُقۡمَانَ","pageNumber":411, "surahNumber":31},
-{"surahName":"السَّجۡدَةِ","pageNumber":415, "surahNumber":32},
-{"surahName":"الأَحۡزَابِ","pageNumber":418, "surahNumber":33},
-{"surahName":"سَبَإٍ","pageNumber":428, "surahNumber":34},
-{"surahName":"فَاطِرٍ","pageNumber":434, "surahNumber":35},
-{"surahName":"يسٓ","pageNumber":440, "surahNumber":36},
-{"surahName":"الصَّافَّاتِ","pageNumber":446, "surahNumber":37},
-{"surahName":"صٓ","pageNumber":453, "surahNumber":38},
-{"surahName":"الزُّمَرِ","pageNumber":458, "surahNumber":39},
-{"surahName":"غَافِرٍ","pageNumber":467, "surahNumber":40},
-{"surahName":"فُصِّلَتۡ","pageNumber":477, "surahNumber":41},
-{"surahName":"الشُّورَىٰ","pageNumber":483, "surahNumber":42},
-{"surahName":"الزُّخۡرُفِ","pageNumber":489, "surahNumber":43},
-{"surahName":"الدُّخَانِ","pageNumber":496, "surahNumber":44},
-{"surahName":"الجَاثِيةِ","pageNumber":499, "surahNumber":45},
-{"surahName":"الأَحۡقَافِ","pageNumber":502, "surahNumber":46},
-{"surahName":"مُحَمَّدٍ","pageNumber":507, "surahNumber":47},
-{"surahName":"الفَتۡحِ","pageNumber":511, "surahNumber":48},
-{"surahName":"الحُجُرَاتِ","pageNumber":515, "surahNumber":49},
-{"surahName":"قٓ","pageNumber":518, "surahNumber":50},
-{"surahName":"الذَّارِيَاتِ","pageNumber":520, "surahNumber":51},
-{"surahName":"الطُّورِ","pageNumber":523, "surahNumber":52},
-{"surahName":"النَّجۡمِ","pageNumber":526, "surahNumber":53},
-{"surahName":"القَمَرِ","pageNumber":528, "surahNumber":54},
-{"surahName":"الرَّحۡمَٰن","pageNumber":531, "surahNumber":55},
-{"surahName":"الوَاقِعَةِ","pageNumber":534, "surahNumber":56},
-{"surahName":"الحَدِيدِ","pageNumber":537, "surahNumber":57},
-{"surahName":"المُجَادلَةِ","pageNumber":542, "surahNumber":58},
-{"surahName":"الحَشۡرِ","pageNumber":545, "surahNumber":59},
-{"surahName":"المُمۡتَحنَةِ","pageNumber":549, "surahNumber":60},
-{"surahName":"الصَّفِّ","pageNumber":551, "surahNumber":61},
-{"surahName":"الجُمُعَةِ","pageNumber":553, "surahNumber":62},
-{"surahName":"المُنَافِقُونَ","pageNumber":554, "surahNumber":63},
-{"surahName":"التَّغَابُنِ","pageNumber":556, "surahNumber":64},
-{"surahName":"الطَّلَاقِ","pageNumber":558, "surahNumber":65},
-{"surahName":"التَّحۡرِيمِ","pageNumber":560, "surahNumber":66},
-{"surahName":"المُلۡكِ","pageNumber":562, "surahNumber":67},
-{"surahName":"القَلَمِ","pageNumber":564, "surahNumber":68},
-{"surahName":"الحَاقَّةِ","pageNumber":566, "surahNumber":69},
-{"surahName":"المَعَارِجِ","pageNumber":568, "surahNumber":70},
-{"surahName":"نُوحٍ","pageNumber":570, "surahNumber":71},
-{"surahName":"الجِنِّ","pageNumber":572, "surahNumber":72},
-{"surahName":"المُزَّمِّلِ","pageNumber":574, "surahNumber":73},
-{"surahName":"المُدَّثِّرِ","pageNumber":575, "surahNumber":74},
-{"surahName":"القِيَامَةِ","pageNumber":577, "surahNumber":75},
-{"surahName":"الإِنسَانِ","pageNumber":578, "surahNumber":76},
-{"surahName":"المُرۡسَلَاتِ","pageNumber":580, "surahNumber":77},
-{"surahName":"النَّبَإِ","pageNumber":582, "surahNumber":78},
-{"surahName":"النَّازِعَاتِ","pageNumber":583, "surahNumber":79},
-{"surahName":"عَبَسَ","pageNumber":585, "surahNumber":80},
-{"surahName":"التَّكۡوِيرِ","pageNumber":586, "surahNumber":81},
-{"surahName":"الانفِطَارِ","pageNumber":587, "surahNumber":82},
-{"surahName":"المُطَفِّفِينَ","pageNumber":587, "surahNumber":83},
-{"surahName":"الانشِقَاقِ","pageNumber":589, "surahNumber":84},
-{"surahName":"البُرُوجِ","pageNumber":590, "surahNumber":85},
-{"surahName":"الطَّارِقِ","pageNumber":591, "surahNumber":86},
-{"surahName":"الأَعۡلَىٰ","pageNumber":591, "surahNumber":87},
-{"surahName":"الغَاشِيَةِ","pageNumber":592, "surahNumber":88},
-{"surahName":"الفَجۡرِ","pageNumber":593, "surahNumber":89},
-{"surahName":"البَلَدِ","pageNumber":594, "surahNumber":90},
-{"surahName":"الشَّمۡسِ","pageNumber":595, "surahNumber":91},
-{"surahName":"اللَّيۡلِ","pageNumber":595, "surahNumber":92},
-{"surahName":"الضُّحَىٰ","pageNumber":596, "surahNumber":93},
-{"surahName":"الشَّرۡحِ","pageNumber":596, "surahNumber":94},
-{"surahName":"التِّينِ","pageNumber":597, "surahNumber":95},
-{"surahName":"العَلَقِ","pageNumber":597, "surahNumber":96},
-{"surahName":"القَدۡرِ","pageNumber":598, "surahNumber":97},
-{"surahName":"البَيِّنَةِ","pageNumber":598, "surahNumber":98},
-{"surahName":"الزَّلۡزَلَةِ","pageNumber":599, "surahNumber":99},
-{"surahName":"العَادِيَاتِ","pageNumber":599, "surahNumber":100},
-{"surahName":"القَارِعَةِ","pageNumber":600, "surahNumber":101},
-{"surahName":"التَّكَاثُرِ","pageNumber":600, "surahNumber":102},
-{"surahName":"العَصۡرِ","pageNumber":601, "surahNumber":103},
-{"surahName":"الهُمَزَةِ","pageNumber":601, "surahNumber":104},
-{"surahName":"الفِيلِ","pageNumber":601, "surahNumber":105},
-{"surahName":"قُرَيۡشٍ","pageNumber":602, "surahNumber":106},
-{"surahName":"المَاعُونِ","pageNumber":602, "surahNumber":107},
-{"surahName":"الكَوثَرِ","pageNumber":602, "surahNumber":108},
-{"surahName":"الكَافِرُونَ","pageNumber":603, "surahNumber":109},
-{"surahName":"النَّصۡرِ","pageNumber":603, "surahNumber":110},
-{"surahName":"المَسَدِ","pageNumber":603, "surahNumber":111},
-{"surahName":"الإِخۡلَاصِ","pageNumber":604, "surahNumber":112},
-{"surahName":"الفَلَقِ","pageNumber":604, "surahNumber":113},
-{"surahName":"النَّاسِ","pageNumber":604, "surahNumber":114}]
+[
+  {
+    "surahName": "الفَاتِحَةِ",
+    "pageNumber": 1,
+    "surahNumber": 1
+  },
+  {
+    "surahName": "البَقَرَةِ",
+    "pageNumber": 2,
+    "surahNumber": 2
+  },
+  {
+    "surahName": "آلِ عِمۡرَانَ",
+    "pageNumber": 50,
+    "surahNumber": 3
+  },
+  {
+    "surahName": "النِّسَاءِ",
+    "pageNumber": 77,
+    "surahNumber": 4
+  },
+  {
+    "surahName": "المَائ‍ِدَةِ",
+    "pageNumber": 106,
+    "surahNumber": 5
+  },
+  {
+    "surahName": "الأَنعَامِ",
+    "pageNumber": 128,
+    "surahNumber": 6
+  },
+  {
+    "surahName": "الأَعۡرَافِ",
+    "pageNumber": 151,
+    "surahNumber": 7
+  },
+  {
+    "surahName": "الأَنفَالِ",
+    "pageNumber": 177,
+    "surahNumber": 8
+  },
+  {
+    "surahName": "التَّوۡبَةِ",
+    "pageNumber": 187,
+    "surahNumber": 9
+  },
+  {
+    "surahName": "يُونُسَ",
+    "pageNumber": 208,
+    "surahNumber": 10
+  },
+  {
+    "surahName": "هُودٍ",
+    "pageNumber": 221,
+    "surahNumber": 11
+  },
+  {
+    "surahName": "يُوسُفَ",
+    "pageNumber": 235,
+    "surahNumber": 12
+  },
+  {
+    "surahName": "الرَّعۡدِ",
+    "pageNumber": 249,
+    "surahNumber": 13
+  },
+  {
+    "surahName": "إِبۡرَاهِيمَ",
+    "pageNumber": 255,
+    "surahNumber": 14
+  },
+  {
+    "surahName": "الحِجۡرِ",
+    "pageNumber": 262,
+    "surahNumber": 15
+  },
+  {
+    "surahName": "النَّحۡلِ",
+    "pageNumber": 267,
+    "surahNumber": 16
+  },
+  {
+    "surahName": "الإِسۡرَاءِ",
+    "pageNumber": 282,
+    "surahNumber": 17
+  },
+  {
+    "surahName": "الكَهۡفِ",
+    "pageNumber": 293,
+    "surahNumber": 18
+  },
+  {
+    "surahName": "مَرۡيَمَ",
+    "pageNumber": 305,
+    "surahNumber": 19
+  },
+  {
+    "surahName": "طه",
+    "pageNumber": 312,
+    "surahNumber": 20
+  },
+  {
+    "surahName": "الأَنبيَاءِ",
+    "pageNumber": 322,
+    "surahNumber": 21
+  },
+  {
+    "surahName": "الحَجِّ",
+    "pageNumber": 332,
+    "surahNumber": 22
+  },
+  {
+    "surahName": "المُؤۡمِنُونَ",
+    "pageNumber": 342,
+    "surahNumber": 23
+  },
+  {
+    "surahName": "النُّورِ",
+    "pageNumber": 350,
+    "surahNumber": 24
+  },
+  {
+    "surahName": "الفُرۡقَانِ",
+    "pageNumber": 359,
+    "surahNumber": 25
+  },
+  {
+    "surahName": "الشُّعَرَاءِ",
+    "pageNumber": 367,
+    "surahNumber": 26
+  },
+  {
+    "surahName": "النَّمۡلِ",
+    "pageNumber": 377,
+    "surahNumber": 27
+  },
+  {
+    "surahName": "القَصَصِ",
+    "pageNumber": 385,
+    "surahNumber": 28
+  },
+  {
+    "surahName": "العَنكَبُوتِ",
+    "pageNumber": 396,
+    "surahNumber": 29
+  },
+  {
+    "surahName": "الرُّومِ",
+    "pageNumber": 404,
+    "surahNumber": 30
+  },
+  {
+    "surahName": "لُقۡمَانَ",
+    "pageNumber": 411,
+    "surahNumber": 31
+  },
+  {
+    "surahName": "السَّجۡدَةِ",
+    "pageNumber": 415,
+    "surahNumber": 32
+  },
+  {
+    "surahName": "الأَحۡزَابِ",
+    "pageNumber": 418,
+    "surahNumber": 33
+  },
+  {
+    "surahName": "سَبَإٍ",
+    "pageNumber": 428,
+    "surahNumber": 34
+  },
+  {
+    "surahName": "فَاطِرٍ",
+    "pageNumber": 434,
+    "surahNumber": 35
+  },
+  {
+    "surahName": "يسٓ",
+    "pageNumber": 440,
+    "surahNumber": 36
+  },
+  {
+    "surahName": "الصَّافَّاتِ",
+    "pageNumber": 446,
+    "surahNumber": 37
+  },
+  {
+    "surahName": "صٓ",
+    "pageNumber": 453,
+    "surahNumber": 38
+  },
+  {
+    "surahName": "الزُّمَرِ",
+    "pageNumber": 458,
+    "surahNumber": 39
+  },
+  {
+    "surahName": "غَافِرٍ",
+    "pageNumber": 467,
+    "surahNumber": 40
+  },
+  {
+    "surahName": "فُصِّلَتۡ",
+    "pageNumber": 477,
+    "surahNumber": 41
+  },
+  {
+    "surahName": "الشُّورَىٰ",
+    "pageNumber": 483,
+    "surahNumber": 42
+  },
+  {
+    "surahName": "الزُّخۡرُفِ",
+    "pageNumber": 489,
+    "surahNumber": 43
+  },
+  {
+    "surahName": "الدُّخَانِ",
+    "pageNumber": 496,
+    "surahNumber": 44
+  },
+  {
+    "surahName": "الجَاثِيةِ",
+    "pageNumber": 499,
+    "surahNumber": 45
+  },
+  {
+    "surahName": "الأَحۡقَافِ",
+    "pageNumber": 502,
+    "surahNumber": 46
+  },
+  {
+    "surahName": "مُحَمَّدٍ",
+    "pageNumber": 507,
+    "surahNumber": 47
+  },
+  {
+    "surahName": "الفَتۡحِ",
+    "pageNumber": 511,
+    "surahNumber": 48
+  },
+  {
+    "surahName": "الحُجُرَاتِ",
+    "pageNumber": 515,
+    "surahNumber": 49
+  },
+  {
+    "surahName": "قٓ",
+    "pageNumber": 518,
+    "surahNumber": 50
+  },
+  {
+    "surahName": "الذَّارِيَاتِ",
+    "pageNumber": 520,
+    "surahNumber": 51
+  },
+  {
+    "surahName": "الطُّورِ",
+    "pageNumber": 523,
+    "surahNumber": 52
+  },
+  {
+    "surahName": "النَّجۡمِ",
+    "pageNumber": 526,
+    "surahNumber": 53
+  },
+  {
+    "surahName": "القَمَرِ",
+    "pageNumber": 528,
+    "surahNumber": 54
+  },
+  {
+    "surahName": "الرَّحۡمَٰن",
+    "pageNumber": 531,
+    "surahNumber": 55
+  },
+  {
+    "surahName": "الوَاقِعَةِ",
+    "pageNumber": 534,
+    "surahNumber": 56
+  },
+  {
+    "surahName": "الحَدِيدِ",
+    "pageNumber": 537,
+    "surahNumber": 57
+  },
+  {
+    "surahName": "المُجَادلَةِ",
+    "pageNumber": 542,
+    "surahNumber": 58
+  },
+  {
+    "surahName": "الحَشۡرِ",
+    "pageNumber": 545,
+    "surahNumber": 59
+  },
+  {
+    "surahName": "المُمۡتَحنَةِ",
+    "pageNumber": 549,
+    "surahNumber": 60
+  },
+  {
+    "surahName": "الصَّفِّ",
+    "pageNumber": 551,
+    "surahNumber": 61
+  },
+  {
+    "surahName": "الجُمُعَةِ",
+    "pageNumber": 553,
+    "surahNumber": 62
+  },
+  {
+    "surahName": "المُنَافِقُونَ",
+    "pageNumber": 554,
+    "surahNumber": 63
+  },
+  {
+    "surahName": "التَّغَابُنِ",
+    "pageNumber": 556,
+    "surahNumber": 64
+  },
+  {
+    "surahName": "الطَّلَاقِ",
+    "pageNumber": 558,
+    "surahNumber": 65
+  },
+  {
+    "surahName": "التَّحۡرِيمِ",
+    "pageNumber": 560,
+    "surahNumber": 66
+  },
+  {
+    "surahName": "المُلۡكِ",
+    "pageNumber": 562,
+    "surahNumber": 67
+  },
+  {
+    "surahName": "القَلَمِ",
+    "pageNumber": 564,
+    "surahNumber": 68
+  },
+  {
+    "surahName": "الحَاقَّةِ",
+    "pageNumber": 566,
+    "surahNumber": 69
+  },
+  {
+    "surahName": "المَعَارِجِ",
+    "pageNumber": 568,
+    "surahNumber": 70
+  },
+  {
+    "surahName": "نُوحٍ",
+    "pageNumber": 570,
+    "surahNumber": 71
+  },
+  {
+    "surahName": "الجِنِّ",
+    "pageNumber": 572,
+    "surahNumber": 72
+  },
+  {
+    "surahName": "المُزَّمِّلِ",
+    "pageNumber": 574,
+    "surahNumber": 73
+  },
+  {
+    "surahName": "المُدَّثِّرِ",
+    "pageNumber": 575,
+    "surahNumber": 74
+  },
+  {
+    "surahName": "القِيَامَةِ",
+    "pageNumber": 577,
+    "surahNumber": 75
+  },
+  {
+    "surahName": "الإِنسَانِ",
+    "pageNumber": 578,
+    "surahNumber": 76
+  },
+  {
+    "surahName": "المُرۡسَلَاتِ",
+    "pageNumber": 580,
+    "surahNumber": 77
+  },
+  {
+    "surahName": "النَّبَإِ",
+    "pageNumber": 582,
+    "surahNumber": 78
+  },
+  {
+    "surahName": "النَّازِعَاتِ",
+    "pageNumber": 583,
+    "surahNumber": 79
+  },
+  {
+    "surahName": "عَبَسَ",
+    "pageNumber": 585,
+    "surahNumber": 80
+  },
+  {
+    "surahName": "التَّكۡوِيرِ",
+    "pageNumber": 586,
+    "surahNumber": 81
+  },
+  {
+    "surahName": "الانفِطَارِ",
+    "pageNumber": 587,
+    "surahNumber": 82
+  },
+  {
+    "surahName": "المُطَفِّفِينَ",
+    "pageNumber": 587,
+    "surahNumber": 83
+  },
+  {
+    "surahName": "الانشِقَاقِ",
+    "pageNumber": 589,
+    "surahNumber": 84
+  },
+  {
+    "surahName": "البُرُوجِ",
+    "pageNumber": 590,
+    "surahNumber": 85
+  },
+  {
+    "surahName": "الطَّارِقِ",
+    "pageNumber": 591,
+    "surahNumber": 86
+  },
+  {
+    "surahName": "الأَعۡلَىٰ",
+    "pageNumber": 591,
+    "surahNumber": 87
+  },
+  {
+    "surahName": "الغَاشِيَةِ",
+    "pageNumber": 592,
+    "surahNumber": 88
+  },
+  {
+    "surahName": "الفَجۡرِ",
+    "pageNumber": 593,
+    "surahNumber": 89
+  },
+  {
+    "surahName": "البَلَدِ",
+    "pageNumber": 594,
+    "surahNumber": 90
+  },
+  {
+    "surahName": "الشَّمۡسِ",
+    "pageNumber": 595,
+    "surahNumber": 91
+  },
+  {
+    "surahName": "اللَّيۡلِ",
+    "pageNumber": 595,
+    "surahNumber": 92
+  },
+  {
+    "surahName": "الضُّحَىٰ",
+    "pageNumber": 596,
+    "surahNumber": 93
+  },
+  {
+    "surahName": "الشَّرۡحِ",
+    "pageNumber": 596,
+    "surahNumber": 94
+  },
+  {
+    "surahName": "التِّينِ",
+    "pageNumber": 597,
+    "surahNumber": 95
+  },
+  {
+    "surahName": "العَلَقِ",
+    "pageNumber": 597,
+    "surahNumber": 96
+  },
+  {
+    "surahName": "القَدۡرِ",
+    "pageNumber": 598,
+    "surahNumber": 97
+  },
+  {
+    "surahName": "البَيِّنَةِ",
+    "pageNumber": 598,
+    "surahNumber": 98
+  },
+  {
+    "surahName": "الزَّلۡزَلَةِ",
+    "pageNumber": 599,
+    "surahNumber": 99
+  },
+  {
+    "surahName": "العَادِيَاتِ",
+    "pageNumber": 599,
+    "surahNumber": 100
+  },
+  {
+    "surahName": "القَارِعَةِ",
+    "pageNumber": 600,
+    "surahNumber": 101
+  },
+  {
+    "surahName": "التَّكَاثُرِ",
+    "pageNumber": 600,
+    "surahNumber": 102
+  },
+  {
+    "surahName": "العَصۡرِ",
+    "pageNumber": 601,
+    "surahNumber": 103
+  },
+  {
+    "surahName": "الهُمَزَةِ",
+    "pageNumber": 601,
+    "surahNumber": 104
+  },
+  {
+    "surahName": "الفِيلِ",
+    "pageNumber": 601,
+    "surahNumber": 105
+  },
+  {
+    "surahName": "قُرَيۡشٍ",
+    "pageNumber": 602,
+    "surahNumber": 106
+  },
+  {
+    "surahName": "المَاعُونِ",
+    "pageNumber": 602,
+    "surahNumber": 107
+  },
+  {
+    "surahName": "الكَوثَرِ",
+    "pageNumber": 602,
+    "surahNumber": 108
+  },
+  {
+    "surahName": "الكَافِرُونَ",
+    "pageNumber": 603,
+    "surahNumber": 109
+  },
+  {
+    "surahName": "النَّصۡرِ",
+    "pageNumber": 603,
+    "surahNumber": 110
+  },
+  {
+    "surahName": "المَسَدِ",
+    "pageNumber": 603,
+    "surahNumber": 111
+  },
+  {
+    "surahName": "الإِخۡلَاصِ",
+    "pageNumber": 604,
+    "surahNumber": 112
+  },
+  {
+    "surahName": "الفَلَقِ",
+    "pageNumber": 604,
+    "surahNumber": 113
+  },
+  {
+    "surahName": "النَّاسِ",
+    "pageNumber": 604,
+    "surahNumber": 114
+  }
+]
