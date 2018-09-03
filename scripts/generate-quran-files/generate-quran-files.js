@@ -16,6 +16,9 @@ const L4 = L3 + '\t';
 const ANCHOR_OPENING = '<a ';
 const ANCHOR_CLOSING = '</a> ';
 const ANCHOR_BODY = "'top'>";
+let generatePageNu = process.argv[2];
+let start = (generatePageNu) ? generatePageNu : 1;
+let end = (generatePageNu) ? generatePageNu : 604;
 
 (function start() {
     index.getQuranIndex().then((val) => {
@@ -26,7 +29,7 @@ const ANCHOR_BODY = "'top'>";
 
 var read = () => {
     for (let name of ['quran', 'android.quran']) { 
-        for (let i = 1; i <= 604; i++) {
+        for (let i = start; i <= end; i++) {
             let filename = `${BASE_DIR}/${i}/${i}.${name}`;
             fs.readFile(filename, { encoding: 'UTF-8' }, (err, data) => {
                 generateQuranHtml(i, data, filename, write);
@@ -37,9 +40,8 @@ var read = () => {
 
 var write = (filename, quran) => {
     let file = filename + '.html.json';
-    console.log(`Writing file: ${file}`);
-    var formatted = formatData(JSON.stringify(quran, null, '\t'));
-    fs.writeFile(file, formatted, (err) => { });
+    console.log(`Writing file: ${file}`);    
+    fs.writeFile(file, JSON.stringify(quran, null, '\t'), (err) => { });
 }
 
 function generateQuranHtml(pageNumber, data, filename) {
@@ -83,17 +85,6 @@ function isTafsirWithinCurrentPage(tafsir, metadata) {
         return true;
     }
     return false;
-}
-
-function formatData(data) {
-    var result = stringUtils.replaceAll(data, B, L1);
-    result = stringUtils.replaceAll(result, BT, L2);
-    result = stringUtils.replaceAll(result, BTT, L3);
-    result = stringUtils.replaceAll(result, ANCHOR_OPENING, L3 + ANCHOR_OPENING);
-    result = stringUtils.replaceAll(result, ANCHOR_CLOSING, L3 + ANCHOR_CLOSING + L3);
-    result = stringUtils.replaceAll(result, ANCHOR_BODY, ANCHOR_BODY + L4);
-    
-    return result;
 }
 
 

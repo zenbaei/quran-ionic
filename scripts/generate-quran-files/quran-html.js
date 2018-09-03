@@ -6,9 +6,7 @@ const { PAGES_FONT, B, BT, BTT } = require('./constants');
 
 function patchTafsirOverContent(tafsir, content) {
     //console.debug(`Patch tafsir on quran page content - ayah ${tafsir.ayah}`);
-
-    let exclude = '(?!<)'; // to prevent replacing word inside a span already
-    let search = initSearch(tafsir, content, exclude);
+    let search = initSearch(tafsir, content);
 
     if (!search.test()) {
         throw new Error(`Ayah [${tafsir.ayah}] not matching target [${content}]`);  // uncomment when dev
@@ -21,7 +19,8 @@ function patchTafsirOverContent(tafsir, content) {
     return content.replace(regex, replacement);
 }
 
-function initSearch(tafsir, content, exclude) {
+function initSearch(tafsir, content) {
+    let exclude = '(?!<)'; // to prevent replacing word inside a span already
     // in case of no normalization, do exact match
     exclude = tafsir.ayah.indexOf(NO_NORMALIZATION) > -1 ? '' : exclude;
 

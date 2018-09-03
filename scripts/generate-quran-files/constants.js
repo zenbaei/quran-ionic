@@ -1,9 +1,9 @@
 BASE_DIR = '../../src/assets/data/mushaf';
 
 const BIGGER_FONT = 5.1;
-const BREAK = '</br>';
-const BREAK_WITH_TAB = '</bt>';
-const BREAK_WITH_2_TABS = '</btt>';
+const BREAK = '';
+const BREAK_WITH_TAB = '';//'</b>';
+const BREAK_WITH_2_TABS = ''; //'</btt>';
 
 const PAGES_FONT = new Map()
 .set(2, new Map()

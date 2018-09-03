@@ -1,66 +1,6 @@
 {
 	"pageNumber": 1,
-	"data": "<div style='font-size:4.8vw' class='no-justify'>
-			<nobr>
-				سُورَةُ الفَاتِحَةِ
-			</nobr>
-		</div>
-		<div style='font-size:4.8vw'>
-			<nobr>
-				بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ١ 
-			</nobr>
-		</div>
-		<div style='font-size:4.8vw'>
-			<nobr>
-				ٱلۡحَمۡدُ لِلَّهِ 
-				<a data-content='مربّيهم ومالكهم ومدبر أمورهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
-					رَبِّ ٱلۡعَٰلَمِينَ
-				</a> 
-				٢ 
-			</nobr>
-		</div>
-		<div style='font-size:4.8vw'>
-			<nobr>
-				ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ٣ مَٰلِكِ 
-				<a data-content='يوم الجزاء' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
-					يَوۡمِ ٱلدِّينِ
-				</a> 
-				٤ 
-			</nobr>
-		</div>
-		<div style='font-size:4.8vw'>
-			<nobr>
-				إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ ٥ ٱهۡدِنَا 
-			</nobr>
-		</div>
-		<div style='font-size:4.8vw'>
-			<nobr>
-				
-				<a data-content='وفّقنا للثّبات على الطريق الواضح الذي لا اعوجاج فيه وهو الإسلام' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
-					ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ
-				</a> 
-				٦ صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ 
-			</nobr>
-		</div>
-		<div style='font-size:4.8vw'>
-			<nobr>
-				عَلَيۡهِمۡ غَيۡرِ 
-				<a data-content='اليهود' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
-					ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ
-				</a> 
-				
-			</nobr>
-		</div>
-		<div style='font-size:4.8vw'>
-			<nobr>
-				وَلَا 
-				<a data-content='النصارى وكذا أشباههم في الضلال' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>
-					ٱلضَّآلِّينَ
-				</a> 
-				٧
-			</nobr>
-		</div>
-		",
+	"data": "<div style='font-size:4.8vw' class='no-justify'><nobr>سُورَةُ الفَاتِحَةِ</nobr></div><div style='font-size:4.8vw'><nobr>بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ١ </nobr></div><div style='font-size:4.8vw'><nobr>ٱلۡحَمۡدُ لِلَّهِ <a data-content='مربّيهم ومالكهم ومدبر أمورهم' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>رَبِّ ٱلۡعَٰلَمِينَ</a> ٢ </nobr></div><div style='font-size:4.8vw'><nobr>ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ٣ مَٰلِكِ <a data-content='يوم الجزاء' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>يَوۡمِ ٱلدِّينِ</a> ٤ </nobr></div><div style='font-size:4.8vw'><nobr>إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ ٥ ٱهۡدِنَا </nobr></div><div style='font-size:4.8vw'><nobr><a data-content='وفّقنا للثّبات على الطريق الواضح الذي لا اعوجاج فيه وهو الإسلام' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ</a> ٦ صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ </nobr></div><div style='font-size:4.8vw'><nobr>عَلَيۡهِمۡ غَيۡرِ <a data-content='اليهود' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ</a> </nobr></div><div style='font-size:4.8vw'><nobr>وَلَا <a data-content='النصارى وكذا أشباههم في الضلال' tabindex='0' role='button' class='fake-link tafsir' data-toggle='popover' data-placement='top'>ٱلضَّآلِّينَ</a> ٧</nobr></div>",
 	"hezb": "الحزب 1",
 	"goze": 1,
 	"surahName": "الفَاتِحَةِ"

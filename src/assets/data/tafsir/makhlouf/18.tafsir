@@ -730,7 +730,7 @@
 		"tafsir": "فنيَ وفَرغ"
 	},
 	{
-		"ayah": "مَدَدًا",
+		"ayah": "مَدَدًا\\noNormalization",
 		"ayahNumber": 98,
 		"tafsir": "عونا وزيادة"
 	}

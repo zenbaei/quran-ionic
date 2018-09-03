@@ -46,11 +46,11 @@ export class QuranPage {
     this.platform.ready().then(() => {
       this.orientationChangedEvent();
       this.subscribeToEvents();
-      /*
+      
       var self = this;
       $(function () {
         self.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
-      })*/
+      })
     });
   }
 
@@ -84,7 +84,7 @@ export class QuranPage {
 
   loadSavedPageOnStart() {
     this.quranService.getSavedPageNumber().then(pageNumber => {
-      this.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
+     // this.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
       $('#flipbook').turn('page', pageNumber);
       this.getInfoMsg(pageNumber).then((msg) => this.showInfoToast(msg));
     });
@@ -130,11 +130,11 @@ export class QuranPage {
     var element = $('<div/>', {});
 
     if (book.turn('addPage', element, page)) {
-      this.storage.get(page).then((val) => {
+      this.quranService.find(page, this.isAndroid()).subscribe((quran) => {
         let innerDiv = `<div class="${this.evaluateBorderClasses(page)}">
             <div style="background-color: aliceblue" class="${this.evaluatePaddingClasses(page)}">
               <div id="font-selector" class="${this.evaluateContentClasses(page)}">
-                ${JSON.parse(val).data}
+                ${quran.data}
               </div>
             </div>
           </div>`
@@ -253,12 +253,10 @@ export class QuranPage {
 
   private getInfoMsg(pageNumber: number): Promise<string> {
     return new Promise((resolve) => {
-      this.storage.get(pageNumber.toString()).then((val) => {
-        let json: any = JSON.parse(val);
-        resolve(`${json.surahName} - (الجزء ${json.goze} - ${json.hezb})`);
+      this.quranService.find(pageNumber, this.isAndroid()).subscribe((quran) => {
+        resolve(`${quran.surahName} - (الجزء ${quran.goze} - ${quran.hezb})`);
       });
     });
-
   }
 
   private fontChangedEvent(operator: Operator) {
@@ -434,6 +432,20 @@ export class QuranPage {
     return `برجاء الإنتباه عند تكبير الخط أنه قد تتجاوز بعض سطور المصحف إطار الشاشة وذلك نظرا لإختلاف أطوال السطور. `
       + `${platformMsg} بتصغير الخط مرة اخرى ليظهر لك السطر كاملا.`;
   }
+
+  /*
+  var formatted = formatData(JSON.stringify(quran, null, '\t'));
+function formatData(data) {
+    var result = stringUtils.replaceAll(data, B, L1);
+    result = stringUtils.replaceAll(result, BT, L2);
+    result = stringUtils.replaceAll(result, BTT, L3);
+    result = stringUtils.replaceAll(result, ANCHOR_OPENING, L3 + ANCHOR_OPENING);
+    result = stringUtils.replaceAll(result, ANCHOR_CLOSING, L3 + ANCHOR_CLOSING + L3);
+    result = stringUtils.replaceAll(result, ANCHOR_BODY, ANCHOR_BODY + L4);
+
+    return result;
+}
+*/
 
 }
 
