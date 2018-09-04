@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Content, Toast, Platform } from 'ionic-angular';
+import { Content, Toast, Platform, Gesture } from 'ionic-angular';
 import { QuranService } from '../../app/service/quran/quran-service';
 import { AppUtils } from "../../app/util/app-utils/app-utils";
 import * as Constants from '../../app/all/constants';
@@ -22,9 +22,12 @@ declare var $: any;
 export class QuranPage {
 
   @ViewChild(Content) content: Content;
+  @ViewChild('container') container;
+  private gesture: Gesture;
   private infoToast: Toast;
   private fontToast: Toast;
   private readonly EXTEND_LINE_HEIGHT_CLASS: string = 'line-height-extended';
+  private isZoomed: boolean = false;
 
   constructor(private quranService: QuranService,
     private toastCtl: ToastController,
@@ -37,6 +40,7 @@ export class QuranPage {
       this.orientationChangedEvent();
       this.subscribeToEvents();
       this.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
+      //this.addPinchEvents();
     });
   }
 
@@ -73,6 +77,41 @@ export class QuranPage {
       this.showInfoToast(this.getInfoMsg(pageNumber)); //doesn't work when navigating to not loaded page becoz fetching page is not done yet
       // $(this).turn('data').hover = true; adding data
     });
+  }
+
+  addPinchEvents() {
+    // working but only the font is not increased
+    this.gesture = new Gesture(this.container.nativeElement);   
+    this.gesture.listen();
+
+    this.gesture.on('doubletap', (e:Event) => {
+      this.isZoomed = !this.isZoomed;
+      if (this.isZoomed) {
+        this.zoomIn();
+      } else {
+        this.zoomOut();
+      }
+      
+      console.log(e.type);      
+    });
+
+    this.gesture.on('pinchout',() => {
+        console.log('pinchout');
+         //this.zoomIn();
+     });
+     this.gesture.on('pinchout',() => {
+      console.log('pinchout');
+       //this.zoomIn();
+      
+   });
+  }
+
+  private zoomIn() {
+    $("#flipbook").turn('zoom', 2);
+  }
+
+  private zoomOut() {
+    $("#flipbook").turn('zoom', 1);
   }
 
   private executeWhenPageIsTurned() {
