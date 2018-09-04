@@ -59,6 +59,9 @@ page-quran {
 
 .ios {
     page-quran {
+        .mushaf-padding {
+            padding: 3% 2% 0 2%;
+        }
         .ios-justify {
             white-space: normal !important;
             div:after {
@@ -70,9 +73,9 @@ page-quran {
             }
         }
         @media screen and (orientation: portrait) {
-            line-height: 2.9vh;
+            line-height: 3vh;
             .line-height-extended {
-                line-height: 3.5vh;
+                line-height: 3.2vh;
             }
         }
         @media screen and (orientation: landscape) {

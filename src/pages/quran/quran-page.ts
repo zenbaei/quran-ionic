@@ -305,9 +305,7 @@ export class QuranPage {
 
   private orientationChangedEvent() {
     console.debug(`Orientation is: ${this.orientation.type}`);
-
-    this.clearPopover();
-    this.dismissInfoToast();
+    this.ionViewWillLeave();
 
     /*
     this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
@@ -420,6 +418,9 @@ export class QuranPage {
    * This flag is used in the html to set the corresponding css class.
    */
   tabToggledEventAction(status: Constants.Status) {
+    if (!this.isPortrait()) {
+      return;
+    }
     if (status === Constants.Status.HIDDEN) {
       $('#flipbook').addClass(this.EXTEND_LINE_HEIGHT_CLASS);
     } else {
