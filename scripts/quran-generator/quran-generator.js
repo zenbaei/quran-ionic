@@ -4,7 +4,7 @@ var fs = require('fs');
 var metadata = require('./metadata');
 var index = require('.');
 var tafsir = require('./tafsir');
-var quranHtml = require('./quran-html')
+var quranMarkup = require('./quran-markup')
 var Quran = require('./quran');
 var stringUtils = require('./string-utils')
 const { B, BT, BTT } = require('./constants');
@@ -49,7 +49,7 @@ function generateQuranHtml(pageNumber, data, filename) {
         .then(metas => {
             buildHtmlContent(metas, data, 0).then(val => { 
                 let quran = new Quran(pageNumber);
-                quran.data = quranHtml.surrondEachLineInDiv(val, pageNumber);
+                quran.data = quranMarkup.surrondEachLineInDiv(val, pageNumber);
                 setGozeAndHezbAndSurahName(quran, metas[0]);
                 write(filename, quran);
              });
@@ -69,7 +69,7 @@ function getTafsirByMetadata(meta, data) {
         .then(tafsirArr => {
             tafsirArr
                 .filter(tafsir => isTafsirWithinCurrentPage(tafsir, meta))
-                .forEach(tafsir => data = quranHtml.patchTafsirOverContent(tafsir, data));
+                .forEach(tafsir => data = quranMarkup.patchTafsirOverContent(tafsir, data));
             return data;
         })
 }

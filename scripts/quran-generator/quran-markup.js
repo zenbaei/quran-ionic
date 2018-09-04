@@ -68,8 +68,8 @@ function isCenteredLine(str, pageNumber) {
 }
 
 function getFontSize(pageNumber, lineNumber) {
-    let lnNuFtSz = PAGES_FONT.get(pageNumber);
-    if (lnNuFtSz != null && lnNuFtSz.get(lineNumber) != null) {
+    let lnNuFtSz = PAGES_FONT.get(Number(pageNumber));
+    if (lnNuFtSz && lnNuFtSz.get(lineNumber)) {
         return lnNuFtSz.get(lineNumber) + 'vw';
     }
     return DEFAULT_FONT_SIZE;

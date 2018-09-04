@@ -715,7 +715,7 @@
 		"tafsir": "تحوّلا وانتقالا"
 	},
 	{
-		"ayah": "مِدادًا",
+		"ayah": "مِدَادٗا\\noNormalization",
 		"ayahNumber": 109,
 		"tafsir": "هو المّادة التي يكتب بها"
 	},
@@ -730,8 +730,8 @@
 		"tafsir": "فنيَ وفَرغ"
 	},
 	{
-		"ayah": "مَدَدًا\\noNormalization",
-		"ayahNumber": 98,
+		"ayah": "مَدَدٗا\\noNormalization",
+		"ayahNumber": 109,
 		"tafsir": "عونا وزيادة"
 	}
 ]

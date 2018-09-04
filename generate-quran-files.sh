@@ -1,3 +1,3 @@
 # pkill -9 node
-cd ./scripts/generate-quran-files/ && node generate-quran-files.js ${1}
+cd ./scripts/quran-generator/ && node quran-generator.js ${1}
 

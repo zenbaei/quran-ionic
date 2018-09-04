@@ -4,7 +4,7 @@
       <ion-list radio-group [(ngModel)]="goToRadio" name="goToRadio">
         <ion-item>
           <ion-input #input [(ngModel)]='pageNumber' type="text" 
-            placeholder="رقم الصفحة" name='pageNumber' (focus)='selectRadio()'></ion-input>
+            placeholder="رقم الصفحة" name='pageNumber' (focus)='onFocus()'></ion-input>
           <ion-radio #pageInputRadio value="page"></ion-radio>
         </ion-item>
         <ion-item>
@@ -20,7 +20,7 @@
             <ion-radio value={{Bookmark.different}} [disabled]="isDifferentBookmarkDisabled"></ion-radio>
           </ion-item>
         <ion-item>
-          <button style="width:50px" ion-button type="submit">موافــق</button>
+          <button style="width:50px" ion-button type="submit">ذهــاب</button>
           <button ion-button type="button" (click)='cancel()'>إلـغـــاء</button>
         </ion-item>
       </ion-list>

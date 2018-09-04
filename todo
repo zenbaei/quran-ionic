@@ -85,3 +85,9 @@ revise those:
         modified:   src/assets/data/mushaf/573/573.quran.html.json
         modified:   src/assets/data/mushaf/598/598.quran.html.json
         modified:   src/assets/data/mushaf/604/604.quran.html.json
+
+
+missing functionality:
+    show info msg when navigating to surah first time
+    extending page
+    surah bakarh background

@@ -1,5 +1,5 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { PopoverController, Tabs, Tab, Events, NavController } from 'ionic-angular';
+import { PopoverController, Tabs, Tab, Events } from 'ionic-angular';
 import { ContentPage } from '../content/content';
 import { QuranPage } from '../quran/quran-page';
 import { GoToPopoverPage } from '../go-to-popover/go-to-popover';
@@ -23,8 +23,8 @@ export class TabsPage {
   tab1Root = QuranPage;
   tab2Root = ContentPage;
   params = {}; // this object is passed through [rootParams] in tabs.html
-  surahName: string = '1';
-  pageNumber: string = '1';
+  surahName: string = 'surahName'; //if not initialized it won't show up
+  pageNumber: string = '';
   isTabCtlEnabled: boolean = true;
   showFontCtls: boolean = false;
   showLineHeightCtls: boolean = false;
@@ -32,7 +32,7 @@ export class TabsPage {
   tabMarginHeight: string;
 
   constructor(private popoverCtrl: PopoverController, private cdRef: ChangeDetectorRef,
-    private orientation: ScreenOrientation, private events: Events, private nav: NavController) {
+    private orientation: ScreenOrientation, private events: Events) {
     this.subscribeToEvents();
   }
 
@@ -48,9 +48,14 @@ export class TabsPage {
   }
 
   ngAfterViewChecked() {
-    this.surahName = sessionStorage.getItem(Constants.SURAH_NAME);
-    this.pageNumber = sessionStorage.getItem(Constants.PAGE_NUMBER);
+    this.setPageInfo();
     this.cdRef.detectChanges();
+  }
+
+  setPageInfo() {
+    this.pageNumber = sessionStorage.getItem(Constants.PAGE_NUMBER);
+    let quran = JSON.parse(sessionStorage.getItem(this.pageNumber));
+    this.surahName = (quran) ? quran.surahName : '';
   }
 
   /**

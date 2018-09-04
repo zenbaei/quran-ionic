@@ -16,7 +16,7 @@ export class GoToPopoverPage {
   isReadBookmarkDisabled: boolean = true;
   isStudyBookmarkDisabled: boolean = true;
   isDifferentBookmarkDisabled: boolean = true;
-  goToRadio: string = '';
+  goToRadio: string = 'page';
   Bookmark: any = Constants.Bookmark;
 
   constructor(private navParams: NavParams, private viewCtrl: ViewController,
@@ -49,11 +49,12 @@ export class GoToPopoverPage {
 
   ngAfterViewChecked() {
     this.pageNumberEl.setFocus();
+    //this.onFocus();
     this.cdRef.detectChanges();
   }
 
-  selectRadio() {
-    this.pageInputRadioEl.checked = true;
+  onFocus() {
+   // this.pageInputRadioEl.checked = true;
   }
 
   goTo() {

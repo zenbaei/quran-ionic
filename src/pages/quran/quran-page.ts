@@ -1,11 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Content, Toast, Platform } from 'ionic-angular';
 import { QuranService } from '../../app/service/quran/quran-service';
-import { IndexService } from '../../app/service/index/index-service';
-import { Tafsir } from '../../app/domain/tafsir';
-import { TafsirService } from '../../app/service/tafsir/tafsir-service';
-import { QuranPageMetadata } from '../../app/domain/quran-page-metadata';
-import { QuranServiceHelper } from '../../app/service/quran/quran-service-helper';
 import { AppUtils } from "../../app/util/app-utils/app-utils";
 import * as Constants from '../../app/all/constants';
 import { ToastController } from 'ionic-angular';
@@ -16,7 +11,7 @@ import { NumberUtils } from "../../app/util/number-utils/number-utils";
 import { timer } from 'rxjs/observable/timer';
 import { Storage } from '@ionic/storage';
 import { Quran } from '../../app/domain/quran';
-import { Observable } from 'rxjs';
+
 
 declare var $: any;
 
@@ -27,14 +22,9 @@ declare var $: any;
 export class QuranPage {
 
   @ViewChild(Content) content: Content;
-  private pageContent: string = '';
-  private currentPageNumber: number = -1;
-  private gozeAndHezb: string = '';
-  private surahName: string = '';
   private infoToast: Toast;
   private fontToast: Toast;
-  private extendLineHeight: boolean = false;
-  qurans: Promise<Quran[]>;
+  private readonly EXTEND_LINE_HEIGHT_CLASS: string = 'line-height-extended';
 
   constructor(private quranService: QuranService,
     private toastCtl: ToastController,
@@ -46,11 +36,7 @@ export class QuranPage {
     this.platform.ready().then(() => {
       this.orientationChangedEvent();
       this.subscribeToEvents();
-      
-      var self = this;
-      $(function () {
-        self.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
-      })
+      this.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
     });
   }
 
@@ -69,12 +55,11 @@ export class QuranPage {
 
   /**
    * Fires whenever the tab is reclicked without being on another tab.
+   * Called when using go to functionality as well.
    */
   ionSelected() {
     // ionViewWillLeave is called
-    this.quranService.getSavedPageNumber().then(pageNumber => {
-      this.getInfoMsg(pageNumber).then(msg => this.showInfoToast(msg));
-    })
+    this.loadSavedPageOnStart();
   }
 
   /**
@@ -84,9 +69,9 @@ export class QuranPage {
 
   loadSavedPageOnStart() {
     this.quranService.getSavedPageNumber().then(pageNumber => {
-     // this.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
       $('#flipbook').turn('page', pageNumber);
-      this.getInfoMsg(pageNumber).then((msg) => this.showInfoToast(msg));
+      this.showInfoToast(this.getInfoMsg(pageNumber)); //doesn't work when navigating to not loaded page becoz fetching page is not done yet
+      // $(this).turn('data').hover = true; adding data
     });
   }
 
@@ -111,10 +96,12 @@ export class QuranPage {
       when: {
         turning: function (e, page, view) {
           self.ionViewWillLeave();
+          self.saveCurrentPageNumber(page);
         },
         missing: function (e, pages) {
-          for (var i = 0; i < pages.length; i++)
+          for (var i = 0; i < pages.length; i++) {
             self.addPage(pages[i], $(this));
+          }
         },
         end: function (e, pages) {
           self.executeWhenPageIsTurned();
@@ -123,15 +110,13 @@ export class QuranPage {
     });
   }
 
-
-
   private addPage(page, book) {
-    var id, pages = book.turn('pages');
     var element = $('<div/>', {});
 
     if (book.turn('addPage', element, page)) {
       this.quranService.find(page, this.isAndroid()).subscribe((quran) => {
-        let innerDiv = `<div class="${this.evaluateBorderClasses(page)}">
+        this.savePageInfo(quran);
+        let innerDiv = `<div id="border" class="${this.evaluateBorderClasses(page)}">
             <div style="background-color: aliceblue" class="${this.evaluatePaddingClasses(page)}">
               <div id="font-selector" class="${this.evaluateContentClasses(page)}">
                 ${quran.data}
@@ -143,6 +128,21 @@ export class QuranPage {
     }
   }
 
+  saveCurrentPageNumber(page: number) {
+    this.quranService.savePageNumber(page);
+    sessionStorage.setItem(Constants.PAGE_NUMBER, page.toString()); //used in tabs.ts, using value from sqllite doesnt work
+  }
+
+  savePageInfo(quran: Quran) {
+    let info = {
+      surahName: quran.surahName,
+      pageNumber: quran.pageNumber,
+      goze: quran.goze,
+      hezb: quran.hezb
+    }
+    sessionStorage.setItem(quran.pageNumber.toString(), JSON.stringify(info));
+  }
+
   evaluateBorderClasses(page: number): string {
     let classes: string = '';
 
@@ -151,11 +151,7 @@ export class QuranPage {
     } else {
       classes = 'mushaf-container';
     }
-
-    if (this.extendLineHeight) {
-      classes += ', line-height-extended';
-    }
-
+    
     return classes;
   }
 
@@ -185,9 +181,6 @@ export class QuranPage {
     } else if (event.direction === 4) {
       $('#flipbook').turn('next');
     }
-
-    let pageNumber: number = $('#flipbook').turn('page');
-    this.quranService.savePageNumber(pageNumber);
   }
 
   public tapEvent(event: any): void {
@@ -202,7 +195,7 @@ export class QuranPage {
       this.lineHeightChangedEvent(operator)
     });
     this.events.subscribe(Constants.EVENT_TOGGLE_TAB, (status: Constants.Status) => {
-      this.setContentLineHeightFlag(status)
+      this.tabToggledEventAction(status)
     });
     this.orientation.onChange().subscribe(() =>
       timer(100).subscribe(() =>
@@ -251,12 +244,13 @@ export class QuranPage {
     }
   }
 
-  private getInfoMsg(pageNumber: number): Promise<string> {
-    return new Promise((resolve) => {
-      this.quranService.find(pageNumber, this.isAndroid()).subscribe((quran) => {
-        resolve(`${quran.surahName} - (الجزء ${quran.goze} - ${quran.hezb})`);
-      });
-    });
+  private getInfoMsg(pageNumber: number): string {
+    var quran = JSON.parse(sessionStorage.getItem(pageNumber.toString()));
+    if (!quran) {
+      return '';
+    }
+    var gozeAndHezb = `الجـزء ${quran.goze} - ${quran.hezb}`;
+    return `${quran.surahName} - (${gozeAndHezb})`;
   }
 
   private fontChangedEvent(operator: Operator) {
@@ -386,9 +380,17 @@ export class QuranPage {
   /**
    * This flag is used in the html to set the corresponding css class.
    */
-  setContentLineHeightFlag(status: Constants.Status) {
-    this.extendLineHeight = (status === Constants.Status.HIDDEN) ?
-      true : false;
+  tabToggledEventAction(status: Constants.Status) {
+    if (status === Constants.Status.HIDDEN) {
+      $('#flipbook').addClass(this.EXTEND_LINE_HEIGHT_CLASS);
+    } else {
+      $('#flipbook').removeClass(this.EXTEND_LINE_HEIGHT_CLASS);
+    }
+    timer(100).subscribe(() => {
+      var height = $('#flipbook').css('height');
+      console.log(height)
+      $('.page').css('height', height);
+    });
   }
 
   private addOverflowEvent(): void {

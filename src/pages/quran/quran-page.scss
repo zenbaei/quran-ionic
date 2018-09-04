@@ -41,6 +41,11 @@ page-quran {
         text-overflow: ellipsis; 
         */
     }
+    /* turnjs */
+    .page-wrapper, .shadow {
+        height: inherit !important;
+    }
+    
     @media screen and (orientation: portrait) {
         line-height: 5.8vh;
         .line-height-extended {
