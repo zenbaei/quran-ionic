@@ -65,7 +65,7 @@
     "@types/jquery": "^3.3.2",
     "@types/node": "^7.0.65",
     "connect": "^3.6.6",
-    "ios-deply": "@latest",
+    "ios-deploy": "latest",
     "jasmine-core": "^2.99.1",
     "jasmine-spec-reporter": "^4.2.1",
     "karma": "^1.7.1",
