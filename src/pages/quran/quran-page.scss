@@ -42,8 +42,9 @@ page-quran {
         */
     }
     /* turnjs */
-    .page-wrapper, .shadow {
+    .page-wrapper, .shadow { //from code change .page
         height: inherit !important;
+        width: inherit !important; 
     }
     
     @media screen and (orientation: portrait) {

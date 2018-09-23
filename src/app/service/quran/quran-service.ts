@@ -76,8 +76,8 @@ export class QuranService {
 
     private getHtmlExtension(isAndroid: boolean): string {
         return isAndroid ?
-            ANDROID_QURAN_HTML_FILE_EXTENSION :
-            IOS_QURAN_HTML_FILE_EXTENSION;
+            ANDROID_QURAN_MARKUP_FILE_EXTENSION :
+            IOS_QURAN_MARKUP_FILE_EXTENSION;
     }
 
     /**
@@ -341,7 +341,7 @@ const LAST_PAGE = 604;
 const ANDROID_QURAN_FILE_EXTENSION = '.android.quran';
 const IOS_QURAN_FILE_EXTENSION = '.quran';
 
-const ANDROID_QURAN_HTML_FILE_EXTENSION = '.android.quran.html.json';
-const IOS_QURAN_HTML_FILE_EXTENSION = '.quran.html.json';
+const ANDROID_QURAN_MARKUP_FILE_EXTENSION = '.android.quran.markup.json';
+const IOS_QURAN_MARKUP_FILE_EXTENSION = '.quran.markup.json';
 
 const QURAN_METADATA_FILE_EXTENSION = '.metadata';
