@@ -48,9 +48,9 @@ export class GoToPopoverPage {
   }
 
   ngAfterViewChecked() {
-    //this.pageNumberEl.setFocus();
-    //this.onFocus();
-    //this.cdRef.detectChanges();
+    this.pageNumberEl.setFocus();
+    this.onFocus();
+    this.cdRef.detectChanges();
   }
 
   onFocus() {

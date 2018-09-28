@@ -38,7 +38,7 @@ export class QuranPage {
   ionViewDidLoad() {
     this.platform.ready().then(() => {
       this.orientationChangedEvent();
-      this.subscribeToEvents();
+      this.subscribeToCordovaEvents();
       this.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
       //this.addPinchEvents();
     });
@@ -50,6 +50,7 @@ export class QuranPage {
    */
   ionViewDidEnter() {
     this.loadSavedPageOnStart();
+    this.subscribeToJsEvents();
   }
 
   ionViewWillLeave() {
@@ -79,31 +80,37 @@ export class QuranPage {
     });
   }
 
+  subscribeToJsEvents() {
+    $(window).resize(() => {
+      this.changeWidth();
+    });
+  }
+
   addPinchEvents() {
     // working but only the font is not increased
-    this.gesture = new Gesture(this.container.nativeElement);   
+    this.gesture = new Gesture(this.container.nativeElement);
     this.gesture.listen();
 
-    this.gesture.on('doubletap', (e:Event) => {
+    this.gesture.on('doubletap', (e: Event) => {
       this.isZoomed = !this.isZoomed;
       if (this.isZoomed) {
         this.zoomIn();
       } else {
         this.zoomOut();
       }
-      
-      console.log(e.type);      
+
+      console.log(e.type);
     });
 
-    this.gesture.on('pinchout',() => {
-        console.log('pinchout');
-         //this.zoomIn();
-     });
-     this.gesture.on('pinchout',() => {
+    this.gesture.on('pinchout', () => {
       console.log('pinchout');
-       //this.zoomIn();
-      
-   });
+      //this.zoomIn();
+    });
+    this.gesture.on('pinchout', () => {
+      console.log('pinchout');
+      //this.zoomIn();
+
+    });
   }
 
   private zoomIn() {
@@ -130,7 +137,7 @@ export class QuranPage {
       acceleration: true,
       gradients: true,
       autoCenter: true,
-      duration: 1000,
+      duration: 3000,
       pages: 604,
       when: {
         turning: function (e, page, view) {
@@ -190,7 +197,7 @@ export class QuranPage {
     } else {
       classes = 'mushaf-container';
     }
-    
+
     return classes;
   }
 
@@ -226,7 +233,7 @@ export class QuranPage {
     this.events.publish(Constants.EVENT_HIDE_CONTROL_BUTTONS);
   }
 
-  private subscribeToEvents(): void {
+  private subscribeToCordovaEvents(): void {
     this.events.subscribe(Constants.EVENT_FONT_CHANGED, (operator: Operator) => {
       this.fontChangedEvent(operator);
     });
@@ -316,6 +323,13 @@ export class QuranPage {
     this.quranPageService.getFontSize(this.isPortrait())
       .then(val => this.resizeFont(val));
     */
+  }
+
+  changeWidth() {
+    timer(100).subscribe(() => {
+      var width = $('#flipbook').css('width');
+      $('.page').css('width', width)
+    });
   }
 
   /**
@@ -428,7 +442,6 @@ export class QuranPage {
     }
     timer(100).subscribe(() => {
       var height = $('#flipbook').css('height');
-      console.log(height)
       $('.page').css('height', height);
     });
   }
