@@ -42,16 +42,13 @@ page-quran {
         */
     }
     /* turnjs */
-    .page-wrapper, .shadow { //this will be reflected on .page (modified in quran-page.ts)
-        height: inherit !important;
-        width: inherit !important;
+    .shadow {
         direction: rtl !important;
     }
-    
     @media screen and (orientation: portrait) {
         line-height: 5.8vh;
         .line-height-extended {
-            line-height: 6.5vh;
+            line-height: 6.4vh;
         }
     }
     @media screen and (orientation: landscape) {

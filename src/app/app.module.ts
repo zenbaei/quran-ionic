@@ -32,7 +32,7 @@ import { FileSaver } from './core/io/file/file-saver';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { scrollAssist: false, autoFocusAssist: false } ),
     IonicStorageModule.forRoot(),
     ContentPageModule,
     GoToPopoverPageModule,

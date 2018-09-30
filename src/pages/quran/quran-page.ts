@@ -5,13 +5,9 @@ import { AppUtils } from "../../app/util/app-utils/app-utils";
 import * as Constants from '../../app/all/constants';
 import { ToastController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
-import { Operator } from '../../app/all/constants';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { NumberUtils } from "../../app/util/number-utils/number-utils";
 import { timer } from 'rxjs/observable/timer';
-import { Storage } from '@ionic/storage';
 import { Quran } from '../../app/domain/quran';
-
 
 declare var $: any;
 
@@ -25,21 +21,20 @@ export class QuranPage {
   @ViewChild('container') container;
   private gesture: Gesture;
   private infoToast: Toast;
-  private fontToast: Toast;
   private readonly EXTEND_LINE_HEIGHT_CLASS: string = 'line-height-extended';
   private isZoomed: boolean = false;
 
   constructor(private quranService: QuranService,
     private toastCtl: ToastController,
     private events: Events, private orientation: ScreenOrientation,
-    private platform: Platform, private storage: Storage) {
+    private platform: Platform) {
   }
 
   ionViewDidLoad() {
     this.platform.ready().then(() => {
       this.orientationChangedEvent();
       this.subscribeToCordovaEvents();
-      this.addFlipAnimation(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
+      this.initTurnJs(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
       //this.addPinchEvents();
     });
   }
@@ -82,7 +77,7 @@ export class QuranPage {
 
   subscribeToJsEvents() {
     $(window).resize(() => {
-      this.changeWidth();
+      this.updateFlibookSize();
     });
   }
 
@@ -125,9 +120,10 @@ export class QuranPage {
     this.scrollToTop();
     this.initPopover();
     this.addOverflowEvent();
+    this.updateFlibookSize();
   }
 
-  private addFlipAnimation() {
+  private initTurnJs() {
     let self = this;
     $("#flipbook").turn({
       width: '100%',
@@ -137,7 +133,7 @@ export class QuranPage {
       acceleration: true,
       gradients: true,
       autoCenter: true,
-      duration: 3000,
+      duration: 2000,
       pages: 604,
       when: {
         turning: function (e, page, view) {
@@ -234,12 +230,6 @@ export class QuranPage {
   }
 
   private subscribeToCordovaEvents(): void {
-    this.events.subscribe(Constants.EVENT_FONT_CHANGED, (operator: Operator) => {
-      this.fontChangedEvent(operator);
-    });
-    this.events.subscribe(Constants.EVENT_LINE_HEIGHT_CHANGED, (operator: Operator) => {
-      this.lineHeightChangedEvent(operator)
-    });
     this.events.subscribe(Constants.EVENT_TOGGLE_TAB, (status: Constants.Status) => {
       this.tabToggledEventAction(status)
     });
@@ -299,109 +289,10 @@ export class QuranPage {
     return `${quran.surahName} - (${gozeAndHezb})`;
   }
 
-  private fontChangedEvent(operator: Operator) {
-    this.showFontChangeWarning();
-    operator === Operator.INC ? this.increaseFont() :
-      this.decreaseFont();
-  }
-
-  private lineHeightChangedEvent(operator: Operator) {
-    operator === Operator.INC ? this.increaseLineHeight() :
-      this.decreaseLineHeight();
-  }
-
   private orientationChangedEvent() {
     console.debug(`Orientation is: ${this.orientation.type}`);
     this.ionViewWillLeave();
-
-    /*
-    this.quranPageService.getLineHeight(this.isAndroid(), this.isPortrait())
-      .then(val => {
-        this.resizeLineHeight(val);
-      })
-
-    this.quranPageService.getFontSize(this.isPortrait())
-      .then(val => this.resizeFont(val));
-    */
-  }
-
-  changeWidth() {
-    timer(100).subscribe(() => {
-      var width = $('#flipbook').css('width');
-      $('.page').css('width', width)
-    });
-  }
-
-  /**
-  * Sets line heights for both orientation
-  * @param lineHeight 
-  */
-  private resizeLineHeight(size: number) {
-    size = NumberUtils.toPrecision(size, 3);
-
-    if (!this.isValidLineHeight(size)) {
-      return;
-    }
-
-    this.quranService.saveLineHeight(Number(size), this.isPortrait());
-    this.setLineHeightStyle(size);
-  }
-
-  private isValidLineHeight(size: number): boolean {
-    if (NumberUtils.isBetween(size, MIN_LINE_HEIGHT_SIZE,
-      MAX_LINE_HEIGHT_SIZE)) {
-      return true;
-    }
-    return false;
-  }
-
-  private setLineHeightStyle(size: number) {
-    console.debug(`Set line height style: ${size}`);
-    $(PAGE_SELECTOR_ELEMENT).css(Constants.CSS_LINE_HEIGHT, size + LINE_HEIGHT_UNIT);
-  }
-
-  public increaseLineHeight(): void {
-    this.quranService.getLineHeight(this.isAndroid(), this.isPortrait())
-      .then(val => {
-        this.resizeLineHeight(val + PROPORTION);
-      });
-  }
-
-  public decreaseLineHeight(): void {
-    this.quranService.getLineHeight(this.isAndroid(), this.isPortrait())
-      .then(val => {
-        this.resizeLineHeight(val - PROPORTION);
-      });
-  }
-
-  public increaseFont() {
-    this.quranService.getFontSize(this.isPortrait())
-      .then(val => this.resizeFont(val + PROPORTION))
-  }
-
-  public decreaseFont() {
-    this.quranService.getFontSize(this.isPortrait())
-      .then(val => this.resizeFont(val - PROPORTION))
-  }
-
-  private resizeFont(size: number) {
-    size = NumberUtils.toPrecision(size, 3);
-
-    if (!this.isValidFontSize(size)) {
-      return;
-    }
-
-    this.quranService.saveFontSize(size, this.isPortrait());
-    this.setFontSizeStyle(size);
-  }
-
-  private setFontSizeStyle(size: number) {
-    console.debug(`Set font size: ${size}`);
-    $(FONT_SELECTOR_ID).css(Constants.CSS_FONT_SIZE, size + FONT_UNIT);
-  }
-
-  private isValidFontSize(size: number): boolean {
-    return NumberUtils.isBetween(size, MIN_QURAN_FONT_SIZE, MAX_QURAN_FONT_SIZE);
+    this.checkTabStatus();
   }
 
   private isPortrait(): boolean {
@@ -412,26 +303,8 @@ export class QuranPage {
     return this.platform.is(Constants.PLATFORM_ANDROID);
   }
 
-  private showFontChangeWarning(): void {
-    this.storage.get(IS_FONT_CHANGE_WARNING_DISPLAYED).then(val => {
-      if (val != null) {
-        return;
-      }
-      this.fontToast = this.toastCtl.create({
-        message: this.getFontChangeWarningMsg(),
-        showCloseButton: true,
-        closeButtonText: 'إغلاق',
-        position: 'middle'
-      });
-      this.fontToast.present();
-      this.storage.set(IS_FONT_CHANGE_WARNING_DISPLAYED, 'y');
-    });
-  }
-
-  /**
-   * This flag is used in the html to set the corresponding css class.
-   */
   tabToggledEventAction(status: Constants.Status) {
+    sessionStorage.setItem(IS_TAB_HIDDEN, status.toString());//saving status in case of changing orientatin
     if (!this.isPortrait()) {
       return;
     }
@@ -440,10 +313,26 @@ export class QuranPage {
     } else {
       $('#flipbook').removeClass(this.EXTEND_LINE_HEIGHT_CLASS);
     }
-    timer(100).subscribe(() => {
-      var height = $('#flipbook').css('height');
-      $('.page').css('height', height);
-    });
+    
+    this.updateFlibookSize();
+  }
+
+  checkTabStatus() {
+    let isTabHidden: string = sessionStorage.getItem(IS_TAB_HIDDEN);
+    let status: Constants.Status = Constants.Status.SHOWN;
+    if (isTabHidden == Constants.Status.HIDDEN.toString()) {
+      status = Constants.Status.HIDDEN;
+    }
+    this.tabToggledEventAction(status);
+  }
+
+  private updateFlibookSize() {
+    //timer(100).subscribe(() => {
+      var pageNu = $('#flipbook').turn('page');
+      var height = $(`.p${pageNu} #border`).css('height');
+      console.log(height);
+     $('#flipbook').turn('size', 'auto', height);
+    //});
   }
 
   private addOverflowEvent(): void {
@@ -479,15 +368,6 @@ export class QuranPage {
     }
   }
 
-  private getFontChangeWarningMsg(): string {
-    let platformMsg: string = false ? //this.isAndroid()
-      `عندها سيظهر لك ثلاث نقاط '...' فقم` :
-      'عندها قم';
-
-    return `برجاء الإنتباه عند تكبير الخط أنه قد تتجاوز بعض سطور المصحف إطار الشاشة وذلك نظرا لإختلاف أطوال السطور. `
-      + `${platformMsg} بتصغير الخط مرة اخرى ليظهر لك السطر كاملا.`;
-  }
-
   /*
   var formatted = formatData(JSON.stringify(quran, null, '\t'));
 function formatData(data) {
@@ -504,17 +384,4 @@ function formatData(data) {
 
 }
 
-const FONT_SELECTOR_ID = '#font-selector';
-const PAGE_SELECTOR_ELEMENT = 'page-quran';
-const PROPORTION: number = 0.1;
-
-const LINE_HEIGHT_UNIT: string = 'vh';
-const FONT_UNIT: string = 'vw';
-
-const MIN_LINE_HEIGHT_SIZE: number = 1;
-const MAX_LINE_HEIGHT_SIZE: number = 32;
-
-const MIN_QURAN_FONT_SIZE: number = 1;
-const MAX_QURAN_FONT_SIZE: number = 7;
-
-const IS_FONT_CHANGE_WARNING_DISPLAYED: string = 'isFontChangeWarningDisplayed';
+const IS_TAB_HIDDEN = 'isTabHidden';
