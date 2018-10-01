@@ -1,5 +1,5 @@
-import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavParams, ViewController, RadioButton } from 'ionic-angular'
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavParams, ViewController, RadioButton, Platform } from 'ionic-angular'
 import * as Constants from '../../app/all/constants';
 import { Storage } from '@ionic/storage';
 import { QuranService } from '../../app/service/quran/quran-service';
@@ -10,21 +10,40 @@ import { QuranService } from '../../app/service/quran/quran-service';
   templateUrl: 'go-to-popover.html',
 })
 export class GoToPopoverPage {
-  @ViewChild('input') pageNumberEl;
-  @ViewChild('pageInputRadio') pageInputRadioEl: RadioButton;
+  @ViewChild('pageNumberInputEl') pageNumberInputEl;
+  @ViewChild('pageNuInputRadioEl') pageNuInputRadioEl: RadioButton;
   pageNumber: string = '';
   isReadBookmarkDisabled: boolean = true;
   isStudyBookmarkDisabled: boolean = true;
   isDifferentBookmarkDisabled: boolean = true;
-  goToRadio: string = '';
+  selectedRadioVal: string = '';
   Bookmark: any = Constants.Bookmark;
+  readonly PAGE_NU_VAL = "pageNu";
+  popoverTopVal: string;
+  popoverHeight: string;
 
   constructor(private navParams: NavParams, private viewCtrl: ViewController,
-    private storage: Storage, private cdRef: ChangeDetectorRef) {
+    private storage: Storage,
+    private platform: Platform) {
   }
 
   ionViewDidLoad() {
     this.shouldEnableBookmarkCtls();
+    this.subscribeToJsEvents();
+  }
+
+  subscribeToJsEvents() {
+    $(window).resize(() => {
+      this.clear();
+    });
+  }
+
+  onRadioChange(val) {
+    if (val === this.PAGE_NU_VAL) {
+      this.adjustPopoverPosition();
+    } else {
+      this.resetPopoverPosition();
+    }
   }
 
   shouldEnableBookmarkCtls() {
@@ -47,23 +66,61 @@ export class GoToPopoverPage {
     });
   }
 
-  ngAfterViewChecked() {
-    this.pageNumberEl.setFocus();
-    this.onFocus();
-    this.cdRef.detectChanges();
+  onPageNuInputFocus() {
+    this.selectedRadioVal = this.PAGE_NU_VAL;
+    this.pageNuInputRadioEl.checked = true;
   }
 
-  onFocus() {
-    this.pageInputRadioEl.checked = true;
+  resetPopoverPosition() {
+    if (this.platform.isLandscape()) {
+      this.resetPopoverHeight();
+      return;
+    }
+   this.resetPopoverTop();    
+  }
+
+  /**
+   * To avoid being coverd by keyboard.
+   */
+  adjustPopoverPosition() {
+    if (this.platform.isLandscape()) {
+      this.changePopoverHeight();
+      return;
+    }
+    this.chanagePopoverTop();
+  }
+
+  changePopoverHeight() {
+    this.popoverHeight = $('.popover-content').css('height');
+    $('.popover-content').css('height', '120px');
+  }
+
+  chanagePopoverTop() {
+    this.popoverTopVal = $('.popover-content').css('top');
+    $('.popover-content').css('top', '30px');
+  }
+
+  resetPopoverTop() {
+    if (!this.popoverTopVal) {
+      return;
+    }
+    $('.popover-content').css('top', this.popoverTopVal);
+  }
+
+  resetPopoverHeight() {
+    if (!this.popoverHeight) {
+      return;
+    }
+    $('.popover-content').css('height', this.popoverHeight);
   }
 
   goTo() {
-    if (this.goToRadio === '') {
+    if (this.selectedRadioVal === '') {
       return;
     }
 
-    switch (this.goToRadio) {
-      case 'page': {
+    switch (this.selectedRadioVal) {
+      case this.PAGE_NU_VAL: {
         this.goToPage();
         break;
       }
@@ -98,14 +155,15 @@ export class GoToPopoverPage {
   }
 
   navigateToQuranPage(pageNumber: any): void {
-    this.cancel();
+    this.clear();
     this.storage.set(Constants.PAGE_NUMBER, pageNumber).then(val => {
       this.navParams.data.tabBar.select(0);
     });
   }
 
-  cancel() {
+  clear() {
     this.pageNumber = '';
     this.viewCtrl.dismiss();
   }
+
 }

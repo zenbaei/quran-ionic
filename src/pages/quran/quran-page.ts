@@ -32,10 +32,11 @@ export class QuranPage {
 
   ionViewDidLoad() {
     this.platform.ready().then(() => {
-      this.orientationChangedEvent();
+      //this.orientationChangedEvent();
       this.subscribeToCordovaEvents();
       this.initTurnJs(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
       //this.addPinchEvents();
+      this.subscribeToJsEvents();
     });
   }
 
@@ -45,10 +46,13 @@ export class QuranPage {
    */
   ionViewDidEnter() {
     this.loadSavedPageOnStart();
-    this.subscribeToJsEvents();
   }
 
   ionViewWillLeave() {
+    this.clean();
+  }
+
+  clean() {
     this.dismissInfoToast();
     this.clearPopover();
   }
@@ -60,6 +64,7 @@ export class QuranPage {
   ionSelected() {
     // ionViewWillLeave is called
     this.loadSavedPageOnStart();
+    this.showInfoToast(this.getInfoMsg());
   }
 
   /**
@@ -70,7 +75,6 @@ export class QuranPage {
   loadSavedPageOnStart() {
     this.quranService.getSavedPageNumber().then(pageNumber => {
       $('#flipbook').turn('page', pageNumber);
-      this.showInfoToast(this.getInfoMsg(pageNumber)); //doesn't work when navigating to not loaded page becoz fetching page is not done yet
       // $(this).turn('data').hover = true; adding data
     });
   }
@@ -79,6 +83,10 @@ export class QuranPage {
     $(window).resize(() => {
       this.updateFlibookSize();
     });
+  }
+
+  getCurrentPage(): number {
+    return $('#flipbook').turn('page');
   }
 
   addPinchEvents() {
@@ -121,13 +129,14 @@ export class QuranPage {
     this.initPopover();
     this.addOverflowEvent();
     this.updateFlibookSize();
+    this.showInfoToast(this.getInfoMsg());
   }
 
   private initTurnJs() {
     let self = this;
     $("#flipbook").turn({
       width: '100%',
-      height: '100%',
+      height: '150%',
       display: 'single',
       elevation: 50,
       acceleration: true,
@@ -137,7 +146,7 @@ export class QuranPage {
       pages: 604,
       when: {
         turning: function (e, page, view) {
-          self.ionViewWillLeave();
+          self.clean();
           self.saveCurrentPageNumber(page);
         },
         missing: function (e, pages) {
@@ -153,7 +162,7 @@ export class QuranPage {
   }
 
   private addPage(page, book) {
-    var element = $('<div/>', {});
+    var element = $('<div style="background-color:white"/>', {}); // background helps with short page (nu 2) back
 
     if (book.turn('addPage', element, page)) {
       this.quranService.find(page, this.isAndroid()).subscribe((quran) => {
@@ -167,6 +176,15 @@ export class QuranPage {
           </div>`
         element.html(innerDiv);
       });
+    }
+  }
+
+  setFlipbookStyle() {
+    let page = this.getCurrentPage();
+    if ( page == 1 || page == 2) {
+      $('#flipbook').css('margin-top', '20%');
+    } else {
+      $('#flipbook').css('margin-top', 'auto');
     }
   }
 
@@ -280,10 +298,11 @@ export class QuranPage {
     }
   }
 
-  private getInfoMsg(pageNumber: number): string {
-    var quran = JSON.parse(sessionStorage.getItem(pageNumber.toString()));
+  private getInfoMsg(): string {
+    var page = this.getCurrentPage().toString();
+    var quran = JSON.parse(sessionStorage.getItem(page));
     if (!quran) {
-      return '';
+      return;
     }
     var gozeAndHezb = `الجـزء ${quran.goze} - ${quran.hezb}`;
     return `${quran.surahName} - (${gozeAndHezb})`;
@@ -291,7 +310,7 @@ export class QuranPage {
 
   private orientationChangedEvent() {
     console.debug(`Orientation is: ${this.orientation.type}`);
-    this.ionViewWillLeave();
+    this.clean();
     this.checkTabStatus();
   }
 
@@ -328,15 +347,28 @@ export class QuranPage {
 
   private updateFlibookSize() {
     //timer(100).subscribe(() => {
-      var pageNu = $('#flipbook').turn('page');
+      var pageNu = this.getCurrentPage();
       var height = $(`.p${pageNu} #border`).css('height');
-      console.log(height);
-     $('#flipbook').turn('size', 'auto', height);
+      if (!height) {
+        return;
+      }
+      height = (pageNu < 3) ? this.increaseHeight(height) : height;
+      $('#flipbook').turn('size', 'auto', height);
     //});
   }
 
   private addOverflowEvent(): void {
     $('.mushaf-container').bind('overflow', this.OnOverflowChanged);
+  }
+
+  /**
+   * Helps with adding 20% top margin for first 2 pages
+   * @param heightStr 
+   */
+  increaseHeight(heightStr: string) {
+    let height = Number(heightStr.replace('px', ''));
+    let percentage: number = (height * 25) / 100;
+    return (height + percentage) + 'px';
   }
 
   private OnOverflowChanged(event): void {

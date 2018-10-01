@@ -1,11 +1,11 @@
 <ion-content>
   <form (ngSubmit)='goTo()'>
     <div class='container'>
-      <ion-list radio-group [(ngModel)]="goToRadio" name="goToRadio">
+      <ion-list radio-group [(ngModel)]="selectedRadioVal" name="selectedRadioVal" (ionChange)="onRadioChange($event)">
         <ion-item>
-          <ion-input #input [(ngModel)]='pageNumber' type="text" 
-            placeholder="رقم الصفحة" name='pageNumber' (ionFocus)='onFocus()'></ion-input>
-          <ion-radio #pageInputRadio value="page"></ion-radio>
+          <ion-input #pageNumberInputEl [(ngModel)]='pageNumber' type="text" 
+            placeholder="رقم الصفحة" name='pageNumber' (ionFocus)='onPageNuInputFocus()'></ion-input>
+          <ion-radio id="pageNuInputRadioEl" #pageNuInputRadioEl value={{PAGE_NU_VAL}}></ion-radio>
         </ion-item>
         <ion-item>
           <ion-label>ختمة التلاوة</ion-label>
@@ -16,12 +16,12 @@
           <ion-radio value={{Bookmark.study}} [disabled]="isStudyBookmarkDisabled"></ion-radio>
         </ion-item>
         <ion-item>
-            <ion-label>الختمة متنوعة</ion-label>
+            <ion-label>الختمة المتنوعة</ion-label>
             <ion-radio value={{Bookmark.different}} [disabled]="isDifferentBookmarkDisabled"></ion-radio>
           </ion-item>
         <ion-item>
-          <button style="width:50px" ion-button type="submit">ذهــاب</button>
-          <button ion-button type="button" (click)='cancel()'>إلـغـــاء</button>
+          <button ion-button type="submit" style="width:80px" >ذهــاب</button>
+          <button ion-button type="button" style="float: left; width:80px" (click)='clear()'>إلـغـــاء</button>
         </ion-item>
       </ion-list>
     </div>

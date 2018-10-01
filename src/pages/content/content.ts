@@ -1,12 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavParams, IonicPage, Searchbar, Content, Keyboard, Events } from 'ionic-angular';
+import { NavParams, IonicPage, Searchbar, Content } from 'ionic-angular';
 import { Index } from '../../app/domain';
 import { IndexService } from '../../app/service/index/index-service';
 import { Storage } from '@ionic/storage';
 import * as Constants from '../../app/all/constants';
 import { RegexUtils } from "../../app/util/regex-utils/regex-utils";
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { AppUtils } from '../../app/util/app-utils/app-utils';
+
 
 @IonicPage()
 @Component({
@@ -20,8 +19,7 @@ export class ContentPage {
   searchQuery: string = '';
 
   constructor(private indexService: IndexService, private navParams: NavParams,
-    private storage: Storage, private orientation: ScreenOrientation, private keyboard: Keyboard,
-    private events: Events) {
+    private storage: Storage) {
     this.initializeItems();
   }
 
@@ -43,7 +41,6 @@ export class ContentPage {
   getItems(ev: any) {
     // Reset items back to all of the items
     this.initializeItems();
-    this.fireKeyboardOpenOnLandscape();
 
     if (ev === null) {
       return;
@@ -60,15 +57,4 @@ export class ContentPage {
       });
     }
   }
-
-  /**
-   * When keyboard opened on landscape we need 
-   * to hide the tab bar to free some screen space.
-   */
-  private fireKeyboardOpenOnLandscape(): void {
-    if (!AppUtils.isPortrait(this.orientation) && this.keyboard.isOpen()) {
-      this.events.publish(Constants.EVENT_KEYBOARD_OPEN_LNDSCP);
-    }
-  }
-
 }

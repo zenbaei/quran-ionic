@@ -88,8 +88,13 @@ revise those:
 
 
 missing functionality:
-    show info msg when navigating to surah first time
-    extending page
-    surah bakarh background
-    hiding tab on landscape then going to protrait
-    not scrolling on landscape
+    show info msg when navigating to surah first time -> done
+    extending page (test on ios)
+    surah bakarh background -> done
+    hiding tab on landscape then going to protrait (extend content) -> done
+    not scrolling on landscape -> done
+    can add an auto resize for protrait by testing the border length with the tab and with the screen when the tab is hidden
+    scroll go to popover -> done
+    float left button on popovers -> done
+    hide popovers on changing orientation -> done (then transition is not beautiful but it works)
+    hop gotopopover when keyboard is opened -> done

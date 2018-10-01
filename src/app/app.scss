@@ -84,3 +84,8 @@ ion-toast {
         font-size: 1.4rem !important;
     }
 }
+
+.popover-content {
+    padding: 0 !important;
+    bottom: auto !important; //sometimes popover extend at the bottom
+}

@@ -9,16 +9,15 @@ go-to-popover {
         height: 3rem;
         direction: rtl;
     }
-    .popover-content .popover-md {
-        padding: 0px !important;
-        //bottom: 0px !important;
-    }
     .button-md {
         //height: 3rem;
         //font-style: bold; //font-family: uthmanic;
         //font-size: 1.4rem;
     }
     .scroll-content {
-        padding-bottom: 0px !important; //sometimes popover extend at the bottom
+        //padding-bottom: 0px !important; //sometimes popover extend at the bottom
+    }
+    #pageNuInputRadioEl button {
+        display: none;
     }
 }

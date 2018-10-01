@@ -16,6 +16,16 @@ export class BookmarkMenuPopoverPage {
   constructor(public viewCtrl: ViewController, public storage: Storage) {
   }
 
+  ionViewDidLoad() {
+    this.subscribeToJsEvents();
+  }
+
+  subscribeToJsEvents() {
+    $(window).resize(() => {
+      this.cancel();
+    });
+  }
+
   save() {
     if (this.bookmarkType === '') {
       return;
