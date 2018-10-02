@@ -98,3 +98,4 @@ missing functionality:
     float left button on popovers -> done
     hide popovers on changing orientation -> done (then transition is not beautiful but it works)
     hop gotopopover when keyboard is opened -> done
+    firstPage doesn't trigger turnjs end event, so add a hard cover

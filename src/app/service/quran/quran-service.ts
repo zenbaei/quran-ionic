@@ -114,68 +114,6 @@ export class QuranService {
         return true;
     }
 
-    /*
-    public writeToFile(fileName: string, content: string): void {
-        console.log('Write file path ' + this.LOCAL_FILE_PATH + ' ' + content.substring(0, 10));
-        this.file.createFile(this.LOCAL_FILE_PATH, 'test.js', false)
-        this.file.writeFile(this.LOCAL_FILE_PATH, fileName, content, this.writeOption);
-    }*/
-
-    public doVarMigration() {
-        this.migratePortraitLnHgt();
-
-        this.migrateLandscapeLnHgt();
-
-        this.migrateQuranFont();
-    }
-
-    private migratePortraitLnHgt(): void {
-        let oldKey: string = 'portraitLineHeightKey';
-        let locStgVal: string = localStorage.getItem(oldKey);
-
-        if (locStgVal != null) {
-            this.storage.set(PORTRAIT_LINE_HEIGHT, locStgVal);
-        }
-
-        localStorage.removeItem(oldKey);
-        localStorage.removeItem(PORTRAIT_LINE_HEIGHT);
-    }
-
-    private migrateLandscapeLnHgt(): void {
-        let oldKey: string = 'landscapeLineHeightKey';
-        let locStgVal: string = localStorage.getItem(oldKey);
-
-        if (locStgVal != null) {
-            this.storage.set(LANDSCAPE_LINE_HEIGHT, locStgVal);
-        }
-
-        localStorage.removeItem(oldKey);
-        localStorage.removeItem(LANDSCAPE_LINE_HEIGHT);
-    }
-
-    private migrateQuranFont(): void {
-        let oldKey: string = 'quranFontSize';
-        let oldVal: string = localStorage.getItem(oldKey);
-        let newPortVar: string = localStorage.getItem(PORTRAIT_QURAN_FONT_SIZE);
-        let newLandVar: string = localStorage.getItem(LANDSCAPE_QURAN_FONT_SIZE);
-
-        if (newPortVar != null) {
-            this.storage.set(PORTRAIT_QURAN_FONT_SIZE, newPortVar);
-        } else if (oldVal != null) {
-            this.storage.set(PORTRAIT_QURAN_FONT_SIZE, oldVal);
-        }
-
-        if (newLandVar != null) {
-            this.storage.set(LANDSCAPE_QURAN_FONT_SIZE, newLandVar);
-        } else if (oldVal != null) {
-            this.storage.set(LANDSCAPE_QURAN_FONT_SIZE, oldVal);
-        }
-
-        localStorage.removeItem(oldKey);
-        localStorage.removeItem(PORTRAIT_QURAN_FONT_SIZE);
-        localStorage.removeItem(LANDSCAPE_QURAN_FONT_SIZE);
-    }
-
     public getSavedPageNumber(): Promise<number> {
         return new Promise((resolve) => {
             this.storage.get(Constants.PAGE_NUMBER).then(val => {
@@ -192,74 +130,29 @@ export class QuranService {
         this.storage.set(Constants.PAGE_NUMBER, pageNumber);
     }
 
-    public getFontSize(isPortrait: boolean): Promise<number> {
-        console.debug(`Get font size - isPortrait: ${isPortrait}`);
-        let key: string = this.getFontKeyByOrientation(isPortrait);
-        return new Promise((resolve) => {
-            this.storage.get(key).then(val => {
-                let size: number = (val == null) ?
-                    DEFAULT_QURAN_FONT_SIZE :
-                    Number(val);
-                resolve(size);
-            });
-        });
-    }
-
-    public saveFontSize(size: number, isPortrait: boolean): void {
-        console.debug(`Save font size: ${size} - isPortrait: ${isPortrait}`);
-        this.storage.set(this.getFontKeyByOrientation(isPortrait), size.toString());
-    }
-
-    private getFontKeyByOrientation(isPortrait: boolean): string {
-        return isPortrait ?
-            PORTRAIT_QURAN_FONT_SIZE :
-            LANDSCAPE_QURAN_FONT_SIZE;
-    }
-
-    public saveLineHeight(size: number, isPortrait: boolean): void {
-        console.debug(`Save line height: ${size} - isPortrait: ${isPortrait}`);
+    public saveLineHeight(size: string, isAndroid: boolean, forExtended: boolean): void {
+        console.debug(`Save line height: ${size}`);
         this.storage.set(
-            this.getLineHeightKey(isPortrait),
-            size.toString());
+            this.getLineHeightKey(isAndroid, forExtended),
+            size);
     }
 
-    public getLineHeight(isAndroid: boolean, isPortrait: boolean): Promise<number> {
-        console.debug(`Get line height - isAndroid: ${isAndroid} - isPortrait: ${isPortrait}`);
-        let key: string = this.getLineHeightKey(isPortrait);
+    getLineHeightKey(isAndroid: boolean, forExtended: boolean): string {
+        if (forExtended) {
+            return isAndroid ? ANDROID_LINE_HEIGHT_EXTENDED : IOS_LINE_HEIGHT_EXTENDED;    
+        }
+        return isAndroid ? ANDROID_LINE_HEIGHT : IOS_LINE_HEIGHT;
+    }
+
+    public getLineHeight(isAndroid: boolean, forExtended: boolean): Promise<string> {
+        console.debug(`Get line height - isAndroid: ${isAndroid}`);
+        let key: string = this.getLineHeightKey(isAndroid, forExtended);
 
         return new Promise(resolve => {
             this.storage.get(key).then(val => {
-                let size: number = (val == null) ?
-                    this.getDefaultLineHeight(isAndroid, isPortrait) :
-                    Number(val);
-                resolve(size);
+                resolve(val);
             });
         });
-    }
-
-    private getLineHeightKey(isPortrait: boolean): string {
-        return isPortrait ?
-            PORTRAIT_LINE_HEIGHT :
-            LANDSCAPE_LINE_HEIGHT;
-    }
-
-    private getDefaultLineHeight(isAndroid: boolean, isPortrait: boolean): number {
-        console.debug('Get default line height');
-        return isPortrait ?
-            this.getPortraitDefaultPlatformLineHeightSize(isAndroid) :
-            this.getLandscapeDefaultPlatformLineHeightSize(isAndroid);
-    }
-
-    private getPortraitDefaultPlatformLineHeightSize(isAndroid: boolean): number {
-        return isAndroid ?
-            DEFAULT_PORTRAIT_LINE_HEIGHT_SIZE_ANDROID :
-            DEFAULT_PORTRAIT_LINE_HEIGHT_SIZE_IOS;
-    }
-
-    private getLandscapeDefaultPlatformLineHeightSize(isAndroid: boolean): number {
-        return isAndroid ?
-            DEFAULT_LANDSCAPE_LINE_HEIGHT_SIZE_ANDROID :
-            DEFAULT_LANDSCAPE_LINE_HEIGHT_SIZE_IOS;
     }
 
     public static isValidPageNumber(pageNumber: number): boolean {
@@ -321,19 +214,12 @@ export class QuranService {
 
 }
 
-const DEFAULT_QURAN_FONT_SIZE: number = 3.7;
 
-const PORTRAIT_QURAN_FONT_SIZE = 'portraitQuranFontSize';
-const LANDSCAPE_QURAN_FONT_SIZE = 'landscapeQuranFontSize';
+const ANDROID_LINE_HEIGHT: string = 'androidLineHeight';
+const IOS_LINE_HEIGHT: string = 'iosLineHeight';
 
-const PORTRAIT_LINE_HEIGHT: string = 'portraitLineHeight';
-const LANDSCAPE_LINE_HEIGHT: string = 'landscapeLineHeight';
-
-const DEFAULT_PORTRAIT_LINE_HEIGHT_SIZE_ANDROID: number = 5.7;
-const DEFAULT_LANDSCAPE_LINE_HEIGHT_SIZE_ANDROID: number = 17;
-
-const DEFAULT_PORTRAIT_LINE_HEIGHT_SIZE_IOS: number = 2.9;
-const DEFAULT_LANDSCAPE_LINE_HEIGHT_SIZE_IOS: number = 9;
+const ANDROID_LINE_HEIGHT_EXTENDED: string = ANDROID_LINE_HEIGHT + 'Extended'
+const IOS_LINE_HEIGHT_EXTENDED: string = IOS_LINE_HEIGHT + 'Extended';
 
 const FIRST_PAGE = 1;
 const LAST_PAGE = 604;

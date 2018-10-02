@@ -8,6 +8,7 @@ import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { timer } from 'rxjs/observable/timer';
 import { Quran } from '../../app/domain/quran';
+import { NumberUtils } from '../../app/util/number-utils/number-utils';
 
 declare var $: any;
 
@@ -23,6 +24,8 @@ export class QuranPage {
   private infoToast: Toast;
   private readonly EXTEND_LINE_HEIGHT_CLASS: string = 'line-height-extended';
   private isZoomed: boolean = false;
+  private lineHeight: string;
+  private lineHeightExtended: string;
 
   constructor(private quranService: QuranService,
     private toastCtl: ToastController,
@@ -129,7 +132,35 @@ export class QuranPage {
     this.initPopover();
     this.addOverflowEvent();
     this.updateFlibookSize();
-    this.showInfoToast(this.getInfoMsg());
+    this.executeOnlyOnce();
+  }
+
+  async executeOnlyOnce() {
+    if (this.lineHeight || !this.isPortrait()) {
+      return;
+    }
+
+    this.lineHeight = await this.quranService.getLineHeight(this.isAndroid(), false);
+    this.lineHeightExtended = await this.quranService.getLineHeight(this.isAndroid(), true);
+
+    if (this.lineHeight) {
+      this.applyLineHeight(this.lineHeight);
+      this.updateFlibookSize();
+      return;
+    }
+
+    // start loading
+    $('#flipbook').turn('page', 3);
+
+    this.lineHeight = this.startAutoLineHeightResize(3, false);
+    this.quranService.saveLineHeight(this.lineHeight, this.isAndroid(), false);
+
+    this.lineHeightExtended = this.startAutoLineHeightResize(3, true);
+    this.quranService.saveLineHeight(this.lineHeightExtended, this.isAndroid(), true);
+
+    $('#flipbook').turn('page', 1);
+    // end loading
+
   }
 
   private initTurnJs() {
@@ -162,7 +193,14 @@ export class QuranPage {
   }
 
   private addPage(page, book) {
-    var element = $('<div style="background-color:white"/>', {}); // background helps with short page (nu 2) back
+    var element = $(`<div style="background-color:white"/>`); // background helps with short page (nu 2) back
+
+    if (page == 1) {
+      var hardCover = `<div class="hard">
+    <img src="/assets/img/madina.jpg" alt="Smiley face" height="100%" width="100%"> </div><div class="hard"></div>`;
+      element.html(hardCover)
+     // book.turn('addPage', $('<div />').html(hardCover), 1);
+    }
 
     if (book.turn('addPage', element, page)) {
       this.quranService.find(page, this.isAndroid()).subscribe((quran) => {
@@ -181,7 +219,7 @@ export class QuranPage {
 
   setFlipbookStyle() {
     let page = this.getCurrentPage();
-    if ( page == 1 || page == 2) {
+    if (page == 1 || page == 2) {
       $('#flipbook').css('margin-top', '20%');
     } else {
       $('#flipbook').css('margin-top', 'auto');
@@ -328,11 +366,11 @@ export class QuranPage {
       return;
     }
     if (status === Constants.Status.HIDDEN) {
-      $('#flipbook').addClass(this.EXTEND_LINE_HEIGHT_CLASS);
+      this.applyLineHeight(this.lineHeightExtended);
     } else {
-      $('#flipbook').removeClass(this.EXTEND_LINE_HEIGHT_CLASS);
+      this.applyLineHeight(this.lineHeight);
     }
-    
+
     this.updateFlibookSize();
   }
 
@@ -347,13 +385,13 @@ export class QuranPage {
 
   private updateFlibookSize() {
     //timer(100).subscribe(() => {
-      var pageNu = this.getCurrentPage();
-      var height = $(`.p${pageNu} #border`).css('height');
-      if (!height) {
-        return;
-      }
-      height = (pageNu < 3) ? this.increaseHeight(height) : height;
-      $('#flipbook').turn('size', 'auto', height);
+    var pageNu = this.getCurrentPage();
+    var height = this.getCurrentContentHeight(pageNu);
+    if (!height) {
+      return;
+    }
+    height = (pageNu < 3) ? this.increaseHeight(height) : height + 'px';
+    $('#flipbook').turn('size', 'auto', height);
     //});
   }
 
@@ -369,6 +407,69 @@ export class QuranPage {
     let height = Number(heightStr.replace('px', ''));
     let percentage: number = (height * 25) / 100;
     return (height + percentage) + 'px';
+  }
+
+  startAutoLineHeightResize(pageNuSample: number, forExtended: boolean): string {
+    var currentCssLineHeight = this.getCurrentCssLineHeight();
+    var currentContentHeight = this.getCurrentContentHeight(pageNuSample);
+    var maxContentHeight = this.getMaxContentHeight(forExtended);
+
+    let overflowedLineHeight = this.increaseLineHeightUntilOverflowed(currentContentHeight,
+      maxContentHeight, currentCssLineHeight);
+
+    let appropriateLineHeight = this.adjustLineHeight(currentContentHeight,
+      maxContentHeight, overflowedLineHeight);
+
+    return appropriateLineHeight;
+  }
+
+  /**
+   * 
+   * @param forExtended for extended view when tab is hidden
+   */
+  getMaxContentHeight(forExtended: boolean) {
+    let tabbar = $('.tabbar').css('height').replace('px', '');
+    let wndw = $(window).height();
+    return forExtended ? wndw : wndw - tabbar;
+  }
+
+  getCurrentContentHeight(pageNu) {
+    return $(`.p${pageNu} #border`).css('height').replace('px', '');
+  }
+
+  getCurrentCssLineHeight() {
+    return $(`#flipbook`).css('line-height');
+  }
+
+  increaseLineHeightUntilOverflowed(currentContentHeight, maxContentHeight, currentCssLineHeight) {
+    console.debug(`current content height: ${currentContentHeight}, 
+      current line height ${currentCssLineHeight}, 
+      max content height: ${maxContentHeight}`);
+
+    if (currentContentHeight > maxContentHeight) {
+      return currentCssLineHeight;
+    }
+
+    var val = Number(currentCssLineHeight.replace('px', '')) + PROPORTION;
+    var newLineHeight = NumberUtils.toPrecision(val, 3) + 'px';
+    this.applyLineHeight(newLineHeight);
+    return this.increaseLineHeightUntilOverflowed(this.getCurrentContentHeight(3),
+      maxContentHeight, newLineHeight);
+  }
+
+  applyLineHeight(val) {
+    $('#flipbook').css('line-height', val);
+  }
+
+  adjustLineHeight(currentContentHeight, maxContentHeight, currentCssLineHeight) {
+    if (currentContentHeight < maxContentHeight) {
+      return currentCssLineHeight;
+    }
+    let val: number = Number(currentCssLineHeight.replace('px', '')) - PROPORTION;
+    let newLineHeight: string = NumberUtils.toPrecision(val, 3) + 'px';
+    this.applyLineHeight(newLineHeight);
+    return this.adjustLineHeight(this.getCurrentContentHeight(3),
+      maxContentHeight, newLineHeight);
   }
 
   private OnOverflowChanged(event): void {
@@ -417,3 +518,4 @@ function formatData(data) {
 }
 
 const IS_TAB_HIDDEN = 'isTabHidden';
+const PROPORTION = 0.1;

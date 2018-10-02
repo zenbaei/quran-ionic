@@ -46,9 +46,9 @@ page-quran {
         direction: rtl !important;
     }
     @media screen and (orientation: portrait) {
-        line-height: 5.8vh;
+        line-height: 5.8vh; //will be used as initial until appropriate line height is calculated
         .line-height-extended {
-            line-height: 6.4vh;
+           // line-height: 6.4vh;
         }
     }
     @media screen and (orientation: landscape) {
@@ -74,7 +74,7 @@ page-quran {
         @media screen and (orientation: portrait) {
             line-height: 3vh;
             .line-height-extended {
-                line-height: 3.2vh;
+               // line-height: 3.2vh;
             }
         }
         @media screen and (orientation: landscape) {
