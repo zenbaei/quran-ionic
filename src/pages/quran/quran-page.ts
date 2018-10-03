@@ -89,7 +89,7 @@ export class QuranPage {
 
   subscribeToJsEvents() {
     $(window).resize(() => {
-      this.updateFlibookSize();
+      this.resizeFlibookHeightAsContent();
     });
   }
 
@@ -136,7 +136,7 @@ export class QuranPage {
     this.scrollToTop();
     this.initPopover();
     this.addOverflowEvent();
-    this.updateFlibookSize();
+    this.resizeFlibookHeightAsContent();
   }
 
   async startAutoLineHeightResize() {
@@ -150,7 +150,7 @@ export class QuranPage {
 
     if (this.lineHeight) {
       this.applyLineHeight(this.lineHeight);
-      this.updateFlibookSize();
+      this.resizeFlibookHeightAsContent();
       return;
     }
 
@@ -353,17 +353,8 @@ export class QuranPage {
   private orientationChangedEvent() {
     console.debug(`Orientation is: ${this.orientation.type}`);
     this.clean();
-    this.checkTabStatus();
-
-    if (this.isPortrait()) {
-      this.isTabHidden ? this.applyLineHeight(this.lineHeightExtended) :
-        this.applyLineHeight(this.lineHeight);
-    } else {
-      this.isAndroid() ? this.applyLineHeight(ANDROID_LAND_LINE_HEIGHT) :
-        this.applyLineHeight(IOS_LAND_LINE_HEIGHT);
-    }
-
-    this.updateFlibookSize();
+    this.applyOrientationLineHeight();
+    this.resizeFlibookHeightAsContent();
   }
 
   private isPortrait(): boolean {
@@ -385,14 +376,17 @@ export class QuranPage {
       this.applyLineHeight(this.lineHeight);
     }
 
-    this.updateFlibookSize();
+    this.resizeFlibookHeightAsContent();
   }
 
-  checkTabStatus() {
-    let status: Constants.Status = this.isTabHidden() ?
-      Constants.Status.HIDDEN :
-      Constants.Status.SHOWN;
-    this.tabToggledEventAction(status);
+  applyOrientationLineHeight() {
+    if (this.isPortrait()) {
+      this.isTabHidden() ? this.applyLineHeight(this.lineHeightExtended) :
+        this.applyLineHeight(this.lineHeight);
+    } else {
+      this.isAndroid() ? this.applyLineHeight(ANDROID_LAND_LINE_HEIGHT) :
+        this.applyLineHeight(IOS_LAND_LINE_HEIGHT);
+    }
   }
 
   isTabHidden(): boolean {
@@ -401,7 +395,7 @@ export class QuranPage {
       true : false;
   }
 
-  private updateFlibookSize() {
+  private resizeFlibookHeightAsContent() {
     //timer(100).subscribe(() => {
     var pageNu = this.getCurrentPage();
     var height = (pageNu < 3 && this.isPortrait()) ? this.getFullPossibleHeight() :
