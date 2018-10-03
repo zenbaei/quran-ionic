@@ -89,13 +89,14 @@ revise those:
 
 missing functionality:
     show info msg when navigating to surah first time -> done
-    extending page (test on ios)
+    extending page (test on ios) -> done by auto resizing
     surah bakarh background -> done
     hiding tab on landscape then going to protrait (extend content) -> done
     not scrolling on landscape -> done
-    can add an auto resize for protrait by testing the border length with the tab and with the screen when the tab is hidden
+    can add an auto resize for protrait by testing the border length with the tab and with the screen when the tab is hidden -> done
     scroll go to popover -> done
     float left button on popovers -> done
     hide popovers on changing orientation -> done (then transition is not beautiful but it works)
     hop gotopopover when keyboard is opened -> done
-    firstPage doesn't trigger turnjs end event, so add a hard cover
+    firstPage doesn't trigger turnjs end event, so add a hard cover -> used timer for now
+    make sure to test by starting on landscape

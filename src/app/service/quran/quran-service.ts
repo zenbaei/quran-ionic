@@ -130,23 +130,19 @@ export class QuranService {
         this.storage.set(Constants.PAGE_NUMBER, pageNumber);
     }
 
-    public saveLineHeight(size: string, isAndroid: boolean, forExtended: boolean): void {
+    public saveLineHeight(size: string, isFullPage: boolean): void {
         console.debug(`Save line height: ${size}`);
         this.storage.set(
-            this.getLineHeightKey(isAndroid, forExtended),
+            this.getLineHeightKey(isFullPage),
             size);
     }
 
-    getLineHeightKey(isAndroid: boolean, forExtended: boolean): string {
-        if (forExtended) {
-            return isAndroid ? ANDROID_LINE_HEIGHT_EXTENDED : IOS_LINE_HEIGHT_EXTENDED;    
-        }
-        return isAndroid ? ANDROID_LINE_HEIGHT : IOS_LINE_HEIGHT;
+    getLineHeightKey(isFullPage: boolean): string {
+        return isFullPage ? LINE_HEIGHT_EXTENDED : LINE_HEIGHT;    
     }
 
-    public getLineHeight(isAndroid: boolean, forExtended: boolean): Promise<string> {
-        console.debug(`Get line height - isAndroid: ${isAndroid}`);
-        let key: string = this.getLineHeightKey(isAndroid, forExtended);
+    public getLineHeight(isFullPage: boolean): Promise<string> {
+        let key: string = this.getLineHeightKey(isFullPage);
 
         return new Promise(resolve => {
             this.storage.get(key).then(val => {
@@ -215,11 +211,8 @@ export class QuranService {
 }
 
 
-const ANDROID_LINE_HEIGHT: string = 'androidLineHeight';
-const IOS_LINE_HEIGHT: string = 'iosLineHeight';
-
-const ANDROID_LINE_HEIGHT_EXTENDED: string = ANDROID_LINE_HEIGHT + 'Extended'
-const IOS_LINE_HEIGHT_EXTENDED: string = IOS_LINE_HEIGHT + 'Extended';
+const LINE_HEIGHT: string = 'lineHeight';
+const LINE_HEIGHT_EXTENDED: string = 'lineHeightExtended';
 
 const FIRST_PAGE = 1;
 const LAST_PAGE = 604;
