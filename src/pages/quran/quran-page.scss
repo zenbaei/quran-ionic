@@ -27,7 +27,6 @@ page-quran {
         -webkit-border-image: url("../assets/img/fateha-border.png") 120 round;
         text-align: center;
         text-align-last: center;
-        margin-top: 20%;
     }
     .moaouzat-content {
         text-align: center;
@@ -47,6 +46,9 @@ page-quran {
     }
     @media screen and (orientation: portrait) {
         line-height: 5.8vh; //will be used as initial until appropriate line height is calculated
+        .mushaf-container-fateha {
+            margin-top: 20%;
+        }
     }
     @media screen and (orientation: landscape) {
         line-height: 17vh;

@@ -404,11 +404,13 @@ export class QuranPage {
   private updateFlibookSize() {
     //timer(100).subscribe(() => {
     var pageNu = this.getCurrentPage();
-    var height = this.getCurrentContentHeight(pageNu);
+    var height = (pageNu < 3 && this.isPortrait()) ? this.getFullPossibleHeight() :
+      this.getCurrentContentHeight(pageNu) + 'px';
+
     if (!height) {
       return;
     }
-    height = (pageNu < 3) ? this.increaseHeight(height) : height + 'px';
+
     $('#flipbook').turn('size', 'auto', height);
     //});
   }
@@ -418,13 +420,11 @@ export class QuranPage {
   }
 
   /**
-   * Helps with adding 20% top margin for first 2 pages
+   * To avoid having first 2 pages height shorter than others.
    * @param heightStr 
    */
-  increaseHeight(heightStr: string) {
-    let height = Number(heightStr.replace('px', ''));
-    let percentage: number = (height * 25) / 100;
-    return (height + percentage) + 'px';
+  getFullPossibleHeight(): string {    
+    return this.getMaxContentHeight(this.isTabHidden()) + 'px';
   }
 
   detectSuitableLineHeight(pageNuSample: number, isFullPage: boolean): string {
