@@ -37,7 +37,7 @@ export class QuranPage {
       this.subscribeToCordovaEvents();
       this.initTurnJs(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
       //this.addPinchEvents();
-      this.subscribeToJsEvents();
+      //this.subscribeToJsEvents();
       $().ready(() => { //not enough
         timer(500).subscribe(() => {
           this.executeOnEveryPage(); //when displaying page 1 first time turnjs end is not fired
@@ -87,11 +87,13 @@ export class QuranPage {
     });
   }
 
+  /*
   subscribeToJsEvents() {
     $(window).resize(() => {
-      this.resizeFlibookHeightAsContent();
+      this.resizeHeights();
     });
   }
+  */
 
   getCurrentPage(): number {
     return $('#flipbook').turn('page');
@@ -136,7 +138,7 @@ export class QuranPage {
     this.scrollToTop();
     this.initPopover();
     this.addOverflowEvent();
-    this.resizeFlibookHeightAsContent();
+    this.resizeHeights();
   }
 
   async startAutoLineHeightResize() {
@@ -150,7 +152,7 @@ export class QuranPage {
 
     if (this.lineHeight) {
       this.applyLineHeight(this.lineHeight);
-      this.resizeFlibookHeightAsContent();
+      this.resizeHeights();
       return;
     }
 
@@ -207,20 +209,20 @@ export class QuranPage {
 
   private addPage(page, book) {
     var element = $(`<div style="background-color:white"/>`); // background helps with short page (nu 2) back
-
-    if (page == 'didntfigureyet') {
-      var hardCover = `<div class="hard">
-    <img src="/assets/img/madina.jpg" alt="Smiley face" height="100%" width="100%"> </div><div class="hard"></div>`;
-      element.html(hardCover)
-      // book.turn('addPage', $('<div />').html(hardCover), 1);
-    }
-
+    /*
+        if (page == 'didntfigureyet') {
+          var hardCover = `<div class="hard">
+        <img src="/assets/img/madina.jpg" alt="Smiley face" height="100%" width="100%"> </div><div class="hard"></div>`;
+          element.html(hardCover)
+          // book.turn('addPage', $('<div />').html(hardCover), 1);
+        }
+    */
     if (book.turn('addPage', element, page)) {
       this.quranService.find(page, this.isAndroid()).subscribe((quran) => {
         this.savePageInfo(quran);
-        let innerDiv = `<div id="border" class="${this.evaluateBorderClasses(page)}">
+        let innerDiv = `<div style="height:${this.getPortraitHeight()}" class="mushaf-border ${this.evaluateBorderClasses(page)}">
             <div style="background-color: aliceblue" class="${this.evaluatePaddingClasses(page)}">
-              <div id="font-selector" class="${this.evaluateContentClasses(page)}">
+              <div class="${this.evaluateContentClasses(page)}">
                 ${quran.data}
               </div>
             </div>
@@ -354,7 +356,19 @@ export class QuranPage {
     console.debug(`Orientation is: ${this.orientation.type}`);
     this.clean();
     this.applyOrientationLineHeight();
-    this.resizeFlibookHeightAsContent();
+    this.resizeHeights();
+  }
+
+  resizeHeights() {
+    if (this.isPortrait()) {
+      var height = this.getPortraitHeight();
+      this.resizeFlipbook(height);
+      this.resizeBorderHeight(height)
+      return;
+    }
+
+    this.resizeBorderHeight('auto');
+    this.resizeFlipbook(this.getLandscapeHeight());
   }
 
   private isPortrait(): boolean {
@@ -376,17 +390,25 @@ export class QuranPage {
       this.applyLineHeight(this.lineHeight);
     }
 
-    this.resizeFlibookHeightAsContent();
+    this.resizeHeights();
   }
 
   applyOrientationLineHeight() {
     if (this.isPortrait()) {
       this.isTabHidden() ? this.applyLineHeight(this.lineHeightExtended) :
         this.applyLineHeight(this.lineHeight);
-    } else {
-      this.isAndroid() ? this.applyLineHeight(ANDROID_LAND_LINE_HEIGHT) :
-        this.applyLineHeight(IOS_LAND_LINE_HEIGHT);
+      return;
     }
+
+    this.isAndroid() ? this.applyLineHeight(ANDROID_LAND_LINE_HEIGHT) :
+      this.applyLineHeight(IOS_LAND_LINE_HEIGHT);
+  }
+
+  resizeBorderHeight(height) {
+    var borders = $('.mushaf-border');
+    borders.each((i, element) => {
+      $(element).css('height', height);
+    });
   }
 
   isTabHidden(): boolean {
@@ -395,30 +417,21 @@ export class QuranPage {
       true : false;
   }
 
-  private resizeFlibookHeightAsContent() {
-    //timer(100).subscribe(() => {
-    var pageNu = this.getCurrentPage();
-    var height = (pageNu < 3 && this.isPortrait()) ? this.getFullPossibleHeight() :
-      this.getCurrentContentHeight(pageNu) + 'px';
-
-    if (!height) {
-      return;
-    }
-
+  private resizeFlipbook(height) {
     $('#flipbook').turn('size', 'auto', height);
-    //});
+  }
+
+  getLandscapeHeight() {
+    var pageNu = this.getCurrentPage();
+    return this.getCurrentContentHeight(pageNu) + 'px';
+  }
+
+  getPortraitHeight() {
+    return this.getMaxContentHeight(this.isTabHidden()) + 'px';
   }
 
   private addOverflowEvent(): void {
     $('.mushaf-container').bind('overflow', this.OnOverflowChanged);
-  }
-
-  /**
-   * To avoid having first 2 pages height shorter than others.
-   * @param heightStr 
-   */
-  getFullPossibleHeight(): string {    
-    return this.getMaxContentHeight(this.isTabHidden()) + 'px';
   }
 
   detectSuitableLineHeight(pageNuSample: number, isFullPage: boolean): string {
@@ -444,7 +457,7 @@ export class QuranPage {
   }
 
   getCurrentContentHeight(pageNu) {
-    return $(`.p${pageNu} #border`).css('height').replace('px', '');
+    return $(`.p${pageNu} .mushaf-border`).css('height').replace('px', '');
   }
 
   getCurrentCssLineHeight() {
