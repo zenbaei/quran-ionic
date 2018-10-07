@@ -20,7 +20,6 @@ import { Insomnia } from '@ionic-native/insomnia';
 import { QuranPage } from '../pages/quran/quran-page';
 import { SafeHtmlPipe } from '../pipes/safe-html/safe-html.pipe';
 import { BookmarkMenuPopoverPageModule } from '../pages/bookmark-menu-popover/bookmark-menu-popover.module';
-import { FileSaver } from './core/io/file/file-saver';
 
 @NgModule({
   declarations: [
@@ -51,7 +50,6 @@ import { FileSaver } from './core/io/file/file-saver';
     IndexService,
     QuranService,
     TafsirService,
-    FileSaver,
     HttpRequest,
     ScreenOrientation,
     Insomnia,
