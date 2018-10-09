@@ -200,7 +200,6 @@ export class QuranPage {
           }
         },
         end: function (e, pages) {
-          console.debug('Turnjs end event');
           self.executeOnEveryPage();
         }
       }
@@ -220,8 +219,8 @@ export class QuranPage {
     if (book.turn('addPage', element, page)) {
       this.quranService.find(page, this.isAndroid()).subscribe((quran) => {
         this.savePageInfo(quran);
-        let innerDiv = `<div style="height:${this.getPortraitHeight()}" class="mushaf-border ${this.evaluateBorderClasses(page)}">
-            <div style="background-color: aliceblue" class="${this.evaluatePaddingClasses(page)}">
+        let innerDiv = `<div class="mushaf-border ${this.evaluateBorderClasses(page)}">
+            <div id="content" style="background-color: aliceblue" class="${this.evaluatePaddingClasses(page)}">
               <div class="${this.evaluateContentClasses(page)}">
                 ${quran.data}
               </div>
@@ -363,7 +362,7 @@ export class QuranPage {
     if (this.isPortrait()) {
       var height = this.getPortraitHeight();
       this.resizeFlipbook(height);
-      this.resizeBorderHeight(height)
+      //this.resizeBorderHeight(height); until fixed
       return;
     }
 
@@ -465,7 +464,8 @@ export class QuranPage {
   }
 
   increaseLineHeightUntilOverflowed(currentContentHeight, maxContentHeight, currentCssLineHeight) {
-    console.debug(`current content height: ${currentContentHeight}, 
+    console.debug(`increaseLineHeightUntilOverflowed: 
+      current content height: ${currentContentHeight}, 
       current line height ${currentCssLineHeight}, 
       max content height: ${maxContentHeight}`);
 
