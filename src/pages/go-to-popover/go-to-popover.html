@@ -3,8 +3,8 @@
     <div class='container'>
       <ion-list radio-group [(ngModel)]="selectedRadioVal" name="selectedRadioVal" (ionChange)="onRadioChange($event)">
         <ion-item>
-          <ion-input #pageNumberInputEl [(ngModel)]='pageNumber' type="text" 
-            placeholder="رقم الصفحة" name='pageNumber' (ionFocus)='onPageNuInputFocus()'></ion-input>
+          <ion-input #pageNumberInputEl [(ngModel)]='pageNumber' type="text" placeholder="رقم الصفحة" name='pageNumber'
+            (ionFocus)='onPageNuInputFocus()'></ion-input>
           <ion-radio id="pageNuInputRadioEl" #pageNuInputRadioEl value={{PAGE_NU_VAL}}></ion-radio>
         </ion-item>
         <ion-item>
@@ -16,14 +16,14 @@
           <ion-radio value={{Bookmark.study}} [disabled]="isStudyBookmarkDisabled"></ion-radio>
         </ion-item>
         <ion-item>
-            <ion-label>الختمة المتنوعة</ion-label>
-            <ion-radio value={{Bookmark.different}} [disabled]="isDifferentBookmarkDisabled"></ion-radio>
-          </ion-item>
-        <ion-item>
-          <button ion-button type="submit" style="width:80px; font-weight: bold" >ذهــاب</button>
-          <button ion-button type="button" style="float: left; width:80px; font-weight: bold" (click)='clear()'>إلـغـــاء</button>
+          <ion-label>الختمة المتنوعة</ion-label>
+          <ion-radio value={{Bookmark.different}} [disabled]="isDifferentBookmarkDisabled"></ion-radio>
         </ion-item>
       </ion-list>
+      <div class="popover-buttons">
+        <button ion-button type="submit">ذهــاب</button>
+        <button ion-button type="button" (click)='clear()'>إلـغـــاء</button>
+      </div>
     </div>
   </form>
 </ion-content>

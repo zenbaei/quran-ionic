@@ -18,7 +18,6 @@
 }
 
 @import "../theme/icons";
-
 ion-app {
     font-family: uthmanic !important;
     direction: rtl !important;
@@ -88,4 +87,16 @@ ion-toast {
 .popover-content {
     padding: 0 !important;
     bottom: auto !important; //sometimes popover extend at the bottom
+}
+
+.popover-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    button {
+        width: 70%;
+        font-weight: bold;
+    }
 }

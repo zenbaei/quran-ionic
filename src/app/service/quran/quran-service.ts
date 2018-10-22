@@ -5,10 +5,6 @@ import * as Constants from '../../all/constants';
 import { QuranPageMetadata } from '../../domain/quran-page-metadata';
 
 import { Storage } from '@ionic/storage';
-import { TafsirService } from '../tafsir/tafsir-service';
-import { Tafsir } from '../../domain/tafsir';
-import { QuranServiceHelper } from './quran-service-helper';
-import { IndexService } from '../index/index-service';
 import { Quran } from '../../domain/quran';
 import { RegexUtils } from '../../util/regex-utils/regex-utils';
 
@@ -16,8 +12,7 @@ import { RegexUtils } from '../../util/regex-utils/regex-utils';
 export class QuranService {
     //private LOCAL_FILE_PATH = 'file:///home/zenbaei/Documents/quran-html-output/';
 
-    constructor(private httpRequest: HttpRequest, private storage: Storage, private tafsirService: TafsirService,
-        private indexService: IndexService) { }
+    constructor(private httpRequest: HttpRequest, private storage: Storage) { }
 
     /**
      * Parses quran page metadata json string then deserializes it into an array of QuranPageMetadata.

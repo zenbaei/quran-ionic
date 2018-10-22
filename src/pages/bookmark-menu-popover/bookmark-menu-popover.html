@@ -13,10 +13,10 @@
         <ion-label>ختمة متنوعة</ion-label>
         <ion-radio value={{Bookmark.different}}></ion-radio>
       </ion-item>
-      <ion-item>
-        <button ion-button style="width:80px; font-weight: bold" type="button" (click)='save()'>حفظ</button>
-        <button ion-button style="float: left; width:80px; font-weight: bold" type="button" (click)='cancel()'>إلـغـــاء</button>
-      </ion-item>
     </ion-list>
+    <div class="popover-buttons">
+      <button ion-button type="button" (click)='save()'>حفظ</button>
+      <button ion-button type="button" (click)='cancel()'>إلـغـــاء</button>
+    </div>
   </div>
 </ion-content>

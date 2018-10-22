@@ -44,6 +44,15 @@ page-quran {
     .shadow {
         direction: rtl !important;
     }
+    .background {
+        box-sizing: border-box;
+        //width: 100%;
+        //height: 100%;
+        //padding: 3px;
+        background-image: url(/assets/img/cover.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
     @media screen and (orientation: portrait) {
         line-height: 5.8vh; //will be used as initial until appropriate line height is calculated
         .mushaf-container-fateha {

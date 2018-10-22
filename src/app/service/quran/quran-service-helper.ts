@@ -1,6 +1,5 @@
 import { Tafsir } from '../../domain/tafsir';
 import { Search } from "../../util/search-utils/search";
-import { QuranService } from './quran-service';
 import { PAGES_FONT } from '../../../pages/quran/quran-page-constants';
 import { RegexUtils } from "../../util/regex-utils/regex-utils";
 

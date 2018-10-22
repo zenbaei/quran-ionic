@@ -54,6 +54,7 @@ export class TabsPage {
 
   setPageInfo() {
     this.pageNumber = sessionStorage.getItem(Constants.PAGE_NUMBER);
+    this.pageNumber = this.pageNumber == '0' ? '' : this.pageNumber;
     let quran = JSON.parse(sessionStorage.getItem(this.pageNumber));
     this.surahName = (quran) ? quran.surahName : '';
   }
