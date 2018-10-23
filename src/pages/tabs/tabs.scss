@@ -7,8 +7,8 @@ page-tabs {
         border-radius: 50%;
         display: none;
         opacity: 0.6;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
     .hide-tab-btn {
         //manipulated from tabs.ts
@@ -20,7 +20,8 @@ page-tabs {
         position: absolute;
         bottom: 70px;
     }
-    .increase-font-btn, .increase-line-height-btn {
+    .increase-font-btn,
+    .increase-line-height-btn {
         background: black;
         border-radius: 50%;
         opacity: 0.7;
@@ -48,5 +49,14 @@ page-tabs {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+
+.ios {
+    page-tabs {
+        .show-tab-btn {
+            width: 40px;
+            height: 40px;
+        }
     }
 }

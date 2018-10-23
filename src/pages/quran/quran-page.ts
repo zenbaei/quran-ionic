@@ -9,6 +9,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { timer } from 'rxjs/observable/timer';
 import { Quran } from '../../app/domain/quran';
 import { NumberUtils } from '../../app/util/number-utils/number-utils';
+import { stat } from 'fs';
+import { timingSafeEqual } from 'crypto';
 
 declare var $: any;
 
@@ -88,10 +90,9 @@ export class QuranPage {
    */
   ngAfterViewChecked() { }
 
-  loadSavedPageOnStart(): Promise<any> {
-    return this.quranService.getSavedPageNumber().then(pageNumber => {
+  loadSavedPageOnStart() {
+    this.quranService.getSavedPageNumber().then(pageNumber => {
       this.goToPage(pageNumber);
-      return;
     });
   }
 
@@ -120,15 +121,15 @@ export class QuranPage {
         this.zoomOut();
       }
 
-      console.log(e.type);
+      console.debug(e.type);
     });
 
     this.gesture.on('pinchout', () => {
-      console.log('pinchout');
+      console.debug('pinchout');
       //this.zoomIn();
     });
     this.gesture.on('pinchout', () => {
-      console.log('pinchout');
+      console.debug('pinchout');
       //this.zoomIn();
 
     });
@@ -149,7 +150,7 @@ export class QuranPage {
   }
 
   private async init() {
-    console.log('init');
+    console.debug('init');
     this.lineHeight = await this.quranService.getLineHeight(false);
     this.lineHeightExtended = await this.quranService.getLineHeight(true);
     this.runAfterContentIsReady(() => {
@@ -157,6 +158,9 @@ export class QuranPage {
         this.startAutoLineHeightDetection();
       }
       this.resizeHeights();
+      if (1 == this.getCurrentPage()) {
+        this.executeOnEveryPage();
+      }
     });
   }
 
@@ -185,12 +189,12 @@ export class QuranPage {
     var pageSample = 3;
 
     var start = () => {
-      console.log('start auto line height resize');
+      console.debug('start auto line height resize');
       if (!this.isPortrait()) {
         this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
       }
 
-      // start loading
+      this.showLoading(1000);
       this.goToPage(pageSample);
 
       this.lineHeightExtended = detectSuitableLineHeight(pageSample, true);
@@ -203,7 +207,6 @@ export class QuranPage {
       console.debug(`Final line-height: ${this.lineHeight}, extended line height: ${this.lineHeightExtended}`);
 
       this.goToPage(1);
-      // end loading
     }
 
     var detectSuitableLineHeight = (pageNuSample: number, isFullPage: boolean) => {
@@ -267,16 +270,16 @@ export class QuranPage {
         turning: function (e, page, view) {
           self.clean();
           self.saveCurrentPageNumber(page);
-          console.log('turning')
+          console.debug('turning')
         },
         missing: function (e, pages) {
           for (var i = 0; i < pages.length; i++) {
             self.addPage(pages[i], $(this));
           }
-          console.log('missing')
+          console.debug('missing')
         },
         end: function (e, pages) {
-          console.log('end');
+          console.debug('end');
           self.turnJsEndNuOfCalls++;
           if (self.turnJsEndNuOfCalls == 2) { // event is fired twice!
             self.executeOnEveryPage();
@@ -373,9 +376,7 @@ export class QuranPage {
       this.tabToggledEventAction(status)
     });
     this.orientation.onChange().subscribe(() =>
-      timer(100).subscribe(() =>
-        this.orientationChangedEvent()
-      )
+      this.orientationChangedEvent()
     );
   }
 
@@ -432,46 +433,79 @@ export class QuranPage {
   }
 
   private orientationChangedEvent() {
-    console.debug(`Orientation is: ${this.orientation.type}`);
-    this.clean();
-    this.resizeHeights();
+    this.showLoading(1000);
+    timer(100).subscribe(() => {
+      console.debug(`Orientation is: ${this.orientation.type}`);
+      this.clean();
+      this.resizeHeights();
+    });
+  }
+
+  private showLoading(timeout) {
+    var el = $('.loading');
+
+    el.css('background-color', 'black');
+    el.css('display', 'block');
+
+    timer(timeout).subscribe(() =>
+      el.css('background-color', 'transparent')
+    );
+
+    timer(timeout * 2).subscribe(() =>
+      el.css('display', 'none')
+    );
   }
 
   resizeHeights = () => {
-    var self = this;
 
-    function start() {
-      console.log('resize heights');
+    var start = () => {
+      console.debug('resize heights');
       resizeLineHeight();
       resizeBorderAndFlipbookHeight();
     }
 
-    function resizeLineHeight() {
+    var resizeLineHeight = () => {
       var val;
 
-      if (self.isPortrait()) {
-        val = self.isTabHidden() ? self.lineHeight : self.lineHeightExtended;
+      if (this.isPortrait()) {
+        val = this.isTabHidden() ? this.lineHeightExtended :
+          this.lineHeight;
       } else {
-        val = self.isAndroid() ? ANDROID_LAND_LINE_HEIGHT : IOS_LAND_LINE_HEIGHT;
+        val = this.isAndroid() ? ANDROID_LAND_LINE_HEIGHT :
+          IOS_LAND_LINE_HEIGHT;
       }
 
-      self.setLineHeight(val);
+      this.setLineHeight(val);
     }
 
-    function resizeBorderAndFlipbookHeight() {
+    var resizeBorderAndFlipbookHeight = () => {
       var val;
-      if (self.isPortrait()) {
-        val = self.isTabHidden() ? self.getAvailableWindowHeight(true) : self.getAvailableWindowHeight(false);
+      if (!this.isPortrait()) {
+        this.setBorderHeight('auto');
+        val = this.getBorderHeight(this.getCurrentPage());
+      } else if (this.getCurrentPage() > 2) {
+        val = this.isTabHidden() ? this.getAvailableWindowHeight(true) :
+          this.getAvailableWindowHeight(false);
+        this.setBorderHeight(val);
       } else {
-        val = self.getContentHeight();
+        this.setBorderHeight('auto');
+        val = this.isTabHidden() ? this.getAvailableWindowHeight(true) :
+          this.getAvailableWindowHeight(false);
       }
 
-      self.setBorderHeight(val);
+      this.setFlipbookHeight(val)
+    }
 
-      $('#flipbook').turn('size', 'auto', val);
+    var getContentPadding = () => {
+      var pageNu = this.getCurrentPage();
+      return $(`.p${pageNu} #content`).css('padding-top').replace('px', '');
     }
 
     start();
+  }
+
+  private setFlipbookHeight(val) {
+    $('#flipbook').turn('size', 'auto', val);
   }
 
   private isPortrait(): boolean {
@@ -492,7 +526,7 @@ export class QuranPage {
 
   isTabHidden(): boolean {
     let isTabHidden: string = sessionStorage.getItem(IS_TAB_HIDDEN);
-    return isTabHidden == Constants.Status.HIDDEN.toString() ?
+    return (isTabHidden == Constants.Status.HIDDEN.toString()) ?
       true : false;
   }
 
@@ -530,8 +564,6 @@ export class QuranPage {
 
   getContentHeight() {
     var pageNu = this.getCurrentPage();
-    console.log('pages: ' + $(`.page`).length);
-    console.log('content: ' + $(`.p${pageNu} #content`).length);
     return $(`.p${pageNu} #content`).css('height').replace('px', '');
   }
 

@@ -39,11 +39,9 @@ export class TabsPage {
   ionViewDidEnter() {
     // TODO: change into event
     this.saveParamForContentPage();
-
-    let self = this;
-    $(function () {
-      self.tabMarginHeight = self.getTabMarginBottom();
-      self.toggleTabButton(true);
+    $(() => {
+      this.tabMarginHeight = this.getTabMarginBottom();
+      this.toggleTabButton(true);
     });
   }
 
@@ -54,7 +52,6 @@ export class TabsPage {
 
   setPageInfo() {
     this.pageNumber = sessionStorage.getItem(Constants.PAGE_NUMBER);
-    this.pageNumber = this.pageNumber == '0' ? '' : this.pageNumber;
     let quran = JSON.parse(sessionStorage.getItem(this.pageNumber));
     this.surahName = (quran) ? quran.surahName : '';
   }
