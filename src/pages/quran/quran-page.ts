@@ -9,8 +9,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { timer } from 'rxjs/observable/timer';
 import { Quran } from '../../app/domain/quran';
 import { NumberUtils } from '../../app/util/number-utils/number-utils';
-import { stat } from 'fs';
-import { timingSafeEqual } from 'crypto';
+import { Common } from '../common';
 
 declare var $: any;
 
@@ -62,7 +61,6 @@ export class QuranPage {
    */
   ionViewDidEnter() {
     this.loadSavedPageOnStart();
-
     //TODO: change it timer(300).subscribe(() => this.showInfoToast(this.getInfoMsg()));
   }
 
@@ -146,7 +144,7 @@ export class QuranPage {
   private executeOnEveryPage() {
     this.scrollToTop();
     this.initPopover();
-    this.addOverflowEvent();
+    this.resizeHeights();
   }
 
   private async init() {
@@ -194,7 +192,7 @@ export class QuranPage {
         this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
       }
 
-      this.showLoading(1000);
+      Common.showLoading(1000);
       this.goToPage(pageSample);
 
       this.lineHeightExtended = detectSuitableLineHeight(pageSample, true);
@@ -267,27 +265,42 @@ export class QuranPage {
       duration: 2000,
       pages: 604,
       when: {
-        turning: function (e, page, view) {
-          self.clean();
-          self.saveCurrentPageNumber(page);
-          console.debug('turning')
+        turning: (e, page, view) => {
+          this.turningEvent(page);
         },
         missing: function (e, pages) {
-          for (var i = 0; i < pages.length; i++) {
-            self.addPage(pages[i], $(this));
-          }
-          console.debug('missing')
+          self.missingEvent(pages, this);
         },
-        end: function (e, pages) {
-          console.debug('end');
-          self.turnJsEndNuOfCalls++;
-          if (self.turnJsEndNuOfCalls == 2) { // event is fired twice!
-            self.executeOnEveryPage();
-            self.turnJsEndNuOfCalls = 0;
-          }
+        end: (e, pages) => {
+          this.endEvent();
         }
       }
     });
+  }
+
+  turningEvent(page) {
+    console.debug('turning');
+    if (page < 3) {
+      this.setBorderHeight('auto');
+    }
+    this.clean();
+    this.saveCurrentPageNumber(page);
+  }
+
+  missingEvent(pages, book) {
+    console.debug('missing');
+    for (var i = 0; i < pages.length; i++) {
+      this.addPage(pages[i], $(book));
+    }
+  }
+
+  endEvent() {
+    console.debug('end');
+    this.turnJsEndNuOfCalls++;
+    if (this.turnJsEndNuOfCalls == 2) { // event is fired twice!
+      this.executeOnEveryPage();
+      this.turnJsEndNuOfCalls = 0;
+    }
   }
 
   private addPage(page, book) {
@@ -297,12 +310,14 @@ export class QuranPage {
       this.quranService.find(page, this.isAndroid()).subscribe((quran) => {
         this.savePageInfo(quran);
         let innerDiv = `<div class="mushaf-border ${this.evaluateBorderClasses(page)}">
+          <div style="background-color: aliceblue; width:100%; height: 100%">
             <div id="content" style="background-color: aliceblue" class="${this.evaluatePaddingClasses(page)}">
               <div class="${this.evaluateContentClasses(page)}">
                 ${quran.data}
               </div>
             </div>
-          </div>`
+          </div>
+          <div>`
         element.html(innerDiv);
       });
     }
@@ -433,27 +448,12 @@ export class QuranPage {
   }
 
   private orientationChangedEvent() {
-    this.showLoading(1000);
+    Common.showLoading(1000);
     timer(100).subscribe(() => {
       console.debug(`Orientation is: ${this.orientation.type}`);
       this.clean();
       this.resizeHeights();
     });
-  }
-
-  private showLoading(timeout) {
-    var el = $('.loading');
-
-    el.css('background-color', 'black');
-    el.css('display', 'block');
-
-    timer(timeout).subscribe(() =>
-      el.css('background-color', 'transparent')
-    );
-
-    timer(timeout * 2).subscribe(() =>
-      el.css('display', 'none')
-    );
   }
 
   resizeHeights = () => {
@@ -483,16 +483,21 @@ export class QuranPage {
       if (!this.isPortrait()) {
         this.setBorderHeight('auto');
         val = this.getBorderHeight(this.getCurrentPage());
-      } else if (this.getCurrentPage() > 2) {
+        this.setFlipbookHeight(val)
+        return
+      }
+
+      if (this.getCurrentPage() > 2) {
         val = this.isTabHidden() ? this.getAvailableWindowHeight(true) :
           this.getAvailableWindowHeight(false);
         this.setBorderHeight(val);
-      } else {
-        this.setBorderHeight('auto');
-        val = this.isTabHidden() ? this.getAvailableWindowHeight(true) :
-          this.getAvailableWindowHeight(false);
+        this.setFlipbookHeight(val);
+        return;
       }
 
+      this.setBorderHeight('auto');
+      val = this.isTabHidden() ? this.getAvailableWindowHeight(true) :
+        this.getAvailableWindowHeight(false);
       this.setFlipbookHeight(val)
     }
 

@@ -9,6 +9,8 @@ import { AppUtils } from '../../app/util/app-utils/app-utils';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import * as $ from "jquery";
 import { BookmarkMenuPopoverPage } from '../bookmark-menu-popover/bookmark-menu-popover';
+import { Common } from '../common';
+import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'page-tabs',
@@ -66,7 +68,7 @@ export class TabsPage {
     let selectedHistory: string[] = this.tabBar._selectHistory;
     let lastSelection: string = selectedHistory[selectedHistory.length - 1];
     if (tab.root == QuranPage || tab.index == 3 ||
-         (lastSelection == 't0-0' && (tab.index == 2 || tab.index == 4))) {
+      (lastSelection == 't0-0' && (tab.index == 2 || tab.index == 4))) {
       this.isTabCtlEnabled = true;
     } else {
       this.isTabCtlEnabled = false;
@@ -92,19 +94,22 @@ export class TabsPage {
   }
 
   toggleOrientation() {
-    if (!this.firstClick) {
-      this.orientation.unlock(); // on ios will revert to the previous physical mobile rotation
-      this.firstClick = true;
-      return;
-    }
+    Common.showLoading;
+    timer(100).subscribe(() => { //giving time to show loading
+      if (!this.firstClick) {
+        this.orientation.unlock(); // on ios will revert to the previous physical mobile rotation
+        this.firstClick = true;
+        return;
+      }
 
-    if (AppUtils.isPortrait(this.orientation)) {
-      this.orientation.lock(this.orientation.ORIENTATIONS.LANDSCAPE);
-    } else {
-      this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
-    }
+      if (AppUtils.isPortrait(this.orientation)) {
+        this.orientation.lock(this.orientation.ORIENTATIONS.LANDSCAPE);
+      } else {
+        this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
+      }
 
-    this.firstClick = false;
+      this.firstClick = false;
+    });
   }
 
   public hideTabBar() {
@@ -159,10 +164,6 @@ export class TabsPage {
     });
   }
 
-  public toggleFontCtls() {
-    this.showFontCtls = !this.showFontCtls;
-  }
-
   public showBookmarkPopover() {
     let popover = this.popoverCtrl.create(BookmarkMenuPopoverPage, {
       'tabBar': this.tabBar
@@ -170,22 +171,5 @@ export class TabsPage {
     popover.present();
   }
 
-  public toggleLineHeightCtls() {
-    this.showLineHeightCtls = !this.showLineHeightCtls;
-  }
-
-  public fireFontChangedEvent(op: number) {
-    this.events.publish(Constants.EVENT_FONT_CHANGED,
-      this.getOperator(op));
-  }
-
-  public fireLineHeightChangedEvent(op: number) {
-    this.events.publish(Constants.EVENT_LINE_HEIGHT_CHANGED,
-      this.getOperator(op));
-  }
-
-  private getOperator(op: number): Operator {
-    return op > 0 ? Operator.INC : Operator.DEC;
-  }
 }
 

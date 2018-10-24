@@ -9,13 +9,8 @@ import { Observable } from 'rxjs';
 export class IndexService {
 
   private readonly QURAN_INDEX_FILE_URL: string = Constants.MUSHAF_DATA_DIR + 'quran.index';
-  public surahIndexArr: Index[];
 
-  constructor(private httpRequest: HttpRequest) {
-    this.getQuranIndex().subscribe(arr => {
-      this.surahIndexArr = arr;
-    })
-  }
+  constructor(private httpRequest: HttpRequest) {}
 
   /**
    * Parses quran indexes string then deserializes it into an array of SurahIndex.

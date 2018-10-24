@@ -16,6 +16,7 @@ export class ContentPage {
   @ViewChild('surahSearchBar') surahSearchBar: Searchbar;
   @ViewChild(Content) content: Content;
   quranIdxArr: Index[] = [];
+  quranIdxArrOriginal;
   searchQuery: string = '';
 
   constructor(private indexService: IndexService, private navParams: NavParams,
@@ -35,12 +36,19 @@ export class ContentPage {
   }
 
   initializeItems() {
-    this.quranIdxArr = this.indexService.surahIndexArr;
+    this.indexService.getQuranIndex().subscribe(arr => {
+      this.quranIdxArrOriginal = arr;
+      this.quranIdxArr = arr;
+    });
+  }
+
+  resetItems() {
+    this.quranIdxArr = this.quranIdxArrOriginal;
   }
 
   getItems(ev: any) {
     // Reset items back to all of the items
-    this.initializeItems();
+    this.resetItems();
 
     if (ev === null) {
       return;

@@ -100,5 +100,6 @@ missing functionality:
     hop gotopopover when keyboard is opened -> done
     firstPage doesn't trigger turnjs end event, so add a hard cover -> used timer for now
     make sure to test by starting on landscape
-    bad transition from orientation
-    bad dependency on timers
+    loading img doesnt show
+    transition from page 3 to 2 (border)
+    
