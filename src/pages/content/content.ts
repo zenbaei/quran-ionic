@@ -21,7 +21,7 @@ export class ContentPage {
 
   constructor(private indexService: IndexService, private navParams: NavParams,
     private storage: Storage) {
-    this.initializeItems();
+      this.initializeItems();
   }
 
   goToPage(pageNumber: number) {

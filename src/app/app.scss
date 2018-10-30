@@ -46,11 +46,13 @@ ion-toast {
     border-radius: 10px;
     width: 90% !important;
     font-family: uthmanic;
+    bottom: 10px !important;
 }
 
 .toast-message {
-    font-size: 5vw !important;
+    font-size: 4vw !important;
     text-align: center !important;
+    padding: 2px !important;
 }
 
 .popover-body {
@@ -70,7 +72,7 @@ ion-toast {
     background-color: black;
     top: 0;
     bottom: 0;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: background-color 1s linear;
     -moz-transition: background-color 1s linear;
     -webkit-transition: background-color 1s linear;

@@ -9,8 +9,11 @@ import { Observable } from 'rxjs';
 export class IndexService {
 
   private readonly QURAN_INDEX_FILE_URL: string = Constants.MUSHAF_DATA_DIR + 'quran.index';
+  private surahIndexArr: Observable<Index[]>;
 
-  constructor(private httpRequest: HttpRequest) {}
+  constructor(private httpRequest: HttpRequest) {
+    this.surahIndexArr = this._getQuranIndex();
+  }
 
   /**
    * Parses quran indexes string then deserializes it into an array of SurahIndex.
@@ -32,10 +35,13 @@ export class IndexService {
    * Calls http get quran.index file then calls {@link SurahIndexService#fromJson}.
    * @see HttpRequest#get
    */
-  public getQuranIndex(): Observable<Index[]> {
+  private _getQuranIndex(): Observable<Index[]> {
     console.debug('Get quran index file');
     return this.httpRequest.get(this.QURAN_INDEX_FILE_URL)
       .map((res: Response) => this.toObject(res.text()));
   }
 
+  public getQuranIndex(): Observable<Index[]> {
+    return this.surahIndexArr;
+  }
 }

@@ -1,1 +1,1 @@
-adb install -t ./platforms/android/build/outputs/apk/mushaf.apk
+adb install -r ./platforms/android/build/outputs/apk/mushaf.apk

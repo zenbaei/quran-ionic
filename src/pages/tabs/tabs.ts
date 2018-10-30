@@ -4,13 +4,11 @@ import { ContentPage } from '../content/content';
 import { QuranPage } from '../quran/quran-page';
 import { GoToPopoverPage } from '../go-to-popover/go-to-popover';
 import * as Constants from '../../app/all/constants';
-import { Operator } from '../../app/all/constants';
 import { AppUtils } from '../../app/util/app-utils/app-utils';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import * as $ from "jquery";
 import { BookmarkMenuPopoverPage } from '../bookmark-menu-popover/bookmark-menu-popover';
 import { Common } from '../common';
-import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'page-tabs',
@@ -94,22 +92,20 @@ export class TabsPage {
   }
 
   toggleOrientation() {
-    Common.showLoading;
-    timer(100).subscribe(() => { //giving time to show loading
-      if (!this.firstClick) {
-        this.orientation.unlock(); // on ios will revert to the previous physical mobile rotation
-        this.firstClick = true;
-        return;
-      }
+    Common.showLoading(1000);
+    if (!this.firstClick) {
+      this.orientation.unlock(); // on ios will revert to the previous physical mobile rotation
+      this.firstClick = true;
+      return;
+    }
 
-      if (AppUtils.isPortrait(this.orientation)) {
-        this.orientation.lock(this.orientation.ORIENTATIONS.LANDSCAPE);
-      } else {
-        this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
-      }
+    if (AppUtils.isPortrait(this.orientation)) {
+      this.orientation.lock(this.orientation.ORIENTATIONS.LANDSCAPE);
+    } else {
+      this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
+    }
 
-      this.firstClick = false;
-    });
+    this.firstClick = false;
   }
 
   public hideTabBar() {

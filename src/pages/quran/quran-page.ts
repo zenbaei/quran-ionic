@@ -40,7 +40,6 @@ export class QuranPage {
       this.initTurnJs(); // when added to ionViewDidEnter then go to 'فهرس' and back again it throws exception, perhaps becoz it's intialized twice!
       this.init();
       //this.addPinchEvents();
-      //this.subscribeToJsEvents();
     });
   }
 
@@ -80,7 +79,7 @@ export class QuranPage {
   ionSelected() {
     // ionViewWillLeave is called
     this.loadSavedPageOnStart();
-    this.showInfoToast(this.getInfoMsg());
+    this.showInfoToast();
   }
 
   /**
@@ -93,14 +92,6 @@ export class QuranPage {
       this.goToPage(pageNumber);
     });
   }
-
-  /*
-  subscribeToJsEvents() {
-    $(window).resize(() => {
-      this.resizeHeights();
-    });
-  }
-  */
 
   getCurrentPage(): number {
     return $('#flipbook').turn('page');
@@ -145,6 +136,7 @@ export class QuranPage {
     this.scrollToTop();
     this.initPopover();
     this.resizeHeights();
+    this.showInfoToast();
   }
 
   private async init() {
@@ -262,7 +254,7 @@ export class QuranPage {
       acceleration: true,
       gradients: true,
       autoCenter: true,
-      duration: 2000,
+      duration: 1000,
       pages: 604,
       when: {
         turning: (e, page, view) => {
@@ -419,14 +411,15 @@ export class QuranPage {
     tafsirAnchors.popover("hide");
   }
 
-  public showInfoToast(msg: string): void {
+  public showInfoToast(): void {
+    var msg = this.getInfoMsg();
     if (!msg) {
       return;
     }
     this.infoToast = this.toastCtl.create({
       message: msg,
       duration: 3000,
-      position: 'middle'
+      position: 'bottom'
     });
     this.infoToast.present();
   }
@@ -443,13 +436,15 @@ export class QuranPage {
     if (!quran) {
       return;
     }
-    var gozeAndHezb = `الجـزء ${quran.goze} - ${quran.hezb}`;
-    return `${quran.surahName} - (${gozeAndHezb})`;
+    var gozeAndHezb = `[الجـزء ${quran.goze} - ${quran.hezb}]`;
+    return `${quran.surahName} - ${gozeAndHezb} - 604/${quran.pageNumber}`;
   }
 
   private orientationChangedEvent() {
-    Common.showLoading(1000);
-    timer(100).subscribe(() => {
+    if (!Common.isLoading()) {
+      Common.showLoading(1000);
+    }
+    timer(200).subscribe(() => {
       console.debug(`Orientation is: ${this.orientation.type}`);
       this.clean();
       this.resizeHeights();

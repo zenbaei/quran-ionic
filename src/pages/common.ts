@@ -1,18 +1,24 @@
 import { timer } from 'rxjs/observable/timer';
+import * as $ from "jquery";
 
 export class Common {
-    public static showLoading(timeout) {
-        var el = $('.loading');
 
-        el.css('background-color', 'black');
-        el.css('display', 'block');
+    public static showLoading(timeout) {
+        var loadingEl = $('.loading');
+        loadingEl.css('background-color', 'black');
+        loadingEl.css('display', 'block');
 
         timer(timeout).subscribe(() =>
-            el.css('background-color', 'transparent')
+            loadingEl.css('background-color', 'transparent')
         );
 
         timer(timeout * 2).subscribe(() =>
-            el.css('display', 'none')
+            loadingEl.css('display', 'none')
         );
+    }
+
+    public static isLoading(): boolean {
+        var loadingEl = $('.loading')
+        return (loadingEl.css('display') == 'block') ? true : false;
     }
 }
